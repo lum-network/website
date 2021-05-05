@@ -1,0 +1,49 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import 'worksans';
+@import 'firasans';
+
+// primary font
+$primary_font: 'Fira Sans';
+
+// Font Weights
+$extralight: 100;
+$thin: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 700;
+$black: 900;
+
+// Font sizes
+$font-xs: 12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+$font-xl: 25px;
+$font-xxl: 30px;
+
+// Colors
+$color-background: black;
+$color-primary: white;
+
+body {
+    font-family: $primary_font;
+    font-size: $primary-fs;
+    font-weight: $regular;
+}
+
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-background;
+    min-height: 100vh;
+    width: 100vw;
+    color: $color-primary;
+}
+
+.footer {
+    margin-top: auto;
+}
