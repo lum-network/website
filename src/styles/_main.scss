@@ -28,6 +28,7 @@ $font-xxl: 30px;
 // Colors
 $color-background: black;
 $color-primary: white;
+$color-grey: #b5b5b5;
 
 body {
     font-family: $primary_font;
@@ -36,14 +37,15 @@ body {
 }
 
 .main-layout {
-    display: flex;
-    flex-direction: column;
     background-color: $color-background;
-    min-height: 100vh;
-    width: 100vw;
     color: $color-primary;
 }
 
-.footer {
-    margin-top: auto;
+.main-layout-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }

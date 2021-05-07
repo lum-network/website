@@ -1,3 +1,6 @@
 export { default as LeftImageLayout } from './Layout/LeftImageLayout';
 export { default as RightImageLayout } from './Layout/RightImageLayout';
 export { default as Footer } from './Footer/Footer';
+export { default as Header } from './Header/Header';
+
+export { default as Button } from './Button/Button';

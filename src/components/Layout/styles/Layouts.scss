@@ -1,7 +1,9 @@
 .image-layout-container {
-    display: flex;
-    flex-direction: row;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-image {
+    position: absolute;
 }

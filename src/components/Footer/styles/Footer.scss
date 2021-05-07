@@ -1,0 +1,19 @@
+@import '_main';
+
+.footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.form-control,
+.form-control:focus {
+    background-color: black !important;
+    color: white !important;
+}
+
+.footer-link {
+    color: $color-grey;
+}

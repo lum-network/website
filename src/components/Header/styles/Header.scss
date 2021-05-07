@@ -1,0 +1,38 @@
+@import '_main';
+
+.navbar-container {
+    background: $color-background;
+    z-index: 1000;
+    width: 100%;
+    padding-top: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 2rem;
+}
+
+.navbar-items-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-layout nav.bottom-navbar {
+    display: none;
+}
+
+a,
+a:hover,
+a:focus {
+    color: $color-primary !important;
+    text-decoration: none !important;
+}
+
+a {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+.lum-logo {
+    object-fit: contain;
+}
