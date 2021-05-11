@@ -21,9 +21,12 @@ const Footer = (): JSX.Element => {
                     <div className="col-6">
                         <div className="h-100 me-5 d-flex flex-column justify-content-between">
                             <div>
-                                <h4>Join our newsletter</h4>
+                                <h3>Join our newsletter</h3>
                                 <div className="input-group align-items-center border-bottom mt-4">
-                                    <input className="form-control border-0" />
+                                    <input
+                                        className="form-control border-0 px-0 pb-3 mt-3"
+                                        placeholder="youremail@email.com"
+                                    />
                                     <span>{'Submit >'}</span>
                                 </div>
                             </div>

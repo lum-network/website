@@ -29,11 +29,28 @@ $font-xxl: 30px;
 $color-background: black;
 $color-primary: white;
 $color-grey: #b5b5b5;
+$color-green: #3bc849;
 
 body {
     font-family: $primary_font;
     font-size: $primary-fs;
     font-weight: $regular;
+}
+
+.white-section {
+    background-color: $color-primary;
+    color: $color-background;
+}
+
+.green-title {
+    color: $color-green;
+}
+
+.green-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 7.5px;
+    background-color: $color-green;
 }
 
 .main-layout {
@@ -56,4 +73,8 @@ body {
 
 .loading-bar-container {
     width: 318px;
+}
+
+.lum-logo {
+    margin-right: -5rem;
 }

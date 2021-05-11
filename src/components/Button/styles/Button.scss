@@ -17,7 +17,6 @@ button:hover {
 
 button:active {
     outline: none;
-    border: none;
 }
 
 button:focus {
@@ -37,7 +36,9 @@ button:focus {
 }
 
 .btn-outlined,
-.btn-outlined:hover {
+.btn-outlined:hover,
+.btn-outlined:active,
+.btn-outlined:focus {
     border-width: 1px;
     border-color: $color-primary;
     background-color: transparent;

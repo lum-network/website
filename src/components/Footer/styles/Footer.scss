@@ -12,6 +12,9 @@
 .form-control:focus {
     background-color: black !important;
     color: white !important;
+    &::placeholder {
+        color: $color-primary !important;
+    }
 }
 
 .footer-link {
