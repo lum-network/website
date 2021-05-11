@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RightImageLayout, LeftImageLayout, Footer, Header } from 'components';
 import { Trans } from 'react-i18next';
+import Loading from 'Loading';
 
 const App = (): JSX.Element => {
+    const [isLoading, setIsLoading] = useState(true);
     const image = 'https://via.placeholder.com/150';
+
+    if (isLoading) {
+        return <Loading callback={() => setIsLoading(false)} />;
+    }
 
     return (
         <div className="main-layout">
