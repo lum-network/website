@@ -1,5 +1,8 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
+import Assets from 'assets';
 import {
     LUM_EXPLORER_GITHUB,
     LUM_FACEBOOK,
@@ -11,9 +14,23 @@ import {
 import { Button, Link } from 'components';
 
 import './styles/Footer.scss';
-import Assets from 'assets';
 
 const Footer = (): JSX.Element => {
+    const mailingListForm = useFormik({
+        initialValues: { email: '' },
+        validationSchema: yup.object().shape({
+            email: yup
+                .string()
+                .required('An email is required before submitting')
+                .matches(new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i), 'Wrong email address'),
+        }),
+        onSubmit: (values) => registerMailingList(values.email),
+    });
+
+    const registerMailingList = (email: string) => {
+        console.log(email);
+    };
+
     return (
         <footer className="footer">
             <div className="container-fluid">
@@ -22,13 +39,23 @@ const Footer = (): JSX.Element => {
                         <div className="h-100 me-5 d-flex flex-column justify-content-between">
                             <div>
                                 <h3>Join our newsletter</h3>
-                                <div className="input-group align-items-center border-bottom mt-4">
-                                    <input
-                                        className="form-control border-0 px-0 pb-3 mt-3"
-                                        placeholder="youremail@email.com"
-                                    />
-                                    <span>{'Submit >'}</span>
-                                </div>
+                                <form onSubmit={mailingListForm.handleSubmit}>
+                                    <div className="input-group align-items-baseline border-bottom mt-4">
+                                        <input
+                                            {...mailingListForm.getFieldProps('email')}
+                                            className="form-control border-0 px-0 pb-3 mt-3"
+                                            placeholder="youremail@email.com"
+                                        />
+                                        <span>
+                                            <button type="submit" className="text-white p-0 m-0">
+                                                {'Submit >'}
+                                            </button>
+                                        </span>
+                                    </div>
+                                    {mailingListForm.touched.email && mailingListForm.errors.email && (
+                                        <p className="mt-2 color-error">{mailingListForm.errors.email}</p>
+                                    )}
+                                </form>
                             </div>
                             <div className="d-inline-flex">
                                 <p>Lum Network 2021 ©</p>
