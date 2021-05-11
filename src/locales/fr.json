@@ -1,5 +1,12 @@
 {
     "business": {
-        "title": "Where <strong>businesses</strong> show their <strong>true send.</strong>"
+        "title": "Where <strong>businesses</strong><br /> show their <strong>true self.</strong>"
+    },
+    "qAndA": {
+        "title": "And customers find <br /> <strong>answers</strong> to their <strong>questions</strong>"
+    },
+    "rewards": {
+        "title": "To ensure the <strong>value</strong> <br /> <strong>creation</strong> gets <strong>rewarded</strong",
+        "description": "In return for value creation, we put the <strong>reward-on-chain</strong>, <br /> with a <strong>tangible</strong> asset, our token, the lum."
     }
 }

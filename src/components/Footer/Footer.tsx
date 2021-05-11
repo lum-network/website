@@ -27,8 +27,9 @@ const Footer = (): JSX.Element => {
         onSubmit: (values) => registerMailingList(values.email),
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const registerMailingList = (email: string) => {
-        console.log(email);
+        // TODO: Call to register the user to the mailing list
     };
 
     return (
@@ -58,8 +59,8 @@ const Footer = (): JSX.Element => {
                                 </form>
                             </div>
                             <div className="d-inline-flex">
-                                <p>Lum Network 2021 ©</p>
-                                <p className="ms-5">Privacy policy</p>
+                                <p className="footer-link">Lum Network 2021 ©</p>
+                                <p className="footer-link ms-5">Privacy policy</p>
                             </div>
                         </div>
                     </div>

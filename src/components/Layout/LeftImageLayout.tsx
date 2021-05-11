@@ -3,7 +3,7 @@ import Assets from 'assets';
 import LeftLayout from './LeftLayout';
 
 interface Props {
-    image: string;
+    image?: string;
     children: React.ReactNode;
     alignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
     contentAlignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';

@@ -17,8 +17,8 @@ const RightLayout = (props: Props): JSX.Element => {
             <div
                 className={`d-flex w-100 justify-content-between align-self-${alignment} align-items-${contentAlignment}`}
             >
-                {props.rightContent}
                 {props.leftContent}
+                {props.rightContent}
             </div>
         </div>
     );

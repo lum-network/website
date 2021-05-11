@@ -21,6 +21,10 @@
     color: $color-grey !important;
 }
 
+p.footer-link {
+    font-size: $font-sm;
+}
+
 .github-icon {
     filter: brightness(0) invert(1);
     object-fit: contain;

@@ -29,6 +29,7 @@ $font-xxl: 30px;
 $color-background: black;
 $color-primary: white;
 $color-grey: #b5b5b5;
+$color-dark-grey: #2c2c2d;
 $color-green: #3bc849;
 
 body {
@@ -77,4 +78,15 @@ body {
 
 .lum-logo {
     margin-right: -5rem;
+}
+
+.section-icon-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background-color: $color-dark-grey;
+}
+
+.section-icon {
+    filter: drop-shadow(0 0 0.15rem white);
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import RightLayout from './RightLayout';
 
 interface Props {
-    image: string;
+    image?: string;
     children: React.ReactNode;
     alignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
     contentAlignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
