@@ -20,19 +20,6 @@
     display: none;
 }
 
-a,
-a:hover,
-a:focus {
-    color: $color-primary !important;
-    text-decoration: none !important;
-}
-
-a {
-    transition: all 0.2s ease-in-out;
-    &:hover {
-        transform: scale(1.05);
-    }
-}
 .lum-logo {
     object-fit: contain;
 }

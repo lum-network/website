@@ -36,7 +36,8 @@ button:focus {
     }
 }
 
-.btn-outlined {
+.btn-outlined,
+.btn-outlined:hover {
     border-width: 1px;
     border-color: $color-primary;
     background-color: transparent;

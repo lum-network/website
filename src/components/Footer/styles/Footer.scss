@@ -15,5 +15,10 @@
 }
 
 .footer-link {
-    color: $color-grey;
+    color: $color-grey !important;
+}
+
+.github-icon {
+    filter: brightness(0) invert(1);
+    object-fit: contain;
 }
