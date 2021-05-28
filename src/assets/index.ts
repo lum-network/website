@@ -4,6 +4,7 @@ import communityIcon from './images/community.png';
 import cubeIllu from './images/cube.png';
 import diamondIcon from './images/diamond.png';
 import diamondIllu from './images/diamond_illu.png';
+import downArrowIcon from './images/down-arrow.png';
 import githubIcon from './images/github.png';
 import layersIcon from './images/layers.png';
 import loadingBackground from './images/loading_background.png';
@@ -26,6 +27,7 @@ const Assets = {
         cubeIllu,
         diamondIcon,
         diamondIllu,
+        downArrowIcon,
         githubIcon,
         layersIcon,
         loadingBackground,

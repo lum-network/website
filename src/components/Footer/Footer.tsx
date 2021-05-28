@@ -89,7 +89,11 @@ const Footer = (): JSX.Element => {
                                 <Link link={LUM_FACEBOOK} className="footer-link">
                                     Facebook
                                 </Link>
-                                <Button outline className="mt-5 px-4">
+                                <Button
+                                    outline
+                                    className="mt-5 px-4"
+                                    onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
+                                >
                                     <img
                                         src={Assets.images.githubIcon}
                                         className="github-icon ms-2"
