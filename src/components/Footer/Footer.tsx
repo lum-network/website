@@ -14,8 +14,11 @@ import {
 import { Button, Link } from 'components';
 
 import './styles/Footer.scss';
+import { useTranslation } from 'react-i18next';
 
 const Footer = (): JSX.Element => {
+    const { t } = useTranslation();
+
     const mailingListForm = useFormik({
         initialValues: { email: '' },
         validationSchema: yup.object().shape({
@@ -39,17 +42,17 @@ const Footer = (): JSX.Element => {
                     <div className="col-6">
                         <div className="h-100 me-5 d-flex flex-column justify-content-between">
                             <div>
-                                <h3>Join our newsletter</h3>
+                                <h3>{t('footer.newsletter.title')}</h3>
                                 <form onSubmit={mailingListForm.handleSubmit}>
                                     <div className="input-group align-items-baseline border-bottom mt-4">
                                         <input
                                             {...mailingListForm.getFieldProps('email')}
                                             className="form-control border-0 px-0 pb-3 mt-3"
-                                            placeholder="youremail@email.com"
+                                            placeholder={t('footer.newsletter.placeholder')}
                                         />
                                         <span>
                                             <button type="submit" className="text-white p-0 m-0">
-                                                {'Submit >'}
+                                                {t('footer.newsletter.submit')}
                                             </button>
                                         </span>
                                     </div>
@@ -60,14 +63,14 @@ const Footer = (): JSX.Element => {
                             </div>
                             <div className="d-inline-flex">
                                 <p className="footer-link">Lum Network 2021 ©</p>
-                                <p className="footer-link ms-5">Privacy policy</p>
+                                <p className="footer-link ms-5">{t('footer.privacyPolicy')}</p>
                             </div>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="d-flex flex-row justify-content-between ps-5 align-self-end">
                             <div className="d-flex flex-column ms-5">
-                                <strong>Tools</strong>
+                                <strong>{t('footer.tools')}</strong>
                                 <Link link={LUM_NETWORK_GITHUB} className="footer-link my-4">
                                     Documentation
                                 </Link>
@@ -79,7 +82,7 @@ const Footer = (): JSX.Element => {
                                 </Link>
                             </div>
                             <div className="d-flex flex-column">
-                                <strong>Community</strong>
+                                <strong>{t('footer.community')}</strong>
                                 <Link link={LUM_TELEGRAM} className="footer-link my-4">
                                     Telegram
                                 </Link>

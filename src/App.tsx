@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import Assets from 'assets';
 import { RightImageLayout, LeftImageLayout, Footer, Header, LeftLayout, Button } from 'components';
@@ -7,9 +7,12 @@ import Loading from 'Loading';
 import Landing from 'Landing';
 
 import './styles/App.scss';
+import { LUM_TYPEFORM } from 'constant';
 
 const App = (): JSX.Element => {
     const [isLoading, setIsLoading] = useState(true);
+
+    const { t } = useTranslation();
 
     if (isLoading) {
         return <Loading callback={() => setIsLoading(false)} />;
@@ -30,41 +33,29 @@ const App = (): JSX.Element => {
                                 <div className="d-flex align-items-center justify-content-center mb-3 section-icon-container">
                                     <img src={Assets.images.storeContentIcon} className="section-icon" />
                                 </div>
-                                <strong>Store content</strong>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. Lum Network introduces the first
-                                    decentralized.
-                                </p>
+                                <strong>{t('business.store.title')}</strong>
+                                <p className="mt-3">{t('business.store.description')}</p>
                             </div>
                             <div className="col-6">
                                 <div className="d-flex align-items-center justify-content-center mb-3 section-icon-container">
                                     <img src={Assets.images.tracabilityIcon} />
                                 </div>
-                                <strong>Tracability</strong>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. Lum Network introduces the first
-                                    decentralized.
-                                </p>
+                                <strong>{t('business.tracability.title')}</strong>
+                                <p className="mt-3">{t('business.tracability.description')}</p>
                             </div>
                             <div className="col-6">
                                 <div className="d-flex align-items-center justify-content-center mb-3 section-icon-container">
                                     <img src={Assets.images.transparencyIcon} className="section-icon" />
                                 </div>
-                                <strong>Transparency</strong>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. Lum Network introduces the first
-                                    decentralized.
-                                </p>
+                                <strong>{t('business.transparency.title')}</strong>
+                                <p className="mt-3">{t('business.transparency.description')}</p>
                             </div>
                             <div className="col-6">
                                 <div className="d-flex align-items-center justify-content-center mb-3 section-icon-container">
                                     <img src={Assets.images.businessIcon} className="section-icon" />
                                 </div>
-                                <strong>Business practices</strong>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. Lum Network introduces the first
-                                    decentralized.
-                                </p>
+                                <strong>{t('business.practices.title')}</strong>
+                                <p className="mt-3">{t('business.practices.description')}</p>
                             </div>
                         </div>
                     </div>
@@ -79,11 +70,8 @@ const App = (): JSX.Element => {
                                 <img src={Assets.images.diamondIcon} className="section-icon" />
                             </div>
                             <div>
-                                <h5>Find the companies that have the right values</h5>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. <br />
-                                    Lum Network introduces the first decentralized.
-                                </p>
+                                <h5>{t('qAndA.companies.title')}</h5>
+                                <p className="mt-3">{t('qAndA.companies.description')}</p>
                             </div>
                         </div>
                         <div className="d-flex flex-row mb-5">
@@ -91,11 +79,8 @@ const App = (): JSX.Element => {
                                 <img src={Assets.images.layersIcon} className="section-icon" />
                             </div>
                             <div>
-                                <h5>Trust layer</h5>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. <br />
-                                    Lum Network introduces the first decentralized.
-                                </p>
+                                <h5>{t('qAndA.trust.title')}</h5>
+                                <p className="mt-3">{t('qAndA.trust.description')}</p>
                             </div>
                         </div>
                         <div className="d-flex flex-row">
@@ -103,11 +88,8 @@ const App = (): JSX.Element => {
                                 <img src={Assets.images.communityIcon} className="section-icon" />
                             </div>
                             <div>
-                                <h5>Community</h5>
-                                <p className="mt-3">
-                                    Find the companies that have the right values. <br />
-                                    Lum Network introduces the first decentralized.
-                                </p>
+                                <h5>{t('qAndA.community.title')}</h5>
+                                <p className="mt-3">{t('qAndA.community.description')}</p>
                             </div>
                         </div>
                     </div>
@@ -132,12 +114,10 @@ const App = (): JSX.Element => {
                         <div className="col">
                             <div className="d-flex flex-row justify-content-around">
                                 <h1 className="fw-light me-5 powered-by-title">
-                                    <Trans i18nKey="poweredBy.title" />
+                                    {t('poweredBy.title')}
                                     <span className="worksans">Lum.</span>
                                 </h1>
-                                <div className="powered-by-description">
-                                    <Trans i18nKey="poweredBy.description" />
-                                </div>
+                                <div className="powered-by-description">{t('poweredBy.description')}</div>
                             </div>
                         </div>
                     </div>
@@ -151,11 +131,8 @@ const App = (): JSX.Element => {
                                     className="powered-by-card-illu mb-4"
                                 />
                                 <div>
-                                    <h6>SECURE THE CHAIN</h6>
-                                    <p className="m-0">
-                                        Select one of the most valuable validators on the Lum networking and start
-                                        earning crypto assets
-                                    </p>
+                                    <h6>{t('poweredBy.security.title')}</h6>
+                                    <p className="m-0">{t('poweredBy.security.description')}</p>
                                 </div>
                             </div>
                         </div>
@@ -168,11 +145,8 @@ const App = (): JSX.Element => {
                                     className="powered-by-card-illu-coins mb-4"
                                 />
                                 <div>
-                                    <h6>STAKE AND EARN</h6>
-                                    <p className="m-0">
-                                        Select one of the most valuable validators on the Lum networking and start
-                                        earning crypto assets
-                                    </p>
+                                    <h6>{t('poweredBy.stake.title')}</h6>
+                                    <p className="m-0">{t('poweredBy.stake.description')}</p>
                                 </div>
                             </div>
                         </div>
@@ -185,54 +159,45 @@ const App = (): JSX.Element => {
                                     className="powered-by-card-illu mb-4"
                                 />
                                 <div>
-                                    <h6>DEFINE THE FUTURE</h6>
-                                    <p className="m-0">
-                                        Select one of the most valuable validators on the Lum networking and start
-                                        earning crypto assets
-                                    </p>
+                                    <h6>{t('poweredBy.future.title')}</h6>
+                                    <p className="m-0">{t('poweredBy.future.description')}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <Button className="align-self-center my-5">
-                        <strong className="px-3">Get Lum</strong>
+                    <Button className="align-self-center my-5" onClick={() => window.open(LUM_TYPEFORM, '_blank')}>
+                        <strong className="px-3">{t('common.getLum')}</strong>
                     </Button>
                 </div>
             </div>
             <div className="bg-white">
                 <LeftLayout
                     className="white-section container"
-                    leftContent={<h1 className="green-title me-5">Built with green mindset</h1>}
+                    leftContent={<h1 className="green-title me-5">{t('greenSection.title')}</h1>}
                     contentAlignment="start"
                     rightContent={
                         <div className="container ms-5">
                             <div className="row g-5">
                                 <div className="col-6">
                                     <div className="green-dot mb-3" />
-                                    <strong>{'Cosmos & Tendermint'}</strong> <br />
-                                    <strong>Proof of Stake</strong> <br />
-                                    <p>
-                                        As opposed to the energy consuming Proof of Work <br />
-                                        used by the Bitoin blockchain.
-                                    </p>
+                                    <strong>{t('greenSection.pOfS.titleCosmos')}</strong> <br />
+                                    <strong>{t('greenSection.pOfS.titlePofS')}</strong> <br />
+                                    <p>{t('greenSection.pOfS.description')}</p>
                                 </div>
                                 <div className="col-6">
                                     <div className="green-dot mb-3" />
-                                    <strong>Low carbon footprint</strong> <br />
-                                    <p>99% less than proof of work</p>
+                                    <strong>{t('greenSection.carbon.title')}</strong> <br />
+                                    <p>{t('greenSection.carbon.description')}</p>
                                 </div>
                                 <div className="col-6">
                                     <div className="green-dot mb-3" />
-                                    <strong>Cheap transactons cost</strong> <br />
-                                    <p>We store a minimum of data on-chain to keep things light and portable.</p>
+                                    <strong>{t('greenSection.costs.title')}</strong> <br />
+                                    <p>{t('greenSection.costs.description')}</p>
                                 </div>
                                 <div className="col-6">
                                     <div className="green-dot mb-3" />
-                                    <strong>Fast block speed</strong> <br />
-                                    <p>
-                                        The Lum Foundation’s gateway enable companies to manage GDPR compliant user
-                                        wallets.
-                                    </p>
+                                    <strong>{t('greenSection.blocks.title')}</strong> <br />
+                                    <p>{t('greenSection.blocks.description')}</p>
                                 </div>
                             </div>
                         </div>

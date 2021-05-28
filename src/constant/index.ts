@@ -6,3 +6,5 @@ export const LUM_NETWORK_GITHUB = 'https://github.com/lum-network';
 export const LUM_TELEGRAM = '';
 export const LUM_TWITTER = '';
 export const LUM_FACEBOOK = '';
+export const LUM_NETWORK_WHITEPAPER = '';
+export const LUM_TYPEFORM = '';

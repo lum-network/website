@@ -1,16 +1,98 @@
 {
+    "common": {
+        "getLum": "Get Lum"
+    },
+    "header": {
+        "getInformed": "Get informed"
+    },
+    "landing": {
+        "title": "Companies\nTrust Engine",
+        "description": "Lum Network introduces the first decentralized protocol\nfor companies to build authentic trust with their customers.",
+        "whitePaper": "White paper",
+        "scrollAction": "Get enlightened by scrolling"
+    },
     "business": {
-        "title": "Where <strong>businesses</strong><br /> show their <strong>true self.</strong>"
+        "title": "Where <strong>businesses</strong>\nshow their <strong>true self.</strong>",
+        "store": {
+            "title": "Store content",
+            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+        },
+        "tracability": {
+            "title": "Tracability",
+            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+        },
+        "transparency": {
+            "title": "Transparency",
+            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+        },
+        "practices": {
+            "title": "Business practices",
+            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+        }
     },
     "qAndA": {
-        "title": "And customers find <br /> <strong>answers</strong> to their <strong>questions</strong>"
+        "title": "And customers find\n<strong>answers</strong> to their <strong>questions</strong>",
+        "companies": {
+            "title": "Find the companies that have the right values",
+            "description": "Find the companies that have the right values.\nLum Network introduces the first decentralized."
+        },
+        "trust": {
+            "title": "Trust layer",
+            "description": "Find the companies that have the right values.\nLum Network introduces the first decentralized."
+        },
+        "community": {
+            "title": "Community",
+            "description": "Find the companies that have the right values.\nLum Network introduces the first decentralized."
+        }
     },
     "rewards": {
-        "title": "<strong>Universal rewards</strong> <br /> suits every situation",
-        "description": "In return for value creation, we put the <strong>reward-on-chain</strong>, <br /> with a <strong>tangible</strong> asset, our token, the lum."
+        "title": "<strong>Universal rewards</strong>\nsuits every situation",
+        "description": "In return for value creation, we put the <strong>reward-on-chain</strong>,\nwith a <strong>tangible</strong> asset, our token, the lum."
     },
     "poweredBy": {
-        "title": "Powered by <br /> the ",
-        "description": "Lum comes from the word “light” and expresses the value created<br />by and for consumers throughout the purchasing experience cycle.<br /><br />It is the fuel of the Lum Network and is used by businesses to store UGC<br />and reward their customers, by validators and delegators to secure<br />the network and many more."
+        "title": "Powered by\nthe ",
+        "description": "Lum comes from the word “light” and expresses the value created\nby and for consumers throughout the purchasing experience cycle.\n\nIt is the fuel of the Lum Network and is used by businesses to store UGC\nand reward their customers, by validators and delegators to secure\nthe network and many more.",
+        "security": {
+            "title": "SECURE THE CHAIN",
+            "description": "Select one of the most valuable validators on the Lum networking and start earning crypto assets"
+        },
+        "stake": {
+            "title": "STAKE AND EARN",
+            "description": "Select one of the most valuable validators on the Lum networking and start earning crypto assets"
+        },
+        "future": {
+            "title": "DEFINE THE FUTURE",
+            "description": "Select one of the most valuable validators on the Lum networking and start earning crypto assets"
+        }
+    },
+    "greenSection": {
+        "title": "Built with green mindset",
+        "pOfS": {
+            "titlePofS": "Proof of Stake",
+            "titleCosmos": "Cosmos & Tendermint",
+            "description": "As opposed to the energy consuming Proof of Work\nused by the Bitoin blockchain."
+        },
+        "carbon": {
+            "title": "Low carbon footprint",
+            "description": "99% less than proof of work"
+        },
+        "costs": {
+            "title": "Cheap transactions cost",
+            "description": "We store a minimum of data on-chain to keep things light and portable."
+        },
+        "blocks": {
+            "title": "Fast block speed",
+            "description": "The Lum Foundation’s gateway enable companies to manage GDPR compliant user wallets."
+        }
+    },
+    "footer": {
+        "newsletter": {
+            "title": "Join our newsletter",
+            "submit": "Submit >",
+            "placeholder": "youremail@email.com"
+        },
+        "privacyPolicy": "Privacy Policy",
+        "tools": "Tools",
+        "community": "Community"
     }
 }

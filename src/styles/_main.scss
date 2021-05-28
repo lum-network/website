@@ -40,6 +40,10 @@ body {
     font-weight: $regular;
 }
 
+#root {
+    white-space: pre-line;
+}
+
 .white-section {
     background-color: $color-primary;
     color: $color-background;
