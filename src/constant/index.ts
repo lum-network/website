@@ -7,4 +7,4 @@ export const LUM_TELEGRAM = '';
 export const LUM_TWITTER = '';
 export const LUM_FACEBOOK = '';
 export const LUM_NETWORK_WHITEPAPER = '';
-export const LUM_TYPEFORM = '';
+export const LUM_TYPEFORM = 'https://sarah2814.typeform.com/to/lHKll5Dy';
