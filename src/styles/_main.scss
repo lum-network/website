@@ -1,6 +1,7 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import 'worksans';
 @import 'firasans';
+@import 'gothamrounded';
 
 // primary font
 $primary_font: 'Fira Sans';
@@ -30,6 +31,7 @@ $color-background: black;
 $color-primary: white;
 $color-grey: #b5b5b5;
 $color-dark-grey: #2c2c2d;
+$color-darker-grey: #1a1b1c;
 $color-green: #3bc849;
 
 body {

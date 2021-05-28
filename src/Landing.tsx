@@ -18,10 +18,12 @@ const Landing = (): JSX.Element => {
                     for companies to build authentic trust with their customers.
                 </p>
                 <div className="d-inline-flex align-items-center">
-                    <Button>Get Lum</Button>
+                    <Button>
+                        <strong className="px-3">Get Lum</strong>
+                    </Button>
                     <div className="ms-5">
                         <Link className="border-bottom border-2 pb-2 me-2" link={LUM_NETWORK_GITHUB}>
-                            White paper
+                            <strong>White paper</strong>
                         </Link>
                         <span>{'>'}</span>
                     </div>

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Trans } from 'react-i18next';
 
 import Assets from 'assets';
-import { RightImageLayout, LeftImageLayout, Footer, Header, LeftLayout } from 'components';
+import { RightImageLayout, LeftImageLayout, Footer, Header, LeftLayout, Button } from 'components';
 import Loading from 'Loading';
 import Landing from 'Landing';
+
+import './styles/App.scss';
 
 const App = (): JSX.Element => {
     const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +20,7 @@ const App = (): JSX.Element => {
             <Header />
             <div className="container">
                 <Landing />
-                <LeftImageLayout image={Assets.images.trueSelf}>
+                <LeftImageLayout image={Assets.images.trueSelf} contentAlignment="start">
                     <div className="ms-5">
                         <h2 className="fw-normal mb-5">
                             <Trans i18nKey="business.title" />
@@ -67,7 +69,7 @@ const App = (): JSX.Element => {
                         </div>
                     </div>
                 </LeftImageLayout>
-                <RightImageLayout image={Assets.images.qAndA} contentAlignment="start">
+                <RightImageLayout image={Assets.images.qAndA}>
                     <div className="ms-5">
                         <h2 className="fw-normal mb-5">
                             <Trans i18nKey="qAndA.title" />
@@ -110,7 +112,12 @@ const App = (): JSX.Element => {
                         </div>
                     </div>
                 </RightImageLayout>
-                <LeftImageLayout>
+                <LeftImageLayout
+                    image={Assets.images.diamondIllu}
+                    className="mt-5 pt-5"
+                    alignment="start"
+                    contentJustification="around"
+                >
                     <div>
                         <h2 className="fw-normal mb-5">
                             <Trans i18nKey="rewards.title" />
@@ -120,6 +127,77 @@ const App = (): JSX.Element => {
                         </div>
                     </div>
                 </LeftImageLayout>
+                <div className="powered-by-section bg-black container">
+                    <div className="row gx-5 mb-5">
+                        <div className="col">
+                            <div className="d-flex flex-row justify-content-around">
+                                <h1 className="fw-light me-5 powered-by-title">
+                                    <Trans i18nKey="poweredBy.title" />
+                                    <span className="worksans">Lum.</span>
+                                </h1>
+                                <div className="powered-by-description">
+                                    <Trans i18nKey="poweredBy.description" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12 col-lg-4">
+                            <div className="powered-by-card">
+                                <img
+                                    src={Assets.images.cubeIllu}
+                                    width="210"
+                                    height="210"
+                                    className="powered-by-card-illu mb-4"
+                                />
+                                <div>
+                                    <h6>SECURE THE CHAIN</h6>
+                                    <p className="m-0">
+                                        Select one of the most valuable validators on the Lum networking and start
+                                        earning crypto assets
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <div className="powered-by-card">
+                                <img
+                                    src={Assets.images.coinsIllu}
+                                    width="210"
+                                    height="210"
+                                    className="powered-by-card-illu-coins mb-4"
+                                />
+                                <div>
+                                    <h6>STAKE AND EARN</h6>
+                                    <p className="m-0">
+                                        Select one of the most valuable validators on the Lum networking and start
+                                        earning crypto assets
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12 col-lg-4">
+                            <div className="powered-by-card">
+                                <img
+                                    src={Assets.images.paperIllu}
+                                    width="210"
+                                    height="210"
+                                    className="powered-by-card-illu mb-4"
+                                />
+                                <div>
+                                    <h6>DEFINE THE FUTURE</h6>
+                                    <p className="m-0">
+                                        Select one of the most valuable validators on the Lum networking and start
+                                        earning crypto assets
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Button className="align-self-center my-5">
+                        <strong className="px-3">Get Lum</strong>
+                    </Button>
+                </div>
             </div>
             <div className="bg-white">
                 <LeftLayout

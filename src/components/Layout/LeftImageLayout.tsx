@@ -7,15 +7,17 @@ interface Props {
     children: React.ReactNode;
     alignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
     contentAlignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
+    contentJustification?: 'start' | 'end' | 'between' | 'around' | 'evenly';
     className?: string;
 }
 
 const LeftImageLayout = (props: Props): JSX.Element => {
-    const { image, children, className, alignment = 'center', contentAlignment = 'center' } = props;
+    const { image, children, className, alignment, contentAlignment, contentJustification } = props;
     return (
         <LeftLayout
             alignment={alignment}
             contentAlignment={contentAlignment}
+            contentJustification={contentJustification}
             className={className}
             leftContent={
                 <div className="d-flex align-items-center justify-content-center">

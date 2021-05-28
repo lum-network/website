@@ -7,15 +7,17 @@ interface Props {
     children: React.ReactNode;
     alignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
     contentAlignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
+    contentJustification?: 'start' | 'end' | 'between' | 'around' | 'evenly';
     className?: string;
 }
 
 const RightImageLayout = (props: Props): JSX.Element => {
-    const { image, children, className, alignment = 'center', contentAlignment = 'center' } = props;
+    const { image, children, className, alignment, contentAlignment, contentJustification } = props;
     return (
         <RightLayout
             className={className}
             contentAlignment={contentAlignment}
+            contentJustification={contentJustification}
             leftContent={children}
             alignment={alignment}
             rightContent={

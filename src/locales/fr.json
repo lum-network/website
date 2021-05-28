@@ -6,7 +6,11 @@
         "title": "And customers find <br /> <strong>answers</strong> to their <strong>questions</strong>"
     },
     "rewards": {
-        "title": "To ensure the <strong>value</strong> <br /> <strong>creation</strong> gets <strong>rewarded</strong",
+        "title": "<strong>Universal rewards</strong> <br /> suits every situation",
         "description": "In return for value creation, we put the <strong>reward-on-chain</strong>, <br /> with a <strong>tangible</strong> asset, our token, the lum."
+    },
+    "poweredBy": {
+        "title": "Powered by <br /> the ",
+        "description": "Lum comes from the word “light” and expresses the value created<br />by and for consumers throughout the purchasing experience cycle.<br /><br />It is the fuel of the Lum Network and is used by businesses to store UGC<br />and reward their customers, by validators and delegators to secure<br />the network and many more."
     }
 }
