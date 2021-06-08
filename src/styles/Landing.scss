@@ -1,0 +1,27 @@
+.landing-container {
+    padding-top: 122px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.arrow-icon-container {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-icon {
+    object-fit: contain;
+}
+
+.scale-anim {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
