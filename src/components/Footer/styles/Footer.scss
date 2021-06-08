@@ -2,10 +2,14 @@
 
 .footer {
     margin-top: auto;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     padding-left: 5rem;
     padding-right: 5rem;
+    @include media-breakpoint-down(lg) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 .form-control,
@@ -19,6 +23,7 @@
 
 .footer-link {
     color: $color-grey !important;
+    margin-bottom: 0 !important;
 }
 
 p.footer-link {

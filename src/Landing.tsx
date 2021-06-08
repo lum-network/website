@@ -12,8 +12,8 @@ const Landing = (): JSX.Element => {
 
     return (
         <div className="landing-container">
-            <div className="d-flex flex-md-row flex-column align-items-center justify-content-between">
-                <div>
+            <div className="d-flex flex-md-row flex-column-reverse align-items-center justify-content-between">
+                <div className="text-center text-md-start">
                     <h1 className="display-1 fw-bold">{t('landing.title')}</h1>
                     <p className="my-5">{t('landing.description')}</p>
                     <div className="d-inline-flex align-items-center">
@@ -33,9 +33,9 @@ const Landing = (): JSX.Element => {
                 </div>
                 <img src={Assets.images.lumLogo} alt="" className="lum-logo" />
             </div>
-            <div className="d-flex flex-row align-self-end align-items-center mb-5">
-                {t('landing.scrollAction')}
-                <div className="border rounded-circle ms-4 arrow-icon-container">
+            <div className="d-flex flex-row align-self-center align-self-md-end align-items-center mb-5 mt-4 mt-lg-0">
+                <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
+                <div className="border rounded-circle ms-md-4 arrow-icon-container">
                     <img src={Assets.images.downArrowIcon} width="11" height="11" />
                 </div>
             </div>

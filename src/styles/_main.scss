@@ -18,13 +18,13 @@ $extrabold: 700;
 $black: 900;
 
 // Font sizes
-$font-xs: 12px;
-$font-sm: 14px;
-$primary-fs: 16px;
-$font-md: 18px;
-$font-lg: 20px;
-$font-xl: 25px;
-$font-xxl: 30px;
+$font-xs: 0.75rem;
+$font-sm: 0.875rem;
+$primary-fs: 1rem;
+$font-md: 1.1rem;
+$font-lg: 1.3rem;
+$font-xl: 1.6rem;
+$font-xxl: 1.875rem;
 
 // Colors
 $color-background: black;
@@ -61,8 +61,13 @@ body {
 }
 
 .main-layout {
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
     background-color: $color-background;
     color: $color-primary;
+    flex: 1;
+    min-height: 100vh;
 }
 
 .main-layout-content {
@@ -73,6 +78,14 @@ body {
     padding-left: 5rem;
     padding-right: 5rem;
 }
+.horizontal-padding {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    @include media-breakpoint-down(lg) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
 
 .loading-container {
     background-color: $color-background;
@@ -80,10 +93,6 @@ body {
 
 .loading-bar-container {
     width: 318px;
-}
-
-.lum-logo {
-    margin-right: -5rem;
 }
 
 .section-icon-container {

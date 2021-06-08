@@ -1,28 +1,29 @@
 import React from 'react';
 import Assets from 'assets';
-import LeftLayout from './LeftLayout';
+import Layout from './Layout';
 
 interface Props {
     image?: string;
     children: React.ReactNode;
-    alignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
-    contentAlignment?: 'start' | 'end' | 'baseline' | 'center' | 'stretch';
-    contentJustification?: 'start' | 'end' | 'between' | 'around' | 'evenly';
+    alignment?: string;
+    contentAlignment?: string;
+    contentJustification?: string;
     className?: string;
 }
 
 const LeftImageLayout = (props: Props): JSX.Element => {
     const { image, children, className, alignment, contentAlignment, contentJustification } = props;
     return (
-        <LeftLayout
+        <Layout
             alignment={alignment}
             contentAlignment={contentAlignment}
             contentJustification={contentJustification}
             className={className}
+            contentClassName="flex-column flex-lg-row"
             leftContent={
-                <div className="d-flex align-items-center justify-content-center">
-                    <img src={Assets.images.sectionImageBg} alt="" className="" />
-                    <img src={image} alt="" className="position-absolute" />
+                <div className="d-flex align-items-center justify-content-center mb-5 mb-lg-0">
+                    <img src={Assets.images.sectionImageBg} alt="" className="section-image-bg" />
+                    <img src={image} alt="" className="position-absolute section-image" />
                 </div>
             }
             rightContent={children}

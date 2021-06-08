@@ -9,12 +9,11 @@
     padding-left: 5rem;
     padding-right: 5rem;
     padding-bottom: 2rem;
-}
-
-.navbar-items-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include media-breakpoint-down(lg) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        height: 82px;
+    }
 }
 
 .main-layout nav.bottom-navbar {
