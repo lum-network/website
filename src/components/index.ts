@@ -1,7 +1,6 @@
 export { default as LeftImageLayout } from './Layout/LeftImageLayout';
 export { default as RightImageLayout } from './Layout/RightImageLayout';
-export { default as LeftLayout } from './Layout/LeftLayout';
-export { default as RightLayout } from './Layout/RightLayout';
+export { default as Layout } from './Layout/Layout';
 export { default as Footer } from './Footer/Footer';
 export { default as Header } from './Header/Header';
 

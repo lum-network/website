@@ -39,8 +39,8 @@ const Footer = (): JSX.Element => {
         <footer className="footer">
             <div className="container-fluid">
                 <div className="row gx-5 gy-5">
-                    <div className="col-6">
-                        <div className="h-100 me-5 d-flex flex-column justify-content-between">
+                    <div className="col-12 col-md-6">
+                        <div className="h-100 me-md-5 d-flex flex-column justify-content-between">
                             <div>
                                 <h3>{t('footer.newsletter.title')}</h3>
                                 <form onSubmit={mailingListForm.handleSubmit}>
@@ -61,15 +61,11 @@ const Footer = (): JSX.Element => {
                                     )}
                                 </form>
                             </div>
-                            <div className="d-inline-flex">
-                                <p className="footer-link">Lum Network 2021 ©</p>
-                                <p className="footer-link ms-5">{t('footer.privacyPolicy')}</p>
-                            </div>
                         </div>
                     </div>
-                    <div className="col-6">
-                        <div className="d-flex flex-row justify-content-between ps-5 align-self-end">
-                            <div className="d-flex flex-column ms-5">
+                    <div className="col-12 col-md-6">
+                        <div className="d-flex flex-row justify-content-md-between justify-content-sm-around justify-content-between ps-md-5 align-self-end">
+                            <div className="d-flex flex-column ms-md-5">
                                 <strong>{t('footer.tools')}</strong>
                                 <Link link={LUM_NETWORK_GITHUB} className="footer-link my-4">
                                     Documentation
@@ -92,20 +88,28 @@ const Footer = (): JSX.Element => {
                                 <Link link={LUM_FACEBOOK} className="footer-link">
                                     Facebook
                                 </Link>
-                                <Button
-                                    outline
-                                    className="mt-5 px-4"
-                                    onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
-                                >
-                                    <img
-                                        src={Assets.images.githubIcon}
-                                        className="github-icon ms-2"
-                                        width="20"
-                                        height="20"
-                                    />
-                                    <span className="align-middle ms-3 me-2">@lum-network</span>
-                                </Button>
                             </div>
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="d-flex flex-md-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
+                            <div className="d-inline-flex justify-content-around">
+                                <p className="footer-link mb-0">Lum Network 2021 ©</p>
+                                <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p>
+                            </div>
+                            <Button
+                                outline
+                                className="px-4 mb-4 mb-md-0"
+                                onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
+                            >
+                                <img
+                                    src={Assets.images.githubIcon}
+                                    className="github-icon ms-2"
+                                    width="20"
+                                    height="20"
+                                />
+                                <span className="align-middle ms-3 me-2">@lum-network</span>
+                            </Button>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,28 @@
+@import '_main';
+
 .layout {
     min-height: calc(100vh - 122px);
+}
+
+.section-image-bg {
+    width: 380px;
+    height: 380px;
+    object-fit: contain;
+}
+
+.section-image {
+    width: 230px;
+    height: 230px;
+    object-fit: contain;
+}
+
+@include media-breakpoint-down(md) {
+    .section-image-bg {
+        width: 280px;
+        height: 280px;
+    }
+    .section-image {
+        width: 180px;
+        height: 180px;
+    }
 }
