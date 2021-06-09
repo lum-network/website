@@ -10,6 +10,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install packages
+        run: yarn
+
+      - name: Build
+        run: yarn build
+        env:
+          SASS_PATH: "node_modules:src/styles"
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -18,3 +28,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           channelId: live
           projectId: lum-network
+          target: lum-network-website
