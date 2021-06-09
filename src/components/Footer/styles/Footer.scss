@@ -1,0 +1,40 @@
+@import '_main';
+
+.footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    @include media-breakpoint-down(lg) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.form-control,
+.form-control:focus {
+    background-color: black !important;
+    color: white !important;
+    &::placeholder {
+        color: $color-primary !important;
+    }
+}
+
+.footer-link {
+    color: $color-grey !important;
+    margin-bottom: 0 !important;
+}
+
+p.footer-link {
+    font-size: $font-sm;
+}
+
+.github-icon {
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+}
+
+.color-error {
+    color: #ff7245;
+}
