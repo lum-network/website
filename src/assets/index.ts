@@ -13,6 +13,7 @@ import lumNetworkLogo from './images/lum_network_logo.png';
 import paperIllu from './images/paper.png';
 import piece from './images/piece.png';
 import qAndA from './images/q_a.png';
+import section2 from './images/section2.png';
 import sectionImageBg from './images/section_image_bg.png';
 import storeContentIcon from './images/store_content.png';
 import tracabilityIcon from './images/tracability.png';
@@ -36,6 +37,7 @@ const Assets = {
         paperIllu,
         piece,
         qAndA,
+        section2,
         sectionImageBg,
         storeContentIcon,
         tracabilityIcon,

@@ -2,14 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Assets from 'assets';
-import { LUM_EXPLORER, LUM_NETWORK_WHITEPAPER, LUM_WALLET } from 'constant';
+import { LUM_EXPLORER, LUM_WALLET } from 'constant';
 import { Link } from 'components';
 
 import Button from '../Button/Button';
 
 import './styles/Header.scss';
 
-const Header = (): JSX.Element => {
+const Header = ({ modalId }: { modalId: string }): JSX.Element => {
     const { t } = useTranslation();
 
     return (
@@ -22,7 +22,7 @@ const Header = (): JSX.Element => {
                 <Link link={LUM_EXPLORER} className="me-sm-3 me-md-5">
                     Explorer
                 </Link>
-                <Button outline onClick={() => window.open(LUM_NETWORK_WHITEPAPER, '_blank')}>
+                <Button outline data-bs-toggle="modal" data-bs-target={modalId}>
                     {t('header.getInformed')}
                 </Button>
             </div>
