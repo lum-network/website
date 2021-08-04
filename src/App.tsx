@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Assets from 'assets';
-import { RightImageLayout, LeftImageLayout, Footer, Header, Layout, Button } from 'components';
+import { RightImageLayout, LeftImageLayout, Footer, Header, Layout, Button, Modal } from 'components';
 import Loading from 'Loading';
 import Landing from 'Landing';
 
@@ -20,8 +20,8 @@ const App = (): JSX.Element => {
                 <Loading callback={() => setIsLoading(false)} />
             ) : (
                 <>
-                    <Header />
-                    <div className="container-fluid horizontal-padding">
+                    <Header modalId="#getInformedModal" />
+                    <div className="container">
                         <div className="row gy-5">
                             <div className="col-12">
                                 <Landing />
@@ -31,6 +31,7 @@ const App = (): JSX.Element => {
                                     image={Assets.images.trueSelf}
                                     className="mt-5 pt-5"
                                     contentAlignment="center align-items-lg-start"
+                                    contentJustification="between"
                                 >
                                     <div className="ms-lg-5">
                                         <h2 className="fw-normal mb-5">
@@ -77,9 +78,9 @@ const App = (): JSX.Element => {
                             </div>
                             <div className="col-12">
                                 <RightImageLayout
-                                    image={Assets.images.qAndA}
+                                    image={Assets.images.section2}
                                     className="mt-5 pt-5"
-                                    contentAlignment="center align-items-lg-start"
+                                    contentAlignment="center"
                                 >
                                     <div className="ms-5">
                                         <h2 className="fw-normal mb-5">
@@ -115,11 +116,10 @@ const App = (): JSX.Element => {
                                     </div>
                                 </RightImageLayout>
                             </div>
-                            <div className="col-12">
+                            <div className="col-12 mb-5 mb-lg-0">
                                 <LeftImageLayout
                                     image={Assets.images.diamondIllu}
                                     className="mt-5 pt-5 align-items-center"
-                                    //alignment="center align-self-lg-start"
                                     contentJustification="around"
                                 >
                                     <div>
@@ -132,7 +132,7 @@ const App = (): JSX.Element => {
                                     </div>
                                 </LeftImageLayout>
                             </div>
-                            <div className="col-12">
+                            <div className="col-12 mt-5 mt-lg-0">
                                 <div className="powered-by-section bg-black container">
                                     <div className="row gx-5 mb-5">
                                         <div className="col">
@@ -151,7 +151,7 @@ const App = (): JSX.Element => {
                                         <div className="col-12 col-lg-4">
                                             <div className="powered-by-card">
                                                 <img
-                                                    src={Assets.images.cubeIllu}
+                                                    src={Assets.images.paperIllu}
                                                     width="210"
                                                     height="210"
                                                     className="powered-by-card-illu mb-4"
@@ -165,7 +165,7 @@ const App = (): JSX.Element => {
                                         <div className="col-12 col-lg-4">
                                             <div className="powered-by-card">
                                                 <img
-                                                    src={Assets.images.coinsIllu}
+                                                    src={Assets.images.cubeIllu}
                                                     width="210"
                                                     height="210"
                                                     className="powered-by-card-illu-coins mb-4"
@@ -179,7 +179,7 @@ const App = (): JSX.Element => {
                                         <div className="col-12 col-lg-4">
                                             <div className="powered-by-card">
                                                 <img
-                                                    src={Assets.images.paperIllu}
+                                                    src={Assets.images.coinsIllu}
                                                     width="210"
                                                     height="210"
                                                     className="powered-by-card-illu mb-4"
@@ -212,24 +212,23 @@ const App = (): JSX.Element => {
                                     <div className="row g-5">
                                         <div className="col-6">
                                             <div className="green-dot mb-3" />
-                                            <strong>{t('greenSection.pOfS.titleCosmos')}</strong> <br />
-                                            <strong>{t('greenSection.pOfS.titlePofS')}</strong> <br />
-                                            <p>{t('greenSection.pOfS.description')}</p>
+                                            <strong>{t('greenSection.pOfS.titleCosmos')}</strong>
+                                            <p className="mt-2">{t('greenSection.pOfS.description')}</p>
                                         </div>
                                         <div className="col-6">
                                             <div className="green-dot mb-3" />
-                                            <strong>{t('greenSection.carbon.title')}</strong> <br />
-                                            <p>{t('greenSection.carbon.description')}</p>
+                                            <strong>{t('greenSection.carbon.title')}</strong>
+                                            <p className="mt-2">{t('greenSection.carbon.description')}</p>
                                         </div>
                                         <div className="col-6">
                                             <div className="green-dot mb-3" />
-                                            <strong>{t('greenSection.costs.title')}</strong> <br />
-                                            <p>{t('greenSection.costs.description')}</p>
+                                            <strong>{t('greenSection.costs.title')}</strong>
+                                            <p className="mt-2">{t('greenSection.costs.description')}</p>
                                         </div>
                                         <div className="col-6">
                                             <div className="green-dot mb-3" />
-                                            <strong>{t('greenSection.blocks.title')}</strong> <br />
-                                            <p>{t('greenSection.blocks.description')}</p>
+                                            <strong>{t('greenSection.blocks.title')}</strong>
+                                            <p className="mt-2">{t('greenSection.blocks.description')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -237,6 +236,20 @@ const App = (): JSX.Element => {
                         />
                     </div>
                     <Footer />
+                    <Modal id="getInformedModal">
+                        <div className="get-informed-modal-title fw-light">
+                            {t('getInformedModal.title')}
+                            <span>
+                                <u>{t('getInformedModal.titleUnderlined')}</u>
+                            </span>
+                        </div>
+                        <div className="get-informed-modal-description mt-2 mb-5">
+                            {t('getInformedModal.description')}
+                        </div>
+                        <Button outline inverted>
+                            <strong>{t('getInformedModal.button')}</strong>
+                        </Button>
+                    </Modal>
                 </>
             )}
         </div>

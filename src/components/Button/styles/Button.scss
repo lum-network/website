@@ -39,8 +39,13 @@ button:focus {
 .btn-outlined:hover,
 .btn-outlined:active,
 .btn-outlined:focus {
-    border-width: 1px;
+    border-width: 2px;
     border-color: $color-primary;
     background-color: transparent;
     color: $color-primary;
+}
+
+.btn-outlined.inverted {
+    color: $color-background;
+    border-color: $color-background;
 }

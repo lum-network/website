@@ -6,84 +6,89 @@
         "getInformed": "Get informed"
     },
     "landing": {
-        "title": "Companies\nTrust Engine",
-        "description": "Lum Network introduces the first decentralized protocol\nfor companies to build authentic trust with their customers.",
+        "title": "Businesses\nTrust Engine",
+        "description": "Lum Network introduces the first decentralized protocol\nfor businesses to build authentic trust with their customers.",
         "whitePaper": "White paper",
         "scrollAction": "Get enlightened by scrolling"
     },
     "business": {
-        "title": "Where <strong>businesses</strong>\nshow their <strong>true self.</strong>",
+        "title": "The <strong>trust layer</strong> for\n<strong>companies</strong> of the <strong>future</strong>",
         "store": {
-            "title": "Store content",
-            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+            "title": "Content stamping",
+            "description": "Authenticate and stamp content on-chain to ensure information is accurate, verified and publicly accessible while abiding with data privacy regulations."
         },
         "tracability": {
-            "title": "Tracability",
-            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+            "title": "Traceability",
+            "description": "We introduce the Beam protocol to create temporary mutable states on the immutable decentralized Lum Network’s ledger. Thus enabling fully traceable content updates."
         },
         "transparency": {
             "title": "Transparency",
-            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+            "description": "The key element to create trust between businesses and their customers. Using a tamper proof, public decentralized ledger designed for accessibility."
         },
         "practices": {
             "title": "Business practices",
-            "description": "Find the companies that have the right values. Lum Network introduces the first decentralized."
+            "description": "The new standard for companies to foster trust with their customers. The Lum Network’s aims to become a norm for the companies of the future."
         }
     },
     "qAndA": {
-        "title": "And customers find\n<strong>answers</strong> to their <strong>questions</strong>",
+        "title": "<strong>Partnering</strong> with\ntrusted <strong>third parties</strong>",
         "companies": {
-            "title": "Find the companies that have the right values",
-            "description": "Find the companies that have the right values.\nLum Network introduces the first decentralized."
+            "title": "Not a disruption,\nbut an evolution",
+            "description": "Enabling major third parties working between\nretailers and their customers to evolve rather\nthan being disrupted by new technologies."
         },
         "trust": {
-            "title": "Trust layer",
-            "description": "Find the companies that have the right values.\nLum Network introduces the first decentralized."
+            "title": "Focused on\nlarge scale applications",
+            "description": "The Lum Foundation is focused on working with\ntrusted third parties to quickly onboard\nthousands of retailers and millions of customers."
         },
         "community": {
-            "title": "Community",
-            "description": "Find the companies that have the right values.\nLum Network introduces the first decentralized."
+            "title": "To create a massive\ncommunity of Lum members",
+            "description": "The Lum Network is designed to be the trust\nlayer for millions of users without exposing the\ncomplexity of the underlying technology."
         }
     },
     "rewards": {
-        "title": "<strong>Universal rewards</strong>\nsuits every situation",
-        "description": "In return for value creation, we put the <strong>reward-on-chain</strong>,\nwith a <strong>tangible</strong> asset, our token, the lum."
+        "title": "Using a modern\n<strong>Universal Reward</strong>",
+        "description": "In return for value creation made by their users, we\nenabled businesses to benefit from <strong>on-chain rewards.</strong>\n Using a <strong>tangible</strong> asset, Lum Network’s <strong>native</strong> digital\ntoken, the <strong>LUM.</strong>"
     },
     "poweredBy": {
         "title": "Powered by\nthe ",
         "description": "Lum comes from the word “light” and expresses the value created\nby and for consumers throughout the purchasing experience cycle.\n\nIt is the fuel of the Lum Network and is used by businesses to store UGC\nand reward their customers, by validators and delegators to secure\nthe network and many more.",
         "security": {
-            "title": "SECURE THE CHAIN",
-            "description": "Select one of the most valuable validators on the Lum networking and start earning crypto assets"
+            "title": "BECOME THE FUTURE",
+            "description": "Businesses use the Lum to pave the way of innovation in their respective fields."
         },
         "stake": {
-            "title": "STAKE AND EARN",
-            "description": "Select one of the most valuable validators on the Lum networking and start earning crypto assets"
+            "title": "SECURE THE CHAIN",
+            "description": "The Lum is one of the key elements of the network as it allows its members to secure its usage using Delegated Proof-of-Stake."
         },
         "future": {
-            "title": "DEFINE THE FUTURE",
-            "description": "Select one of the most valuable validators on the Lum networking and start earning crypto assets"
+            "title": "STAKE AND EARN",
+            "description": "Every single Lum holder can participate in securing the network by staking their Lum and getting rewarded for it."
         }
     },
     "greenSection": {
         "title": "Built with green mindset",
         "pOfS": {
-            "titlePofS": "Proof of Stake",
-            "titleCosmos": "Cosmos & Tendermint",
-            "description": "As opposed to the energy consuming Proof of Work\nused by the Bitoin blockchain."
+            "titleCosmos": "Cosmos & Tendermint DPOS",
+            "description": "The most advanced and secure\nDelegated Proof-Of-Stake algorithm\nis used to secure the network."
         },
         "carbon": {
-            "title": "Low carbon footprint",
-            "description": "99% less than proof of work"
+            "title": "Minimal carbon footprint",
+            "description": "Lum Network is designed to\nbe sustainable and uses DPOS\nwhich consumes 99% less energy than proof of work."
         },
         "costs": {
-            "title": "Cheap transactions cost",
-            "description": "We store a minimum of data on-chain to keep things light and portable."
+            "title": "Low transactions cost",
+            "description": "Having a very low transaction cost\nto enable its applications to remain\ncompetitive and efficient."
         },
         "blocks": {
             "title": "Fast block speed",
-            "description": "The Lum Foundation’s gateway enable companies to manage GDPR compliant user wallets."
+            "description": "Lum Network processes blocks\nunder 10 seconds, enabling its users\nto benefit from fast transactions."
         }
+    },
+    "getInformedModal": {
+        "title": "We're currently in the ",
+        "titleUnderlined": "Testnet Stage",
+        "description": "To discover when will be the launch\nof the Lum, you should subscribe\nto our newsletter",
+        "button": "Join Newsletter >"
     },
     "footer": {
         "newsletter": {
