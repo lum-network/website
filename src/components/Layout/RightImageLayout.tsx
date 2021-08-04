@@ -7,16 +7,17 @@ interface Props {
     children: React.ReactNode;
     alignment?: string;
     contentAlignment?: string;
+    contentClassName?: string;
     contentJustification?: string;
     className?: string;
 }
 
 const RightImageLayout = (props: Props): JSX.Element => {
-    const { image, children, className, alignment, contentAlignment, contentJustification } = props;
+    const { image, children, className, alignment, contentAlignment, contentJustification, contentClassName } = props;
     return (
         <Layout
             className={className}
-            contentClassName="flex-column-reverse flex-lg-row"
+            contentClassName={`flex-column-reverse flex-lg-row ${contentClassName}`}
             contentAlignment={contentAlignment}
             contentJustification={contentJustification}
             leftContent={children}
