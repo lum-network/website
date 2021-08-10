@@ -8,6 +8,7 @@ import Landing from 'Landing';
 
 import './styles/App.scss';
 import { LUM_TYPEFORM } from 'constant';
+import { relative } from 'path';
 
 const App = (): JSX.Element => {
     const [isLoading, setIsLoading] = useState(true);
@@ -26,14 +27,17 @@ const App = (): JSX.Element => {
                             <div className="col-12">
                                 <Landing />
                             </div>
-                            <div className="col-12">
+                            <div className="col-12" id="layer" style={{ position: 'relative' }}>
+                                <div className="light-container">
+                                    <div className="light" />
+                                </div>
                                 <LeftImageLayout
                                     image={Assets.images.trueSelf}
                                     className="mt-5 pt-5"
                                     contentAlignment="center align-items-lg-start"
                                     contentJustification="between"
                                 >
-                                    <div className="ms-lg-5">
+                                    <div className="ms-lg-5 col-lg-6">
                                         <h2 className="fw-normal mb-5">
                                             <Trans i18nKey="business.title" />
                                         </h2>
@@ -82,7 +86,7 @@ const App = (): JSX.Element => {
                                     className="mt-5 pt-5"
                                     contentAlignment="center"
                                 >
-                                    <div className="ms-5">
+                                    <div className="col-lg-6">
                                         <h2 className="fw-normal mb-5">
                                             <Trans i18nKey="qAndA.title" />
                                         </h2>
@@ -90,7 +94,7 @@ const App = (): JSX.Element => {
                                             <div className="d-flex align-items-center justify-content-center me-3 section-icon-container">
                                                 <img src={Assets.images.diamondIcon} className="section-icon" />
                                             </div>
-                                            <div>
+                                            <div className="d-flex flex-column">
                                                 <h5>{t('qAndA.companies.title')}</h5>
                                                 <p className="mt-3">{t('qAndA.companies.description')}</p>
                                             </div>
@@ -120,9 +124,9 @@ const App = (): JSX.Element => {
                                 <LeftImageLayout
                                     image={Assets.images.diamondIllu}
                                     className="mt-5 pt-5 align-items-center"
-                                    contentJustification="around"
+                                    contentAlignment="center"
                                 >
-                                    <div>
+                                    <div className="col-12 col-lg-6 align-self-center">
                                         <h2 className="fw-normal mb-5">
                                             <Trans i18nKey="rewards.title" />
                                         </h2>
@@ -203,9 +207,9 @@ const App = (): JSX.Element => {
                     </div>
                     <div className="bg-white">
                         <Layout
-                            className="white-section align-items-center justify-content-center container-fluid horizontal-padding"
-                            contentClassName="flex-column flex-sm-row"
-                            leftContent={<h1 className="green-title me-5">{t('greenSection.title')}</h1>}
+                            className="white-section align-items-center justify-content-center container horizontal-padding"
+                            contentClassName="flex-column flex-lg-row"
+                            leftContent={<h1 className="green-title me-5 mb-5">{t('greenSection.title')}</h1>}
                             contentAlignment="start"
                             rightContent={
                                 <div className="container ms-lg-5">

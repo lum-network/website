@@ -37,7 +37,7 @@ const Footer = (): JSX.Element => {
 
     return (
         <footer className="footer">
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row gx-5 gy-5">
                     <div className="col-12 col-md-6">
                         <div className="h-100 me-md-5 d-flex flex-column justify-content-between">

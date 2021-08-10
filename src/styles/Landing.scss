@@ -1,14 +1,29 @@
 @import '_main';
 
 .landing-container {
-    padding-top: 122px;
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: max(-8%, -20px);
     @include media-breakpoint-down(md) {
         padding-top: 82px;
     }
+}
+
+.scroll-cta-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    color: $color-primary;
+}
+
+.scroll-cta-container:hover {
+    opacity: 0.8;
+    color: $color-primary;
 }
 
 .arrow-icon-container {
