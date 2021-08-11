@@ -4,7 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import Assets from 'assets';
 import { LUM_NETWORK_WHITEPAPER } from 'constant';
-import { Button, Footer, Header, Link } from 'components';
+import { Button, Footer, Header, Link, SpotlightImage } from 'components';
 
 import './styles/App.scss';
 import './styles/Welcome.scss';
@@ -68,12 +68,9 @@ export function TrustLayer(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="trustlayer">
             <div className="container">
-                {/* <div className="light-container">
-                    <div className="light" />
-                </div> */}
                 <div className="row flex-lg-row flex-column justify-content-between">
                     <div className="col-lg-6">
-                        <img src={Assets.images.doubleMirror} alt="Business Trust Layer" className="double-mirror" />
+                        <SpotlightImage imgSrc={Assets.images.doubleMirror} imgAlt="Business Trust Layer" />
                     </div>
                     <div className="col-lg-6">
                         <h1>
@@ -122,9 +119,6 @@ export function Partnering(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="partnering">
             <div className="container">
-                {/* <div className="light-container">
-                    <div className="light" />
-                </div> */}
                 <div className="row flex-md-row flex-column-reverse justify-content-between">
                     <div className="col-lg-5">
                         <h1>
@@ -161,7 +155,7 @@ export function Partnering(): JSX.Element {
                         </div>
                     </div>
                     <div className="col-lg-7 d-flex align-items-center justify-content-end">
-                        <img src={Assets.images.businessLayer} alt="Business Trust Layer" className="business-layer" />
+                        <SpotlightImage imgSrc={Assets.images.businessLayer} imgAlt="Partnering with third parties" />
                     </div>
                 </div>
             </div>
@@ -173,12 +167,9 @@ export function Rewards(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="rewards">
             <div className="container">
-                {/* <div className="light-container">
-                    <div className="light" />
-                </div> */}
-                <div className="row flex-md-row flex-column justify-content-between">
+                <div className="row flex-md-row flex-column justify-content-between align-items-center">
                     <div className="col-lg-6">
-                        <img src={Assets.images.diamondIllu} alt="Universal LUM reward" className="lum-diamond" />
+                        <SpotlightImage imgSrc={Assets.images.diamondIllu} imgAlt="Universal LUM reward" />
                     </div>
                     <div className="col-12 col-lg-6">
                         <h1>
