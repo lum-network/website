@@ -6,7 +6,7 @@
         "getInformed": "Get informed"
     },
     "landing": {
-        "title": "Business\nTrust Engine",
+        "title": "Business Trust Engine",
         "description": "Lum Network introduces the first decentralized protocol for businesses to build authentic trust with their customers.",
         "whitePaper": "White paper",
         "scrollAction": "Get enlightened by scrolling"
@@ -81,7 +81,7 @@
         },
         "blocks": {
             "title": "Fast block speed",
-            "description": "Lum Network processes blocks under 10 seconds, enabling its users to benefit from fast transactions."
+            "description": "Lum Network processes blocks under 8 seconds, enabling its users to benefit from fast transactions."
         }
     },
     "getInformedModal": {

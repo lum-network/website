@@ -1,6 +1,6 @@
 @import '_main';
 
-.footer {
+footer {
     margin-top: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -12,29 +12,30 @@
     }
 }
 
-.form-control,
-.form-control:focus {
-    background-color: black !important;
+footer .form-control,
+footer .form-control:focus {
+    background-color: $color-dark !important;
     color: white !important;
     &::placeholder {
         color: $color-primary !important;
     }
 }
 
-.footer-link {
+footer .footer-link {
     color: $color-grey !important;
     margin-bottom: 0 !important;
+    padding-bottom: 14px;
 }
 
-p.footer-link {
+footer p.footer-link {
     font-size: $font-sm;
 }
 
-.github-icon {
+footer .github-icon {
     filter: brightness(0) invert(1);
     object-fit: contain;
 }
 
-.color-error {
+footer .color-error {
     color: #ff7245;
 }

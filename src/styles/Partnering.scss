@@ -1,0 +1,46 @@
+@import '_main';
+
+#partnering .business-layer {
+    width: 192px;
+}
+
+#partnering h1 {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 2.625rem;
+    line-height: 3.125rem;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+#partnering h1 strong {
+    font-weight: $bold;
+}
+
+#partnering .dark-icon-wrapper {
+    margin-right: 24px;
+}
+
+#partnering h2 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+#partnering p {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
+    padding: 0;
+    margin: 0;
+}
+
+#partnering .uvp-container {
+    margin-top: 48px;
+}

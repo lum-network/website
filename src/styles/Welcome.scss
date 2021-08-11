@@ -1,0 +1,48 @@
+@import '_main';
+
+#welcome {
+    justify-content: space-between;
+}
+
+#welcome .glowing-bubble {
+    width: 200px;
+}
+
+#welcome h1 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 6rem;
+    line-height: 7rem;
+    padding: 0;
+    margin: 0;
+}
+
+#welcome p {
+    font-style: normal;
+    font-weight: $light;
+    font-size: 1.125rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#welcome .scroll-cta-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    color: $color-primary;
+}
+
+#welcome .arrow-icon-container {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome .arrow-icon {
+    object-fit: contain;
+}
