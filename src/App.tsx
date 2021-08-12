@@ -18,7 +18,7 @@ import './styles/Green.scss';
 
 gsap.registerPlugin(MotionPathPlugin);
 
-const MV_PATH_COUNT = 2;
+const MV_PATH_COUNT = 4;
 
 export function MvDot(props: { uid: string }): JSX.Element {
     const { scroll } = useLocomotiveScroll();
@@ -103,6 +103,24 @@ export function Welcome(): JSX.Element {
                         <path
                             id="mv-dot-path-2"
                             d="M3 2.5C28.5128 36.8636 134.566 137.991 306.652 133.573C478.738 129.155 581.789 40.7909 783.39 46.6818C984.991 52.5727 1162.58 191.5 1292.64 191.5C1422.71 191.5 1541.77 64.8455 1720.36 52.5727C1863.23 42.7545 1968.32 76.7091 2003 97"
+                            stroke="white"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                    <svg width="1754" height="991" viewBox="0 0 1754 991" fill="none">
+                        <path
+                            id="mv-dot-path-3"
+                            d="M3 3C76.5 197 277 961.5 631 987.5C985 1013.5 987.998 272 1205.5 251C1423 230 1478.5 491.5 1751 494"
+                            stroke="white"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                    <svg width="1942" height="783" viewBox="0 0 1942 783" fill="none">
+                        <path
+                            id="mv-dot-path-4"
+                            d="M2.5 780.5C65.5 489.5 98 19.0001 494 3.00002C890 -13.0001 863.5 535 1217.5 585C1571.5 635 1703 419 1939 392.5"
                             stroke="white"
                             strokeWidth="5"
                             strokeLinecap="round"
