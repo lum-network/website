@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import './styles/SpotlightImage.scss';
@@ -40,7 +39,6 @@ const SpotlightImage = (props: Props): JSX.Element => {
 
     useEffect(() => {
         if (scroll) {
-            gsap.registerPlugin(MotionPathPlugin);
             scroll.on('call', (callId: string, way: string, obj: HTMLElement) => {
                 if (callId === 'spotlight-call' && way === 'enter' && obj.id === props.uid) {
                     for (let i = 1; i <= 8; i++) {

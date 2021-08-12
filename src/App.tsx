@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
-import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
+import React, { useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
+import { gsap } from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 import Assets from 'assets';
 import { LUM_NETWORK_WHITEPAPER } from 'constant';
@@ -14,15 +16,93 @@ import './styles/Rewards.scss';
 import './styles/LumPowered.scss';
 import './styles/Green.scss';
 
+gsap.registerPlugin(MotionPathPlugin);
+
+const MV_PATH_COUNT = 2;
+
+export function MvDot(props: { uid: string }): JSX.Element {
+    const { scroll } = useLocomotiveScroll();
+
+    useEffect(() => {
+        if (scroll) {
+            const pathId = Math.floor(Math.random() * MV_PATH_COUNT + 1);
+            gsap.to(`.mv-dot-${props.uid}`, {
+                duration: 5,
+                motionPath: {
+                    path: `#mv-dot-path-${pathId}`,
+                    align: `#mv-dot-path-${pathId}`,
+                    alignOrigin: [0.5, 0.5],
+                    start: 0,
+                    end: 1,
+                    curviness: 1.5,
+                },
+            });
+        }
+    }, [scroll, props.uid]);
+
+    return (
+        <div className={`dot mv-dot-${props.uid}`}>
+            <div className="dot-inner-layer-1" />
+            <div className="dot-inner-layer-2" />
+            <div className="dot-inner-layer-3" />
+        </div>
+    );
+}
 export function Welcome(): JSX.Element {
     const { t } = useTranslation();
     const { scroll } = useLocomotiveScroll();
+    const bubbleRef = useRef<HTMLImageElement>(null);
+    const [dots, setDots] = useState<JSX.Element[]>([]);
+
+    useEffect(() => {
+        if (scroll && bubbleRef.current) {
+            setDots([<MvDot key="1" uid="1" />]);
+        }
+    }, [scroll]);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            const newDots = dots.slice();
+            const dotId = dots.length > 0 ? parseInt((dots[dots.length - 1].key || '0').toString()) + 1 : 1;
+            newDots.push(<MvDot key={`${dotId}`} uid={`${dotId}`} />);
+            setDots(newDots);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [dots, setDots]);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            if (dots.length > 10) {
+                const newDots = dots.slice(1);
+                setDots(newDots);
+            }
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [dots, setDots]);
 
     return (
         <section data-scroll-section className="dark" id="welcome">
             <div className="container" />
             <div className="container">
                 <div className="row flex-lg-row flex-column-reverse align-items-center">
+                    <svg width="2005" height="195" viewBox="0 0 2005 195" fill="none">
+                        <path
+                            id="mv-dot-path-1"
+                            d="M2.5 192.369C65.4056 142.747 143.289 59.7061 284.078 49.5791C424.866 39.4522 488.271 186.293 648.531 186.293C808.791 186.293 877.687 36.9205 1074.39 6.53973C1271.1 -23.8411 1420.87 174.14 1648.53 172.115C1876.19 170.09 1975.54 108.822 2002.5 95.6567"
+                            stroke="white"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                    <svg width="2006" height="194" viewBox="0 0 2006 194" fill="none">
+                        <path
+                            id="mv-dot-path-2"
+                            d="M3 2.5C28.5128 36.8636 134.566 137.991 306.652 133.573C478.738 129.155 581.789 40.7909 783.39 46.6818C984.991 52.5727 1162.58 191.5 1292.64 191.5C1422.71 191.5 1541.77 64.8455 1720.36 52.5727C1863.23 42.7545 1968.32 76.7091 2003 97"
+                            stroke="white"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
                     <div className="col-lg-7 text-center text-md-start">
                         <h1>{t('landing.title')}</h1>
                         <p>{t('landing.description')}</p>
@@ -44,6 +124,7 @@ export function Welcome(): JSX.Element {
                             src={Assets.images.glowingBubble}
                             alt="Lum Network Enlightment"
                             className="glowing-bubble"
+                            ref={bubbleRef}
                         />
                     </div>
                 </div>
@@ -61,6 +142,7 @@ export function Welcome(): JSX.Element {
                     </div>
                 </a>
             </div>
+            {dots}
         </section>
     );
 }
