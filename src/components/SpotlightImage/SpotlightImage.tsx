@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
@@ -6,6 +6,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import './styles/SpotlightImage.scss';
 
 interface Props {
+    beamSize?: number;
     direction?: 1 | -1;
     uid: string;
     className?: string;
@@ -32,7 +33,10 @@ const Dot = (props: DotProps): JSX.Element => {
 
 const SpotlightImage = (props: Props): JSX.Element => {
     const { scroll } = useLocomotiveScroll();
+    const spotlightRef = useRef<HTMLDivElement>(null);
+    const spotlightInnerRef = useRef<HTMLDivElement>(null);
     const direction = props.direction || 1;
+    const beamSize = props.beamSize || 1;
 
     useEffect(() => {
         if (scroll) {
@@ -60,8 +64,40 @@ const SpotlightImage = (props: Props): JSX.Element => {
                     }
                 }
             });
+            scroll.on('scroll', (args: any) => {
+                if (
+                    typeof args.currentElements[props.uid] === 'object' &&
+                    spotlightRef.current &&
+                    spotlightInnerRef.current
+                ) {
+                    const progress = args.currentElements[props.uid].progress;
+                    if (direction === 1) {
+                        spotlightRef.current.style.transform = `rotateZ(${
+                            -20 + 30 * Math.min(progress * 2, 1) * beamSize
+                        }deg)`;
+                        spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
+                        spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
+                            0.25 + 0.75 * Math.min(1, progress * 2)
+                        }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        spotlightInnerRef.current.style.transform = `rotateY(-${
+                            32 + Math.min(progress * 2, 1) * 15 * beamSize
+                        }deg)`;
+                    } else {
+                        spotlightRef.current.style.transform = `rotateZ(${
+                            -150 - 30 * Math.min(progress * 2, 1) * beamSize
+                        }deg)`;
+                        spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
+                        spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
+                            0.25 + 0.75 * Math.min(1, progress * 2)
+                        }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        spotlightInnerRef.current.style.transform = `rotateY(-${
+                            32 + Math.min(progress * 2, 1) * 15 * beamSize
+                        }deg)`;
+                    }
+                }
+            });
         }
-    }, [props.uid, direction, scroll]);
+    }, [props.uid, direction, beamSize, scroll]);
 
     return (
         <div
@@ -79,8 +115,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
             <Dot uid={props.uid} id={6} />
             <Dot uid={props.uid} id={7} />
             <Dot uid={props.uid} id={8} />
-            <div className="spotlight">
-                <div className="spotlight-inner" />
+            <div className="spotlight" ref={spotlightRef}>
+                <div className="spotlight-inner" ref={spotlightInnerRef} />
             </div>
             <img src={props.imgSrc} alt={props.imgAlt} />
         </div>

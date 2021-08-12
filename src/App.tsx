@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
 import { Trans, useTranslation } from 'react-i18next';
 
 import Assets from 'assets';
@@ -16,6 +16,7 @@ import './styles/Green.scss';
 
 export function Welcome(): JSX.Element {
     const { t } = useTranslation();
+    const { scroll } = useLocomotiveScroll();
 
     return (
         <section data-scroll-section className="dark" id="welcome">
@@ -49,7 +50,9 @@ export function Welcome(): JSX.Element {
             </div>
             <div className="container">
                 <a
-                    href="#trustlayer"
+                    onClick={() => {
+                        scroll.scrollTo(document.getElementById('trustlayer'));
+                    }}
                     className="scroll-cta-container scale-anim d-flex flex-row align-self-center align-self-md-end align-items-center mb-5 mt-4 mt-lg-0"
                 >
                     <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
@@ -182,6 +185,7 @@ export function Rewards(): JSX.Element {
                             uid={'lumreward'}
                             imgSrc={Assets.images.diamondIllu}
                             imgAlt="Universal LUM reward"
+                            beamSize={0.9}
                         />
                     </div>
                     <div className="col-12 col-lg-6">
