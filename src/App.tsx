@@ -70,7 +70,11 @@ export function TrustLayer(): JSX.Element {
             <div className="container">
                 <div className="row flex-lg-row flex-column justify-content-between">
                     <div className="col-lg-6">
-                        <SpotlightImage imgSrc={Assets.images.doubleMirror} imgAlt="Business Trust Layer" />
+                        <SpotlightImage
+                            uid={'trustlayer'}
+                            imgSrc={Assets.images.doubleMirror}
+                            imgAlt="Business Trust Layer"
+                        />
                     </div>
                     <div className="col-lg-6">
                         <h1>
@@ -155,7 +159,11 @@ export function Partnering(): JSX.Element {
                         </div>
                     </div>
                     <div className="col-lg-7 d-flex align-items-center justify-content-end">
-                        <SpotlightImage imgSrc={Assets.images.businessLayer} imgAlt="Partnering with third parties" />
+                        <SpotlightImage
+                            uid={'partnering'}
+                            imgSrc={Assets.images.businessLayer}
+                            imgAlt="Partnering with third parties"
+                        />
                     </div>
                 </div>
             </div>
@@ -169,7 +177,11 @@ export function Rewards(): JSX.Element {
             <div className="container">
                 <div className="row flex-md-row flex-column justify-content-between align-items-center">
                     <div className="col-lg-6">
-                        <SpotlightImage imgSrc={Assets.images.diamondIllu} imgAlt="Universal LUM reward" />
+                        <SpotlightImage
+                            uid={'lumreward'}
+                            imgSrc={Assets.images.diamondIllu}
+                            imgAlt="Universal LUM reward"
+                        />
                     </div>
                     <div className="col-12 col-lg-6">
                         <h1>
