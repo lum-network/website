@@ -6,6 +6,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import './styles/SpotlightImage.scss';
 
 interface Props {
+    direction?: 1 | -1;
     uid: string;
     className?: string;
     imgSrc: string;
@@ -31,6 +32,8 @@ const Dot = (props: DotProps): JSX.Element => {
 
 const SpotlightImage = (props: Props): JSX.Element => {
     const { scroll } = useLocomotiveScroll();
+    const direction = props.direction || 1;
+
     useEffect(() => {
         if (scroll) {
             gsap.registerPlugin(MotionPathPlugin);
@@ -46,9 +49,9 @@ const SpotlightImage = (props: Props): JSX.Element => {
                                 delay: (8 - i) / 10,
                                 motionPath: {
                                     path: [
-                                        { x: -1200, y: -200 },
-                                        { x: -800, y: 200 },
-                                        { x: -400, y: -200 },
+                                        { x: direction * -1200, y: -200 },
+                                        { x: direction * -800, y: 200 },
+                                        { x: direction * -400, y: -200 },
                                         { x: 0, y: 0 },
                                     ],
                                     type: 'power4',
@@ -58,7 +61,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 }
             });
         }
-    }, [props.uid, scroll]);
+    }, [props.uid, direction, scroll]);
 
     return (
         <div
@@ -66,7 +69,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
             data-scroll-id={props.uid}
             data-scroll-call="spotlight-call"
             data-scroll-class="show"
-            className={`spotlight-img-container ${props.className || ''}`}
+            className={`spotlight-img-container ${direction === -1 ? 'reverse' : ''} ${props.className || ''}`}
         >
             <Dot uid={props.uid} id={1} />
             <Dot uid={props.uid} id={2} />

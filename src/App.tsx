@@ -163,6 +163,7 @@ export function Partnering(): JSX.Element {
                             uid={'partnering'}
                             imgSrc={Assets.images.businessLayer}
                             imgAlt="Partnering with third parties"
+                            direction={-1}
                         />
                     </div>
                 </div>

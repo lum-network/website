@@ -40,6 +40,10 @@
     transform: translateX(-50vh);
 }
 
+.spotlight-img-container.reverse .dot-wrapper {
+    transform: translateX(50vh);
+}
+
 .spotlight-img-container .dot {
     position: absolute;
     width: 22px;
@@ -48,6 +52,11 @@
     transform: translate(-180px, 0px);
     transition: all 1.5s ease-in-out;
     transition-delay: 1500ms;
+}
+
+.spotlight-img-container.reverse .dot {
+    transform-origin: -169px 11px;
+    transform: translate(180px, 0px);
 }
 
 .spotlight-img-container .dot .dot-inner-layer-1,
@@ -98,4 +107,29 @@
 }
 .spotlight-img-container .rotate .dot.dot-8 {
     transform: translate(-180px, 0px) rotateZ(-315deg);
+}
+
+.spotlight-img-container.reverse .rotate .dot.dot-1 {
+    transform: translate(180px, 0px) rotateZ(0);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-2 {
+    transform: translate(180px, 0px) rotateZ(45deg);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-3 {
+    transform: translate(180px, 0px) rotateZ(90deg);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-4 {
+    transform: translate(180px, 0px) rotateZ(135deg);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-5 {
+    transform: translate(180px, 0px) rotateZ(180deg);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-6 {
+    transform: translate(180px, 0px) rotateZ(225deg);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-7 {
+    transform: translate(180px, 0px) rotateZ(270deg);
+}
+.spotlight-img-container.reverse .rotate .dot.dot-8 {
+    transform: translate(180px, 0px) rotateZ(315deg);
 }
