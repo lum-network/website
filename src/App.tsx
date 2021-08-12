@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
 import { gsap } from 'gsap';
@@ -27,14 +27,15 @@ export function MvDot(props: { uid: string }): JSX.Element {
         if (scroll) {
             const pathId = Math.floor(Math.random() * MV_PATH_COUNT + 1);
             gsap.to(`.mv-dot-${props.uid}`, {
-                duration: 5,
+                duration: 4,
                 motionPath: {
                     path: `#mv-dot-path-${pathId}`,
                     align: `#mv-dot-path-${pathId}`,
                     alignOrigin: [0.5, 0.5],
                     start: 0,
                     end: 1,
-                    curviness: 1.5,
+                    curviness: 2,
+                    type: 'elastic',
                 },
             });
         }
@@ -62,23 +63,27 @@ export function Welcome(): JSX.Element {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            const newDots = dots.slice();
-            const dotId = dots.length > 0 ? parseInt((dots[dots.length - 1].key || '0').toString()) + 1 : 1;
-            newDots.push(<MvDot key={`${dotId}`} uid={`${dotId}`} />);
-            setDots(newDots);
-        }, 3000);
+            if (dots.length > 10) {
+                const newDots = dots.slice(Math.max(dots.length - 25, 1));
+                setDots(newDots);
+            }
+        }, 500);
         return () => clearInterval(timer);
+    }, [dots, setDots]);
+
+    const sendDot = useCallback(() => {
+        const newDots = dots.slice();
+        const dotId = dots.length > 0 ? parseInt((dots[dots.length - 1].key || '0').toString()) + 1 : 1;
+        newDots.push(<MvDot key={`${dotId}`} uid={`${dotId}`} />);
+        setDots(newDots);
     }, [dots, setDots]);
 
     useEffect(() => {
         const timer = setInterval(() => {
-            if (dots.length > 10) {
-                const newDots = dots.slice(1);
-                setDots(newDots);
-            }
-        }, 1000);
+            sendDot();
+        }, 3000);
         return () => clearInterval(timer);
-    }, [dots, setDots]);
+    }, [sendDot]);
 
     return (
         <section data-scroll-section className="dark" id="welcome">
@@ -125,6 +130,7 @@ export function Welcome(): JSX.Element {
                             alt="Lum Network Enlightment"
                             className="glowing-bubble"
                             ref={bubbleRef}
+                            onClick={sendDot}
                         />
                     </div>
                 </div>
