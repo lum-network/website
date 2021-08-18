@@ -1,0 +1,111 @@
+@import '_main';
+
+#welcome {
+    justify-content: space-between;
+}
+
+#welcome .glowing-bubble {
+    width: 200px;
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+#welcome h1 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 6rem;
+    line-height: 7rem;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+}
+
+#welcome p {
+    font-style: normal;
+    font-weight: $light;
+    font-size: 1.125rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    z-index: 2;
+}
+
+#welcome .scroll-cta-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    color: $color-primary;
+}
+
+#welcome .arrow-icon-container {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome .arrow-icon {
+    object-fit: contain;
+}
+
+#welcome .dot {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    left: 10%;
+    opacity: 0;
+    animation: dotAppearIn 0.5s linear forwards;
+    z-index: 1;
+}
+
+#welcome .dot .dot-inner-layer-1,
+#welcome .dot .dot-inner-layer-2,
+#welcome .dot .dot-inner-layer-3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fffea2;
+}
+
+#welcome .dot .dot-inner-layer-1 {
+    filter: blur(2px);
+}
+
+#welcome .dot .dot-inner-layer-2 {
+    opacity: 0.2;
+    filter: blur(9px);
+}
+
+#welcome .dot .dot-inner-layer-3 {
+    opacity: 0.8;
+    filter: blur(14px);
+}
+
+#welcome svg {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    width: 100vw;
+    transform-origin: top right;
+    transform: translateY(-50%) scaleX(1.1);
+    opacity: 0.0;
+    z-index: -1;
+}
+
+@keyframes dotAppearIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -2,6 +2,7 @@
 @import 'worksans';
 @import 'firasans';
 @import 'gothamrounded';
+@import 'locomotive-scroll';
 
 // primary font
 $primary_font: 'Fira Sans';
@@ -17,7 +18,16 @@ $bold: 700;
 $extrabold: 700;
 $black: 900;
 
-// Font sizes
+// Colors
+$color-dark: #2a2c38;
+$color-light: white;
+$color-primary: white;
+$color-black: #1c2227;
+$color-grey: #b5b5b5;
+$color-green: #3BC849;
+
+// DEPRECATED
+$color-background: black;
 $font-xs: 0.75rem;
 $font-sm: 0.875rem;
 $primary-fs: 1rem;
@@ -25,85 +35,3 @@ $font-md: 1.1rem;
 $font-lg: 1.3rem;
 $font-xl: 1.6rem;
 $font-xxl: 1.875rem;
-
-// Colors
-$color-background: black;
-$color-primary: white;
-$color-grey: #b5b5b5;
-$color-dark-grey: #2c2c2d;
-$color-darker-grey: #1a1b1c;
-$color-green: #3bc849;
-
-body {
-    font-family: $primary_font;
-    font-size: $primary-fs;
-    font-weight: $regular;
-}
-
-#root {
-    white-space: pre-line;
-}
-
-.white-section {
-    background-color: $color-primary;
-    color: $color-background;
-}
-
-.green-title {
-    color: $color-green;
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.green-dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 7.5px;
-    background-color: $color-green;
-}
-
-.main-layout {
-    display: flex;
-    flex-direction: column;
-    //justify-content: space-between;
-    background-color: $color-background;
-    color: $color-primary;
-    flex: 1;
-    min-height: 100vh;
-}
-
-.main-layout-content {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100vw;
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
-.horizontal-padding {
-    padding-left: 5rem;
-    padding-right: 5rem;
-    @include media-breakpoint-down(lg) {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
-
-.loading-container {
-    background-color: $color-background;
-}
-
-.loading-bar-container {
-    width: 318px;
-}
-
-.section-icon-container {
-    width: 70px;
-    height: 70px;
-    border-radius: 35px;
-    background-color: $color-dark-grey;
-}
-
-.section-icon {
-    filter: drop-shadow(0 0 0.15rem white);
-}
