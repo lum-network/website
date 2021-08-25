@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
-import { gsap } from 'gsap';
+import { gsap, Linear } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 import Assets from 'assets';
@@ -18,28 +18,50 @@ import './styles/Green.scss';
 
 gsap.registerPlugin(MotionPathPlugin);
 
-const MV_PATH_COUNT = 4;
+const MV_PATH_COUNT = 6;
 
-export function MvDot(props: { uid: string }): JSX.Element {
+export function MvDot(props: { uid: string; glowRef: RefObject<HTMLDivElement> }): JSX.Element {
     const { scroll } = useLocomotiveScroll();
 
     useEffect(() => {
-        if (scroll) {
+        if (scroll && props.glowRef.current) {
             const pathId = Math.floor(Math.random() * MV_PATH_COUNT + 1);
-            gsap.to(`.mv-dot-${props.uid}`, {
-                duration: 4,
-                motionPath: {
-                    path: `#mv-dot-path-${pathId}`,
-                    align: `#mv-dot-path-${pathId}`,
-                    alignOrigin: [0.5, 0.5],
-                    start: 0,
-                    end: 1,
-                    curviness: 2,
-                    type: 'elastic',
-                },
-            });
+            gsap.timeline()
+                .to(`.mv-dot-${props.uid}`, {
+                    duration: 3.0 + Math.random() * 2,
+                    motionPath: {
+                        path: `#mv-dot-path-${pathId}`,
+                        align: `#mv-dot-path-${pathId}`,
+                        alignOrigin: [0.5, 0.5],
+                        start: 0,
+                        end: 1,
+                        curviness: 2,
+                        type: 'elastic',
+                    },
+                    ease: Linear.easeIn,
+                })
+                .add(() => {
+                    if (props.glowRef.current) {
+                        const classes = props.glowRef.current.classList.toString().split(' ');
+                        const lastCls = classes[classes.length - 1];
+                        const popId = parseInt(lastCls.substr(3));
+                        props.glowRef.current?.classList.add(`pop${popId ? popId + 1 : 1}`);
+                    }
+                }, '-=0.2')
+                .call(() => {
+                    setTimeout(() => {
+                        if (props.glowRef.current) {
+                            const classes = props.glowRef.current.classList.toString().split(' ');
+                            const lastCls = classes[classes.length - 1];
+                            const popId = parseInt(lastCls.substr(3));
+                            if (popId) {
+                                props.glowRef.current?.classList.remove(`pop${popId}`);
+                            }
+                        }
+                    }, 450);
+                });
         }
-    }, [scroll, props.uid]);
+    }, [scroll, props.uid, props.glowRef]);
 
     return (
         <div className={`dot mv-dot-${props.uid}`}>
@@ -53,11 +75,12 @@ export function Welcome(): JSX.Element {
     const { t } = useTranslation();
     const { scroll } = useLocomotiveScroll();
     const bubbleRef = useRef<HTMLImageElement>(null);
+    const glowRef = useRef<HTMLDivElement>(null);
     const [dots, setDots] = useState<JSX.Element[]>([]);
 
     useEffect(() => {
         if (scroll && bubbleRef.current) {
-            setDots([<MvDot key="1" uid="1" />]);
+            setDots([<MvDot key="1" uid="1" glowRef={glowRef} />]);
         }
     }, [scroll]);
 
@@ -74,7 +97,7 @@ export function Welcome(): JSX.Element {
     const sendDot = useCallback(() => {
         const newDots = dots.slice();
         const dotId = dots.length > 0 ? parseInt((dots[dots.length - 1].key || '0').toString()) + 1 : 1;
-        newDots.push(<MvDot key={`${dotId}`} uid={`${dotId}`} />);
+        newDots.push(<MvDot key={`${dotId}`} uid={`${dotId}`} glowRef={glowRef} />);
         setDots(newDots);
     }, [dots, setDots]);
 
@@ -126,6 +149,25 @@ export function Welcome(): JSX.Element {
                             strokeLinecap="round"
                         />
                     </svg>
+                    <svg width="2006" height="469" viewBox="0 0 2006 469" fill="none">
+                        <path
+                            id="mv-dot-path-5"
+                            d="M3 385.635C68.0145 94.6193 233.131 -71.8898 406.502 36.1159C579.874 144.122 660.368 763.154 1182.55 290.129C1704.73 -182.896 1759.45 267.001 2003 240.5"
+                            stroke="white"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+                    <svg width="2000" height="411" viewBox="0 0 2000 411" fill="none">
+                        <path
+                            id="mv-dot-path-6"
+                            d="M-4 3C65.5 288 397.448 179.773 500.5 250.5C603.552 321.227 753.917 455.949 919.5 390.5C1085.08 325.051 1205.88 -44.7372 1446.5 159C1687.12 362.737 1778 407 1999 189"
+                            stroke="white"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+
                     <div className="col-lg-7 text-center text-md-start">
                         <h1>{t('landing.title')}</h1>
                         <p>{t('landing.description')}</p>
@@ -142,14 +184,11 @@ export function Welcome(): JSX.Element {
                             </Link>
                         </div>
                     </div>
-                    <div className="col-lg-5 d-flex justify-content-end">
-                        <img
-                            src={Assets.images.glowingBubble}
-                            alt="Lum Network Enlightment"
-                            className="glowing-bubble"
-                            ref={bubbleRef}
-                            onClick={sendDot}
-                        />
+                    <div className="col-lg-5 d-flex justify-content-end" onClick={sendDot}>
+                        <div className="glowing-bubble">
+                            <div className="glow" ref={glowRef} />
+                            <img src={Assets.images.glowingBubble} alt="Lum Network Enlightment" ref={bubbleRef} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -414,8 +453,7 @@ const App = (): JSX.Element => {
     return (
         <LocomotiveScrollProvider
             options={{
-                smooth: true,
-                lerp: 0.1,
+                smooth: false,
             }}
             containerRef={containerRef}
         >
