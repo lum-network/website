@@ -1,7 +1,7 @@
 import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
-import { gsap, Linear } from 'gsap';
+import { gsap, Back, Linear, Power1 } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 import Assets from 'assets';
@@ -16,9 +16,37 @@ import './styles/Rewards.scss';
 import './styles/LumPowered.scss';
 import './styles/Green.scss';
 
-gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(MotionPathPlugin, SplitText);
 
 const MV_PATH_COUNT = 6;
+
+const buildSectionTimeline = (sectionId: string): gsap.core.Timeline => {
+    const titleSplit = new SplitText(`#${sectionId} .section-content-title`, { type: 'words,chars' });
+    const tl = gsap.timeline();
+    tl.pause();
+    tl.fromTo(`#${sectionId}`, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    tl.from(titleSplit.chars, {
+        duration: 1.0,
+        opacity: 0,
+        textShadow: `0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
+        ease: Power1.easeIn,
+        stagger: 0.075,
+    });
+    tl.from(
+        `#${sectionId} .section-content-info`,
+        {
+            duration: 1,
+            opacity: 0,
+            ease: Power1.easeIn,
+            stagger: 0.2,
+        },
+        '=-1',
+    );
+    tl.add(() => {
+        titleSplit.revert();
+    }, 6);
+    return tl;
+};
 
 export function MvDot(props: {
     uid: string;
@@ -79,6 +107,7 @@ export function MvDot(props: {
         </div>
     );
 }
+
 export function Welcome(): JSX.Element {
     const { t } = useTranslation();
     const { scroll } = useLocomotiveScroll();
@@ -86,10 +115,21 @@ export function Welcome(): JSX.Element {
     const glowContainerRef = useRef<HTMLDivElement>(null);
     const glowRef = useRef<HTMLDivElement>(null);
     const [dots, setDots] = useState<JSX.Element[]>([]);
+    const timeline = useRef<gsap.core.Timeline>();
 
     useEffect(() => {
-        if (scroll && bubbleRef.current) {
-            setDots([<MvDot key="1" uid="1" glowContainerRef={glowContainerRef} glowRef={glowRef} />]);
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('welcome-content');
+            timeline.current.to(
+                `#welcome .glowing-bubble`,
+                {
+                    opacity: 1,
+                    duration: 1.0,
+                    ease: Power1.easeIn,
+                },
+                '2',
+            );
+            timeline.current.resume();
         }
     }, [scroll]);
 
@@ -120,7 +160,13 @@ export function Welcome(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="welcome">
             <div className="container" />
-            <div className="container">
+            <div
+                id="welcome-content"
+                className="container"
+                data-scroll
+                data-scroll-id={'welcome-content'}
+                data-scroll-call={'section-content-call'}
+            >
                 <div className="row flex-lg-row flex-column-reverse align-items-center">
                     <svg width="2005" height="195" viewBox="0 0 2005 195" fill="none">
                         <path
@@ -178,9 +224,9 @@ export function Welcome(): JSX.Element {
                     </svg>
 
                     <div className="col-lg-7 text-center text-md-start">
-                        <h1>{t('landing.title')}</h1>
-                        <p>{t('landing.description')}</p>
-                        <div className="d-flex align-items-center">
+                        <h1 className="section-content-title">{t('landing.title')}</h1>
+                        <p className="section-content-info">{t('landing.description')}</p>
+                        <div className="section-content-info d-flex align-items-center">
                             <Button onClick={() => window.alert('TODO')}>
                                 <strong className="px-3">{t('common.getLum')}</strong>
                             </Button>
@@ -221,10 +267,32 @@ export function Welcome(): JSX.Element {
 
 export function TrustLayer(): JSX.Element {
     const { t } = useTranslation();
+    const { scroll } = useLocomotiveScroll();
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('trustlayer-content');
+        }
+        if (scroll && timeline.current) {
+            scroll.on('scroll', (args: any) => {
+                if (typeof args.currentElements['trustlayer-content'] === 'object' && timeline.current) {
+                    const progress = args.currentElements['trustlayer-content'].progress;
+                    timeline.current.seek(Math.max(0, progress - 0.05) * 10);
+                }
+            });
+        }
+    }, [scroll]);
 
     return (
         <section data-scroll-section className="dark" id="trustlayer">
-            <div className="container">
+            <div
+                id={'trustlayer-content'}
+                className="container"
+                data-scroll
+                data-scroll-id={'trustlayer-content'}
+                data-scroll-call={'section-content-call'}
+            >
                 <div className="row flex-lg-row flex-column justify-content-between">
                     <div className="col-lg-6">
                         <SpotlightImage
@@ -234,32 +302,32 @@ export function TrustLayer(): JSX.Element {
                         />
                     </div>
                     <div className="col-lg-6">
-                        <h1>
+                        <h1 className="section-content-title">
                             <Trans i18nKey="business.title" />
                         </h1>
                         <div className="row">
-                            <div className="col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.contentStamping} alt="Content stamping" />
                                 </div>
                                 <h2>{t('business.store.title')}</h2>
                                 <p>{t('business.store.description')}</p>
                             </div>
-                            <div className="col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.traceabilityIcon} alt="Traceability" />
                                 </div>
                                 <h2>{t('business.tracability.title')}</h2>
                                 <p>{t('business.tracability.description')}</p>
                             </div>
-                            <div className="col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.transparencyIcon} alt="Transparency" />
                                 </div>
                                 <h2>{t('business.transparency.title')}</h2>
                                 <p>{t('business.transparency.description')}</p>
                             </div>
-                            <div className="col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.businessIcon} alt="Business application" />
                                 </div>
@@ -276,17 +344,39 @@ export function TrustLayer(): JSX.Element {
 
 export function Partnering(): JSX.Element {
     const { t } = useTranslation();
+    const { scroll } = useLocomotiveScroll();
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('partnering-content');
+        }
+        if (scroll && timeline.current) {
+            scroll.on('scroll', (args: any) => {
+                if (typeof args.currentElements['partnering-content'] === 'object' && timeline.current) {
+                    const progress = args.currentElements['partnering-content'].progress;
+                    timeline.current.seek(Math.max(0, progress - 0.1) * 10);
+                }
+            });
+        }
+    }, [scroll]);
 
     return (
         <section data-scroll-section className="dark" id="partnering">
-            <div className="container">
+            <div
+                id={'partnering-content'}
+                className="container"
+                data-scroll
+                data-scroll-id={'partnering-content'}
+                data-scroll-call={'section-content-call'}
+            >
                 <div className="row flex-md-row flex-column-reverse justify-content-between">
                     <div className="col-lg-5">
-                        <h1>
+                        <h1 className="section-content-title">
                             <Trans i18nKey="qAndA.title" />
                         </h1>
                         <div className="row">
-                            <div className="col-12 d-flex uvp-container">
+                            <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.diamondIcon} className="section-icon" />
                                 </div>
@@ -295,7 +385,7 @@ export function Partnering(): JSX.Element {
                                     <p>{t('qAndA.companies.description')}</p>
                                 </div>
                             </div>
-                            <div className="col-12 d-flex uvp-container">
+                            <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.scaleIcon} className="section-icon" />
                                 </div>
@@ -304,7 +394,7 @@ export function Partnering(): JSX.Element {
                                     <p>{t('qAndA.trust.description')}</p>
                                 </div>
                             </div>
-                            <div className="col-12 d-flex uvp-container">
+                            <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.communityIcon} className="section-icon" />
                                 </div>
@@ -330,9 +420,32 @@ export function Partnering(): JSX.Element {
 }
 
 export function Rewards(): JSX.Element {
+    const { scroll } = useLocomotiveScroll();
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('rewards-content');
+        }
+        if (scroll && timeline.current) {
+            scroll.on('scroll', (args: any) => {
+                if (typeof args.currentElements['rewards-content'] === 'object' && timeline.current) {
+                    const progress = args.currentElements['rewards-content'].progress;
+                    timeline.current.seek(Math.max(0, progress - 0.125) * 10);
+                }
+            });
+        }
+    }, [scroll]);
+
     return (
         <section data-scroll-section className="dark" id="rewards">
-            <div className="container">
+            <div
+                id={'rewards-content'}
+                className="container"
+                data-scroll
+                data-scroll-id={'rewards-content'}
+                data-scroll-call={'section-content-call'}
+            >
                 <div className="row flex-md-row flex-column justify-content-between align-items-center">
                     <div className="col-lg-6">
                         <SpotlightImage
@@ -343,10 +456,10 @@ export function Rewards(): JSX.Element {
                         />
                     </div>
                     <div className="col-12 col-lg-6">
-                        <h1>
+                        <h1 className="section-content-title">
                             <Trans i18nKey="rewards.title" />
                         </h1>
-                        <p>
+                        <p className="section-content-info">
                             <Trans i18nKey="rewards.description" />
                         </p>
                     </div>
@@ -358,24 +471,46 @@ export function Rewards(): JSX.Element {
 
 export function LumPowered(): JSX.Element {
     const { t } = useTranslation();
+    const { scroll } = useLocomotiveScroll();
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('lum-content');
+        }
+        if (scroll && timeline.current) {
+            scroll.on('scroll', (args: any) => {
+                if (typeof args.currentElements['lum-content'] === 'object' && timeline.current) {
+                    const progress = args.currentElements['lum-content'].progress;
+                    timeline.current.seek(Math.max(0, progress - 0.05) * 10);
+                }
+            });
+        }
+    }, [scroll]);
 
     return (
         <section data-scroll-section className="dark" id="lum">
-            <div className="container">
+            <div
+                id={'lum-content'}
+                className="container"
+                data-scroll
+                data-scroll-id={'lum-content'}
+                data-scroll-call={'section-content-call'}
+            >
                 <div className="row title-desc">
                     <div className="col-lg-4">
-                        <h1>
+                        <h1 className="section-content-info">
                             {t('poweredBy.title')}
                             <strong>Lum.</strong>
                         </h1>
                     </div>
                     <div className="col-lg-8">
-                        <p>{t('poweredBy.description')}</p>
+                        <p className="section-content-info">{t('poweredBy.description')}</p>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 col-lg-4">
-                        <div className="power-card">
+                        <div className="section-content-info power-card">
                             <img src={Assets.images.paperIllu} alt="Become the future" />
                             <div>
                                 <h2>{t('poweredBy.security.title')}</h2>
@@ -384,7 +519,7 @@ export function LumPowered(): JSX.Element {
                         </div>
                     </div>
                     <div className="col-12 col-lg-4">
-                        <div className="power-card">
+                        <div className="section-content-info power-card">
                             <img src={Assets.images.cubeIllu} alt="Secure the chain" />
                             <div>
                                 <h2>{t('poweredBy.stake.title')}</h2>
@@ -393,7 +528,7 @@ export function LumPowered(): JSX.Element {
                         </div>
                     </div>
                     <div className="col-12 col-lg-4">
-                        <div className="power-card">
+                        <div className="section-content-info power-card">
                             <img src={Assets.images.coinsIllu} alt="Stake and earn" />
                             <div>
                                 <h2>{t('poweredBy.future.title')}</h2>
@@ -402,7 +537,7 @@ export function LumPowered(): JSX.Element {
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="section-content-info row">
                     <div className="col-lg-12 d-flex align-items-center justify-content-center">
                         <Button className="align-self-center" onClick={() => window.alert('TODO')}>
                             <strong className="px-3">{t('common.getLum')}</strong>
@@ -416,34 +551,56 @@ export function LumPowered(): JSX.Element {
 
 export function Green(): JSX.Element {
     const { t } = useTranslation();
+    const { scroll } = useLocomotiveScroll();
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('green-content');
+        }
+        if (scroll && timeline.current) {
+            scroll.on('scroll', (args: any) => {
+                if (typeof args.currentElements['green-content'] === 'object' && timeline.current) {
+                    const progress = args.currentElements['green-content'].progress;
+                    timeline.current.seek(Math.max(0, progress - 0.1) * 10);
+                }
+            });
+        }
+    }, [scroll]);
 
     return (
         <section data-scroll-section className="light" id="green">
-            <div className="container">
+            <div
+                id={'green-content'}
+                className="container"
+                data-scroll
+                data-scroll-id={'green-content'}
+                data-scroll-call={'section-content-call'}
+            >
                 <div className="row">
                     <div className="col-lg-6">
-                        <h1>
+                        <h1 className="section-content-info">
                             <Trans i18nKey="greenSection.title" />
                         </h1>
                     </div>
                     <div className="col-lg-6">
                         <div className="row">
-                            <div className="col-lg-6">
+                            <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
                                 <h2>{t('greenSection.pOfS.titleCosmos')}</h2>
                                 <p>{t('greenSection.pOfS.description')}</p>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
                                 <h2>{t('greenSection.carbon.title')}</h2>
                                 <p>{t('greenSection.carbon.description')}</p>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
                                 <h2>{t('greenSection.costs.title')}</h2>
                                 <p>{t('greenSection.costs.description')}</p>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
                                 <h2>{t('greenSection.blocks.title')}</h2>
                                 <p>{t('greenSection.blocks.description')}</p>

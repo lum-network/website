@@ -4,6 +4,10 @@
     justify-content: space-between;
 }
 
+#welcome-content {
+    opacity: 0;
+}
+
 #welcome .glowing-bubble {
     position: relative;
     display: flex;
@@ -15,6 +19,7 @@
     cursor: pointer;
     pointer-events: all;
     transition: 100ms all linear;
+    opacity: 0;
 }
 
 #welcome .glowing-bubble.pop {
