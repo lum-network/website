@@ -1,7 +1,7 @@
 import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
-import { gsap, Back, Linear, Power1 } from 'gsap';
+import { gsap, Linear, Power1 } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 import Assets from 'assets';
@@ -164,8 +164,8 @@ export function Welcome(): JSX.Element {
                 id="welcome-content"
                 className="container"
                 data-scroll
-                data-scroll-id={'welcome-content'}
-                data-scroll-call={'section-content-call'}
+                data-scroll-id="welcome-content"
+                data-scroll-call="section-content-call"
             >
                 <div className="row flex-lg-row flex-column-reverse align-items-center">
                     <svg width="2005" height="195" viewBox="0 0 2005 195" fill="none">
@@ -287,11 +287,11 @@ export function TrustLayer(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="trustlayer">
             <div
-                id={'trustlayer-content'}
+                id="trustlayer-content"
                 className="container"
                 data-scroll
-                data-scroll-id={'trustlayer-content'}
-                data-scroll-call={'section-content-call'}
+                data-scroll-id="trustlayer-content"
+                data-scroll-call="section-content-call"
             >
                 <div className="row flex-lg-row flex-column justify-content-between">
                     <div className="col-lg-6">
@@ -364,11 +364,11 @@ export function Partnering(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="partnering">
             <div
-                id={'partnering-content'}
+                id="partnering-content"
                 className="container"
                 data-scroll
-                data-scroll-id={'partnering-content'}
-                data-scroll-call={'section-content-call'}
+                data-scroll-id="partnering-content"
+                data-scroll-call="section-content-call"
             >
                 <div className="row flex-md-row flex-column-reverse justify-content-between">
                     <div className="col-lg-5">
@@ -440,11 +440,11 @@ export function Rewards(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="rewards">
             <div
-                id={'rewards-content'}
+                id="rewards-content"
                 className="container"
                 data-scroll
-                data-scroll-id={'rewards-content'}
-                data-scroll-call={'section-content-call'}
+                data-scroll-id="rewards-content"
+                data-scroll-call="section-content-call"
             >
                 <div className="row flex-md-row flex-column justify-content-between align-items-center">
                     <div className="col-lg-6">
@@ -491,11 +491,11 @@ export function LumPowered(): JSX.Element {
     return (
         <section data-scroll-section className="dark" id="lum">
             <div
-                id={'lum-content'}
+                id="lum-content"
                 className="container"
                 data-scroll
-                data-scroll-id={'lum-content'}
-                data-scroll-call={'section-content-call'}
+                data-scroll-id="lum-content"
+                data-scroll-call="section-content-call"
             >
                 <div className="row title-desc">
                     <div className="col-lg-4">
@@ -571,11 +571,11 @@ export function Green(): JSX.Element {
     return (
         <section data-scroll-section className="light" id="green">
             <div
-                id={'green-content'}
+                id="green-content"
                 className="container"
                 data-scroll
-                data-scroll-id={'green-content'}
-                data-scroll-call={'section-content-call'}
+                data-scroll-id="green-content"
+                data-scroll-call="section-content-call"
             >
                 <div className="row">
                     <div className="col-lg-6">
