@@ -3,6 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
 import { gsap, Linear, Power1 } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Assets from 'assets';
 import { LUM_NETWORK_WHITEPAPER } from 'constant';
@@ -16,12 +17,52 @@ import './styles/Rewards.scss';
 import './styles/LumPowered.scss';
 import './styles/Green.scss';
 
-gsap.registerPlugin(MotionPathPlugin, SplitText);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, SplitText);
 
 const MV_PATH_COUNT = 6;
 
 const buildSectionTimeline = (sectionId: string): gsap.core.Timeline => {
     const titleSplit = new SplitText(`#${sectionId} .section-content-title`, { type: 'words,chars' });
+    gsap.to(`#${sectionId} .section-content-title`, {
+        y: -200,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: `#${sectionId}`,
+            start: 'top 30%',
+            end: 'bottom top',
+            scrub: true,
+        },
+    });
+    gsap.to(`#${sectionId} .section-content-info`, {
+        y: -150,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: `#${sectionId}`,
+            start: 'top 30%',
+            end: 'bottom top',
+            scrub: true,
+        },
+    });
+    gsap.from(`#${sectionId} .section-content-title`, {
+        y: 100,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: `#${sectionId}`,
+            start: 'top bottom',
+            end: 'top 40%',
+            scrub: true,
+        },
+    });
+    gsap.from(`#${sectionId} .section-content-info`, {
+        y: 200,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: `#${sectionId}`,
+            start: 'top bottom',
+            end: 'top 40%',
+            scrub: true,
+        },
+    });
     const tl = gsap.timeline();
     tl.pause();
     tl.fromTo(`#${sectionId}`, { opacity: 0 }, { opacity: 1, duration: 0.5 });
