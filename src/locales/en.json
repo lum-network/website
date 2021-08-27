@@ -6,13 +6,13 @@
         "getInformed": "Get informed"
     },
     "landing": {
-        "title": "Business Trust Engine",
-        "description": "Lum Network introduces the first decentralized protocol for businesses to build authentic trust with their customers.",
+        "title": "Business<br/>Trust Engine",
+        "description": "Lum Network introduces the first decentralized protocol<br class=\"d-none d-lg-block\"/> for businesses to build authentic trust with their customers.",
         "whitePaper": "White paper",
         "scrollAction": "Get enlightened by scrolling"
     },
     "business": {
-        "title": "The <strong>trust layer</strong> for\n<strong>companies</strong> of the <strong>future</strong>",
+        "title": "The <strong>trust layer</strong> for <br class=\"d-none d-lg-block\"/><strong>companies</strong> of the <strong>future</strong>",
         "store": {
             "title": "Content stamping",
             "description": "Authenticate and stamp content on-chain to ensure information is accurate, verified and publicly accessible while abiding with data privacy regulations."
@@ -31,27 +31,27 @@
         }
     },
     "qAndA": {
-        "title": "<strong>Partnering</strong> with\ntrusted <strong>third parties</strong>",
+        "title": "<strong>Partnering</strong> with <br class=\"d-none d-lg-block\"/>trusted <strong>third parties</strong>",
         "companies": {
-            "title": "Not a disruption,\nbut an evolution",
+            "title": "Not a disruption, <br class=\"d-none d-lg-block\"/>but an evolution",
             "description": "Enabling major third parties working between retailers and their customers to evolve rather than being disrupted by new technologies."
         },
         "trust": {
-            "title": "Focused on\nlarge scale applications",
+            "title": "Focused on <br class=\"d-none d-lg-block\"/>large scale applications",
             "description": "The Lum Foundation is focused on working with trusted third parties to quickly onboard thousands of retailers and millions of customers."
         },
         "community": {
-            "title": "To create a massive\ncommunity of Lum members",
+            "title": "To create a massive <br class=\"d-none d-lg-block\"/>community of Lum members",
             "description": "The Lum Network is designed to be the trust layer for millions of users without exposing the complexity of the underlying technology."
         }
     },
     "rewards": {
-        "title": "Using a modern\n<strong>Universal Reward</strong>",
-        "description": "In return for value creation made by their users, we enabled businesses to benefit from <strong>on-chain rewards.</strong> Using a <strong>tangible</strong> asset, Lum Network’s <strong>native</strong> digital token, the <strong>LUM.</strong>"
+        "title": "Using a modern <br class=\"d-none d-lg-block\"/><strong>Universal Reward</strong>",
+        "description": "In return for value creation made by their users, we enabled businesses to benefit from <strong>on-chain rewards.</strong> <br />Using a <strong>tangible</strong> asset, Lum Network’s <strong>native</strong> digital token, the <strong>LUM.</strong>"
     },
     "poweredBy": {
-        "title": "Powered by the ",
-        "description": "Lum comes from the word “light” and expresses the value created by and for consumers throughout the purchasing experience cycle.\n\nIt is the fuel of the Lum Network and is used by businesses to store UGC and reward their customers, by validators and delegators to secure the network and many more.",
+        "title": "Powered by <br class=\"d-none d-lg-block\"/>the <strong>Lum.</strong>",
+        "description": "Lum comes from the word “light” and expresses the value created by and for consumers throughout any retail experience lifecycle. <br/><br/>It is the fuel of the Lum Network and is used by businesses to benefit from the trust layer while rewarding their customers, by validators and delegators to secure the network and many more.",
         "security": {
             "title": "BECOME THE FUTURE",
             "description": "Businesses use the Lum to pave the way of innovation in their respective fields."
@@ -68,7 +68,7 @@
     "greenSection": {
         "title": "Built with green mindset",
         "pOfS": {
-            "titleCosmos": "Cosmos & Tendermint DPOS",
+            "title": "Cosmos & Tendermint DPOS",
             "description": "The most advanced and secure Delegated Proof-Of-Stake algorithm is used to secure the network."
         },
         "carbon": {

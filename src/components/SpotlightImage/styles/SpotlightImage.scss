@@ -23,6 +23,7 @@
     left: 185px;
     transform: rotateZ(0deg); // controls the orientation of the beam
     z-index: 10;
+    pointer-events: none;
 }
 
 .spotlight-img-container .spotlight .spotlight-inner {

@@ -1,5 +1,5 @@
 import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { LocomotiveScrollProvider, useLocomotiveScroll } from 'react-locomotive-scroll';
 import { gsap, Linear, Power1 } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -308,8 +308,14 @@ export function Welcome(): JSX.Element {
                     </svg>
 
                     <div className="col-lg-7 text-center text-md-start">
-                        <h1 className="section-content-title">{t('landing.title')}</h1>
-                        <p className="section-content-info">{t('landing.description')}</p>
+                        <h1
+                            className="section-content-title"
+                            dangerouslySetInnerHTML={{ __html: t('landing.title') }}
+                        />
+                        <p
+                            className="section-content-info"
+                            dangerouslySetInnerHTML={{ __html: t('landing.description') }}
+                        />
                         <div className="section-content-info d-flex align-items-center">
                             <Button onClick={() => window.alert('TODO')}>
                                 <strong className="px-3">{t('common.getLum')}</strong>
@@ -386,37 +392,38 @@ export function TrustLayer(): JSX.Element {
                         />
                     </div>
                     <div className="col-lg-6">
-                        <h1 className="section-content-title">
-                            <Trans i18nKey="business.title" />
-                        </h1>
+                        <h1
+                            className="section-content-title"
+                            dangerouslySetInnerHTML={{ __html: t('business.title') }}
+                        />
                         <div className="row">
                             <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.contentStamping} alt="Content stamping" />
                                 </div>
-                                <h2>{t('business.store.title')}</h2>
-                                <p>{t('business.store.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('business.store.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('business.store.description') }} />
                             </div>
                             <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.traceabilityIcon} alt="Traceability" />
                                 </div>
-                                <h2>{t('business.tracability.title')}</h2>
-                                <p>{t('business.tracability.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('business.tracability.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('business.tracability.description') }} />
                             </div>
                             <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.transparencyIcon} alt="Transparency" />
                                 </div>
-                                <h2>{t('business.transparency.title')}</h2>
-                                <p>{t('business.transparency.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('business.transparency.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('business.transparency.description') }} />
                             </div>
                             <div className="section-content-info col-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.businessIcon} alt="Business application" />
                                 </div>
-                                <h2>{t('business.practices.title')}</h2>
-                                <p>{t('business.practices.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('business.practices.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('business.practices.description') }} />
                             </div>
                         </div>
                     </div>
@@ -456,17 +463,15 @@ export function Partnering(): JSX.Element {
             >
                 <div className="row flex-md-row flex-column-reverse justify-content-between">
                     <div className="col-lg-5">
-                        <h1 className="section-content-title">
-                            <Trans i18nKey="qAndA.title" />
-                        </h1>
+                        <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('qAndA.title') }} />
                         <div className="row">
                             <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.diamondIcon} className="section-icon" />
                                 </div>
                                 <div className="d-flex flex-column">
-                                    <h2>{t('qAndA.companies.title')}</h2>
-                                    <p>{t('qAndA.companies.description')}</p>
+                                    <h2 dangerouslySetInnerHTML={{ __html: t('qAndA.companies.title') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('qAndA.companies.description') }} />
                                 </div>
                             </div>
                             <div className="section-content-info col-12 d-flex uvp-container">
@@ -474,8 +479,8 @@ export function Partnering(): JSX.Element {
                                     <img src={Assets.images.scaleIcon} className="section-icon" />
                                 </div>
                                 <div>
-                                    <h2>{t('qAndA.trust.title')}</h2>
-                                    <p>{t('qAndA.trust.description')}</p>
+                                    <h2 dangerouslySetInnerHTML={{ __html: t('qAndA.trust.title') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('qAndA.trust.description') }} />
                                 </div>
                             </div>
                             <div className="section-content-info col-12 d-flex uvp-container">
@@ -483,8 +488,8 @@ export function Partnering(): JSX.Element {
                                     <img src={Assets.images.communityIcon} className="section-icon" />
                                 </div>
                                 <div>
-                                    <h2>{t('qAndA.community.title')}</h2>
-                                    <p>{t('qAndA.community.description')}</p>
+                                    <h2 dangerouslySetInnerHTML={{ __html: t('qAndA.community.title') }} />
+                                    <p dangerouslySetInnerHTML={{ __html: t('qAndA.community.description') }} />
                                 </div>
                             </div>
                         </div>
@@ -504,6 +509,7 @@ export function Partnering(): JSX.Element {
 }
 
 export function Rewards(): JSX.Element {
+    const { t } = useTranslation();
     const { scroll } = useLocomotiveScroll();
     const timeline = useRef<gsap.core.Timeline>();
 
@@ -540,12 +546,14 @@ export function Rewards(): JSX.Element {
                         />
                     </div>
                     <div className="col-12 col-lg-6">
-                        <h1 className="section-content-title">
-                            <Trans i18nKey="rewards.title" />
-                        </h1>
-                        <p className="section-content-info">
-                            <Trans i18nKey="rewards.description" />
-                        </p>
+                        <h1
+                            className="section-content-title"
+                            dangerouslySetInnerHTML={{ __html: t('rewards.title') }}
+                        />
+                        <p
+                            className="section-content-info"
+                            dangerouslySetInnerHTML={{ __html: t('rewards.description') }}
+                        />
                     </div>
                 </div>
             </div>
@@ -583,13 +591,16 @@ export function LumPowered(): JSX.Element {
             >
                 <div className="row title-desc">
                     <div className="col-lg-4">
-                        <h1 className="section-content-info">
-                            {t('poweredBy.title')}
-                            <strong>Lum.</strong>
-                        </h1>
+                        <h1
+                            className="section-content-info"
+                            dangerouslySetInnerHTML={{ __html: t('poweredBy.title') }}
+                        />
                     </div>
                     <div className="col-lg-8">
-                        <p className="section-content-info">{t('poweredBy.description')}</p>
+                        <p
+                            className="section-content-info"
+                            dangerouslySetInnerHTML={{ __html: t('poweredBy.description') }}
+                        />
                     </div>
                 </div>
                 <div className="row">
@@ -597,8 +608,8 @@ export function LumPowered(): JSX.Element {
                         <div className="section-content-info power-card">
                             <img src={Assets.images.paperIllu} alt="Become the future" />
                             <div>
-                                <h2>{t('poweredBy.security.title')}</h2>
-                                <p>{t('poweredBy.security.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.security.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('poweredBy.security.description') }} />
                             </div>
                         </div>
                     </div>
@@ -606,8 +617,8 @@ export function LumPowered(): JSX.Element {
                         <div className="section-content-info power-card">
                             <img src={Assets.images.cubeIllu} alt="Secure the chain" />
                             <div>
-                                <h2>{t('poweredBy.stake.title')}</h2>
-                                <p>{t('poweredBy.stake.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.description') }} />
                             </div>
                         </div>
                     </div>
@@ -615,8 +626,8 @@ export function LumPowered(): JSX.Element {
                         <div className="section-content-info power-card">
                             <img src={Assets.images.coinsIllu} alt="Stake and earn" />
                             <div>
-                                <h2>{t('poweredBy.future.title')}</h2>
-                                <p>{t('poweredBy.future.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.future.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('poweredBy.future.description') }} />
                             </div>
                         </div>
                     </div>
@@ -663,31 +674,32 @@ export function Green(): JSX.Element {
             >
                 <div className="row">
                     <div className="col-lg-6">
-                        <h1 className="section-content-info">
-                            <Trans i18nKey="greenSection.title" />
-                        </h1>
+                        <h1
+                            className="section-content-info"
+                            dangerouslySetInnerHTML={{ __html: t('greenSection.title') }}
+                        />
                     </div>
                     <div className="col-lg-6">
                         <div className="row">
                             <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
-                                <h2>{t('greenSection.pOfS.titleCosmos')}</h2>
-                                <p>{t('greenSection.pOfS.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('greenSection.pOfS.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('greenSection.pOfS.description') }} />
                             </div>
                             <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
-                                <h2>{t('greenSection.carbon.title')}</h2>
-                                <p>{t('greenSection.carbon.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('greenSection.carbon.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('greenSection.carbon.description') }} />
                             </div>
                             <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
-                                <h2>{t('greenSection.costs.title')}</h2>
-                                <p>{t('greenSection.costs.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('greenSection.costs.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('greenSection.costs.description') }} />
                             </div>
                             <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
-                                <h2>{t('greenSection.blocks.title')}</h2>
-                                <p>{t('greenSection.blocks.description')}</p>
+                                <h2 dangerouslySetInnerHTML={{ __html: t('greenSection.blocks.title') }} />
+                                <p dangerouslySetInnerHTML={{ __html: t('greenSection.blocks.description') }} />
                             </div>
                         </div>
                     </div>
