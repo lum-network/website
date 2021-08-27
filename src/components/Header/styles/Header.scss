@@ -1,5 +1,9 @@
 @import '_main';
 
+header {
+    opacity: 0;
+}
+
 .navbar-container {
     background: $color-dark;
     z-index: 1000;

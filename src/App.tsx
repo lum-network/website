@@ -170,6 +170,49 @@ export function Welcome(): JSX.Element {
                 },
                 '2',
             );
+            timeline.current.fromTo(
+                `#welcome .scroll-cta-container`,
+                {
+                    opacity: 0,
+                    translateY: 30,
+                    ease: Linear.easeNone,
+                },
+                {
+                    opacity: 1,
+                    translateY: 0,
+                    duration: 0.4,
+                    ease: Linear.easeNone,
+                },
+                '=-3',
+            );
+            timeline.current.fromTo(
+                'header',
+                {
+                    opacity: 0,
+                    translateY: -30,
+                },
+                {
+                    opacity: 1,
+                    translateY: 0,
+                    duration: 0.4,
+                    ease: Linear.easeNone,
+                },
+                '=-3',
+            );
+            timeline.current.fromTo(
+                'footer',
+                {
+                    opacity: 0,
+                    translateY: 30,
+                },
+                {
+                    opacity: 1,
+                    translateY: 0,
+                    duration: 0.4,
+                    ease: Linear.easeNone,
+                },
+                '=-3',
+            );
             timeline.current.resume();
         }
     }, [scroll]);

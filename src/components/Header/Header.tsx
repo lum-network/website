@@ -13,7 +13,7 @@ const Header = ({ modalId }: { modalId: string }): JSX.Element => {
     const { t } = useTranslation();
 
     return (
-        <div className="navbar-container position-fixed">
+        <header className="navbar-container position-fixed">
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
                 <img src={Assets.images.lumNetworkLogo} width="235" height="38" className="lum-logo-header" />
                 <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">
@@ -28,7 +28,7 @@ const Header = ({ modalId }: { modalId: string }): JSX.Element => {
                     </Button>
                 </div>
             </nav>
-        </div>
+        </header>
     );
 };
 
