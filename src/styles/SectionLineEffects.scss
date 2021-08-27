@@ -1,0 +1,64 @@
+@import '_main';
+
+#section-line-effect-1 {
+    position: absolute;
+    top: 60vh;
+    width: 100vw;
+    height: 70vh;
+    z-index: 20;
+    pointer-events: none;
+}
+
+#section-line-effect-1 .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 150px;
+}
+
+#section-line-effect-1 path {
+    opacity: 0;
+}
+
+#section-line-effect-2 {
+    position: absolute;
+    top: 155vh;
+    width: 100vw;
+    height: 80vh;
+    z-index: 20;
+    pointer-events: none;
+}
+
+#section-line-effect-2 .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 200px;
+}
+
+#section-line-effect-2 path {
+    opacity: 0;
+}
+
+#section-line-effect-3 {
+    position: absolute;
+    top: 265vh;
+    width: 100vw;
+    height: 70vh;
+    z-index: 20;
+    pointer-events: none;
+}
+
+#section-line-effect-3 .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 150px;
+}
+
+#section-line-effect-3 path {
+    opacity: 0;
+}

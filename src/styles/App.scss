@@ -19,6 +19,7 @@ h1 {
 }
 
 main {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: $color-dark;

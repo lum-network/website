@@ -16,8 +16,9 @@ import './styles/Partnering.scss';
 import './styles/Rewards.scss';
 import './styles/LumPowered.scss';
 import './styles/Green.scss';
+import './styles/SectionLineEffects.scss';
 
-gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, SplitText);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
 
 const MV_PATH_COUNT = 6;
 
@@ -63,8 +64,7 @@ const buildSectionTimeline = (sectionId: string): gsap.core.Timeline => {
             scrub: true,
         },
     });
-    const tl = gsap.timeline();
-    tl.pause();
+    const tl = gsap.timeline({ paused: true });
     tl.fromTo(`#${sectionId}`, { opacity: 0 }, { opacity: 1, duration: 0.5 });
     tl.from(titleSplit.chars, {
         duration: 1.0,
@@ -654,6 +654,324 @@ export function Green(): JSX.Element {
     );
 }
 
+export function SectionLineEffect1(): JSX.Element {
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (!timeline.current) {
+            timeline.current = gsap
+                .timeline({ paused: true })
+                .fromTo(
+                    '#section-line-effect-1 path',
+                    {
+                        opacity: 0.0,
+                        drawSVG: '0% 0%',
+                    },
+                    {
+                        opacity: 1.0,
+                        drawSVG: '0% 10%',
+                        duration: 0.15,
+                        ease: 'linear',
+                    },
+                )
+                .to('#section-line-effect-1 path', {
+                    opacity: 1,
+                    drawSVG: '10% 30%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-1 path', {
+                    opacity: 1,
+                    drawSVG: '30% 50%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-1 path', {
+                    opacity: 1,
+                    drawSVG: '50% 70%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-1 path', {
+                    opacity: 1,
+                    drawSVG: '70% 90%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-1 path', {
+                    opacity: 0.0,
+                    drawSVG: '100% 100%',
+                    duration: 0.15,
+                    ease: 'linear',
+                });
+            ScrollTrigger.create({
+                trigger: '#section-line-effect-1',
+                start: 'top 30%',
+                end: '30% top',
+                onToggle: (self) => {
+                    if (self.isActive && timeline.current) {
+                        if (self.direction === -1) {
+                            timeline.current.reverse();
+                        } else {
+                            timeline.current.play();
+                        }
+                    }
+                },
+            });
+        }
+    }, [timeline]);
+
+    return (
+        <div id="section-line-effect-1">
+            <div className="container">
+                <svg width="100%" height="100%" viewBox="0 0 646 470" preserveAspectRatio="none" fill="none">
+                    <path
+                        d="M610.5 35.5C537 63 183 50.5 35.5 434.5"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                    />
+                    <g opacity="0.3" filter="url(#filter0_f)">
+                        <path
+                            d="M610.5 35.5C537 63 183 50.5 35.5 434.5"
+                            stroke="white"
+                            strokeWidth="21"
+                            strokeLinecap="round"
+                        />
+                    </g>
+                    <defs>
+                        <filter
+                            id="filter0_f"
+                            x="0.998047"
+                            y="0.997131"
+                            width="644.006"
+                            height="468.006"
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                        >
+                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur" />
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    );
+}
+
+export function SectionLineEffect2(): JSX.Element {
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (!timeline.current) {
+            timeline.current = gsap
+                .timeline({ paused: true })
+                .fromTo(
+                    '#section-line-effect-2 path',
+                    {
+                        opacity: 0.0,
+                        drawSVG: '0% 0%',
+                    },
+                    {
+                        opacity: 1.0,
+                        drawSVG: '0% 10%',
+                        duration: 0.15,
+                        ease: 'linear',
+                    },
+                )
+                .to('#section-line-effect-2 path', {
+                    opacity: 1,
+                    drawSVG: '10% 30%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-2 path', {
+                    opacity: 1,
+                    drawSVG: '30% 50%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-2 path', {
+                    opacity: 1,
+                    drawSVG: '50% 70%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-2 path', {
+                    opacity: 1,
+                    drawSVG: '70% 90%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-2 path', {
+                    opacity: 0.0,
+                    drawSVG: '100% 100%',
+                    duration: 0.15,
+                    ease: 'linear',
+                });
+            ScrollTrigger.create({
+                trigger: '#section-line-effect-2',
+                start: 'top 30%',
+                end: '30% top',
+                onToggle: (self) => {
+                    if (self.isActive && timeline.current) {
+                        if (self.direction === -1) {
+                            timeline.current.reverse();
+                        } else {
+                            timeline.current.play();
+                        }
+                    }
+                },
+            });
+        }
+    }, [timeline]);
+
+    return (
+        <div id="section-line-effect-2">
+            <div className="container">
+                <svg width="100%" height="100%" viewBox="0 0 793 642" preserveAspectRatio="none" fill="none">
+                    <path
+                        d="M34.5 34.5C34.5 558.5 758.5 345 758.5 607.5"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                    />
+                    <g opacity="0.3" filter="url(#filter0_f)">
+                        <path
+                            d="M34.5 34.5C34.5 558.5 758.5 345 758.5 607.5"
+                            stroke="white"
+                            strokeWidth="21"
+                            strokeLinecap="round"
+                        />
+                    </g>
+                    <defs>
+                        <filter
+                            id="filter0_f"
+                            x="0"
+                            y="0"
+                            width="793"
+                            height="642"
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                        >
+                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur" />
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    );
+}
+
+export function SectionLineEffect3(): JSX.Element {
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (!timeline.current) {
+            timeline.current = gsap
+                .timeline({ paused: true })
+                .fromTo(
+                    '#section-line-effect-3 path',
+                    {
+                        opacity: 0.0,
+                        drawSVG: '0% 0%',
+                    },
+                    {
+                        opacity: 1.0,
+                        drawSVG: '0% 10%',
+                        duration: 0.15,
+                        ease: 'linear',
+                    },
+                )
+                .to('#section-line-effect-3 path', {
+                    opacity: 1,
+                    drawSVG: '10% 30%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-3 path', {
+                    opacity: 1,
+                    drawSVG: '30% 50%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-3 path', {
+                    opacity: 1,
+                    drawSVG: '50% 70%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-3 path', {
+                    opacity: 1,
+                    drawSVG: '70% 90%',
+                    duration: 0.25,
+                    ease: 'linear',
+                })
+                .to('#section-line-effect-3 path', {
+                    opacity: 0.0,
+                    drawSVG: '100% 100%',
+                    duration: 0.15,
+                    ease: 'linear',
+                });
+            ScrollTrigger.create({
+                trigger: '#section-line-effect-3',
+                start: 'top 30%',
+                end: '30% top',
+                onToggle: (self) => {
+                    if (self.isActive && timeline.current) {
+                        if (self.direction === -1) {
+                            timeline.current.reverse();
+                        } else {
+                            timeline.current.play();
+                        }
+                    }
+                },
+            });
+        }
+    }, [timeline]);
+
+    return (
+        <div id="section-line-effect-3">
+            <div className="container">
+                <svg width="100%" height="100%" viewBox="0 0 645 469" fill="none" preserveAspectRatio="none">
+                    <path
+                        d="M610 35C456.5 372.5 156.5 207.5 35 434"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                    />
+                    <g opacity="0.3" filter="url(#filter0_f)">
+                        <path
+                            d="M610 35C472.5 362.5 156.5 211 35 434"
+                            stroke="white"
+                            strokeWidth="21"
+                            strokeLinecap="round"
+                        />
+                    </g>
+                    <defs>
+                        <filter
+                            id="filter0_f"
+                            x="0.498047"
+                            y="0.497314"
+                            width="644.005"
+                            height="468.005"
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                        >
+                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                            <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur" />
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    );
+}
+
 const App = (): JSX.Element => {
     const containerRef = useRef(null);
 
@@ -672,6 +990,9 @@ const App = (): JSX.Element => {
                 <Rewards />
                 <LumPowered />
                 <Green />
+                <SectionLineEffect1 />
+                <SectionLineEffect2 />
+                <SectionLineEffect3 />
                 <Footer />
             </main>
         </LocomotiveScrollProvider>
