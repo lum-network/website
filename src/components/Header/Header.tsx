@@ -13,9 +13,11 @@ const Header = ({ modalId }: { modalId: string }): JSX.Element => {
     const { t } = useTranslation();
 
     return (
-        <header className="navbar-container position-fixed">
+        <header className="navbar fixed-top">
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
-                <img src={Assets.images.lumNetworkLogo} width="235" height="38" className="lum-logo-header" />
+                <a href="/" className="navbar-brand">
+                    <img src={Assets.images.lumNetworkLogo} width="235" height="38" className="lum-logo-header" />
+                </a>
                 <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">
                     <Link link={LUM_WALLET} className="me-sm-3 me-md-5">
                         Wallet

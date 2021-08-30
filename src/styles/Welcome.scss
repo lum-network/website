@@ -90,6 +90,11 @@
     padding: 0;
     margin: 0;
     z-index: 2;
+
+    @include media-breakpoint-down(xl) {
+        font-size: 5rem;
+        line-height: 6rem;
+    }
 }
 
 #welcome p {

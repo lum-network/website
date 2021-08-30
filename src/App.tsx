@@ -462,7 +462,7 @@ export function Partnering(): JSX.Element {
                 data-scroll-call="section-content-call"
             >
                 <div className="row flex-md-row flex-column-reverse justify-content-between">
-                    <div className="col-lg-5">
+                    <div className="col-lg-6 col-xl-5">
                         <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('qAndA.title') }} />
                         <div className="row">
                             <div className="section-content-info col-12 d-flex uvp-container">
@@ -494,7 +494,7 @@ export function Partnering(): JSX.Element {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-7 d-flex align-items-center justify-content-end">
+                    <div className="col-lg-6 col-xl-7 d-flex align-items-center justify-content-end">
                         <SpotlightImage
                             uid={'partnering'}
                             imgSrc={Assets.images.businessLayer}
@@ -673,13 +673,13 @@ export function Green(): JSX.Element {
                 data-scroll-call="section-content-call"
             >
                 <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-5 col-xl-6">
                         <h1
                             className="section-content-info"
                             dangerouslySetInnerHTML={{ __html: t('greenSection.title') }}
                         />
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-7 col-xl-6">
                         <div className="row">
                             <div className="section-content-info col-lg-6">
                                 <div className="green-dot" />
