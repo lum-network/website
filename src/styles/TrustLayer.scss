@@ -8,6 +8,10 @@
     padding: 0;
     margin: 0;
     margin-bottom: 24px;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 4rem;
+    }
 }
 
 #trustlayer h1 strong {

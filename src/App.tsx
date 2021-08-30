@@ -307,7 +307,7 @@ export function Welcome(): JSX.Element {
                         />
                     </svg>
 
-                    <div className="col-lg-7 text-center text-md-start">
+                    <div className="col-12 col-lg-7 text-center text-lg-start">
                         <h1
                             className="section-content-title"
                             dangerouslySetInnerHTML={{ __html: t('landing.title') }}
@@ -316,7 +316,7 @@ export function Welcome(): JSX.Element {
                             className="section-content-info"
                             dangerouslySetInnerHTML={{ __html: t('landing.description') }}
                         />
-                        <div className="section-content-info d-flex align-items-center">
+                        <div className="section-content-info d-flex align-items-center justify-content-center justify-content-lg-start">
                             <Button onClick={() => window.alert('TODO')}>
                                 <strong className="px-3">{t('common.getLum')}</strong>
                             </Button>
@@ -329,7 +329,10 @@ export function Welcome(): JSX.Element {
                             </Link>
                         </div>
                     </div>
-                    <div className="col-lg-5 d-flex justify-content-end" onClick={sendDot}>
+                    <div
+                        className="col-12 col-lg-5 d-flex justify-content-center justify-content-lg-end"
+                        onClick={sendDot}
+                    >
                         <div className="glowing-bubble" ref={glowContainerRef}>
                             <div className="glow" ref={glowRef} />
                             <img src={Assets.images.glowingBubble} alt="Lum Network Enlightment" ref={bubbleRef} />
@@ -342,7 +345,7 @@ export function Welcome(): JSX.Element {
                     onClick={() => {
                         scroll.scrollTo(document.getElementById('trustlayer'));
                     }}
-                    className="scroll-cta-container scale-anim d-flex flex-row align-self-center align-self-md-end align-items-center mb-5 mt-4 mt-lg-0"
+                    className="scroll-cta-container scale-anim d-flex flex-row align-self-center align-self-md-end align-items-center mb-5 mt-4 mt-lg-0 d-none d-lg-block"
                 >
                     <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
                     <div className="border rounded-circle ms-md-4 arrow-icon-container">
@@ -383,42 +386,42 @@ export function TrustLayer(): JSX.Element {
                 data-scroll-id="trustlayer-content"
                 data-scroll-call="section-content-call"
             >
-                <div className="row flex-lg-row flex-column justify-content-between">
-                    <div className="col-lg-6">
+                <div className="row d-flex flex-lg-row flex-column justify-content-between">
+                    <div className="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-start">
                         <SpotlightImage
                             uid={'trustlayer'}
                             imgSrc={Assets.images.doubleMirror}
                             imgAlt="Business Trust Layer"
                         />
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-12 col-lg-6">
                         <h1
                             className="section-content-title"
                             dangerouslySetInnerHTML={{ __html: t('business.title') }}
                         />
                         <div className="row">
-                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.contentStamping} alt="Content stamping" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.store.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.store.description') }} />
                             </div>
-                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.traceabilityIcon} alt="Traceability" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.tracability.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.tracability.description') }} />
                             </div>
-                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.transparencyIcon} alt="Transparency" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.transparency.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.transparency.description') }} />
                             </div>
-                            <div className="section-content-info col-6 d-flex flex-column uvp-container">
+                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
                                 <div className="dark-icon-wrapper">
                                     <img src={Assets.images.businessIcon} alt="Business application" />
                                 </div>
@@ -461,7 +464,7 @@ export function Partnering(): JSX.Element {
                 data-scroll-id="partnering-content"
                 data-scroll-call="section-content-call"
             >
-                <div className="row flex-md-row flex-column-reverse justify-content-between">
+                <div className="row d-flex flex-column-reverse flex-lg-row justify-content-between">
                     <div className="col-lg-6 col-xl-5">
                         <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('qAndA.title') }} />
                         <div className="row">
@@ -494,7 +497,7 @@ export function Partnering(): JSX.Element {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-xl-7 d-flex align-items-center justify-content-end">
+                    <div className="col-lg-6 col-xl-7 d-flex align-items-center justify-content-center justify-content-lg-end">
                         <SpotlightImage
                             uid={'partnering'}
                             imgSrc={Assets.images.businessLayer}
@@ -537,7 +540,7 @@ export function Rewards(): JSX.Element {
                 data-scroll-call="section-content-call"
             >
                 <div className="row flex-md-row flex-column justify-content-between align-items-center">
-                    <div className="col-lg-6">
+                    <div className="col-lg-6 d-flex justify-content-center justify-content-lg-start">
                         <SpotlightImage
                             uid={'lumreward'}
                             imgSrc={Assets.images.diamondIllu}
@@ -607,7 +610,7 @@ export function LumPowered(): JSX.Element {
                     <div className="col-12 col-lg-4">
                         <div className="section-content-info power-card">
                             <img src={Assets.images.paperIllu} alt="Become the future" />
-                            <div>
+                            <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.security.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.security.description') }} />
                             </div>
@@ -616,7 +619,7 @@ export function LumPowered(): JSX.Element {
                     <div className="col-12 col-lg-4">
                         <div className="section-content-info power-card">
                             <img src={Assets.images.cubeIllu} alt="Secure the chain" />
-                            <div>
+                            <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.description') }} />
                             </div>
@@ -625,7 +628,7 @@ export function LumPowered(): JSX.Element {
                     <div className="col-12 col-lg-4">
                         <div className="section-content-info power-card">
                             <img src={Assets.images.coinsIllu} alt="Stake and earn" />
-                            <div>
+                            <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.future.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.future.description') }} />
                             </div>
@@ -633,7 +636,7 @@ export function LumPowered(): JSX.Element {
                     </div>
                 </div>
                 <div className="section-content-info row">
-                    <div className="col-lg-12 d-flex align-items-center justify-content-center">
+                    <div className="col-12 d-flex align-items-center justify-content-center cta">
                         <Button className="align-self-center" onClick={() => window.alert('TODO')}>
                             <strong className="px-3">{t('common.getLum')}</strong>
                         </Button>

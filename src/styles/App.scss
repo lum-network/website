@@ -31,8 +31,7 @@ main {
 
 section {
     position: relative;
-    height: 100vh;
-    min-height: 760px;
+    min-height: max(760px, 100vh);
     display: flex;
     flex-direction: column;
     justify-content: center;

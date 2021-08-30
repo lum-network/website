@@ -9,6 +9,11 @@ header {
     @include media-breakpoint-down(lg) {
         height: 90px;
     }
+
+    @include media-breakpoint-down(md) {
+        background: transparent;
+        position: absolute !important;
+    }
 }
 
 header .navbar-brand {

@@ -95,6 +95,12 @@
         font-size: 5rem;
         line-height: 6rem;
     }
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 1rem;
+        font-size: 4rem;
+        line-height: 5rem;
+    }
 }
 
 #welcome p {
