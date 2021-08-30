@@ -168,7 +168,7 @@ export function Welcome(): JSX.Element {
                     duration: 1.0,
                     ease: Power1.easeIn,
                 },
-                '2',
+                '2.25',
             );
             timeline.current.fromTo(
                 `#welcome .scroll-cta-container`,
@@ -183,7 +183,7 @@ export function Welcome(): JSX.Element {
                     duration: 0.4,
                     ease: Linear.easeNone,
                 },
-                '=-3',
+                '=-2.75',
             );
             timeline.current.fromTo(
                 'header',
@@ -197,7 +197,7 @@ export function Welcome(): JSX.Element {
                     duration: 0.4,
                     ease: Linear.easeNone,
                 },
-                '=-3',
+                '=-2.75',
             );
             timeline.current.fromTo(
                 'footer',
@@ -211,7 +211,7 @@ export function Welcome(): JSX.Element {
                     duration: 0.4,
                     ease: Linear.easeNone,
                 },
-                '=-3',
+                '=-2.75',
             );
             timeline.current.resume();
         }
