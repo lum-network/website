@@ -19,6 +19,7 @@ import './styles/LumPowered.scss';
 import './styles/Green.scss';
 import './styles/SectionLineEffects.scss';
 
+gsap.config({ nullTargetWarn: false });
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
 
 const MV_PATH_COUNT = 6;
@@ -386,7 +387,7 @@ export function TrustLayer(): JSX.Element {
             scroll.on('scroll', (args: any) => {
                 if (typeof args.currentElements['trustlayer-content'] === 'object' && timeline.current) {
                     const progress = args.currentElements['trustlayer-content'].progress;
-                    timeline.current.seek(Math.max(0, progress - 0.05) * 10);
+                    timeline.current.seek(Math.max(0, progress - 0.05) * 13);
                 }
             });
         }
@@ -464,7 +465,7 @@ export function Partnering(): JSX.Element {
             scroll.on('scroll', (args: any) => {
                 if (typeof args.currentElements['partnering-content'] === 'object' && timeline.current) {
                     const progress = args.currentElements['partnering-content'].progress;
-                    timeline.current.seek(Math.max(0, progress - 0.1) * 10);
+                    timeline.current.seek(Math.max(0, progress - 0.1) * 13);
                 }
             });
         }
@@ -539,7 +540,7 @@ export function Rewards(): JSX.Element {
             scroll.on('scroll', (args: any) => {
                 if (typeof args.currentElements['rewards-content'] === 'object' && timeline.current) {
                     const progress = args.currentElements['rewards-content'].progress;
-                    timeline.current.seek(Math.max(0, progress - 0.125) * 10);
+                    timeline.current.seek(Math.max(0, progress - 0.125) * 13);
                 }
             });
         }
@@ -1054,6 +1055,7 @@ const App = (): JSX.Element => {
                 smooth: false,
             }}
             containerRef={containerRef}
+            watch={[]}
         >
             <main data-scroll-container ref={containerRef}>
                 <Header modalId="#getInformedModal" />
