@@ -54,6 +54,10 @@ const SpotlightImage = (props: Props): JSX.Element => {
         if (scroll) {
             scroll.on('call', (callId: string, way: string, obj: HTMLElement) => {
                 if (callId === 'spotlight-call' && way === 'enter' && obj.id === props.uid) {
+                    const dot1 = document.getElementsByClassName(`dot-wrapper-id-1`);
+                    if (dot1.length > 0 && dot1[0].className.includes('rotate')) {
+                        return;
+                    }
                     for (let i = 1; i <= 8; i++) {
                         gsap.timeline()
                             .set(`.dot-wrapper-${props.uid}.dot-wrapper-id-${i}`, {
