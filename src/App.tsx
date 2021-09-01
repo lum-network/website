@@ -345,7 +345,7 @@ export function Welcome(): JSX.Element {
                     onClick={() => {
                         scroll.scrollTo(document.getElementById('trustlayer'));
                     }}
-                    className="scroll-cta-container scale-anim d-flex flex-row align-self-center align-self-md-end align-items-center mb-5 mt-4 mt-lg-0 d-none d-lg-block"
+                    className="scroll-cta-container scale-anim d-flex flex-row align-self-end align-items-center d-none d-lg-flex"
                 >
                     <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
                     <div className="border rounded-circle ms-md-4 arrow-icon-container">
