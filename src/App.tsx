@@ -6,7 +6,8 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Assets from 'assets';
-import { LUM_NETWORK_WHITEPAPER } from 'constant';
+import { Hooks } from 'utils';
+import { LUM_NETWORK_WHITEPAPER, MIN_LARGE_DEVICE_WIDTH } from 'constant';
 import { Button, Footer, Header, Link, SpotlightImage } from 'components';
 
 import './styles/App.scss';
@@ -152,11 +153,21 @@ export function MvDot(props: {
 export function Welcome(): JSX.Element {
     const { t } = useTranslation();
     const { scroll } = useLocomotiveScroll();
+    const { width } = Hooks.useWindowSize();
+    const [enableDots, setEnableDots] = useState<boolean>(true);
+
     const bubbleRef = useRef<HTMLImageElement>(null);
     const glowContainerRef = useRef<HTMLDivElement>(null);
     const glowRef = useRef<HTMLDivElement>(null);
     const [dots, setDots] = useState<JSX.Element[]>([]);
     const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        const enable = width >= MIN_LARGE_DEVICE_WIDTH;
+        if (enable !== enableDots) {
+            setEnableDots(enable);
+        }
+    }, [enableDots, width]);
 
     useEffect(() => {
         if (scroll && !timeline.current) {
@@ -219,13 +230,15 @@ export function Welcome(): JSX.Element {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            if (dots.length > 10) {
+            if (!enableDots) {
+                setDots([]);
+            } else if (dots.length > 10) {
                 const newDots = dots.slice(Math.max(dots.length - 25, 1));
                 setDots(newDots);
             }
         }, 500);
         return () => clearInterval(timer);
-    }, [dots, setDots]);
+    }, [dots, setDots, enableDots]);
 
     const sendDot = useCallback(() => {
         const newDots = dots.slice();
@@ -236,10 +249,12 @@ export function Welcome(): JSX.Element {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            sendDot();
+            if (enableDots) {
+                sendDot();
+            }
         }, 3000);
         return () => clearInterval(timer);
-    }, [sendDot]);
+    }, [sendDot, enableDots]);
 
     return (
         <section data-scroll-section className="dark" id="welcome">
@@ -318,14 +333,14 @@ export function Welcome(): JSX.Element {
                         />
                         <div className="section-content-info d-flex align-items-center justify-content-center justify-content-lg-start">
                             <Button onClick={() => window.alert('TODO')}>
-                                <strong className="px-3">{t('common.getLum')}</strong>
+                                <strong>{t('common.getLum')}</strong>
                             </Button>
                             <Link
                                 className="ms-5 scale-anim d-flex flex-row align-items-baseline"
                                 link={LUM_NETWORK_WHITEPAPER}
                             >
                                 <strong className="border-bottom border-2 pb-2 me-2">{t('landing.whitePaper')}</strong>
-                                {'>'}
+                                {'➤'}
                             </Link>
                         </div>
                     </div>
@@ -767,7 +782,7 @@ export function SectionLineEffect1(): JSX.Element {
                 start: 'top 30%',
                 end: '30% top',
                 onToggle: (self) => {
-                    if (self.isActive && timeline.current) {
+                    if (self.isActive && timeline.current && window.innerWidth >= MIN_LARGE_DEVICE_WIDTH) {
                         if (self.direction === -1) {
                             timeline.current.reverse();
                         } else {
@@ -873,7 +888,7 @@ export function SectionLineEffect2(): JSX.Element {
                 start: 'top 30%',
                 end: '30% top',
                 onToggle: (self) => {
-                    if (self.isActive && timeline.current) {
+                    if (self.isActive && timeline.current && window.innerWidth >= MIN_LARGE_DEVICE_WIDTH) {
                         if (self.direction === -1) {
                             timeline.current.reverse();
                         } else {
@@ -979,7 +994,7 @@ export function SectionLineEffect3(): JSX.Element {
                 start: 'top 30%',
                 end: '30% top',
                 onToggle: (self) => {
-                    if (self.isActive && timeline.current) {
+                    if (self.isActive && timeline.current && window.innerWidth >= MIN_LARGE_DEVICE_WIDTH) {
                         if (self.direction === -1) {
                             timeline.current.reverse();
                         } else {

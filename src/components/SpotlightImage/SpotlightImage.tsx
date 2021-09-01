@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
+
+import { Hooks } from 'utils';
+import { MIN_LARGE_DEVICE_WIDTH } from 'constant';
 
 import './styles/SpotlightImage.scss';
 
@@ -32,10 +35,20 @@ const Dot = (props: DotProps): JSX.Element => {
 
 const SpotlightImage = (props: Props): JSX.Element => {
     const { scroll } = useLocomotiveScroll();
+    const { width } = Hooks.useWindowSize();
+    const [showLights, setShowLights] = useState<boolean>(true);
+
     const spotlightRef = useRef<HTMLDivElement>(null);
     const spotlightInnerRef = useRef<HTMLDivElement>(null);
     const direction = props.direction || 1;
     const beamSize = props.beamSize || 1;
+
+    useEffect(() => {
+        const show = width >= MIN_LARGE_DEVICE_WIDTH;
+        if (show !== showLights) {
+            setShowLights(show);
+        }
+    }, [showLights, width]);
 
     useEffect(() => {
         if (scroll) {
@@ -66,7 +79,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 if (
                     typeof args.currentElements[props.uid] === 'object' &&
                     spotlightRef.current &&
-                    spotlightInnerRef.current
+                    spotlightInnerRef.current &&
+                    showLights
                 ) {
                     const progress = args.currentElements[props.uid].progress;
                     if (direction === 1) {
@@ -95,7 +109,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 }
             });
         }
-    }, [props.uid, direction, beamSize, scroll]);
+    }, [props.uid, direction, beamSize, scroll, showLights]);
 
     return (
         <div
@@ -113,7 +127,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
             <Dot uid={props.uid} id={6} />
             <Dot uid={props.uid} id={7} />
             <Dot uid={props.uid} id={8} />
-            <div className="spotlight" ref={spotlightRef}>
+            <div className={`spotlight ${showLights ? '' : 'hide'}`} ref={spotlightRef}>
                 <div className="spotlight-inner" ref={spotlightInnerRef} />
             </div>
             <img src={props.imgSrc} alt={props.imgAlt} />

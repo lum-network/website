@@ -6,6 +6,10 @@
 
 #welcome-content {
     opacity: 0;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: -60px;
+    }
 }
 
 #welcome .glowing-bubble {
@@ -20,6 +24,11 @@
     pointer-events: all;
     transition: 100ms all linear;
     opacity: 0;
+
+    @include media-breakpoint-down(sm) {
+        width: 240px;
+        height: 240px;
+    }
 }
 
 #welcome .glowing-bubble.pop {
@@ -68,6 +77,10 @@
     width: 200px;
     transform: translate(-50%, -50%);
     transition: 200ms all ease-in-out;
+
+    @include media-breakpoint-down(sm) {
+        width: 160px;
+    }
 }
 
 #welcome .glowing-bubble img:hover {
@@ -97,9 +110,19 @@
     }
 
     @include media-breakpoint-down(lg) {
-        margin-top: 1rem;
+        margin-top: 1.25rem;
         font-size: 4rem;
-        line-height: 5rem;
+        line-height: 4.8rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 3.5rem;
+        line-height: 4rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 3rem;
+        line-height: 3.5rem;
     }
 }
 

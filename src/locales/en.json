@@ -93,7 +93,7 @@
     "footer": {
         "newsletter": {
             "title": "Join our newsletter",
-            "submit": "Submit >",
+            "submit": "Submit ➤",
             "placeholder": "youremail@email.com"
         },
         "privacyPolicy": "Privacy Policy",

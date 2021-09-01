@@ -8,3 +8,4 @@ export const LUM_TWITTER = '';
 export const LUM_FACEBOOK = '';
 export const LUM_NETWORK_WHITEPAPER = '';
 export const LUM_TYPEFORM = 'https://sarah2814.typeform.com/to/lHKll5Dy';
+export const MIN_LARGE_DEVICE_WIDTH = 992;

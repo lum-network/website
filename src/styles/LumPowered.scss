@@ -12,6 +12,11 @@
     padding: 0;
     margin: 0;
     margin-bottom: 16px;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 3rem;
+        line-height: 3.25rem;
+    }
 }
 
 #lum h1 strong {
@@ -42,12 +47,21 @@
         margin-bottom: 24px;
         height: auto;
     }
+
+    @include media-breakpoint-down(lg) {
+        padding: 22px;
+    }
 }
 
 #lum .power-card img {
     object-fit: contain;
     width: 200px;
     height: 240px;
+
+    @include media-breakpoint-down(lg) {
+        width: 140px;
+        height: 168px;
+    }
 }
 
 #lum .power-card h2 {
@@ -59,6 +73,11 @@
     margin: 0;
     margin-top: 24px;
     margin-bottom: 12px;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
 }
 
 #lum .power-card p {
@@ -72,4 +91,8 @@
 
 #lum .cta {
     margin-top: 72px;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 24px;
+    }
 }
