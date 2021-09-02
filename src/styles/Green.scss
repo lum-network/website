@@ -1,5 +1,14 @@
 @import '_main';
 
+section#green {
+    min-height: auto;
+    padding: 0px 0px 140px 0px;
+
+    @include media-breakpoint-down(lg) {
+        padding: 0px 0px 100px 0px;
+    }
+}
+
 #green h1 {
     color: $color-green;
     font-style: normal;
@@ -17,7 +26,6 @@
     @include media-breakpoint-down(sm) {
         font-size: 2.5rem;
         line-height: 2.75rem;
-        margin-top: 96px;
     }
 }
 

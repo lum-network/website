@@ -65,6 +65,9 @@
             "description": "Every single Lum holder can participate in securing the network by staking their Lum and getting rewarded for it."
         }
     },
+    "trustedBy": {
+        "title": "Trusted By"
+    },
     "greenSection": {
         "title": "Built with green mindset",
         "pOfS": {

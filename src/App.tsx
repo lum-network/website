@@ -16,6 +16,7 @@ import './styles/TrustLayer.scss';
 import './styles/Partnering.scss';
 import './styles/Rewards.scss';
 import './styles/LumPowered.scss';
+import './styles/TrustedBy.scss';
 import './styles/Green.scss';
 import './styles/SectionLineEffects.scss';
 
@@ -663,6 +664,117 @@ export function LumPowered(): JSX.Element {
     );
 }
 
+export function TrustedBy(): JSX.Element {
+    const { t } = useTranslation();
+    const { scroll } = useLocomotiveScroll();
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        if (scroll && !timeline.current) {
+            timeline.current = buildSectionTimeline('trustedby-content');
+        }
+        if (scroll && timeline.current) {
+            scroll.on('scroll', (args: any) => {
+                if (typeof args.currentElements['trustedby-content'] === 'object' && timeline.current) {
+                    const progress = args.currentElements['trustedby-content'].progress;
+                    timeline.current.seek(Math.max(0, progress - 0.1) * 10);
+                }
+            });
+        }
+    }, [scroll]);
+
+    const partners: Array<{ logo: string; title: string; url: string }> = [
+        {
+            logo: Assets.partners.tendermint,
+            title: 'Tendermint Ventures',
+            url: 'https://tendermint.com/ventures',
+        },
+        {
+            logo: Assets.partners.figment,
+            title: 'Figment Capital',
+            url: 'https://figment.io',
+        },
+        {
+            logo: Assets.partners.coinbaseventures,
+            title: 'Coinbase Ventures',
+            url: 'https://ventures.coinbase.com',
+        },
+        {
+            logo: Assets.partners.a16z,
+            title: 'a16z',
+            url: 'https://a16z.com',
+        },
+        {
+            logo: Assets.partners.panteracapital,
+            title: 'Pantera Capital',
+            url: 'https://panteracapital.com',
+        },
+        {
+            logo: Assets.partners.matterblock,
+            title: 'Matterblock',
+            url: 'https://matterblock.com',
+        },
+        {
+            logo: Assets.partners.polychaincapital,
+            title: 'Polychain Capital',
+            url: 'https://jobs.polychain.capital',
+        },
+        {
+            logo: Assets.partners.krakenventures,
+            title: 'Kraken Ventures',
+            url: 'https://www.krakenventures.com',
+        },
+        {
+            logo: Assets.partners.frameworkventures,
+            title: 'Framework Ventures',
+            url: 'https://framework.ventures',
+        },
+        {
+            logo: Assets.partners.dcg,
+            title: 'DCG',
+            url: 'https://dcg.co',
+        },
+        {
+            logo: Assets.partners.scytaleventures,
+            title: 'Scytale Ventures',
+            url: 'https://scytale.ventures',
+        },
+        {
+            logo: Assets.partners.fenbushicapital,
+            title: 'Fenbushi Capital',
+            url: 'https://www.fenbushicapital.vc/',
+        },
+    ];
+
+    return (
+        <section data-scroll-section className="light" id="trustedby">
+            <div
+                id="trustedby-content"
+                className="container"
+                data-scroll
+                data-scroll-id="trustedby-content"
+                data-scroll-call="section-content-call"
+            >
+                <div className="row">
+                    <div className="col-12">
+                        <h1
+                            className="section-content-info"
+                            dangerouslySetInnerHTML={{ __html: t('trustedBy.title') }}
+                        />
+                    </div>
+                </div>
+                <div className="section-content-info row d-flex flex-row justify-content-start align-items-start flex-wrap">
+                    {partners.map((p, i) => (
+                        <a key={i} className="partner" href={p.url} target="_blank" rel="noreferrer">
+                            <img src={p.logo} alt={`${p.title} logo`} />
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export function Green(): JSX.Element {
     const { t } = useTranslation();
     const { scroll } = useLocomotiveScroll();
@@ -1064,6 +1176,7 @@ const App = (): JSX.Element => {
                 <Partnering />
                 <Rewards />
                 <LumPowered />
+                <TrustedBy />
                 <Green />
                 <SectionLineEffect1 />
                 <SectionLineEffect2 />

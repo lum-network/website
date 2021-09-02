@@ -21,6 +21,19 @@ import transparencyIcon from './images/transparency.png';
 import doubleMirror from './images/true_self.png';
 import glowingBubble from './images/glowing_bubble.png';
 
+import matterblock from './images/partners/matterblock.jpg';
+import tendermint from './images/partners/tendermint.png';
+import figment from './images/partners/figment.png';
+import coinbaseventures from './images/partners/coinbaseventures.png';
+import krakenventures from './images/partners/krakenventures.png';
+import a16z from './images/partners/a16z.png';
+import panteracapital from './images/partners/panteracapital.png';
+import polychaincapital from './images/partners/polychaincapital.png';
+import frameworkventures from './images/partners/frameworkventures.png';
+import dcg from './images/partners/dcg.png';
+import scytaleventures from './images/partners/scytaleventures.png';
+import fenbushicapital from './images/partners/fenbushicapital.png';
+
 const Assets = {
     images: {
         businessIcon,
@@ -45,6 +58,20 @@ const Assets = {
         transparencyIcon,
         doubleMirror,
         glowingBubble,
+    },
+    partners: {
+        matterblock,
+        tendermint,
+        figment,
+        coinbaseventures,
+        krakenventures,
+        a16z,
+        panteracapital,
+        polychaincapital,
+        frameworkventures,
+        dcg,
+        scytaleventures,
+        fenbushicapital,
     },
 };
 
