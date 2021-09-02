@@ -69,7 +69,7 @@
         "title": "Trusted By"
     },
     "greenSection": {
-        "title": "Built with green mindset",
+        "title": "Built with <br class=\"d-none d-lg-block\"/>green mindset",
         "pOfS": {
             "title": "Cosmos & Tendermint DPOS",
             "description": "The most advanced and secure Delegated Proof-Of-Stake algorithm is used to secure the network."
