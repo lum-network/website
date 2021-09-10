@@ -2,11 +2,13 @@
 
 footer {
     opacity: 0;
+    background: radial-gradient(107.64% 453.01% at 103.85% -4.69%, #556DD2 0%, #A9C6F1 100%);
     margin-top: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 5rem;
     padding-right: 5rem;
+    color: $color-light;
     @include media-breakpoint-down(lg) {
         padding-left: 2rem;
         padding-right: 2rem;
@@ -15,7 +17,7 @@ footer {
 
 footer .form-control,
 footer .form-control:focus {
-    background-color: $color-dark !important;
+    background-color: transparent !important;
     color: white !important;
     &::placeholder {
         color: $color-primary !important;
@@ -23,7 +25,6 @@ footer .form-control:focus {
 }
 
 footer .footer-link {
-    color: $color-grey !important;
     margin-bottom: 0 !important;
     padding-bottom: 14px;
 }

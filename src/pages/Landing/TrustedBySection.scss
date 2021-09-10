@@ -1,0 +1,56 @@
+@import '_main';
+
+#trustedby {
+    min-height: auto;
+    padding: 140px 0px;
+
+    @include media-breakpoint-down(lg) {
+        padding: 72px 0px 0px 0px;
+    }
+}
+
+#trustedby h1 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 2.625rem;
+    line-height: 3.125rem;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 44px;
+}
+
+#trustedby a.partner {
+    display: flex;
+    flex: 0 1 0;
+    width: 200px;
+    min-width: 200px;
+    height: 120px;
+    cursor: pointer;
+    transition: all 150ms linear;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 12px;
+    background: #F7F7F7;
+    border-radius: 18px;
+
+    @include media-breakpoint-down(md) {
+        height: 56px;
+        margin-bottom: 24px;
+        margin-right: 24px;
+    }
+}
+
+#trustedby a.partner:hover {
+    cursor: pointer;
+    transform: scale(1.025);
+}
+
+#trustedby a.partner img {
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}

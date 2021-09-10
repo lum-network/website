@@ -2,6 +2,8 @@
 
 #partnering {
     background: linear-gradient(180deg, #E5EAEB 0%, #EDF1F5 66.77%, #F2F5F9 75.69%, #DCE4E4 87.81%);
+    padding-top: 120px;
+    padding-bottom: 120px;
 }
 
 #partnering h1 {
@@ -22,7 +24,7 @@
     font-weight: $bold;
 }
 
-#partnering .dark-icon-wrapper {
+#partnering .blue-icon-wrapper {
     margin-right: 24px;
 }
 
@@ -47,4 +49,31 @@
 
 #partnering .uvp-container {
     margin-top: 48px;
+}
+
+#partnering .lense-illu-container {
+    position: relative;
+    width: 460px;
+    height: 360px;
+}
+
+#partnering .lense-illu-container .lense-large {
+    position: absolute;
+    height: 330px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#partnering .lense-illu-container .lense-medium {
+    position: absolute;
+    height: 230px;
+    left: 160px;
+    top: 20px;
+}
+
+#partnering .lense-illu-container .lense-small {
+    position: absolute;
+    height: 160px;
+    top: 0px;
+    right: 0px;
 }

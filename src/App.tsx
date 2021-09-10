@@ -9,16 +9,17 @@ import Assets from 'assets';
 import { Hooks } from 'utils';
 import { LUM_NETWORK_WHITEPAPER, MIN_LARGE_DEVICE_WIDTH } from 'constant';
 import { Button, Footer, Header, Link, SpotlightImage } from 'components';
+import { Landing } from 'pages';
 
 import './styles/App.scss';
-import './styles/Welcome.scss';
-import './styles/TrustLayer.scss';
-import './styles/Partnering.scss';
-import './styles/Rewards.scss';
-import './styles/LumPowered.scss';
-import './styles/TrustedBy.scss';
-import './styles/Green.scss';
-import './styles/SectionLineEffects.scss';
+// import './styles/Welcome.scss';
+// import './styles/TrustLayer.scss';
+// import './styles/Partnering.scss';
+// import './styles/Rewards.scss';
+// import './styles/LumPowered.scss';
+// import './styles/TrustedBy.scss';
+// import './styles/Green.scss';
+// import './styles/SectionLineEffects.scss';
 
 gsap.config({ nullTargetWarn: false });
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
@@ -72,7 +73,7 @@ const buildSectionTimeline = (sectionId: string): gsap.core.Timeline => {
     tl.from(titleSplit.chars, {
         duration: 1.0,
         opacity: 0,
-        textShadow: `0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
+        textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
         ease: Power1.easeIn,
         stagger: 0.075,
     });
@@ -365,7 +366,7 @@ export function Welcome(): JSX.Element {
                     className="scroll-cta-container scale-anim d-flex flex-row align-self-end align-items-center d-none d-lg-flex"
                 >
                     <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
-                    <div className="border rounded-circle ms-md-4 arrow-icon-container">
+                    <div className="rounded-circle ms-md-4 arrow-icon-container">
                         <img src={Assets.images.downArrowIcon} alt="Scroll down arrow" width="11" height="11" />
                     </div>
                 </a>
@@ -548,7 +549,7 @@ export function Rewards(): JSX.Element {
     }, [scroll]);
 
     return (
-        <section data-scroll-section className="dark" id="rewards">
+        <div data-scroll-section className="dark" id="rewards">
             <div
                 id="rewards-content"
                 className="container"
@@ -560,7 +561,7 @@ export function Rewards(): JSX.Element {
                     <div className="col-lg-6 d-flex justify-content-center justify-content-lg-start">
                         <SpotlightImage
                             uid={'lumreward'}
-                            imgSrc={Assets.images.diamondIllu}
+                            imgSrc={Assets.images.universalReward}
                             imgAlt="Universal LUM reward"
                             beamSize={0.9}
                         />
@@ -577,7 +578,7 @@ export function Rewards(): JSX.Element {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 
@@ -602,6 +603,7 @@ export function LumPowered(): JSX.Element {
 
     return (
         <section data-scroll-section className="dark" id="lum">
+            <Rewards />
             <div
                 id="lum-content"
                 className="container"
@@ -613,20 +615,22 @@ export function LumPowered(): JSX.Element {
                     <div className="col-lg-4">
                         <h1
                             className="section-content-info"
-                            dangerouslySetInnerHTML={{ __html: t('poweredBy.title') }}
+                            dangerouslySetInnerHTML={{ __html: t('poweredBy.title1') + t('poweredBy.title2') }}
                         />
                     </div>
                     <div className="col-lg-8">
                         <p
                             className="section-content-info"
-                            dangerouslySetInnerHTML={{ __html: t('poweredBy.description') }}
+                            dangerouslySetInnerHTML={{
+                                __html: t('poweredBy.description1') + t('poweredBy.description2'),
+                            }}
                         />
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 col-lg-4">
                         <div className="section-content-info power-card">
-                            <img src={Assets.images.paperIllu} alt="Become the future" />
+                            <img src={Assets.images.becomeFuture} alt="Become the future" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.security.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.security.description') }} />
@@ -635,7 +639,7 @@ export function LumPowered(): JSX.Element {
                     </div>
                     <div className="col-12 col-lg-4">
                         <div className="section-content-info power-card">
-                            <img src={Assets.images.cubeIllu} alt="Secure the chain" />
+                            <img src={Assets.images.secureChain} alt="Secure the chain" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.description') }} />
@@ -644,7 +648,7 @@ export function LumPowered(): JSX.Element {
                     </div>
                     <div className="col-12 col-lg-4">
                         <div className="section-content-info power-card">
-                            <img src={Assets.images.coinsIllu} alt="Stake and earn" />
+                            <img src={Assets.images.stakeEarn} alt="Stake and earn" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.future.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.future.description') }} />
@@ -1159,32 +1163,36 @@ export function SectionLineEffect3(): JSX.Element {
 }
 
 const App = (): JSX.Element => {
-    const containerRef = useRef(null);
+    // const containerRef = useRef(null);
 
     return (
-        <LocomotiveScrollProvider
-            options={{
-                smooth: false,
-            }}
-            containerRef={containerRef}
-            watch={[]}
-        >
-            <main data-scroll-container ref={containerRef}>
-                <Header modalId="#getInformedModal" />
-                <Welcome />
-                <TrustLayer />
-                <Partnering />
-                <Rewards />
-                <LumPowered />
-                <TrustedBy />
-                <Green />
-                <SectionLineEffect1 />
-                <SectionLineEffect2 />
-                <SectionLineEffect3 />
-                <Footer />
-            </main>
-        </LocomotiveScrollProvider>
+        <main>
+            <Landing />
+        </main>
     );
+    // return (
+    //     <LocomotiveScrollProvider
+    //         options={{
+    //             smooth: false,
+    //         }}
+    //         containerRef={containerRef}
+    //         watch={[]}
+    //     >
+    //         <main data-scroll-container ref={containerRef}>
+    //             <Header modalId="#getInformedModal" />
+    //             <Welcome />
+    //             <TrustLayer />
+    //             <Partnering />
+    //             <LumPowered />
+    //             <TrustedBy />
+    //             <Green />
+    //             <SectionLineEffect1 />
+    //             <SectionLineEffect2 />
+    //             <SectionLineEffect3 />
+    //             <Footer />
+    //         </main>
+    //     </LocomotiveScrollProvider>
+    // );
 };
 
 export default App;

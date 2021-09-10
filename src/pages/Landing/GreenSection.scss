@@ -1,0 +1,62 @@
+@import '_main';
+
+#green {
+    min-height: auto;
+    padding: 120px 0px 120px 0px;
+
+    @include media-breakpoint-down(lg) {
+        padding: 100px 0px 100px 0px;
+    }
+}
+
+#green h1 {
+    color: $color-green;
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 3.25rem;
+    line-height: 3.75rem;
+    padding: 0;
+    margin: 0;
+    margin-top: -12px;
+
+    @include media-breakpoint-down(lg) {
+        margin-bottom: 48px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 2.5rem;
+        line-height: 2.75rem;
+    }
+}
+
+#green h2 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 18px;
+    margin-bottom: 16px;
+}
+
+#green p {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 1.125rem;
+    line-height: 1.4rem;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 64px;
+
+    @include media-breakpoint-down(sm) {
+        margin-bottom: 48px;
+    }
+}
+
+#green .green-dot {
+    background-color: $color-green;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}

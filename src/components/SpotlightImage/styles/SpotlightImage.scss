@@ -7,7 +7,7 @@
     align-items: center;
     width: 380px;
     height: 380px;
-    padding: 92px;
+    padding: 32px;
 
     @include media-breakpoint-down(lg) {
         width: 256px;
@@ -19,6 +19,7 @@
 
 .spotlight-img-container img {
     width: 100%;
+    min-width: 100%;
     z-index: 2;
 }
 

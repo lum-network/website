@@ -2,6 +2,7 @@
 
 #welcome {
     justify-content: space-between;
+    background: linear-gradient(180deg, #F5F5F7 0%, #EAE8F3 66.77%, #F0F3FA 75.69%, #E5E1EA 87.81%);
 }
 
 #welcome-content {
@@ -135,13 +136,17 @@
     z-index: 2;
 }
 
+#welcome a strong {
+    border-color: $color-dark !important;
+}
+
 #welcome .scroll-cta-container {
     position: absolute;
-    bottom: 32px;
+    bottom: 48px;
     right: 0px;
     cursor: pointer;
     text-decoration: none;
-    color: $color-primary;
+    color: $color-dark;
     opacity: 0;
 }
 
@@ -152,6 +157,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: 1px solid $color-dark;
 }
 
 #welcome .arrow-icon {

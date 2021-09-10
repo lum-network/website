@@ -4,12 +4,13 @@ import communityIcon from './images/community.png';
 import cubeIllu from './images/cube.png';
 import diamondIcon from './images/diamond.png';
 import diamondIllu from './images/diamond_illu.png';
-import downArrowIcon from './images/down-arrow.png';
+import downArrowIcon from './images/down-arrow.svg';
 import githubIcon from './images/github.png';
 import scaleIcon from './images/layers.png';
 import loadingBackground from './images/loading_background.png';
 import lumLogo from './images/lum_logo.png';
 import lumNetworkLogo from './images/lum_network_logo.png';
+import lumNetworkLogoDark from './images/lum_network_logo_dark.png';
 import paperIllu from './images/paper.png';
 import piece from './images/piece.png';
 import qAndA from './images/q_a.png';
@@ -20,6 +21,13 @@ import traceabilityIcon from './images/traceability.png';
 import transparencyIcon from './images/transparency.png';
 import doubleMirror from './images/true_self.png';
 import glowingBubble from './images/glowing_bubble.png';
+import universalReward from './images/universal_reward.png';
+import secureChain from './images/secure_chain.png';
+import stakeEarn from './images/stake_earn.png';
+import becomeFuture from './images/become_future.png';
+import crystalWhiteLarge from './images/crystal_white_large.png';
+import crystalWhiteMedium from './images/crystal_white_medium.png';
+import crystalWhiteSmall from './images/crystal_white_small.png';
 
 import matterblock from './images/partners/matterblock.jpg';
 import tendermint from './images/partners/tendermint.png';
@@ -48,6 +56,7 @@ const Assets = {
         loadingBackground,
         lumLogo,
         lumNetworkLogo,
+        lumNetworkLogoDark,
         paperIllu,
         piece,
         qAndA,
@@ -58,6 +67,13 @@ const Assets = {
         transparencyIcon,
         doubleMirror,
         glowingBubble,
+        universalReward,
+        secureChain,
+        stakeEarn,
+        becomeFuture,
+        crystalWhiteLarge,
+        crystalWhiteMedium,
+        crystalWhiteSmall,
     },
     partners: {
         matterblock,
