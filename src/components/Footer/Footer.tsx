@@ -1,8 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 
-import Assets from 'assets';
 import {
     LUM_EXPLORER_GITHUB,
     LUM_FACEBOOK,
@@ -14,7 +14,8 @@ import {
 import { Button, Link } from 'components';
 
 import './styles/Footer.scss';
-import { useTranslation } from 'react-i18next';
+
+import githubIcon from 'assets/images/github.png';
 
 const Footer = (): JSX.Element => {
     const { t } = useTranslation();
@@ -102,12 +103,7 @@ const Footer = (): JSX.Element => {
                                 className="px-4 mb-4 mb-md-0"
                                 onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
                             >
-                                <img
-                                    src={Assets.images.githubIcon}
-                                    className="github-icon ms-2"
-                                    width="20"
-                                    height="20"
-                                />
+                                <img src={githubIcon} className="github-icon ms-2" width="20" height="20" />
                                 <span className="align-middle ms-3 me-2">@lum-network</span>
                             </Button>
                         </div>

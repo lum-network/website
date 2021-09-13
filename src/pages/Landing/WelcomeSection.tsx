@@ -131,7 +131,7 @@ const WelcomeSection = (): JSX.Element => {
         const newDots = dots.slice();
         const dotId = dots.length > 0 ? parseInt((dots[dots.length - 1].key || '0').toString()) + 1 : 1;
         newDots.push(<MovingDot key={`${dotId}`} uid={`${dotId}`} />);
-        setDots([]);
+        setDots([]); // add newDots instead of an empty array to enable dots
     }, [dots, setDots]);
 
     useEffect(() => {
@@ -168,7 +168,7 @@ const WelcomeSection = (): JSX.Element => {
     useEffect(() => {
         // GSAP Section Animations
         const tl = gsap.timeline();
-        tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.5 });
+        tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
         const scrollTrigger = {
             trigger: `#welcome`,
             start: '5% top',

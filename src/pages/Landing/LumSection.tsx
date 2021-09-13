@@ -75,7 +75,7 @@ const PoweredBy = (): JSX.Element => {
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
-            stagger: 0.25,
+            stagger: 0.2,
         });
         gsap.from(`#lum .powered-by .section-content-info`, {
             y: 150,
