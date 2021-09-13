@@ -138,11 +138,20 @@
     }
 }
 
+#welcome .crystal-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
 #welcome .crystal-illu-container .crystal-large {
     position: absolute;
     height: 330px;
     left: 30px;
     top: 80px;
+    animation: crystalFloatVerticalLarge 7s infinite alternate-reverse ease-in-out;
 }
 
 #welcome .crystal-illu-container .crystal-medium {
@@ -150,6 +159,7 @@
     height: 200px;
     bottom: 0;
     right: 0;
+    animation: crystalFloatVerticalMedium 5s infinite alternate ease-in-out;
 }
 
 #welcome .crystal-illu-container .crystal-small {
@@ -157,4 +167,31 @@
     height: 90px;
     top: 0;
     left: 0;
+    animation: crystalFloatVerticalSmall 3s infinite alternate ease-in-out;
+}
+
+@keyframes crystalFloatVerticalSmall {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes crystalFloatVerticalMedium {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(15px);
+    }
+}
+@keyframes crystalFloatVerticalLarge {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(25px);
+    }
 }

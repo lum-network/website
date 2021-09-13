@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import { Button, SpotlightImage } from 'components';
 
@@ -14,9 +15,36 @@ import './LumSection.scss';
 const UniversalReward = (): JSX.Element => {
     const { t } = useTranslation();
 
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#lum`,
+            start: 'top 90%',
+            end: 'top 50%',
+            scrub: true,
+        };
+        gsap.from(`#lum .universal-reward .section-content-title`, {
+            y: 50,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#lum .universal-reward .section-content-info`, {
+            y: 100,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#lum .universal-reward .section-content-illu`, {
+            y: 150,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
+
     return (
         <div className="universal-reward row flex-md-row flex-column justify-content-between align-items-center">
-            <div className="col-lg-6 d-flex justify-content-center">
+            <div className="section-content-illu col-lg-6 d-flex justify-content-center">
                 <SpotlightImage
                     uid={'lumreward'}
                     imgSrc={universalRewardIllu}
@@ -35,12 +63,40 @@ const UniversalReward = (): JSX.Element => {
 const PoweredBy = (): JSX.Element => {
     const { t } = useTranslation();
 
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#lum`,
+            start: 'top 60%',
+            end: 'top 5%',
+            scrub: true,
+        };
+        gsap.from(`#lum .powered-by .section-content-title`, {
+            y: 50,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+            stagger: 0.25,
+        });
+        gsap.from(`#lum .powered-by .section-content-info`, {
+            y: 150,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#lum .powered-by .section-content-illu`, {
+            y: 200,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
+
     return (
         <div className="row powered-by">
             <div className="col-12">
-                <h1 className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.title1') }} />
-                <img src={poweredByIllu} alt="Huge Lum Coin" />
-                <h1 className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.title2') }} />
+                <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('poweredBy.title1') }} />
+                <img className="section-content-illu" src={poweredByIllu} alt="Huge Lum Coin" />
+                <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('poweredBy.title2') }} />
             </div>
             <div className="col-lg-6">
                 <p className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.description1') }} />

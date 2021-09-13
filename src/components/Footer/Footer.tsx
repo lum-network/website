@@ -36,7 +36,7 @@ const Footer = (): JSX.Element => {
     };
 
     return (
-        <footer data-scroll-section>
+        <footer>
             <div className="container">
                 <div className="row gx-5 gy-5">
                     <div className="col-12 col-md-6">

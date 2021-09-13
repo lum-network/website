@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import lenseWhiteLarge from 'assets/images/lense_white_large.png';
 import lenseWhiteMedium from 'assets/images/lense_white_medium.png';
@@ -13,15 +14,60 @@ import './PartneringSection.scss';
 const LenseIllustration = (): JSX.Element => {
     return (
         <div className="lense-illu-container">
-            <img className="lense-large" src={lenseWhiteLarge} alt="Large White Lense" />
-            <img className="lense-medium" src={lenseWhiteMedium} alt="Medium White Lense" />
-            <img className="lense-small" src={lenseWhiteSmall} alt="Small White Lense" />
+            <div className="lense-wrapper lense-large-wrapper">
+                <img className="lense-large" src={lenseWhiteLarge} alt="Large White Lense" />
+            </div>
+            <div className="lense-wrapper lense-medium-wrapper">
+                <img className="lense-medium" src={lenseWhiteMedium} alt="Medium White Lense" />
+            </div>
+            <div className="lense-wrapper lense-small-wrapper">
+                <img className="lense-small" src={lenseWhiteSmall} alt="Small White Lense" />
+            </div>
         </div>
     );
 };
 
 const PartneringSection = (): JSX.Element => {
     const { t } = useTranslation();
+
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#partnering`,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+        };
+        gsap.from(`#partnering .section-content-title`, {
+            y: 150,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#partnering .section-content-info`, {
+            y: 250,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#partnering .lense-small-wrapper`, {
+            y: 400,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#partnering .lense-medium-wrapper`, {
+            y: 350,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#partnering .lense-large-wrapper`, {
+            y: 300,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
 
     return (
         <section className="dark" id="partnering">

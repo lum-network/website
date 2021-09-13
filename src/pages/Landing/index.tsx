@@ -12,7 +12,7 @@ import TrustedBySection from './TrustedBySection';
 const Landing = (): JSX.Element => {
     return (
         <>
-            <Header modalId="#getInformedModal" />
+            <Header modalId="#getInformedModal" bgTriggerElem="#welcome" />
             <WelcomeSection />
             <TrustLayerSection />
             <PartneringSection />

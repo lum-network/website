@@ -61,9 +61,15 @@ const DotsSvgPaths = (): JSX.Element => {
 const CrystalIllustration = (): JSX.Element => {
     return (
         <div className="crystal-illu-container">
-            <img className="crystal-small" src={crystalWhiteSmall} alt="Small White Crystal" />
-            <img className="crystal-medium" src={crystalWhiteMedium} alt="Medium White Crystal" />
-            <img className="crystal-large" src={crystalWhiteLarge} alt="Large White Crystal" />
+            <div className="crystal-wrapper crystal-small-wrapper">
+                <img className="crystal-small" src={crystalWhiteSmall} alt="Small White Crystal" />
+            </div>
+            <div className="crystal-wrapper crystal-medium-wrapper">
+                <img className="crystal-medium" src={crystalWhiteMedium} alt="Medium White Crystal" />
+            </div>
+            <div className="crystal-wrapper crystal-large-wrapper">
+                <img className="crystal-large" src={crystalWhiteLarge} alt="Large White Crystal" />
+            </div>
         </div>
     );
 };
@@ -125,7 +131,7 @@ const WelcomeSection = (): JSX.Element => {
         const newDots = dots.slice();
         const dotId = dots.length > 0 ? parseInt((dots[dots.length - 1].key || '0').toString()) + 1 : 1;
         newDots.push(<MovingDot key={`${dotId}`} uid={`${dotId}`} />);
-        setDots(newDots);
+        setDots([]);
     }, [dots, setDots]);
 
     useEffect(() => {
@@ -158,6 +164,44 @@ const WelcomeSection = (): JSX.Element => {
         }, 1000);
         return () => clearInterval(timer);
     }, [dots, setDots, enableDots]);
+
+    useEffect(() => {
+        // GSAP Section Animations
+        const tl = gsap.timeline();
+        tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.5 });
+        const scrollTrigger = {
+            trigger: `#welcome`,
+            start: '5% top',
+            end: '50% top',
+            scrub: true,
+        };
+        gsap.to(`#welcome .section-content-title`, {
+            translateY: -100,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .section-content-info`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+            stragger: 0.25,
+        });
+        gsap.to(`#welcome .crystal-small-wrapper`, {
+            translateY: -125,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .crystal-medium-wrapper`, {
+            translateY: -100,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .crystal-large-wrapper`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
 
     return (
         <section className="dark" id="welcome">

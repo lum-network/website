@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import trustLayerIllu from 'assets/images/trust_layers.png';
 import storeContentIcon from 'assets/images/store_content.png';
@@ -11,6 +12,34 @@ import './TrustLayerSection.scss';
 
 const TrustLayerSection = (): JSX.Element => {
     const { t } = useTranslation();
+
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#trustlayer`,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+        };
+
+        gsap.from(`#trustlayer .section-content-title`, {
+            y: 150,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#trustlayer .section-content-info`, {
+            y: 250,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#trustlayer .trust-layers`, {
+            y: 400,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
 
     return (
         <section className="dark" id="trustlayer">

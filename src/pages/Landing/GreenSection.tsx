@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import './GreenSection.scss';
 
 const GreenSection = (): JSX.Element => {
     const { t } = useTranslation();
+
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#green`,
+            start: 'top 90%',
+            end: 'top 30%',
+            scrub: true,
+        };
+        gsap.from(`#green .section-content-title`, {
+            y: 25,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#green .section-content-info`, {
+            y: 50,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+            stagger: 0.1,
+        });
+    }, []);
 
     return (
         <section className="light" id="green">

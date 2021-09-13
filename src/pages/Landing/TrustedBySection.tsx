@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import tendermint from 'assets/images/partners/tendermint.png';
 import figment from 'assets/images/partners/figment.png';
@@ -18,6 +19,33 @@ import './TrustedBySection.scss';
 
 const TrustedBySection = (): JSX.Element => {
     const { t } = useTranslation();
+
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#trustedby`,
+            start: 'top 80%',
+            end: 'top 40%',
+            scrub: true,
+        };
+        gsap.from(`#trustedby .section-content-title`, {
+            y: 50,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#trustedby .section-content-info`, {
+            y: 100,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.from(`#trustedby .partner`, {
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+            stagger: 0.05,
+        });
+    }, []);
 
     const partners: Array<{ logo: string; title: string; url: string }> = [
         {
@@ -88,7 +116,7 @@ const TrustedBySection = (): JSX.Element => {
                 <div className="row">
                     <div className="col-12">
                         <h1
-                            className="section-content-info"
+                            className="section-content-title"
                             dangerouslySetInnerHTML={{ __html: t('trustedBy.title') }}
                         />
                     </div>
