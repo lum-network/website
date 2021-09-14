@@ -117,10 +117,9 @@
         }
     },
     "getInformedModal": {
-        "title": "We're currently in the ",
-        "titleUnderlined": "Testnet Stage",
-        "description": "To discover when will be the launch of the Lum, you should subscribe to our newsletter",
-        "button": "Join Newsletter >"
+        "title": "We're currently in the <u>Testnet Stage</u>",
+        "description": "Stay tuned and do not miss any news regarding the Lum Network achievements.",
+        "button": "Join the newsletter"
     },
     "footer": {
         "newsletter": {

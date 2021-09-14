@@ -221,7 +221,7 @@ const WelcomeSection = (): JSX.Element => {
                             dangerouslySetInnerHTML={{ __html: t('landing.description') }}
                         />
                         <div className="section-content-info d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <Button onClick={() => window.alert('TODO')}>
+                            <Button data-bs-toggle="modal" data-bs-target={'#get-informed-modal'}>
                                 <strong>{t('common.getLum')}</strong>
                             </Button>
                             <Link

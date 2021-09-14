@@ -4,12 +4,13 @@ import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 
 import {
-    LUM_EXPLORER_GITHUB,
+    LUM_NETWORK_DOCUMENTATION,
+    LUM_EXPLORER,
     LUM_FACEBOOK,
     LUM_NETWORK_GITHUB,
     LUM_TELEGRAM,
     LUM_TWITTER,
-    LUM_WALLET_GITHUB,
+    LUM_WALLET,
 } from 'constant';
 import { Button, Link } from 'components';
 
@@ -68,13 +69,13 @@ const Footer = (): JSX.Element => {
                         <div className="d-flex flex-row justify-content-md-between justify-content-sm-around justify-content-between ps-md-5 align-self-end">
                             <div className="d-flex flex-column ms-md-5">
                                 <strong>{t('footer.tools')}</strong>
-                                <Link link={LUM_NETWORK_GITHUB} className="footer-link my-4">
+                                <Link link={LUM_NETWORK_DOCUMENTATION} className="footer-link my-4">
                                     Documentation
                                 </Link>
-                                <Link link={LUM_EXPLORER_GITHUB} className="footer-link mb-4">
+                                <Link link={LUM_EXPLORER} className="footer-link mb-4">
                                     Explorer
                                 </Link>
-                                <Link link={LUM_WALLET_GITHUB} className="footer-link">
+                                <Link link={LUM_WALLET} className="footer-link">
                                     Wallet
                                 </Link>
                             </div>
