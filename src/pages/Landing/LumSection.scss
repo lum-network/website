@@ -51,8 +51,18 @@
     text-align: center;
 
     @include media-breakpoint-down(lg) {
-        font-size: 3rem;
-        line-height: 3.25rem;
+        font-size: 6rem;
+        line-height: 7rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 5rem;
+        line-height: 5.5rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 3.5rem;
+        line-height: 4rem;
     }
 }
 
@@ -69,6 +79,18 @@
     top: 0;
     transform: translate(-50%);
     z-index: 0;
+
+    @include media-breakpoint-down(lg) {
+        width: 240px;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 200px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: 140px;
+    }
 }
 
 #lum .powered-by p {
@@ -83,6 +105,7 @@
 
     @include media-breakpoint-down(lg) {
         max-width: none;
+        margin-top: 32px;
     }
 }
 

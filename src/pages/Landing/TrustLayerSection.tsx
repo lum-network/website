@@ -45,10 +45,10 @@ const TrustLayerSection = (): JSX.Element => {
         <section className="dark" id="trustlayer">
             <div id="trustlayer-content" className="container">
                 <div className="row d-flex flex-lg-row flex-column justify-content-between">
-                    <div className="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-start">
+                    <div className="col-12 col-lg-6 col-xl-7 d-flex justify-content-center justify-content-lg-start">
                         <img className="trust-layers" src={trustLayerIllu} alt="Trust layers" />
                     </div>
-                    <div className="col-12 col-lg-6">
+                    <div className="col-12 col-lg-6 col-xl-5">
                         <h1
                             className="section-content-title"
                             dangerouslySetInnerHTML={{ __html: t('business.title') }}
