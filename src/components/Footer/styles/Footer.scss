@@ -1,7 +1,7 @@
 @import '_main';
 
 footer {
-    background: linear-gradient(0deg, #0F7BED, #0F7BED), linear-gradient(180deg, #9FB4FF -142.95%, #0375ED 29.9%);
+    background: linear-gradient(0deg, #0f7bed, #0f7bed), linear-gradient(180deg, #9fb4ff -142.95%, #0375ed 29.9%);
     margin-top: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -15,8 +15,14 @@ footer {
 }
 
 footer .form-control,
-footer .form-control:focus {
+footer .form-control:focus,
+footer input.form-control:-webkit-autofill,
+footer input.form-control:-webkit-autofill:hover,
+footer input.form-control:-webkit-autofill:focus,
+footer input.form-control:-webkit-autofill:active {
+    box-shadow: 0 0 0px 1000px #0f7bed inset;
     background-color: transparent !important;
+    -webkit-text-fill-color: white !important;
     color: white !important;
     &::placeholder {
         color: $color-primary !important;
