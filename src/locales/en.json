@@ -67,6 +67,33 @@
             "description": "Every single Lum holder can participate in securing the network by staking their Lum and getting rewarded for it."
         }
     },
+    "showcaseSection": {
+        "title": "Partners <br />Show case",
+        "lumki": {
+            "title": "Lumki",
+            "description": "Lumki is a reward mobile and web application enabling its users to earn Lum throughout dedicated cashback offers as well as creating quality content for retailers. <br /><br />The service provides every user with a secure Lum wallet to easily redeem their rewards and convert them into coupons, fiat currency or send them to their own personal Lum wallet. <br /><br />Lumki is being developed and commercialized by the European company HORUS.",
+            "cta": {
+                "title": "Visit Lumki's website",
+                "url": "https://lumki.com"
+            }
+        },
+        "netreviews": {
+            "title": "Net Reviews",
+            "description": "Net Reviews is a leading group in Customer Reviews Management for retailers.<br/><br/> Net Reviews is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Net Reviews benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
+            "cta": {
+                "title": "Visit Net Reviews's website",
+                "url": "https://netreviews.com"
+            }
+        },
+        "join": {
+            "title": "Join us ⨁",
+            "description": "If you think your company, your clients or customers can benefit from the Lum Network... then you are in the right place! <br/><br/>Get in touch with us to discover everything that we can offer to assist you building using the Lum Network.<br/><br/> We are here to make sure you do not need any advanced blockchain knowledge to build awesome applications.<br/><br/> The Lum Foundation is dedicated to make the Lum Network's ecosystem grow. We can therefore assist you in all the steps leading to the use of the Lum Network in production.",
+            "cta": {
+                "title": "Get in touch",
+                "url": "mailto:contact@lum.network"
+            }
+        }
+    },
     "trustedBy": {
         "title": "Trusted By"
     },

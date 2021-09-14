@@ -6,6 +6,7 @@ import WelcomeSection from './WelcomeSection';
 import TrustLayerSection from './TrustLayerSection';
 import PartneringSection from './PartneringSection';
 import LumSection from './LumSection';
+import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
 import TrustedBySection from './TrustedBySection';
 
@@ -17,6 +18,7 @@ const Landing = (): JSX.Element => {
             <TrustLayerSection />
             <PartneringSection />
             <LumSection />
+            <ShowCaseSection />
             <TrustedBySection />
             <GreenSection />
             <Footer />

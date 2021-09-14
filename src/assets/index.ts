@@ -22,6 +22,10 @@ import transparencyIcon from './images/transparency.png';
 import trustLayers from './images/trust_layers.png';
 import universalReward from './images/universal_reward.png';
 
+import showcaseLumkiIllu from './images/showcase_lumki_illu.png';
+import showcaseNetreviewsIllu from 'assets/images/showcase_netreviews_illu.png';
+import showcaseJoinIllu from 'assets/images/showcase_join_illu.png';
+
 import matterblock from './images/partners/matterblock.jpg';
 import tendermint from './images/partners/tendermint.png';
 import figment from './images/partners/figment.png';
@@ -60,6 +64,9 @@ const Assets = {
         transparencyIcon,
         trustLayers,
         universalReward,
+        showcaseLumkiIllu,
+        showcaseNetreviewsIllu,
+        showcaseJoinIllu,
     },
     partners: {
         matterblock,

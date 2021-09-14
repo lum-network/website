@@ -12,11 +12,17 @@
 #trustedby h1 {
     font-style: normal;
     font-weight: $bold;
-    font-size: 2.625rem;
-    line-height: 3.125rem;
+    font-size: 3.25rem;
+    line-height: 3.75rem;
     padding: 0;
     margin: 0;
-    margin-bottom: 44px;
+    margin-bottom: 48px;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 2.5rem;
+        line-height: 2.75rem;
+        margin-bottom: 24px;
+    }
 }
 
 #trustedby a.partner {
