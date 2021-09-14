@@ -1,0 +1,178 @@
+@import '_main';
+
+#lum {
+    background: linear-gradient(180deg, #07223f 0.01%, #0375ed 100%);
+    color: $color-light;
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 64px;
+    }
+}
+
+#lum .universal-reward h1 {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 2.625rem;
+    line-height: 3.125rem;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 24px;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 12px;
+    }
+}
+
+#lum .universal-reward p {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    padding: 0;
+    margin: 0;
+    max-width: 460px;
+
+    @include media-breakpoint-down(lg) {
+        max-width: none;
+    }
+}
+
+#lum .powered-by {
+    position: relative;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+#lum .powered-by h1 {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 10rem;
+    line-height: 11rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 6rem;
+        line-height: 7rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        font-size: 5rem;
+        line-height: 5.5rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 3.5rem;
+        line-height: 4rem;
+    }
+}
+
+#lum .powered-by h1 strong {
+    font-weight: $bold;
+    font-family: 'Gotham Rounded';
+}
+
+#lum .powered-by img {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    z-index: 0;
+
+    @include media-breakpoint-down(lg) {
+        width: 240px;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 200px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: 140px;
+    }
+}
+
+#lum .powered-by p {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 92px;
+    max-width: 90%;
+
+    @include media-breakpoint-down(lg) {
+        max-width: none;
+        margin-top: 32px;
+    }
+}
+
+#lum .power-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    @include media-breakpoint-down(lg) {
+        margin-bottom: 24px;
+        height: auto;
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding: 22px;
+    }
+}
+
+#lum .power-card img {
+    object-fit: contain;
+    width: 200px;
+    height: 240px;
+
+    @include media-breakpoint-down(lg) {
+        width: 140px;
+        height: 168px;
+    }
+}
+
+#lum .power-card h2 {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    padding: 0;
+    margin: 0;
+    margin-top: 24px;
+    margin-bottom: 12px;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+}
+
+#lum .power-card p {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    padding: 0;
+    margin: 0;
+}
+
+#lum .cta {
+    margin-top: 44px;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 24px;
+    }
+}

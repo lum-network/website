@@ -1,20 +1,22 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 
-import Assets from 'assets';
 import {
-    LUM_EXPLORER_GITHUB,
+    LUM_NETWORK_DOCUMENTATION,
+    LUM_EXPLORER,
     LUM_FACEBOOK,
     LUM_NETWORK_GITHUB,
     LUM_TELEGRAM,
     LUM_TWITTER,
-    LUM_WALLET_GITHUB,
+    LUM_WALLET,
 } from 'constant';
 import { Button, Link } from 'components';
 
 import './styles/Footer.scss';
-import { useTranslation } from 'react-i18next';
+
+import githubIcon from 'assets/images/github.png';
 
 const Footer = (): JSX.Element => {
     const { t } = useTranslation();
@@ -36,7 +38,7 @@ const Footer = (): JSX.Element => {
     };
 
     return (
-        <footer data-scroll-section>
+        <footer>
             <div className="container">
                 <div className="row gx-5 gy-5">
                     <div className="col-12 col-md-6">
@@ -67,13 +69,13 @@ const Footer = (): JSX.Element => {
                         <div className="d-flex flex-row justify-content-md-between justify-content-sm-around justify-content-between ps-md-5 align-self-end">
                             <div className="d-flex flex-column ms-md-5">
                                 <strong>{t('footer.tools')}</strong>
-                                <Link link={LUM_NETWORK_GITHUB} className="footer-link my-4">
+                                <Link link={LUM_NETWORK_DOCUMENTATION} className="footer-link my-4">
                                     Documentation
                                 </Link>
-                                <Link link={LUM_EXPLORER_GITHUB} className="footer-link mb-4">
+                                <Link link={LUM_EXPLORER} className="footer-link mb-4">
                                     Explorer
                                 </Link>
-                                <Link link={LUM_WALLET_GITHUB} className="footer-link">
+                                <Link link={LUM_WALLET} className="footer-link">
                                     Wallet
                                 </Link>
                             </div>
@@ -95,19 +97,14 @@ const Footer = (): JSX.Element => {
                         <div className="d-flex flex-md-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
                             <div className="d-inline-flex justify-content-around">
                                 <p className="footer-link mb-0">Lum Network 2021 ©</p>
-                                <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p>
+                                {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                             </div>
                             <Button
                                 outline
                                 className="px-4 mb-4 mb-md-0"
                                 onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
                             >
-                                <img
-                                    src={Assets.images.githubIcon}
-                                    className="github-icon ms-2"
-                                    width="20"
-                                    height="20"
-                                />
+                                <img src={githubIcon} className="github-icon ms-2" width="20" height="20" />
                                 <span className="align-middle ms-3 me-2">@lum-network</span>
                             </Button>
                         </div>

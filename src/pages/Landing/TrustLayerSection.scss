@@ -1,5 +1,17 @@
 @import '_main';
 
+#trustlayer {
+    background: linear-gradient(180deg, #07223F 0.01%, #111A7A 67.78%, #2348BC 74.5%, #0375ED 100%);
+    color: $color-light;
+    padding-top: 148px;
+    padding-bottom: 192px;
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 72px;
+        padding-bottom: 128px;
+    }
+}
+
 #trustlayer h1 {
     font-style: normal;
     font-weight: $regular;
@@ -40,4 +52,16 @@
 
 #trustlayer .uvp-container {
     margin-top: 48px;
+}
+
+#trustlayer img.trust-layers {
+    width: 95%;
+    height: auto;
+    object-fit: contain;
+    margin-top: 100px;
+
+    @include media-breakpoint-down(lg) {
+        max-width: 320px;
+        margin-top: 0px;
+    }
 }

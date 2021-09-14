@@ -7,19 +7,20 @@
     align-items: center;
     width: 380px;
     height: 380px;
-    padding: 92px;
+    padding: 32px;
 
     @include media-breakpoint-down(lg) {
         width: 256px;
         height: 256px;
-        padding: 62px;
+        padding: 16px;
         margin-bottom: 48px;
     }
 }
 
 .spotlight-img-container img {
     width: 100%;
-    z-index: 2;
+    min-width: 100%;
+    z-index: 20;
 }
 
 .spotlight-img-container .spotlight {
@@ -33,6 +34,11 @@
     transform: rotateZ(0deg); // controls the orientation of the beam
     z-index: 10;
     pointer-events: none;
+
+    @include media-breakpoint-down(lg) {
+        top: 105px;
+        left: 125px;
+    }
 }
 
 .spotlight-img-container .spotlight.hide {

@@ -1,11 +1,11 @@
 @import '_main';
 
-section#green {
+#green {
     min-height: auto;
-    padding: 0px 0px 140px 0px;
+    padding: 20px 0px 120px 0px;
 
     @include media-breakpoint-down(lg) {
-        padding: 0px 0px 100px 0px;
+        padding: 100px 0px 100px 0px;
     }
 }
 

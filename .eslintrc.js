@@ -19,6 +19,8 @@ module.exports = {
         // E.g. "@typescript-eslint/explicit-function-return-type": "off",
         '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types': 'off',
         'react-hooks/rules-of-hooks': 'warn',
         'react-hooks/exhaustive-deps': 'error',

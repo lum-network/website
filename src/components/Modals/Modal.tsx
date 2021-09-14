@@ -39,7 +39,7 @@ const Modal = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
                         <button
                             type="button"
                             onClick={onCloseButtonPress}
-                            className="close-btn bg-white rounded-circle align-self-center"
+                            className="close-btn bg-white rounded-circle d-flex align-self-center justify-content-center align-items-center"
                             data-bs-dismiss="modal"
                             data-bs-target={id}
                             aria-label="Close"
