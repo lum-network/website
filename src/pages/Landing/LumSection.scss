@@ -5,6 +5,10 @@
     color: $color-light;
     padding-top: 120px;
     padding-bottom: 120px;
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 64px;
+    }
 }
 
 #lum .universal-reward h1 {
@@ -17,7 +21,7 @@
     margin-bottom: 24px;
 
     @include media-breakpoint-down(lg) {
-        margin-top: 4rem;
+        margin-top: 12px;
     }
 }
 

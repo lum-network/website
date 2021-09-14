@@ -50,6 +50,8 @@ const UniversalReward = (): JSX.Element => {
                     imgSrc={universalRewardIllu}
                     imgAlt="Universal LUM reward"
                     beamSize={0.9}
+                    animated={true}
+                    scrollTrigger={`#lum .universal-reward`}
                 />
             </div>
             <div className="col-12 col-lg-6">

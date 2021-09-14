@@ -9,3 +9,12 @@ export const LUM_FACEBOOK = '';
 export const LUM_NETWORK_WHITEPAPER = '';
 export const LUM_TYPEFORM = 'https://sarah2814.typeform.com/to/lHKll5Dy';
 export const MIN_LARGE_DEVICE_WIDTH = 992;
+// @ts-ignore
+export const IS_FIREFOX = typeof InstallTrigger !== 'undefined';
+export const IS_SAFARI =
+    // @ts-ignore
+    /constructor/i.test(window.HTMLElement) ||
+    (function (p) {
+        return p.toString() === '[object SafariRemoteNotification]';
+        // @ts-ignore
+    })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
