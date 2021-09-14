@@ -10,10 +10,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = (props: Props): JSX.Element => {
     const { children, className, outline, inverted, ...rest } = props;
     return (
-        <button
-            {...rest}
-            className={`normal-btn px-4 py-3 ${outline && 'btn-outlined'} ${inverted && 'inverted'} ${className}`}
-        >
+        <button {...rest} className={`normal-btn ${outline && 'btn-outlined'} ${inverted && 'inverted'} ${className}`}>
             {children}
         </button>
     );
