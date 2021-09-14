@@ -7,7 +7,7 @@ export const LUM_NETWORK_GITHUB = 'https://github.com/lum-network';
 export const LUM_TELEGRAM = '';
 export const LUM_TWITTER = '';
 export const LUM_FACEBOOK = '';
-export const LUM_NETWORK_WHITEPAPER = '';
+export const LUM_NETWORK_WHITEPAPER = '/whitepaper.pdf';
 export const LUM_TYPEFORM = 'https://sarah2814.typeform.com/to/lHKll5Dy';
 export const MIN_LARGE_DEVICE_WIDTH = 992;
 // @ts-ignore
