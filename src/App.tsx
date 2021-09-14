@@ -37,7 +37,7 @@ const App = (): JSX.Element => {
                 () => {
                     setLoading(false);
                 },
-                elapsed >= 1000 ? 300 : 1000 - elapsed,
+                elapsed >= 1500 ? 500 : 1500 - elapsed,
             );
         }
     }, [progress, setLoading]);
@@ -61,7 +61,7 @@ const App = (): JSX.Element => {
                     () => {
                         setProgress((p) => p + inc);
                     },
-                    elapsed >= 1000 ? 0 : 1000 - elapsed + Math.random() * 1000,
+                    elapsed >= 500 ? 0 : 500 - elapsed + Math.random() * 500,
                 );
             };
         }
