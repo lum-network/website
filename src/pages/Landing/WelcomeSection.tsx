@@ -9,6 +9,7 @@ import { Hooks } from 'utils';
 import crystalWhiteLarge from 'assets/images/crystal_white_large.png';
 import crystalWhiteMedium from 'assets/images/crystal_white_medium.png';
 import crystalWhiteSmall from 'assets/images/crystal_white_small.png';
+import crystalsShadows from 'assets/images/crystals_shadows.png';
 import downArrowIcon from 'assets/images/down-arrow.svg';
 
 import './WelcomeSection.scss';
@@ -61,6 +62,7 @@ const DotsSvgPaths = (): JSX.Element => {
 const CrystalIllustration = (): JSX.Element => {
     return (
         <div className="crystal-illu-container">
+            <img className="crystals-shadows" src={crystalsShadows} alt="Crystals shadows" />
             <div className="crystal-wrapper crystal-small-wrapper">
                 <img className="crystal-small" src={crystalWhiteSmall} alt="Small White Crystal" />
             </div>
@@ -201,11 +203,17 @@ const WelcomeSection = (): JSX.Element => {
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
+        gsap.to(`#welcome .crystals-shadows`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
     }, []);
 
     return (
         <section className="dark" id="welcome">
             {dots}
+            <div className="bg-lightning" />
             <div className="container" />
             <div id="welcome-content" className="container">
                 <div className="row flex-lg-row flex-column-reverse align-items-center">

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
-import trustLayerIllu from 'assets/images/trust_layers.png';
+import trustLayersIllu from 'assets/images/trust_layers.png';
+import trustLayersShadows from 'assets/images/trust_layers_shadows.png';
 import storeContentIcon from 'assets/images/store_content.png';
 import traceabilityIcon from 'assets/images/traceability.png';
 import transparencyIcon from 'assets/images/transparency.png';
@@ -33,7 +34,7 @@ const TrustLayerSection = (): JSX.Element => {
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
-        gsap.from(`#trustlayer .trust-layers`, {
+        gsap.from(`#trustlayer .trust-layers-wrapper`, {
             y: 400,
             opacity: 0,
             ease: 'none',
@@ -46,7 +47,10 @@ const TrustLayerSection = (): JSX.Element => {
             <div id="trustlayer-content" className="container">
                 <div className="row d-flex flex-lg-row flex-column justify-content-between">
                     <div className="col-12 col-lg-6 col-xl-7 d-flex justify-content-center justify-content-lg-start">
-                        <img className="trust-layers" src={trustLayerIllu} alt="Trust layers" />
+                        <div className="trust-layers-wrapper">
+                            <img className="trust-layers" src={trustLayersIllu} alt="Trust layers" />
+                            <img className="trust-layers-shadows" src={trustLayersShadows} alt="Trust layers shadows" />
+                        </div>
                     </div>
                     <div className="col-12 col-lg-6 col-xl-5">
                         <h1

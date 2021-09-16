@@ -3,6 +3,7 @@ import communityIcon from './images/community.png';
 import crystalWhiteLarge from './images/crystal_white_large.png';
 import crystalWhiteMedium from './images/crystal_white_medium.png';
 import crystalWhiteSmall from './images/crystal_white_small.png';
+import crystalsShadows from './images/crystals_shadows.png';
 import diamondIcon from './images/diamond.png';
 import downArrowIcon from './images/down-arrow.svg';
 import githubIcon from './images/github.png';
@@ -10,17 +11,20 @@ import layersIcon from './images/layers.png';
 import lenseWhiteLarge from './images/lense_white_large.png';
 import lenseWhiteMedium from './images/lense_white_medium.png';
 import lenseWhiteSmall from './images/lense_white_small.png';
+import lumLogoTextWhite from './images/lum_logo_text_white.png';
 import lumNetworkLogoDark from './images/lum_network_logo_dark.png';
 import lumNetworkLogo from './images/lum_network_logo.png';
 import poweredByLum from './images/power_by_the_lum.png';
-import rewardIllu from './images/reward.png';
+import rewardBlueLarge from './images/reward_blue_large.png';
+import rewardBlueMedium from './images/reward_blue_medium.png';
+import rewardBlueSmall from './images/reward_blue_small.png';
 import secureChain from './images/secure_chain.png';
 import stakeEarn from './images/stake_earn.png';
 import contentStamping from './images/store_content.png';
 import traceabilityIcon from './images/traceability.png';
 import transparencyIcon from './images/transparency.png';
 import trustLayers from './images/trust_layers.png';
-import universalReward from './images/universal_reward.png';
+import trustLayersShadows from './images/trust_layers_shadows.png';
 
 import showcaseLumkiIllu from './images/showcase_lumki_illu.png';
 import showcaseNetreviewsIllu from 'assets/images/showcase_netreviews_illu.png';
@@ -46,6 +50,7 @@ const Assets = {
         crystalWhiteLarge,
         crystalWhiteMedium,
         crystalWhiteSmall,
+        crystalsShadows,
         diamondIcon,
         downArrowIcon,
         githubIcon,
@@ -53,17 +58,20 @@ const Assets = {
         lenseWhiteLarge,
         lenseWhiteMedium,
         lenseWhiteSmall,
+        lumLogoTextWhite,
         lumNetworkLogoDark,
         lumNetworkLogo,
         poweredByLum,
-        rewardIllu,
+        rewardBlueLarge,
+        rewardBlueMedium,
+        rewardBlueSmall,
         secureChain,
         stakeEarn,
         contentStamping,
         traceabilityIcon,
         transparencyIcon,
         trustLayers,
-        universalReward,
+        trustLayersShadows,
         showcaseLumkiIllu,
         showcaseNetreviewsIllu,
         showcaseJoinIllu,

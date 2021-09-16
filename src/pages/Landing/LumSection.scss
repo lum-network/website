@@ -39,13 +39,75 @@
     }
 }
 
+#lum .universal-reward .spotlight-lumreward {
+    animation: rewardFloatVerticalLarge 7s infinite alternate-reverse ease-in-out;
+}
+
+#lum .universal-reward .reward-blue-medium {
+    position: absolute;
+    min-width: auto;
+    width: 90px;
+    right: -20px;
+    bottom: 60px;
+    animation: rewardFloatVerticalMedium 5s infinite alternate ease-in-out;
+
+    @include media-breakpoint-down(lg) {
+        width: 68px;
+        right: -30px;
+        bottom: 30px;
+    }
+}
+
+#lum .universal-reward .reward-blue-small {
+    position: absolute;
+    min-width: auto;
+    width: 97px;
+    left: -10px;
+    top: 10px;
+    animation: rewardFloatVerticalSmall 3s infinite alternate ease-in-out;
+
+    @include media-breakpoint-down(lg) {
+        width: 72px;
+        left: -20px;
+        top: 5px;
+    }
+}
+
+@keyframes rewardFloatVerticalSmall {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes rewardFloatVerticalMedium {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(15px);
+    }
+}
+@keyframes rewardFloatVerticalLarge {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(25px);
+    }
+}
+
 #lum .powered-by {
     position: relative;
-    margin-top: 120px;
+    margin-top: 160px;
     margin-bottom: 120px;
 }
 
 #lum .powered-by h1 {
+    position: relative;
+    display: inline-block;
     font-style: normal;
     font-weight: $regular;
     font-size: 10rem;
@@ -53,29 +115,70 @@
     padding: 0;
     margin: 0;
     text-align: center;
+    white-space: nowrap;
 
     @include media-breakpoint-down(lg) {
-        font-size: 6rem;
-        line-height: 7rem;
+        font-size: 7rem;
+        line-height: 8rem;
     }
 
     @include media-breakpoint-down(md) {
-        font-size: 5rem;
-        line-height: 5.5rem;
+        font-size: 5.5rem;
+        line-height: 6rem;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 3.5rem;
-        line-height: 4rem;
+        font-size: 5rem;
+        line-height: 5.5rem;
+        text-align: start;
     }
 }
 
-#lum .powered-by h1 strong {
-    font-weight: $bold;
-    font-family: 'Gotham Rounded';
+#lum .powered-by h1.part-1 {
+    width: 100%;
 }
 
-#lum .powered-by img {
+#lum .powered-by h1.part-2 {
+    z-index: 2;
+
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+        z-index: 0;
+    }
+}
+
+#lum .powered-by img.part-3 {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    height: 144px;
+    margin-left: 40px;
+    padding-bottom: 10px;
+    width: auto;
+
+    @include media-breakpoint-down(lg) {
+        height: 102px;
+        margin-left: 28px;
+        padding-bottom: 7px;
+    }
+
+    @include media-breakpoint-down(md) {
+        height: 80px;
+        margin-left: 22px;
+        padding-bottom: 6px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        height: 72px;
+        margin-top: 10px;
+        margin-left: 0px;
+        margin-bottom: 40px;
+        padding-bottom: 0px;
+        padding-left: 2px;
+    }
+}
+
+#lum .powered-by img.section-content-illu {
     position: absolute;
     width: 400px;
     height: auto;
@@ -85,15 +188,21 @@
     z-index: 0;
 
     @include media-breakpoint-down(lg) {
-        width: 240px;
+        top: 20px;
+        width: 280px;
     }
 
     @include media-breakpoint-down(md) {
-        width: 200px;
+        top: 10px;
+        width: 220px;
     }
 
     @include media-breakpoint-down(sm) {
-        width: 140px;
+        top: initial;
+        bottom: 40px;
+        left: 130px;
+        width: 200px;
+        transform: translate(0);
     }
 }
 
@@ -110,6 +219,11 @@
     @include media-breakpoint-down(lg) {
         max-width: none;
         margin-top: 32px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 0.9rem;
+        line-height: 1.1rem;
     }
 }
 
@@ -151,7 +265,7 @@
     line-height: 1.5rem;
     padding: 0;
     margin: 0;
-    margin-top: 24px;
+    margin-top: 42px;
     margin-bottom: 12px;
 
     @include media-breakpoint-down(lg) {

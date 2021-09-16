@@ -17,7 +17,8 @@ header {
 }
 
 header .background {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: saturate(180%) blur(20px);
     position: absolute;
     left: 0;
     top: 0;

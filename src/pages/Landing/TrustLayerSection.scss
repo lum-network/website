@@ -54,14 +54,30 @@
     margin-top: 48px;
 }
 
-#trustlayer img.trust-layers {
-    width: 95%;
-    height: auto;
-    object-fit: contain;
+#trustlayer .trust-layers-wrapper {
+    width: 635px;
+    height: 635px;
     margin-top: 100px;
 
     @include media-breakpoint-down(lg) {
-        max-width: 320px;
+        width: 320px;
+        height: 320px;
         margin-top: 0px;
+    }
+}
+
+#trustlayer .trust-layers-wrapper img.trust-layers {
+    width: 100%;
+    height: auto;
+}
+
+#trustlayer .trust-layers-wrapper img.trust-layers-shadows {
+    position: absolute;
+    left: -95px;
+    bottom: -170px;
+    width: 1015px;
+
+    @include media-breakpoint-down(xl) {
+        display: none;
     }
 }

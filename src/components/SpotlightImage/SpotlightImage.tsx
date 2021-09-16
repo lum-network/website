@@ -17,6 +17,7 @@ interface Props {
     animated?: boolean;
     scrollTrigger: string;
     showLights?: boolean;
+    children?: JSX.Element | JSX.Element[];
 }
 
 const SpotlightImage = (props: Props): JSX.Element => {
@@ -50,8 +51,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
                     spotlightRef.current.style.transform = `rotateZ(90deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
-                        0.25 + 0.75 * Math.min(1, progress * 2)
-                    }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        0.45 + 0.75 * Math.min(1, progress * 2)
+                    }) 30%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
                     spotlightInnerRef.current.style.transform = `rotateY(-${
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
@@ -61,8 +62,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
                     }deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
-                        0.25 + 0.75 * Math.min(1, progress * 2)
-                    }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        0.45 + 0.75 * Math.min(1, progress * 2)
+                    }) 30%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
                     spotlightInnerRef.current.style.transform = `rotateY(-${
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
@@ -72,8 +73,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
                     }deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
-                        0.25 + 0.75 * Math.min(1, progress * 2)
-                    }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        0.45 + 0.75 * Math.min(1, progress * 2)
+                    }) 30%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
                     spotlightInnerRef.current.style.transform = `rotateY(-${
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
@@ -109,6 +110,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 <div className="spotlight-inner" ref={spotlightInnerRef} />
             </div>
             <img src={props.imgSrc} alt={props.imgAlt} />
+            {props.children}
         </div>
     );
 };

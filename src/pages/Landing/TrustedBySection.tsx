@@ -121,12 +121,14 @@ const TrustedBySection = (): JSX.Element => {
                         />
                     </div>
                 </div>
-                <div className="section-content-info row d-flex flex-row justify-content-start align-items-start flex-wrap">
-                    {partners.map((p, i) => (
-                        <a key={i} className="partner" href={p.url} target="_blank" rel="noreferrer">
-                            <img src={p.logo} alt={`${p.title} logo`} />
-                        </a>
-                    ))}
+                <div className="section-content-info row">
+                    <div className="col-12 d-flex flex-row justify-content-between align-items-start flex-wrap">
+                        {partners.map((p, i) => (
+                            <a key={i} className="partner" href={p.url} target="_blank" rel="noreferrer">
+                                <img src={p.logo} alt={`${p.title} logo`} />
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
