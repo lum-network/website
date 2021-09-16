@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 import { Hooks } from 'utils';
-import { MIN_LARGE_DEVICE_WIDTH, IS_SAFARI, IS_FIREFOX } from 'constant';
+import { MIN_LARGE_DEVICE_WIDTH, IS_SAFARI, IS_IOS } from 'constant';
 
 import './styles/SpotlightImage.scss';
 import { useCallback } from 'react';
@@ -39,13 +39,9 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 progress = 1.0;
             }
             if (spotlightRef.current && spotlightInnerRef.current) {
-                if (IS_SAFARI) {
+                if (IS_SAFARI || IS_IOS) {
                     // Perspective is not interpreted the same way in Safari
                     spotlightRef.current.style.perspectiveOrigin = '560px center';
-                }
-                if (IS_SAFARI || IS_FIREFOX) {
-                    // Blur is not interpreted the same way in Chrome
-                    spotlightInnerRef.current.style.filter = 'blur(6px)';
                 }
                 if (width < MIN_LARGE_DEVICE_WIDTH) {
                     spotlightRef.current.style.transform = `rotateZ(90deg)`;

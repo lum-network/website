@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { gsap, Linear, Power1 } from 'gsap';
 
 import { Button, Link } from 'components';
-import { MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER } from 'constant';
+import { MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER, MAX_PHONE_DEVICE_WIDTH } from 'constant';
 import { Hooks } from 'utils';
 
 import crystalWhiteLarge from 'assets/images/crystal_white_large.png';
@@ -168,28 +168,85 @@ const WelcomeSection = (): JSX.Element => {
     }, [dots, setDots, enableDots]);
 
     useEffect(() => {
-        // GSAP Section Animations
+        // GSAP Section Scroll Animations
+        const scrollTrigger = {
+            trigger: `#welcome`,
+            start: '5% top',
+            end: '50% top',
+            scrub: true,
+        };
+        gsap.to(`#welcome .section-content-title`, {
+            translateY: -100,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .section-content-info`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+            stragger: 0.25,
+        });
+        gsap.to(`#welcome .crystal-small-wrapper`, {
+            translateY: -125,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .crystal-medium-wrapper`, {
+            translateY: -100,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .crystal-large-wrapper`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+        gsap.to(`#welcome .crystals-shadows`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
+
+    useEffect(() => {
+        // GSAP Section Show Animations
         const tl = gsap.timeline();
         tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
-        const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
-        tl.fromTo(
-            titleSplit.chars,
-            {
-                opacity: 0,
-                color: '#FFFFFF',
-                textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
-                ease: Power1.easeIn,
-            },
-            {
-                duration: 0.85,
-                opacity: 1,
-                color: '#515151',
-                textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
-                ease: Power1.easeIn,
-                stagger: 0.075,
-            },
-            '=-1',
-        );
+        if (width < MAX_PHONE_DEVICE_WIDTH) {
+            tl.fromTo(
+                `#welcome .section-content-title`,
+                {
+                    opacity: 0,
+                    y: 10,
+                },
+                {
+                    duration: 0.85,
+                    opacity: 1,
+                    y: 0,
+                },
+                '=-1',
+            );
+        } else {
+            const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
+            tl.fromTo(
+                titleSplit.chars,
+                {
+                    opacity: 0,
+                    color: '#FFFFFF',
+                    textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
+                    ease: Power1.easeIn,
+                },
+                {
+                    duration: 0.85,
+                    opacity: 1,
+                    color: '#515151',
+                    textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
+                    ease: Power1.easeIn,
+                    stagger: 0.075,
+                },
+                '=-1',
+            );
+        }
         tl.fromTo(
             `#welcome .section-content-info`,
             {
@@ -243,45 +300,7 @@ const WelcomeSection = (): JSX.Element => {
                 y: 0,
             },
         );
-
-        const scrollTrigger = {
-            trigger: `#welcome`,
-            start: '5% top',
-            end: '50% top',
-            scrub: true,
-        };
-        gsap.to(`#welcome .section-content-title`, {
-            translateY: -100,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .section-content-info`, {
-            translateY: -75,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-            stragger: 0.25,
-        });
-        gsap.to(`#welcome .crystal-small-wrapper`, {
-            translateY: -125,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .crystal-medium-wrapper`, {
-            translateY: -100,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .crystal-large-wrapper`, {
-            translateY: -75,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .crystals-shadows`, {
-            translateY: -75,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-    }, []);
+    }, [width]);
 
     return (
         <section className="dark" id="welcome">
