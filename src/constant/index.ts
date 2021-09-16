@@ -14,6 +14,7 @@ export const LUM_TWITTER = 'https://twitter.com/lum_network';
 export const LUM_FACEBOOK = 'https://www.facebook.com/lum.network';
 export const LUM_NETWORK_WHITEPAPER = '/whitepaper.pdf';
 export const MIN_LARGE_DEVICE_WIDTH = 992;
+export const MAX_PHONE_DEVICE_WIDTH = 640;
 // @ts-ignore
 export const IS_FIREFOX = typeof InstallTrigger !== 'undefined';
 export const IS_SAFARI =
@@ -23,3 +24,5 @@ export const IS_SAFARI =
         return p.toString() === '[object SafariRemoteNotification]';
         // @ts-ignore
     })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+export const IS_IOS =
+    /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);

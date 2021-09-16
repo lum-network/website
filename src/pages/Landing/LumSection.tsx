@@ -4,11 +4,13 @@ import { gsap } from 'gsap';
 
 import { Button, SpotlightImage } from 'components';
 
-import universalRewardIllu from 'assets/images/universal_reward.png';
+import lumLogoTextWhite from 'assets/images/lum_logo_text_white.png';
 import poweredByIllu from 'assets/images/power_by_the_lum.png';
 import stakeEarnIllu from 'assets/images/stake_earn.png';
 import secureIllu from 'assets/images/secure_chain.png';
-import rewardIllu from 'assets/images/reward.png';
+import rewardBlueLarge from 'assets/images/reward_blue_large.png';
+import rewardBlueMedium from 'assets/images/reward_blue_medium.png';
+import rewardBlueSmall from 'assets/images/reward_blue_small.png';
 
 import './LumSection.scss';
 
@@ -17,25 +19,25 @@ const UniversalReward = (): JSX.Element => {
 
     useEffect(() => {
         const scrollTrigger = {
-            trigger: `#lum`,
-            start: 'top 90%',
-            end: 'top 50%',
+            trigger: `#lum .universal-reward`,
+            start: 'top 65%',
+            end: 'top 30%',
             scrub: true,
         };
         gsap.from(`#lum .universal-reward .section-content-title`, {
-            y: 50,
+            y: 40,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#lum .universal-reward .section-content-info`, {
-            y: 100,
+            y: 80,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#lum .universal-reward .section-content-illu`, {
-            y: 150,
+            y: 120,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
@@ -47,12 +49,15 @@ const UniversalReward = (): JSX.Element => {
             <div className="section-content-illu col-lg-6 d-flex justify-content-center">
                 <SpotlightImage
                     uid={'lumreward'}
-                    imgSrc={universalRewardIllu}
+                    imgSrc={rewardBlueLarge}
                     imgAlt="Universal LUM reward"
-                    beamSize={0.9}
+                    beamSize={0.75}
                     animated={true}
                     scrollTrigger={`#lum .universal-reward`}
-                />
+                >
+                    <img className="reward-blue-medium" src={rewardBlueMedium} alt="Blue medium diamond" />
+                    <img className="reward-blue-small" src={rewardBlueSmall} alt="Blue small diamond" />
+                </SpotlightImage>
             </div>
             <div className="col-12 col-lg-6">
                 <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('rewards.title') }} />
@@ -67,26 +72,27 @@ const PoweredBy = (): JSX.Element => {
 
     useEffect(() => {
         const scrollTrigger = {
-            trigger: `#lum`,
-            start: 'top 60%',
-            end: 'top 5%',
+            trigger: `#lum .powered-by`,
+            start: 'top 65%',
+            end: 'top 30%',
             scrub: true,
         };
         gsap.from(`#lum .powered-by .section-content-title`, {
-            y: 50,
+            y: 40,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
             stagger: 0.2,
         });
         gsap.from(`#lum .powered-by .section-content-info`, {
-            y: 150,
+            y: 80,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#lum .powered-by .section-content-illu`, {
-            y: 200,
+            y: 120,
+            scale: 0.75,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
@@ -94,16 +100,26 @@ const PoweredBy = (): JSX.Element => {
     }, []);
 
     return (
-        <div className="row powered-by">
-            <div className="col-12">
-                <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('poweredBy.title1') }} />
+        <div className="row powered-by d-flex justify-content-center">
+            <div
+                className="col-12 d-flex align-items-center justify-content-start justify-content-sm-center flex-wrap"
+                style={{ position: 'relative' }}
+            >
+                <h1
+                    className="section-content-title part-1"
+                    dangerouslySetInnerHTML={{ __html: t('poweredBy.title1') }}
+                />
+                <h1
+                    className="section-content-title part-2"
+                    dangerouslySetInnerHTML={{ __html: t('poweredBy.title2') }}
+                />
+                <img className="section-content-title part-3" src={lumLogoTextWhite} alt="Lum" />
                 <img className="section-content-illu" src={poweredByIllu} alt="Huge Lum Coin" />
-                <h1 className="section-content-title" dangerouslySetInnerHTML={{ __html: t('poweredBy.title2') }} />
             </div>
-            <div className="col-lg-6">
+            <div className="col-12 col-lg-6 col-xl-4">
                 <p className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.description1') }} />
             </div>
-            <div className="col-lg-6">
+            <div className="col-12 col-lg-6 col-xl-5">
                 <p className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.description2') }} />
             </div>
         </div>
@@ -118,8 +134,8 @@ const LumSection = (): JSX.Element => {
             <div id="lum-content" className="container">
                 <UniversalReward />
                 <PoweredBy />
-                <div className="row">
-                    <div className="col-12 col-lg-4">
+                <div className="row d-flex justify-content-center">
+                    <div className="col-12 col-lg-4 col-xl-3">
                         <div className="section-content-info power-card">
                             <img src={stakeEarnIllu} alt="Stake and earn" />
                             <div className="text-center text-lg-start">
@@ -128,7 +144,7 @@ const LumSection = (): JSX.Element => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-4">
+                    <div className="col-12 col-lg-4 col-xl-3">
                         <div className="section-content-info power-card">
                             <img src={secureIllu} alt="Secure the chain" />
                             <div className="text-center text-lg-start">
@@ -137,9 +153,9 @@ const LumSection = (): JSX.Element => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-4">
+                    <div className="col-12 col-lg-4 col-xl-3">
                         <div className="section-content-info power-card">
-                            <img src={rewardIllu} alt="Become the future" />
+                            <img src={rewardBlueLarge} alt="Become the future" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.security.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.security.description') }} />

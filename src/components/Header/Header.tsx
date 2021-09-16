@@ -12,12 +12,19 @@ import lumNetworkLogoDark from 'assets/images/lum_network_logo_dark.png';
 const Header = ({ modalId, bgTriggerElem }: { modalId: string; bgTriggerElem?: string }): JSX.Element => {
     const { t } = useTranslation();
     useEffect(() => {
-        gsap.from(`header`, {
-            opacity: 0,
-            y: -50,
-            duration: 0.35,
-            delay: 1,
-        });
+        gsap.fromTo(
+            `header`,
+            {
+                opacity: 0,
+                y: -50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.35,
+                delay: 3,
+            },
+        );
     }, []);
 
     useEffect(() => {

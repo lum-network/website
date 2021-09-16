@@ -51,7 +51,7 @@
     },
     "poweredBy": {
         "title1": "Powered",
-        "title2": "by the <strong>Lum</strong>",
+        "title2": "by the",
         "description1": "<strong>Lum comes from the word “light”</strong> and expresses the value created by and for consumers throughout any retail experience lifecycle.",
         "description2": "It is the <strong>fuel of the Lum Network</strong> and is used by businesses to benefit from the trust layer while rewarding their customers, by validators and delegators to secure the network and many more.",
         "security": {
@@ -71,7 +71,7 @@
         "title": "Partners <br />Show case",
         "lumki": {
             "title": "Lumki",
-            "description": "Lumki is a reward mobile and web application enabling its users to earn Lum throughout dedicated cashback offers as well as creating quality content for retailers. <br /><br />The service provides every user with a secure Lum wallet to easily redeem their rewards and convert them into coupons, fiat currency or send them to their own personal Lum wallet. <br /><br />Lumki is being developed and commercialized by the European company HORUS.",
+            "description": "Lumki is a reward mobile and web application enabling its users to earn Lum throughout dedicated cashback offers as well as creating quality content for retailers. <br /><br />The service provides every user with a secure Lum wallet to easily redeem their rewards and convert them into coupons, fiat currency or send them to their own personal Lum wallet.",
             "cta": {
                 "title": "Visit Lumki's website",
                 "url": "https://lumki.com"
@@ -79,7 +79,7 @@
         },
         "netreviews": {
             "title": "Net Reviews",
-            "description": "Net Reviews is a leading group in Customer Reviews Management for retailers.<br/><br/> Net Reviews is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Net Reviews benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
+            "description": "Net Reviews is part of Skeepers, a leading group in Customer Reviews Management for retailers.<br/><br/> Net Reviews is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Net Reviews benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
             "cta": {
                 "title": "Visit Net Reviews's website",
                 "url": "https://netreviews.com"

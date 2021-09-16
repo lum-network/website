@@ -1,14 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap, Linear } from 'gsap';
+import { gsap, Linear, Power1 } from 'gsap';
 
 import { Button, Link } from 'components';
-import { MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER } from 'constant';
+import { MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER, MAX_PHONE_DEVICE_WIDTH } from 'constant';
 import { Hooks } from 'utils';
 
 import crystalWhiteLarge from 'assets/images/crystal_white_large.png';
 import crystalWhiteMedium from 'assets/images/crystal_white_medium.png';
 import crystalWhiteSmall from 'assets/images/crystal_white_small.png';
+import crystalsShadows from 'assets/images/crystals_shadows.png';
 import downArrowIcon from 'assets/images/down-arrow.svg';
 
 import './WelcomeSection.scss';
@@ -61,6 +62,7 @@ const DotsSvgPaths = (): JSX.Element => {
 const CrystalIllustration = (): JSX.Element => {
     return (
         <div className="crystal-illu-container">
+            <img className="crystals-shadows" src={crystalsShadows} alt="Crystals shadows" />
             <div className="crystal-wrapper crystal-small-wrapper">
                 <img className="crystal-small" src={crystalWhiteSmall} alt="Small White Crystal" />
             </div>
@@ -123,6 +125,7 @@ const WelcomeSection = (): JSX.Element => {
     const { t } = useTranslation();
     const { width } = Hooks.useWindowSize();
 
+    const timeline = useRef<gsap.core.Timeline>();
     const [dots, setDots] = useState<JSX.Element[]>([]);
     const [enableDots, setEnableDots] = useState<boolean>(true);
 
@@ -166,9 +169,7 @@ const WelcomeSection = (): JSX.Element => {
     }, [dots, setDots, enableDots]);
 
     useEffect(() => {
-        // GSAP Section Animations
-        const tl = gsap.timeline();
-        tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
+        // GSAP Section Scroll Animations
         const scrollTrigger = {
             trigger: `#welcome`,
             start: '5% top',
@@ -201,11 +202,114 @@ const WelcomeSection = (): JSX.Element => {
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
+        gsap.to(`#welcome .crystals-shadows`, {
+            translateY: -75,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
     }, []);
+
+    useEffect(() => {
+        // GSAP Section Show Animations
+        if (!timeline.current) {
+            const tl = gsap.timeline();
+            timeline.current = tl;
+            tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
+            if (width < MAX_PHONE_DEVICE_WIDTH) {
+                tl.fromTo(
+                    `#welcome .section-content-title`,
+                    {
+                        opacity: 0,
+                        y: 10,
+                    },
+                    {
+                        duration: 0.85,
+                        opacity: 1,
+                        y: 0,
+                    },
+                    '=-1',
+                );
+            } else {
+                const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
+                tl.fromTo(
+                    titleSplit.chars,
+                    {
+                        opacity: 0,
+                        color: '#FFFFFF',
+                        textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
+                        ease: Power1.easeIn,
+                    },
+                    {
+                        duration: 0.85,
+                        opacity: 1,
+                        color: '#515151',
+                        textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
+                        ease: Power1.easeIn,
+                        stagger: 0.075,
+                    },
+                    '=-1',
+                );
+            }
+            tl.fromTo(
+                `#welcome .section-content-info`,
+                {
+                    opacity: 0,
+                    y: 10,
+                },
+                {
+                    duration: 0.5,
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.25,
+                },
+                '=-0.3',
+            );
+            tl.fromTo(
+                `#welcome .crystal-illu-container > *`,
+                {
+                    opacity: 0,
+                    y: 10,
+                },
+                {
+                    duration: 0.5,
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.15,
+                },
+                '=-0.5',
+            );
+            tl.fromTo(
+                `#welcome .bg-lightning`,
+                {
+                    opacity: 0,
+                    y: 10,
+                },
+                {
+                    duration: 1,
+                    opacity: 1,
+                    y: 0,
+                },
+                '=-1',
+            );
+            tl.fromTo(
+                `#welcome .scroll-cta-container`,
+                {
+                    opacity: 0,
+                    y: 20,
+                },
+                {
+                    duration: 0.25,
+                    opacity: 1,
+                    y: 0,
+                },
+            );
+        }
+    }, [width]);
 
     return (
         <section className="dark" id="welcome">
             {dots}
+            <div className="bg-lightning" />
             <div className="container" />
             <div id="welcome-content" className="container">
                 <div className="row flex-lg-row flex-column-reverse align-items-center">

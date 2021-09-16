@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 import { Hooks } from 'utils';
-import { MIN_LARGE_DEVICE_WIDTH, IS_SAFARI, IS_FIREFOX } from 'constant';
+import { MIN_LARGE_DEVICE_WIDTH, IS_SAFARI, IS_IOS } from 'constant';
 
 import './styles/SpotlightImage.scss';
 import { useCallback } from 'react';
@@ -17,6 +17,7 @@ interface Props {
     animated?: boolean;
     scrollTrigger: string;
     showLights?: boolean;
+    children?: JSX.Element | JSX.Element[];
 }
 
 const SpotlightImage = (props: Props): JSX.Element => {
@@ -38,20 +39,16 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 progress = 1.0;
             }
             if (spotlightRef.current && spotlightInnerRef.current) {
-                if (IS_SAFARI) {
+                if (IS_SAFARI || IS_IOS) {
                     // Perspective is not interpreted the same way in Safari
                     spotlightRef.current.style.perspectiveOrigin = '560px center';
-                }
-                if (IS_SAFARI || IS_FIREFOX) {
-                    // Blur is not interpreted the same way in Chrome
-                    spotlightInnerRef.current.style.filter = 'blur(6px)';
                 }
                 if (width < MIN_LARGE_DEVICE_WIDTH) {
                     spotlightRef.current.style.transform = `rotateZ(90deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
-                        0.25 + 0.75 * Math.min(1, progress * 2)
-                    }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        0.45 + 0.75 * Math.min(1, progress * 2)
+                    }) 30%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
                     spotlightInnerRef.current.style.transform = `rotateY(-${
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
@@ -61,8 +58,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
                     }deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
-                        0.25 + 0.75 * Math.min(1, progress * 2)
-                    }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        0.45 + 0.75 * Math.min(1, progress * 2)
+                    }) 30%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
                     spotlightInnerRef.current.style.transform = `rotateY(-${
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
@@ -72,8 +69,8 @@ const SpotlightImage = (props: Props): JSX.Element => {
                     }deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
-                        0.25 + 0.75 * Math.min(1, progress * 2)
-                    }) 3.25%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
+                        0.45 + 0.75 * Math.min(1, progress * 2)
+                    }) 30%, rgba(255, 255, 255, 0) ${80 + 5 * Math.min(1, progress * 2)}%)`;
                     spotlightInnerRef.current.style.transform = `rotateY(-${
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
@@ -109,6 +106,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
                 <div className="spotlight-inner" ref={spotlightInnerRef} />
             </div>
             <img src={props.imgSrc} alt={props.imgAlt} />
+            {props.children}
         </div>
     );
 };

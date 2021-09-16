@@ -5,7 +5,7 @@ on:
       - master
 
 jobs:
-  deploy:
+  build_deploy_testnet:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,8 +24,33 @@ jobs:
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           channelId: live
           projectId: lum-network
           target: lum-network-website
+
+  build_deploy_mainnet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install packages
+        run: yarn
+
+      - name: Build
+        run: yarn build
+        env:
+          SASS_PATH: "node_modules:src/styles"
+
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          channelId: live
+          projectId: lum-network
+          target: lum-network

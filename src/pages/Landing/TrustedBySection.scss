@@ -28,25 +28,34 @@
 #trustedby a.partner {
     display: flex;
     flex: 0 1 0;
-    width: 200px;
-    min-width: 200px;
+    width: 15%;
+    min-width: 15%;
     height: 120px;
     cursor: pointer;
     transition: all 150ms linear;
     margin-bottom: 20px;
-    margin-left: 14px;
-    margin-right: 6px;
     padding: 12px;
     background: #f7f7f7;
     border-radius: 18px;
 
+    @include media-breakpoint-down(xl) {
+        width: 18%;
+        min-width: 18%;
+    }
+
+    @include media-breakpoint-down(lg) {
+        width: 23%;
+        min-width: 23%;
+    }
+
     @include media-breakpoint-down(md) {
-        width: min(150px, 40%);
-        min-width: min(150px, 40%);
-        height: 80px;
-        margin-bottom: 16px;
-        margin-left: 16px;
-        margin-right: 0px;
+        width: 31%;
+        min-width: 31%;
+    }
+
+    @include media-breakpoint-down(sm) {
+        width: 46.5%;
+        min-width: 46.5%;
     }
 }
 
