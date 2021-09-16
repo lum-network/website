@@ -23,8 +23,8 @@ const TrustedBySection = (): JSX.Element => {
     useEffect(() => {
         const scrollTrigger = {
             trigger: `#trustedby`,
-            start: 'top 80%',
-            end: 'top 40%',
+            start: 'top 60%',
+            end: 'top 10%',
             scrub: true,
         };
         gsap.from(`#trustedby .section-content-title`, {

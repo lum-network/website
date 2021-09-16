@@ -10,8 +10,8 @@ const GreenSection = (): JSX.Element => {
     useEffect(() => {
         const scrollTrigger = {
             trigger: `#green`,
-            start: 'top 90%',
-            end: 'top 30%',
+            start: 'top 60%',
+            end: 'top 10%',
             scrub: true,
         };
         gsap.from(`#green .section-content-title`, {

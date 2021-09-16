@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap, Linear, Power1 } from 'gsap';
 
@@ -125,6 +125,7 @@ const WelcomeSection = (): JSX.Element => {
     const { t } = useTranslation();
     const { width } = Hooks.useWindowSize();
 
+    const timeline = useRef<gsap.core.Timeline>();
     const [dots, setDots] = useState<JSX.Element[]>([]);
     const [enableDots, setEnableDots] = useState<boolean>(true);
 
@@ -210,96 +211,99 @@ const WelcomeSection = (): JSX.Element => {
 
     useEffect(() => {
         // GSAP Section Show Animations
-        const tl = gsap.timeline();
-        tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
-        if (width < MAX_PHONE_DEVICE_WIDTH) {
+        if (!timeline.current) {
+            const tl = gsap.timeline();
+            timeline.current = tl;
+            tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
+            if (width < MAX_PHONE_DEVICE_WIDTH) {
+                tl.fromTo(
+                    `#welcome .section-content-title`,
+                    {
+                        opacity: 0,
+                        y: 10,
+                    },
+                    {
+                        duration: 0.85,
+                        opacity: 1,
+                        y: 0,
+                    },
+                    '=-1',
+                );
+            } else {
+                const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
+                tl.fromTo(
+                    titleSplit.chars,
+                    {
+                        opacity: 0,
+                        color: '#FFFFFF',
+                        textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
+                        ease: Power1.easeIn,
+                    },
+                    {
+                        duration: 0.85,
+                        opacity: 1,
+                        color: '#515151',
+                        textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
+                        ease: Power1.easeIn,
+                        stagger: 0.075,
+                    },
+                    '=-1',
+                );
+            }
             tl.fromTo(
-                `#welcome .section-content-title`,
+                `#welcome .section-content-info`,
                 {
                     opacity: 0,
                     y: 10,
                 },
                 {
-                    duration: 0.85,
+                    duration: 0.5,
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.25,
+                },
+                '=-0.3',
+            );
+            tl.fromTo(
+                `#welcome .crystal-illu-container > *`,
+                {
+                    opacity: 0,
+                    y: 10,
+                },
+                {
+                    duration: 0.5,
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.15,
+                },
+                '=-0.5',
+            );
+            tl.fromTo(
+                `#welcome .bg-lightning`,
+                {
+                    opacity: 0,
+                    y: 10,
+                },
+                {
+                    duration: 1,
                     opacity: 1,
                     y: 0,
                 },
                 '=-1',
             );
-        } else {
-            const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
             tl.fromTo(
-                titleSplit.chars,
+                `#welcome .scroll-cta-container`,
                 {
                     opacity: 0,
-                    color: '#FFFFFF',
-                    textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
-                    ease: Power1.easeIn,
+                    y: 20,
                 },
                 {
-                    duration: 0.85,
+                    duration: 0.25,
                     opacity: 1,
-                    color: '#515151',
-                    textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
-                    ease: Power1.easeIn,
-                    stagger: 0.075,
+                    y: 0,
                 },
-                '=-1',
             );
         }
-        tl.fromTo(
-            `#welcome .section-content-info`,
-            {
-                opacity: 0,
-                y: 10,
-            },
-            {
-                duration: 0.5,
-                opacity: 1,
-                y: 0,
-                stagger: 0.25,
-            },
-            '=-0.3',
-        );
-        tl.fromTo(
-            `#welcome .crystal-illu-container > *`,
-            {
-                opacity: 0,
-                y: 10,
-            },
-            {
-                duration: 0.5,
-                opacity: 1,
-                y: 0,
-                stagger: 0.15,
-            },
-            '=-0.5',
-        );
-        tl.fromTo(
-            `#welcome .bg-lightning`,
-            {
-                opacity: 0,
-                y: 10,
-            },
-            {
-                duration: 1,
-                opacity: 1,
-                y: 0,
-            },
-            '=-1',
-        );
-        tl.fromTo(
-            `#welcome .scroll-cta-container`,
-            {
-                opacity: 0,
-                y: 20,
-            },
-            {
-                duration: 0.25,
-                opacity: 1,
-                y: 0,
-            },
-        );
     }, [width]);
 
     return (

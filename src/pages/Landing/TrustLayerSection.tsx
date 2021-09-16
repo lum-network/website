@@ -17,25 +17,25 @@ const TrustLayerSection = (): JSX.Element => {
     useEffect(() => {
         const scrollTrigger = {
             trigger: `#trustlayer`,
-            start: 'top 80%',
-            end: 'top 20%',
+            start: 'top 60%',
+            end: 'top 10%',
             scrub: true,
         };
 
         gsap.from(`#trustlayer .section-content-title`, {
-            y: 150,
+            y: 100,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#trustlayer .section-content-info`, {
-            y: 250,
+            y: 150,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#trustlayer .trust-layers-wrapper`, {
-            y: 400,
+            y: 200,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,

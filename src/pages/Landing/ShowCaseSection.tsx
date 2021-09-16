@@ -54,8 +54,8 @@ const ShowCaseSection = (): JSX.Element => {
     useEffect(() => {
         const scrollTrigger = {
             trigger: `#showcase`,
-            start: 'top 90%',
-            end: 'top 30%',
+            start: 'top 60%',
+            end: 'top 10%',
             scrub: true,
         };
         gsap.from(`#showcase .section-content-title`, {

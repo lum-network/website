@@ -19,25 +19,25 @@ const UniversalReward = (): JSX.Element => {
 
     useEffect(() => {
         const scrollTrigger = {
-            trigger: `#lum`,
-            start: 'top 90%',
-            end: 'top 50%',
+            trigger: `#lum .universal-reward`,
+            start: 'top 65%',
+            end: 'top 30%',
             scrub: true,
         };
         gsap.from(`#lum .universal-reward .section-content-title`, {
-            y: 50,
+            y: 40,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#lum .universal-reward .section-content-info`, {
-            y: 100,
+            y: 80,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#lum .universal-reward .section-content-illu`, {
-            y: 150,
+            y: 120,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
@@ -72,26 +72,26 @@ const PoweredBy = (): JSX.Element => {
 
     useEffect(() => {
         const scrollTrigger = {
-            trigger: `#lum`,
-            start: 'top 60%',
-            end: 'top 5%',
+            trigger: `#lum .powered-by`,
+            start: 'top 65%',
+            end: 'top 30%',
             scrub: true,
         };
         gsap.from(`#lum .powered-by .section-content-title`, {
-            y: 50,
+            y: 40,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
             stagger: 0.2,
         });
         gsap.from(`#lum .powered-by .section-content-info`, {
-            y: 150,
+            y: 80,
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
         gsap.from(`#lum .powered-by .section-content-illu`, {
-            y: 200,
+            y: 120,
             scale: 0.75,
             opacity: 0,
             ease: 'none',
