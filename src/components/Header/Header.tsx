@@ -16,7 +16,7 @@ const Header = ({ modalId, bgTriggerElem }: { modalId: string; bgTriggerElem?: s
             opacity: 0,
             y: -50,
             duration: 0.35,
-            delay: 1,
+            delay: 3,
         });
     }, []);
 

@@ -17,7 +17,7 @@ gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
 const Loader = ({ progress, loading }: { progress: number; loading: boolean }): JSX.Element => {
     return (
         <div id="loader" className={`d-flex align-items-center justify-content-center ${!loading ? 'slow-hide' : ''}`}>
-            <div className="text-center" style={{ marginTop: '-10%' }}>
+            <div className="text-center" style={{ marginTop: '-5%' }}>
                 <img src={lumNetworkLogoDark} width="235" height="38" />
                 <ProgressBar progress={progress} containerClassName="loading-bar-container" />
             </div>

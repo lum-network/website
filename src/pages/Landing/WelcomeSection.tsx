@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap, Linear } from 'gsap';
+import { gsap, Linear, Power1 } from 'gsap';
 
 import { Button, Link } from 'components';
 import { MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER } from 'constant';
@@ -171,6 +171,79 @@ const WelcomeSection = (): JSX.Element => {
         // GSAP Section Animations
         const tl = gsap.timeline();
         tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
+        const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
+        tl.fromTo(
+            titleSplit.chars,
+            {
+                opacity: 0,
+                color: '#FFFFFF',
+                textShadow: `0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff`,
+                ease: Power1.easeIn,
+            },
+            {
+                duration: 0.85,
+                opacity: 1,
+                color: '#515151',
+                textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
+                ease: Power1.easeIn,
+                stagger: 0.075,
+            },
+            '=-1',
+        );
+        tl.fromTo(
+            `#welcome .section-content-info`,
+            {
+                opacity: 0,
+                y: 10,
+            },
+            {
+                duration: 0.5,
+                opacity: 1,
+                y: 0,
+                stagger: 0.25,
+            },
+            '=-0.3',
+        );
+        tl.fromTo(
+            `#welcome .crystal-illu-container > *`,
+            {
+                opacity: 0,
+                y: 10,
+            },
+            {
+                duration: 0.5,
+                opacity: 1,
+                y: 0,
+                stagger: 0.15,
+            },
+            '=-0.5',
+        );
+        tl.fromTo(
+            `#welcome .bg-lightning`,
+            {
+                opacity: 0,
+                y: 10,
+            },
+            {
+                duration: 1,
+                opacity: 1,
+                y: 0,
+            },
+            '=-1',
+        );
+        tl.fromTo(
+            `#welcome .scroll-cta-container`,
+            {
+                opacity: 0,
+                y: 20,
+            },
+            {
+                duration: 0.25,
+                opacity: 1,
+                y: 0,
+            },
+        );
+
         const scrollTrigger = {
             trigger: `#welcome`,
             start: '5% top',
