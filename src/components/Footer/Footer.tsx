@@ -106,6 +106,7 @@ const Footer = (): JSX.Element => {
                         <div className="d-flex flex-md-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
                             <div className="d-inline-flex justify-content-around">
                                 <p className="footer-link mb-0">Lum Network 2021 ©</p>
+                                <p className="footer-link mb-0 ms-5">contact@lum.network</p>
                                 {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                             </div>
                             <Button
