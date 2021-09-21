@@ -14,6 +14,7 @@ import lenseWhiteSmall from './images/lense_white_small.png';
 import lumLogoTextWhite from './images/lum_logo_text_white.png';
 import lumNetworkLogoDark from './images/lum_network_logo_dark.png';
 import lumNetworkLogo from './images/lum_network_logo.png';
+import notificationIllu from './images/notification_illu.png';
 import poweredByLum from './images/power_by_the_lum.png';
 import rewardBlueLarge from './images/reward_blue_large.png';
 import rewardBlueMedium from './images/reward_blue_medium.png';
@@ -61,6 +62,7 @@ const Assets = {
         lumLogoTextWhite,
         lumNetworkLogoDark,
         lumNetworkLogo,
+        notificationIllu,
         poweredByLum,
         rewardBlueLarge,
         rewardBlueMedium,

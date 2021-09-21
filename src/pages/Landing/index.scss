@@ -1,23 +1,101 @@
 @import '_main';
 
+#newsletter-modal {
+    & .modal-dialog {
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            max-width: 580px;
+        }
+    }
+
+    & .modal-content {
+        position: relative;
+        min-height: 520px;
+    }
+
+    & .modal-body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    & iframe {
+        z-index: 2;
+        height: 380px;
+        width: 100%;
+    }
+
+    & img.illu {
+        z-index: 0;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        height: 200px;
+        transform: translateX(-50%);
+    }
+
+    @include media-breakpoint-down(sm) {
+        & .modal-content {
+            position: relative;
+            min-height: 560px;
+        }
+
+        & img.illu {
+            height: 160px;
+        }
+    }
+}
+
 #get-informed-modal {
     color: $color-dark;
-}
 
-#get-informed-modal .modal-body {
-    padding: 32px;
-}
+    & .modal-dialog {
+        @include media-breakpoint-up(lg) {
+            max-width: 580px;
+        }
+    }
 
-#get-informed-modal h1 {
-    font-size: 1.125rem;
-    line-height: 1.25rem;
-    font-weight: $light;
-}
+    & .modal-body {
+        padding: 32px;
+        text-align: start;
+    }
 
-#get-informed-modal p {
-    font-size: 1.5rem;
-    line-height: 1.75rem;
-    font-weight: $regular;
-    margin-top: 12px;
-    margin-bottom: 24px;
+    & h1 {
+        font-style: normal;
+        font-weight: $medium;
+        font-size: 2.1rem;
+        line-height: 2.5rem;
+    }
+
+    & p {
+        font-style: normal;
+        font-weight: $regular;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        margin-top: 12px;
+        margin-bottom: 36px;
+    }
+
+    & a {
+        transition: all 0.2s ease-in-out;
+        border-radius: 20px;
+        padding: 12px 24px;
+        background-color: transparent;
+        border: 2px solid #000000;
+        color: #000000;
+        text-decoration: none;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+    }
+    & a.btn-blue {
+        background-color: #2356c5;
+        border-color: #2356c5;
+        color: white;
+    }
 }

@@ -165,7 +165,11 @@ const LumSection = (): JSX.Element => {
                 </div>
                 <div className="section-content-info row">
                     <div className="col-12 d-flex align-items-center justify-content-center cta">
-                        <Button className="align-self-center" onClick={() => window.alert('TODO')}>
+                        <Button
+                            className="align-self-center"
+                            data-bs-toggle="modal"
+                            data-bs-target={'#get-informed-modal'}
+                        >
                             <strong className="px-3">{t('common.getLum')}</strong>
                         </Button>
                     </div>
