@@ -53,9 +53,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
                 } else if (direction === 1) {
-                    spotlightRef.current.style.transform = `rotateZ(${
-                        -20 + 30 * Math.min(progress * 2, 1) * beamSize
-                    }deg)`;
+                    spotlightRef.current.style.transform = `rotateZ(${-20 + 30 * Math.min(progress, 1)}deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
                         0.45 + 0.75 * Math.min(1, progress * 2)
@@ -64,9 +62,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
                         32 + Math.min(progress * 2, 1) * 15 * beamSize
                     }deg)`;
                 } else {
-                    spotlightRef.current.style.transform = `rotateZ(${
-                        -150 - 30 * Math.min(progress * 2, 1) * beamSize
-                    }deg)`;
+                    spotlightRef.current.style.transform = `rotateZ(${-150 - 30 * Math.min(progress, 1)}deg)`;
                     spotlightRef.current.style.perspective = `${330 + Math.min(progress * 2, 1) * 30}px`;
                     spotlightInnerRef.current.style.backgroundImage = `linear-gradient(90deg, rgba(255, 255, 255, ${
                         0.45 + 0.75 * Math.min(1, progress * 2)
@@ -85,7 +81,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
             tween.current = gsap.to(`spotlight-${props.uid}`, {
                 scrollTrigger: {
                     trigger: `${props.scrollTrigger}`,
-                    start: 'top 80%',
+                    start: 'top 70%',
                     end: 'top 20%',
                     scrub: true,
                     onUpdate: ({ progress }) => {
