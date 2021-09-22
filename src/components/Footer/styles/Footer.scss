@@ -14,6 +14,10 @@ footer {
     }
 }
 
+footer form, footer form input {
+    cursor: pointer;
+}
+
 footer .form-control,
 footer .form-control:focus,
 footer input.form-control:-webkit-autofill,

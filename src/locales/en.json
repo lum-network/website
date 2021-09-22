@@ -79,7 +79,7 @@
         },
         "netreviews": {
             "title": "Net Reviews",
-            "description": "Net Reviews is part of Skeepers, a leading group in Customer Reviews Management for retailers.<br/><br/> Net Reviews is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Net Reviews benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
+            "description": "Net Reviews is part of <a href='https://skeepers.io/en' target='_blank' rel='noreferrer'>Skeepers</a>, a leading group in customer engagement for retailers.<br/><br/> Net Reviews is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Net Reviews benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
             "cta": {
                 "title": "Visit Net Reviews's website",
                 "url": "https://netreviews.com"
@@ -117,9 +117,10 @@
         }
     },
     "getInformedModal": {
-        "title": "We're currently in the <u>Testnet Stage</u>",
-        "description": "Stay tuned and do not miss any news regarding the Lum Network achievements.",
-        "button": "Join the newsletter"
+        "title": "Lum Network<br/>Main Net Launch",
+        "description": "Register to the Lum Network private sale whitelist now and get a chance to be the first aboard.<br/><br/>Or simply join our newsletter to keep up to date with the Lum Network announcements.",
+        "newsletter": "Join the newsletter",
+        "whitelist": "Whitelist registration"
     },
     "footer": {
         "newsletter": {

@@ -11,7 +11,7 @@ const GreenSection = (): JSX.Element => {
         const scrollTrigger = {
             trigger: `#green`,
             start: 'top 60%',
-            end: 'top 10%',
+            end: 'top 20%',
             scrub: true,
         };
         gsap.from(`#green .section-content-title`, {

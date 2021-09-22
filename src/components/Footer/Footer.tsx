@@ -11,6 +11,7 @@ import {
     LUM_TELEGRAM,
     LUM_TWITTER,
     LUM_WALLET,
+    LUM_MEDIUM,
 } from 'constant';
 import { Button, Link } from 'components';
 
@@ -45,9 +46,14 @@ const Footer = (): JSX.Element => {
                         <div className="h-100 me-md-5 d-flex flex-column justify-content-between">
                             <div>
                                 <h3>{t('footer.newsletter.title')}</h3>
-                                <form onSubmit={mailingListForm.handleSubmit}>
+                                <form
+                                    onSubmit={mailingListForm.handleSubmit}
+                                    data-bs-toggle="modal"
+                                    data-bs-target={'#newsletter-modal'}
+                                >
                                     <div className="input-group align-items-baseline border-bottom mt-4">
                                         <input
+                                            disabled
                                             {...mailingListForm.getFieldProps('email')}
                                             className="form-control border-0 px-0 pb-3 mt-3"
                                             placeholder={t('footer.newsletter.placeholder')}
@@ -81,7 +87,10 @@ const Footer = (): JSX.Element => {
                             </div>
                             <div className="d-flex flex-column">
                                 <strong>{t('footer.community')}</strong>
-                                <Link link={LUM_TELEGRAM} className="footer-link my-4">
+                                <Link link={LUM_MEDIUM} className="footer-link my-4">
+                                    Blog
+                                </Link>
+                                <Link link={LUM_TELEGRAM} className="footer-link mb-4">
                                     Telegram
                                 </Link>
                                 <Link link={LUM_TWITTER} className="footer-link mb-4">
@@ -97,6 +106,7 @@ const Footer = (): JSX.Element => {
                         <div className="d-flex flex-md-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
                             <div className="d-inline-flex justify-content-around">
                                 <p className="footer-link mb-0">Lum Network 2021 ©</p>
+                                <p className="footer-link mb-0 ms-5">contact@lum.network</p>
                                 {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                             </div>
                             <Button

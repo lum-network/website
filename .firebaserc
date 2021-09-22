@@ -7,6 +7,9 @@
         "hosting": {
           "lum-network-website": [
             "lum-network-website"
+          ],
+          "lum-network": [
+            "lum-network"
           ]
         }
       }

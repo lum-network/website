@@ -6,7 +6,9 @@ on:
 
 jobs:
   build_deploy_testnet:
+    name: Deploy the the built content on testnet hosting
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -31,7 +33,9 @@ jobs:
           target: lum-network-website
 
   build_deploy_mainnet:
+    name: Deploy the the built content on main net hosting
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
