@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
+import { Modal as BootstrapModal } from 'bootstrap';
 
 import './Modals.scss';
 
@@ -12,7 +13,13 @@ interface Props {
     onCloseButtonPress?: () => void;
 }
 
-const Modal = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+interface Handlers {
+    toggle: () => void;
+    show: () => void;
+    hide: () => void;
+}
+
+const Modal: React.ForwardRefRenderFunction<Handlers, Props> = (props, ref) => {
     const {
         id,
         children,
@@ -23,6 +30,37 @@ const Modal = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
         dataBsBackdrop = 'true',
     } = props;
 
+    const modalRef = useRef<HTMLDivElement>(null);
+    const bootstrapModalRef = useRef<BootstrapModal>();
+
+    useEffect(() => {
+        if (modalRef.current) {
+            bootstrapModalRef.current = new BootstrapModal(modalRef.current, {});
+        }
+    }, [modalRef]);
+
+    useImperativeHandle(
+        ref,
+        () => ({
+            toggle: () => {
+                if (bootstrapModalRef.current) {
+                    bootstrapModalRef.current.toggle();
+                }
+            },
+            show: () => {
+                if (bootstrapModalRef.current) {
+                    bootstrapModalRef.current.show();
+                }
+            },
+            hide: () => {
+                if (bootstrapModalRef.current) {
+                    bootstrapModalRef.current.hide();
+                }
+            },
+        }),
+        [bootstrapModalRef],
+    );
+
     return (
         <div
             tabIndex={-1}
@@ -31,7 +69,7 @@ const Modal = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
             aria-labelledby={`${id}Label`}
             aria-hidden="true"
             data-bs-backdrop={dataBsBackdrop}
-            ref={ref}
+            ref={modalRef}
         >
             <div className="modal-dialog modal-dialog-centered my-5">
                 <div className={`border-0 text-center modal-content ${contentClassName}`}>
@@ -52,8 +90,8 @@ const Modal = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
             </div>
         </div>
     );
-});
+};
 
 Modal.displayName = 'Modal';
 
-export default Modal;
+export default React.forwardRef(Modal);

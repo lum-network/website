@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Footer, Header, Modal } from 'components';
@@ -19,6 +19,19 @@ import './index.scss';
 
 const Landing = (): JSX.Element => {
     const { t } = useTranslation();
+    const giModRef = useRef<React.ElementRef<typeof Modal>>(null);
+    const nlModRef = useRef<React.ElementRef<typeof Modal>>(null);
+
+    useEffect(() => {
+        if (giModRef.current && nlModRef.current) {
+            const hash = location.hash;
+            if (hash === '#getLum') {
+                setTimeout(giModRef.current.toggle, 2000);
+            } else if (hash === '#getNews') {
+                setTimeout(nlModRef.current.toggle, 2000);
+            }
+        }
+    }, [giModRef, nlModRef]);
 
     return (
         <>
@@ -31,7 +44,7 @@ const Landing = (): JSX.Element => {
             {/* <TrustedBySection /> */}
             <GreenSection />
             <Footer />
-            <Modal id={'get-informed-modal'}>
+            <Modal id={'get-informed-modal'} ref={giModRef}>
                 <div className="row">
                     <div className="col-12">
                         <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />
@@ -56,7 +69,7 @@ const Landing = (): JSX.Element => {
                     </div>
                 </div>
             </Modal>
-            <Modal id={'newsletter-modal'}>
+            <Modal id={'newsletter-modal'} ref={nlModRef}>
                 <img src={notificationIllu} className="illu" alt="Newsletter" />
                 <iframe
                     className="mj-w-res-iframe"
