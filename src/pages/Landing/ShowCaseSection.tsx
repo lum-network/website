@@ -7,7 +7,7 @@ import { Link } from 'components';
 import './ShowCaseSection.scss';
 
 import showcaseLumkiIllu from 'assets/images/showcase_lumki_illu.png';
-import showcaseNetreviewsIllu from 'assets/images/showcase_netreviews_illu.png';
+import showcaseSkeepersIllu from 'assets/images/showcase_skeepers_illu.png';
 import showcaseJoinIllu from 'assets/images/showcase_join_illu.png';
 
 const CaseContent = ({
@@ -101,15 +101,15 @@ const ShowCaseSection = (): JSX.Element => {
                             <li className="nav-item" role="presentation">
                                 <button
                                     className="nav-link"
-                                    id="netreviews-tab"
+                                    id="skeepers-tab"
                                     data-bs-toggle="tab"
-                                    data-bs-target="#netreviews"
+                                    data-bs-target="#skeepers"
                                     type="button"
                                     role="tab"
-                                    aria-controls="netreviews"
+                                    aria-controls="skeepers"
                                     aria-selected="false"
                                 >
-                                    {t('showcaseSection.netreviews.title')}
+                                    {t('showcaseSection.skeepers.title')}
                                 </button>
                             </li>
                             <li className="nav-item" role="presentation">
@@ -137,11 +137,11 @@ const ShowCaseSection = (): JSX.Element => {
                                 selected
                             />
                             <CaseContent
-                                caseId={'netreviews'}
-                                description={t('showcaseSection.netreviews.description')}
-                                imgUrl={showcaseNetreviewsIllu}
-                                ctaTitle={t('showcaseSection.netreviews.cta.title')}
-                                ctaUrl={t('showcaseSection.netreviews.cta.url')}
+                                caseId={'skeepers'}
+                                description={t('showcaseSection.skeepers.description')}
+                                imgUrl={showcaseSkeepersIllu}
+                                ctaTitle={t('showcaseSection.skeepers.cta.title')}
+                                ctaUrl={t('showcaseSection.skeepers.cta.url')}
                             />
                             <CaseContent
                                 caseId={'join'}
