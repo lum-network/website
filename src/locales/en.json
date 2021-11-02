@@ -77,12 +77,12 @@
                 "url": "https://lumki.com"
             }
         },
-        "netreviews": {
-            "title": "Net Reviews",
-            "description": "Net Reviews is part of <a href='https://skeepers.io/en' target='_blank' rel='noreferrer'>Skeepers</a>, a leading group in customer engagement for retailers.<br/><br/> Net Reviews is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Net Reviews benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
+        "skeepers": {
+            "title": "Skeepers",
+            "description": "Skeepers is a leading group in customer engagement for retailers.<br/><br/> Skeepers is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Skeepers benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
             "cta": {
-                "title": "Visit Net Reviews's website",
-                "url": "https://netreviews.com"
+                "title": "Visit Skeepers's website",
+                "url": "https://skeepers.io"
             }
         },
         "join": {
