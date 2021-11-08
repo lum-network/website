@@ -9,6 +9,7 @@ export const LUM_WALLET_GITHUB = 'https://github.com/lum-network/wallet';
 export const LUM_WALLET = `https://wallet.${LUM_DOMAIN}`;
 export const LUM_EXPLORER = `https://explorer.${LUM_DOMAIN}`;
 export const LUM_NETWORK_GITHUB = 'https://github.com/lum-network';
+export const LUM_DISCORD = 'https://discord.gg/KwyVvnBcXF';
 export const LUM_TELEGRAM = 'https://t.me/lum_network';
 export const LUM_TWITTER = 'https://twitter.com/lum_network';
 export const LUM_FACEBOOK = 'https://www.facebook.com/lum.network';

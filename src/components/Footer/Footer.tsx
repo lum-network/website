@@ -12,6 +12,7 @@ import {
     LUM_TWITTER,
     LUM_WALLET,
     LUM_MEDIUM,
+    LUM_DISCORD,
 } from 'constant';
 import { Button, Link } from 'components';
 
@@ -90,6 +91,9 @@ const Footer = (): JSX.Element => {
                                 <Link link={LUM_MEDIUM} className="footer-link my-4">
                                     Blog
                                 </Link>
+                                <Link link={LUM_DISCORD} className="footer-link mb-4">
+                                    Discord
+                                </Link>
                                 <Link link={LUM_TELEGRAM} className="footer-link mb-4">
                                     Telegram
                                 </Link>
@@ -114,7 +118,13 @@ const Footer = (): JSX.Element => {
                                 className="px-4 mb-4 mb-md-0"
                                 onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
                             >
-                                <img src={githubIcon} className="github-icon ms-2" width="20" height="20" />
+                                <img
+                                    alt="github"
+                                    src={githubIcon}
+                                    className="github-icon ms-2"
+                                    width="20"
+                                    height="20"
+                                />
                                 <span className="align-middle ms-3 me-2">@lum-network</span>
                             </Button>
                         </div>
