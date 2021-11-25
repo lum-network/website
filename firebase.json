@@ -10,6 +10,10 @@
       ],
       "rewrites": [
         {
+          "source": "/links/**",
+          "dynamicLinks": true
+        },
+        {
           "source": "**",
           "destination": "/index.html"
         }
@@ -24,6 +28,10 @@
         "**/node_modules/**"
       ],
       "rewrites": [
+        {
+          "source": "/links/**",
+          "dynamicLinks": true
+        },
         {
           "source": "**",
           "destination": "/index.html"

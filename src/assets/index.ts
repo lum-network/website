@@ -28,21 +28,21 @@ import trustLayers from './images/trust_layers.png';
 import trustLayersShadows from './images/trust_layers_shadows.png';
 
 import showcaseLumkiIllu from './images/showcase_lumki_illu.png';
-import showcaseNetreviewsIllu from 'assets/images/showcase_netreviews_illu.png';
-import showcaseJoinIllu from 'assets/images/showcase_join_illu.png';
+import showcaseNetreviewsIllu from './images/showcase_netreviews_illu.png';
+import showcaseJoinIllu from './images/showcase_join_illu.png';
 
-import matterblock from './images/partners/matterblock.jpg';
 import tendermint from './images/partners/tendermint.png';
-import figment from './images/partners/figment.png';
-import coinbaseventures from './images/partners/coinbaseventures.png';
-import krakenventures from './images/partners/krakenventures.png';
-import a16z from './images/partners/a16z.png';
-import panteracapital from './images/partners/panteracapital.png';
-import polychaincapital from './images/partners/polychaincapital.png';
-import frameworkventures from './images/partners/frameworkventures.png';
-import dcg from './images/partners/dcg.png';
-import scytaleventures from './images/partners/scytaleventures.png';
-import fenbushicapital from './images/partners/fenbushicapital.png';
+import skeepers from './images/partners/skeepers.png';
+import arcanum from './images/partners/arcanum.png';
+import swissborg from './images/partners/swissborg.png';
+import stakefish from './images/partners/stakefish.png';
+import cosmostation from './images/partners/cosmostation.png';
+import klub from './images/partners/klub.png';
+import imperator from './images/partners/imperator.png';
+import sg1 from './images/partners/sg-1.png';
+import sentinel from './images/partners/sentinel.png';
+import stakewithus from './images/partners/stakewithus.png';
+import cryptocrew from './images/partners/cryptocrew.png';
 
 const Assets = {
     images: {
@@ -79,18 +79,18 @@ const Assets = {
         showcaseJoinIllu,
     },
     partners: {
-        matterblock,
         tendermint,
-        figment,
-        coinbaseventures,
-        krakenventures,
-        a16z,
-        panteracapital,
-        polychaincapital,
-        frameworkventures,
-        dcg,
-        scytaleventures,
-        fenbushicapital,
+        skeepers,
+        arcanum,
+        swissborg,
+        stakefish,
+        cosmostation,
+        klub,
+        imperator,
+        sg1,
+        sentinel,
+        stakewithus,
+        cryptocrew,
     },
 };
 

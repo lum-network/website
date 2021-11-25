@@ -3,17 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
 import tendermint from 'assets/images/partners/tendermint.png';
-import figment from 'assets/images/partners/figment.png';
-import coinbaseventures from 'assets/images/partners/coinbaseventures.png';
-import a16z from 'assets/images/partners/a16z.png';
-import panteracapital from 'assets/images/partners/panteracapital.png';
-import matterblock from 'assets/images/partners/matterblock.jpg';
-import polychaincapital from 'assets/images/partners/polychaincapital.png';
-import krakenventures from 'assets/images/partners/krakenventures.png';
-import frameworkventures from 'assets/images/partners/frameworkventures.png';
-import dcg from 'assets/images/partners/dcg.png';
-import scytaleventures from 'assets/images/partners/scytaleventures.png';
-import fenbushicapital from 'assets/images/partners/fenbushicapital.png';
+import skeepers from 'assets/images/partners/skeepers.png';
+import arcanum from 'assets/images/partners/arcanum.png';
+import swissborg from 'assets/images/partners/swissborg.png';
+import stakefish from 'assets/images/partners/stakefish.png';
+import cosmostation from 'assets/images/partners/cosmostation.png';
+import klub from 'assets/images/partners/klub.png';
+import imperator from 'assets/images/partners/imperator.png';
+import sg1 from 'assets/images/partners/sg-1.png';
+import sentinel from 'assets/images/partners/sentinel.png';
+import stakewithus from 'assets/images/partners/stakewithus.png';
+import cryptocrew from 'assets/images/partners/cryptocrew.png';
 
 import './TrustedBySection.scss';
 
@@ -50,63 +50,63 @@ const TrustedBySection = (): JSX.Element => {
     const partners: Array<{ logo: string; title: string; url: string }> = [
         {
             logo: tendermint,
-            title: 'Tendermint Ventures',
-            url: 'https://tendermint.com/ventures',
+            title: 'Tendermint',
+            url: 'https://tendermint.com',
         },
         {
-            logo: figment,
-            title: 'Figment Capital',
-            url: 'https://figment.io',
+            logo: swissborg,
+            title: 'Swissborg Ventures',
+            url: 'https://swissborg.com',
         },
         {
-            logo: coinbaseventures,
-            title: 'Coinbase Ventures',
-            url: 'https://ventures.coinbase.com',
+            logo: cosmostation,
+            title: 'Cosmostation',
+            url: 'https://mintscan.io',
         },
         {
-            logo: a16z,
-            title: 'a16z',
-            url: 'https://a16z.com',
+            logo: stakefish,
+            title: 'Stake.Fish',
+            url: 'https://stake.fish',
         },
         {
-            logo: panteracapital,
-            title: 'Pantera Capital',
-            url: 'https://panteracapital.com',
+            logo: arcanum,
+            title: 'Arcanum Capital',
+            url: 'https://www.arcanum.capital',
         },
         {
-            logo: matterblock,
-            title: 'Matterblock',
-            url: 'https://matterblock.com',
+            logo: skeepers,
+            title: 'Skeepers',
+            url: 'https://skeepers.io',
         },
         {
-            logo: polychaincapital,
-            title: 'Polychain Capital',
-            url: 'https://jobs.polychain.capital',
+            logo: klub,
+            title: 'Klub',
+            url: 'https://klub.ki',
         },
         {
-            logo: krakenventures,
-            title: 'Kraken Ventures',
-            url: 'https://www.krakenventures.com',
+            logo: imperator,
+            title: 'Imperator',
+            url: 'https://imperator.co',
         },
         {
-            logo: frameworkventures,
-            title: 'Framework Ventures',
-            url: 'https://framework.ventures',
+            logo: sg1,
+            title: 'SG-1',
+            url: 'https://sg-1.online',
         },
         {
-            logo: dcg,
-            title: 'DCG',
-            url: 'https://dcg.co',
+            logo: sentinel,
+            title: 'Sentinel',
+            url: 'https://sentinel.co',
         },
         {
-            logo: scytaleventures,
-            title: 'Scytale Ventures',
-            url: 'https://scytale.ventures',
+            logo: stakewithus,
+            title: 'StakeWithUs',
+            url: 'https://www.stakewith.us',
         },
         {
-            logo: fenbushicapital,
-            title: 'Fenbushi Capital',
-            url: 'https://www.fenbushicapital.vc/',
+            logo: cryptocrew,
+            title: 'CryptoCrew Validators',
+            url: 'https://ccvalidators.com/',
         },
     ];
 

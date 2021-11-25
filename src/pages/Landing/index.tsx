@@ -9,7 +9,7 @@ import PartneringSection from './PartneringSection';
 import LumSection from './LumSection';
 import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
-// import TrustedBySection from './TrustedBySection';
+import TrustedBySection from './TrustedBySection';
 
 import { LUM_WHITELIST_TYPEFORM } from 'constant';
 
@@ -41,7 +41,7 @@ const Landing = (): JSX.Element => {
             <PartneringSection />
             <LumSection />
             <ShowCaseSection />
-            {/* <TrustedBySection /> */}
+            <TrustedBySection />
             <GreenSection />
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
