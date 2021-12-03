@@ -1,0 +1,54 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import 'variables';
+
+#header {
+    position: relative;
+    z-index: 100;
+    height: 100px;
+    color: $color-dark;
+    opacity: 0;
+
+    @include media-breakpoint-down(lg) {
+        height: 90px;
+    }
+
+    @include media-breakpoint-down(md) {
+        background: transparent;
+        position: absolute !important;
+    }
+}
+
+#header .background {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: saturate(180%) blur(20px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+#header .background.blue {
+    background: rgba(32, 34, 80, 0.6);
+}
+
+#header .navbar-brand {
+    margin-right: 0;
+}
+
+#header .navbar-brand img {
+    @include media-breakpoint-down(md) {
+        width: 172px;
+    }
+}
+
+.main-layout nav.bottom-navbar {
+    display: none;
+}
+
+.lum-logo-header {
+    object-fit: contain;
+}

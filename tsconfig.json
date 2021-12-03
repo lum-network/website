@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
-        "baseUrl": "./src",
+        "baseUrl": ".",
         "experimentalDecorators": true,
         "downlevelIteration": true,
         "allowJs": true,
@@ -17,7 +17,9 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "react-jsx"
+        "jsx": "preserve",
+        "incremental": true
     },
-    "include": ["src"]
+    "include": ["utils", "sections", "locales", "constant", "components"],
+    "exclude": ["node_modules"]
 }

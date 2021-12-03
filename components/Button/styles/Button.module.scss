@@ -1,0 +1,26 @@
+@import 'variables';
+
+.normal-btn {
+    border-radius: 18px;
+    background-color: $color-primary;
+    color: $color-dark;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.btn-outlined,
+.btn-outlined:hover,
+.btn-outlined:active,
+.btn-outlined:focus {
+    border-width: 2px;
+    border-color: $color-primary;
+    background-color: transparent;
+    color: $color-primary;
+}
+
+.btn-outlined.inverted {
+    color: $color-dark;
+    border-color: $color-dark;
+}

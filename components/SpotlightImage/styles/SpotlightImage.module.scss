@@ -1,0 +1,217 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import 'variables';
+
+.spotlight-img-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 380px;
+    padding: 32px;
+
+    @include media-breakpoint-down(lg) {
+        width: 256px;
+        height: 256px;
+        padding: 16px;
+        margin-bottom: 48px;
+    }
+}
+
+.spotlight-img-container img {
+    width: 100%;
+    min-width: 100%;
+    z-index: 20;
+}
+
+.spotlight-img-container .spotlight {
+    width: 560px;
+    height: 60px;
+    perspective: 360px;
+    transform-origin: 0 30px;
+    position: absolute;
+    top: 155px;
+    left: 185px;
+    transform: rotateZ(0deg); // controls the orientation of the beam
+    z-index: 10;
+    pointer-events: none;
+
+    @include media-breakpoint-down(lg) {
+        top: 105px;
+        left: 125px;
+    }
+}
+
+.spotlight-img-container .spotlight.hide {
+    display: none;
+}
+
+.spotlight-img-container .spotlight .spotlight-inner {
+    height: 100%;
+    transform: rotateY(0deg); // controls the beam spread (height)
+    transform-origin: 0 50%;
+    background-image: linear-gradient(90deg, #ffffff 30%, rgba(255, 255, 255, 0) 85%);
+    border-radius: 20% / 100% 0 0 100%;
+    filter: blur(12px);
+}
+
+.spotlight-img-container .dot-wrapper {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    transform: translateX(-50vh);
+}
+
+.spotlight-img-container.reverse .dot-wrapper {
+    transform: translateX(50vh);
+}
+
+.spotlight-img-container .dot {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    transform-origin: 191px 11px;
+    transform: translate(-180px, 0px);
+    transition: all 1.5s ease-in-out;
+    transition-delay: 1500ms;
+
+    @include media-breakpoint-down(lg) {
+        transform-origin: 129px 11px;
+        transform: translate(-118px, 0px);
+    }
+}
+
+.spotlight-img-container.reverse .dot {
+    transform-origin: -169px 11px;
+    transform: translate(180px, 0px);
+
+    @include media-breakpoint-down(lg) {
+        transform-origin: -107px 11px;
+        transform: translate(118px, 0px);
+    }
+}
+
+.spotlight-img-container .dot .dot-inner-layer-1,
+.spotlight-img-container .dot .dot-inner-layer-2,
+.spotlight-img-container .dot .dot-inner-layer-3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fffea2;
+}
+
+.spotlight-img-container .dot .dot-inner-layer-1 {
+    filter: blur(2px);
+}
+
+.spotlight-img-container .dot .dot-inner-layer-2 {
+    opacity: 0.2;
+    filter: blur(9px);
+}
+.spotlight-img-container .dot .dot-inner-layer-3 {
+    opacity: 0.8;
+    filter: blur(14px);
+}
+
+.spotlight-img-container .rotate .dot.dot-1 {
+    transform: translate(-180px, 0px) rotateZ(0);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(0);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-2 {
+    transform: translate(-180px, 0px) rotateZ(-45deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-45deg);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-3 {
+    transform: translate(-180px, 0px) rotateZ(-90deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-90deg);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-4 {
+    transform: translate(-180px, 0px) rotateZ(-135deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-135deg);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-5 {
+    transform: translate(-180px, 0px) rotateZ(-180deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-180deg);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-6 {
+    transform: translate(-180px, 0px) rotateZ(-225deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-225deg);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-7 {
+    transform: translate(-180px, 0px) rotateZ(-270deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-270deg);
+    }
+}
+.spotlight-img-container .rotate .dot.dot-8 {
+    transform: translate(-180px, 0px) rotateZ(-315deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(-118px, 0px) rotateZ(-315deg);
+    }
+}
+
+.spotlight-img-container.reverse .rotate .dot.dot-1 {
+    transform: translate(180px, 0px) rotateZ(0);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(0);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-2 {
+    transform: translate(180px, 0px) rotateZ(45deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(45deg);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-3 {
+    transform: translate(180px, 0px) rotateZ(90deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(90deg);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-4 {
+    transform: translate(180px, 0px) rotateZ(135deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(135deg);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-5 {
+    transform: translate(180px, 0px) rotateZ(180deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(180deg);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-6 {
+    transform: translate(180px, 0px) rotateZ(225deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(225deg);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-7 {
+    transform: translate(180px, 0px) rotateZ(270deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(270deg);
+    }
+}
+.spotlight-img-container.reverse .rotate .dot.dot-8 {
+    transform: translate(180px, 0px) rotateZ(315deg);
+    @include media-breakpoint-down(lg) {
+        transform: translate(118px, 0px) rotateZ(315deg);
+    }
+}

@@ -1,0 +1,142 @@
+{
+    "common": {
+        "getLum": "Get Lum"
+    },
+    "header": {
+        "getInformed": "Get informed"
+    },
+    "landing": {
+        "title": "Business<br/>Trust Engine",
+        "description": "Lum Network introduces the first decentralized protocol<br class=\"d-none d-lg-block\"/> for businesses to build authentic trust with their customers.",
+        "whitePaper": "White paper",
+        "scrollAction": "Get enlightened by scrolling"
+    },
+    "business": {
+        "title": "The <strong>trust layer</strong> for <br class=\"d-none d-lg-block\"/><strong>companies</strong> of the <strong>future</strong>",
+        "store": {
+            "title": "Content stamping",
+            "description": "Authenticate and stamp content on-chain to ensure information is accurate, verified and publicly accessible while abiding with data privacy regulations."
+        },
+        "tracability": {
+            "title": "Traceability",
+            "description": "We introduce the Beam protocol to create temporary mutable states on the immutable decentralized Lum Network’s ledger. Thus enabling fully traceable content updates."
+        },
+        "transparency": {
+            "title": "Transparency",
+            "description": "The key element to create trust between businesses and their customers. Using a tamper proof, public decentralized ledger designed for accessibility."
+        },
+        "practices": {
+            "title": "Business practices",
+            "description": "The new standard for companies to foster trust with their customers. The Lum Network’s aims to become a norm for the companies of the future."
+        }
+    },
+    "qAndA": {
+        "title": "<strong>Partnering</strong> with <br class=\"d-none d-lg-block\"/>trusted <strong>third parties</strong>",
+        "companies": {
+            "title": "Not a disruption, <br class=\"d-none d-lg-block\"/>but an evolution",
+            "description": "Enabling major third parties working between retailers and their customers to evolve rather than being disrupted by new technologies."
+        },
+        "trust": {
+            "title": "Focused on <br class=\"d-none d-lg-block\"/>large scale applications",
+            "description": "The Lum Foundation is focused on working with trusted third parties to quickly onboard thousands of retailers and millions of customers."
+        },
+        "community": {
+            "title": "To create a massive <br class=\"d-none d-lg-block\"/>community of Lum members",
+            "description": "The Lum Network is designed to be the trust layer for millions of users without exposing the complexity of the underlying technology."
+        }
+    },
+    "rewards": {
+        "title": "Using a modern <br class=\"d-none d-lg-block\"/><strong>Universal Reward</strong>",
+        "description": "In return for value creation made by their users, we enabled businesses to benefit from <strong>on-chain rewards.</strong> <br />Using a <strong>tangible</strong> asset, Lum Network’s <strong>native</strong> digital token, the <strong>LUM.</strong>"
+    },
+    "poweredBy": {
+        "title1": "Powered",
+        "title2": "by the",
+        "description1": "<strong>Lum comes from the word “light”</strong> and expresses the value created by and for consumers throughout any retail experience lifecycle.",
+        "description2": "It is the <strong>fuel of the Lum Network</strong> and is used by businesses to benefit from the trust layer while rewarding their customers, by validators and delegators to secure the network and many more.",
+        "security": {
+            "title": "BECOME THE FUTURE",
+            "description": "Businesses use the Lum to pave the way of innovation in their respective fields."
+        },
+        "stake": {
+            "title": "SECURE THE CHAIN",
+            "description": "The Lum is one of the key elements of the network as it allows its members to secure its usage using Delegated Proof-of-Stake."
+        },
+        "future": {
+            "title": "STAKE AND EARN",
+            "description": "Every single Lum holder can participate in securing the network by staking their Lum and getting rewarded for it."
+        }
+    },
+    "showcaseSection": {
+        "title": "Partners <br />Show case",
+        "lumki": {
+            "title": "Lumki",
+            "description": "Lumki is a reward mobile and web application enabling its users to earn Lum throughout dedicated cashback offers as well as creating quality content for retailers. <br /><br />The service provides every user with a secure Lum wallet to easily redeem their rewards and convert them into coupons, fiat currency or send them to their own personal Lum wallet.",
+            "cta": {
+                "title": "Visit Lumki's website",
+                "url": "https://lumki.com"
+            }
+        },
+        "skeepers": {
+            "title": "Skeepers",
+            "description": "Skeepers is a leading group in customer engagement for retailers.<br/><br/> Skeepers is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Skeepers benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
+            "cta": {
+                "title": "Visit Skeepers's website",
+                "url": "https://skeepers.io"
+            }
+        },
+        "join": {
+            "title": "Join us ⨁",
+            "description": "If you think your company, your clients or customers can benefit from the Lum Network... then you are in the right place! <br/><br/>Get in touch with us to discover everything that we can offer to assist you building using the Lum Network.<br/><br/> We are here to make sure you do not need any advanced blockchain knowledge to build awesome applications.<br/><br/> The Lum Foundation is dedicated to make the Lum Network's ecosystem grow. We can therefore assist you in all the steps leading to the use of the Lum Network in production.",
+            "cta": {
+                "title": "Get in touch",
+                "url": "mailto:contact@lum.network"
+            }
+        }
+    },
+    "trustedBy": {
+        "title": "Trusted partners"
+    },
+    "greenSection": {
+        "title": "Built with <br class=\"d-none d-lg-block\"/>green mindset",
+        "pOfS": {
+            "title": "Cosmos & Tendermint DPOS",
+            "description": "The most advanced and secure Delegated Proof-Of-Stake algorithm is used to secure the network."
+        },
+        "carbon": {
+            "title": "Minimal carbon footprint",
+            "description": "Lum Network is designed to be sustainable and uses DPOS which consumes 99% less energy than proof of work."
+        },
+        "costs": {
+            "title": "Low transactions cost",
+            "description": "Having a very low transaction cost to enable its applications to remain competitive and efficient."
+        },
+        "blocks": {
+            "title": "Fast block speed",
+            "description": "Lum Network processes blocks under 8 seconds, enabling its users to benefit from fast transactions."
+        }
+    },
+    "getInformedModal": {
+        "title": "Lum Network<br/>Main Net Launch",
+        "description": "Register to the Lum Network private sale whitelist now and get a chance to be the first aboard.<br/><br/>Or simply join our newsletter to keep up to date with the Lum Network announcements.",
+        "newsletter": "Join the newsletter",
+        "whitelist": "Whitelist registration"
+    },
+    "footer": {
+        "newsletter": {
+            "title": "Join our newsletter",
+            "submit": "Submit ➤",
+            "placeholder": "youremail@email.com"
+        },
+        "privacyPolicy": "Privacy Policy",
+        "tools": "Tools",
+        "community": "Community"
+    },
+    "mainnet": {
+        "launchInTitle": "Launch of the mainnet in:",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+    }
+}
