@@ -1,6 +1,6 @@
 const AssetsSrc = {
     images: {
-        businessIcon: '/assets/business.png',
+        businessIcon: '/assets/images/business.png',
         communityIcon: '/assets/images/community.png',
         crystalWhiteLarge: '/assets/images/crystal_white_large.png',
         crystalWhiteMedium: '/assets/images/crystal_white_medium.png',

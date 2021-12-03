@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
+import { useTranslation } from 'next-i18next';
+import { gsap } from 'gsap/dist/gsap';
 import Image from 'next/image';
 
 import { AssetsSrc } from 'constant';
 
-import './TrustedBySection.module.scss';
+import styles from './TrustedBySection.module.scss';
 
 const TrustedBySection = (): JSX.Element => {
     const { t } = useTranslation();
@@ -101,7 +101,7 @@ const TrustedBySection = (): JSX.Element => {
     ];
 
     return (
-        <section className="light" id="trustedby">
+        <section id="light" className={styles.trustedby}>
             <div id="trustedby-content" className="container">
                 <div className="row">
                     <div className="col-12">
@@ -114,8 +114,8 @@ const TrustedBySection = (): JSX.Element => {
                 <div className="section-content-info row">
                     <div className="col-12 d-flex flex-row justify-content-between align-items-start flex-wrap">
                         {partners.map((p, i) => (
-                            <a key={i} className="partner" href={p.url} target="_blank" rel="noreferrer">
-                                <Image src={p.logo} alt={`${p.title} logo`} />
+                            <a key={i} className={styles.partner} href={p.url} target="_blank" rel="noreferrer">
+                                <img src={p.logo} alt={`${p.title} logo`} />
                             </a>
                         ))}
                     </div>

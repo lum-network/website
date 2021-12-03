@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Image from 'next/image';
 
@@ -19,7 +19,7 @@ import {
 } from 'constant';
 import { Button, Link } from 'components';
 
-import './styles/Footer.module.scss';
+import styles from './styles/Footer.module.scss';
 
 const Footer = (): JSX.Element => {
     const { t } = useTranslation();
@@ -41,7 +41,7 @@ const Footer = (): JSX.Element => {
     };
 
     return (
-        <footer id="footer">
+        <footer className={styles.footer}>
             <div className="container">
                 <div className="row gx-5 gy-5">
                     <div className="col-12 col-md-6">
@@ -77,31 +77,31 @@ const Footer = (): JSX.Element => {
                         <div className="d-flex flex-row justify-content-md-between justify-content-sm-around justify-content-between ps-md-5 align-self-end">
                             <div className="d-flex flex-column ms-md-5">
                                 <strong>{t('footer.tools')}</strong>
-                                <Link link={LUM_NETWORK_DOCUMENTATION} className="footer-link my-4">
+                                <Link link={LUM_NETWORK_DOCUMENTATION} className={`${styles['footer-link']} my-4`}>
                                     Documentation
                                 </Link>
-                                <Link link={LUM_EXPLORER} className="footer-link mb-4">
+                                <Link link={LUM_EXPLORER} className={`${styles['footer-link']} mb-4`}>
                                     Explorer
                                 </Link>
-                                <Link link={LUM_WALLET} className="footer-link">
+                                <Link link={LUM_WALLET} className={styles['footer-link']}>
                                     Wallet
                                 </Link>
                             </div>
                             <div className="d-flex flex-column">
                                 <strong>{t('footer.community')}</strong>
-                                <Link link={LUM_MEDIUM} className="footer-link my-4">
+                                <Link link={LUM_MEDIUM} className={`${styles['footer-link']} my-4`}>
                                     Blog
                                 </Link>
-                                <Link link={LUM_DISCORD} className="footer-link mb-4">
+                                <Link link={LUM_DISCORD} className={`${styles['footer-link']} mb-4`}>
                                     Discord
                                 </Link>
-                                <Link link={LUM_TELEGRAM} className="footer-link mb-4">
+                                <Link link={LUM_TELEGRAM} className={`${styles['footer-link']} mb-4`}>
                                     Telegram
                                 </Link>
-                                <Link link={LUM_TWITTER} className="footer-link mb-4">
+                                <Link link={LUM_TWITTER} className={`${styles['footer-link']} mb-4`}>
                                     Twitter
                                 </Link>
-                                <Link link={LUM_FACEBOOK} className="footer-link">
+                                <Link link={LUM_FACEBOOK} className={styles['footer-link']}>
                                     Facebook
                                 </Link>
                             </div>
@@ -110,8 +110,8 @@ const Footer = (): JSX.Element => {
                     <div className="col-12">
                         <div className="d-flex flex-md-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
                             <div className="d-inline-flex justify-content-around">
-                                <p className="footer-link mb-0">Lum Network 2021 ©</p>
-                                <p className="footer-link mb-0 ms-5">contact@lum.network</p>
+                                <p className={`${styles['footer-link']} mb-0`}>Lum Network 2021 ©</p>
+                                <p className={`${styles['footer-link']} mb-0 ms-5`}>contact@lum.network</p>
                                 {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                             </div>
                             <Button

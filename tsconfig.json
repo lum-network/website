@@ -18,8 +18,9 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "preserve",
-        "incremental": true
+        "incremental": true,
+        "plugins": [{ "name": "typescript-plugin-css-modules" }]
     },
-    "include": ["utils", "sections", "locales", "constant", "components"],
+    "include": ["utils", "sections", "locales", "constant", "components", "pages"],
     "exclude": ["node_modules"]
 }

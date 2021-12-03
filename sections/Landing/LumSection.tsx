@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import Image from 'next/image';
 
-import { gsap } from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 
 import { AssetsSrc } from 'constant';
 import { Button, SpotlightImage } from 'components';
 
-import './LumSection.module.scss';
+import styles from './LumSection.module.scss';
 
 const UniversalReward = (): JSX.Element => {
     const { t } = useTranslation();
@@ -51,13 +51,13 @@ const UniversalReward = (): JSX.Element => {
                     animated={true}
                     scrollTrigger={`#lum .universal-reward`}
                 >
-                    <Image
-                        className="reward-blue-medium"
+                    <img
+                        className={styles['reward-blue-medium']}
                         src={AssetsSrc.images.rewardBlueMedium}
                         alt="Blue medium diamond"
                     />
-                    <Image
-                        className="reward-blue-small"
+                    <img
+                        className={styles['reward-blue-small']}
                         src={AssetsSrc.images.rewardBlueSmall}
                         alt="Blue small diamond"
                     />
@@ -117,8 +117,8 @@ const PoweredBy = (): JSX.Element => {
                     className="section-content-title part-2"
                     dangerouslySetInnerHTML={{ __html: t('poweredBy.title2') }}
                 />
-                <Image className="section-content-title part-3" src={AssetsSrc.images.lumLogoTextWhite} alt="Lum" />
-                <Image className="section-content-illu" src={AssetsSrc.images.poweredByLum} alt="Huge Lum Coin" />
+                <img className="section-content-title part-3" src={AssetsSrc.images.lumLogoTextWhite} alt="Lum" />
+                <img className="section-content-illu" src={AssetsSrc.images.poweredByLum} alt="Huge Lum Coin" />
             </div>
             <div className="col-12 col-lg-6 col-xl-4">
                 <p className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.description1') }} />
@@ -134,14 +134,14 @@ const LumSection = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
-        <div className="dark" id="lum">
-            <div id="lum-content" className="container">
+        <div id="dark" className={styles.lum}>
+            <div className="container">
                 <UniversalReward />
                 <PoweredBy />
                 <div className="row d-flex justify-content-center">
                     <div className="col-12 col-lg-4 col-xl-3">
                         <div className="section-content-info power-card">
-                            <Image src={AssetsSrc.images.stakeEarn} alt="Stake and earn" />
+                            <img src={AssetsSrc.images.stakeEarn} alt="Stake and earn" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.future.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.future.description') }} />
@@ -150,7 +150,7 @@ const LumSection = (): JSX.Element => {
                     </div>
                     <div className="col-12 col-lg-4 col-xl-3">
                         <div className="section-content-info power-card">
-                            <Image src={AssetsSrc.images.secureChain} alt="Secure the chain" />
+                            <img src={AssetsSrc.images.secureChain} alt="Secure the chain" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.description') }} />
@@ -159,7 +159,7 @@ const LumSection = (): JSX.Element => {
                     </div>
                     <div className="col-12 col-lg-4 col-xl-3">
                         <div className="section-content-info power-card">
-                            <Image src={AssetsSrc.images.rewardBlueLarge} alt="Become the future" />
+                            <img src={AssetsSrc.images.rewardBlueLarge} alt="Become the future" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.security.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('poweredBy.security.description') }} />

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
+import { useTranslation } from 'next-i18next';
+import { gsap } from 'gsap/dist/gsap';
 
 import './GreenSection.module.scss';
 
@@ -30,7 +30,7 @@ const GreenSection = (): JSX.Element => {
     }, []);
 
     return (
-        <section className="light" id="green">
+        <section id="light" className="green">
             <div id="green-content" className="container">
                 <div className="row">
                     <div className="col-lg-5 col-xl-6">

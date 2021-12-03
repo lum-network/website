@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/ProgressBar.module.scss';
+import styles from './styles/ProgressBar.module.scss';
 
 interface Props {
     progress: number;
@@ -12,9 +12,9 @@ const ProgressBar = (props: Props): JSX.Element => {
     const { progress, containerClassName, className } = props;
     const p = Math.min(progress, 100);
     return (
-        <div className={`progress ${containerClassName}`}>
+        <div className={`${styles.progress} ${containerClassName}`}>
             <div
-                className={`progress-bar ${className} rounded-pill`}
+                className={`${styles.progress} ${className} rounded-pill`}
                 style={{ width: `${p}%` }}
                 role="progressbar"
                 aria-valuenow={p}

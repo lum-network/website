@@ -3,14 +3,14 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#welcome {
+.welcome {
     opacity: 0;
     justify-content: space-between;
     background: linear-gradient(180deg, #f5f5f7 0%, #eae8f3 66.77%, #e5e1ea 87.81%);
     min-height: max(760px, 100vh);
 }
 
-#welcome-content {
+.welcome-content {
     z-index: 2;
 
     @include media-breakpoint-down(lg) {
@@ -19,7 +19,7 @@
     }
 }
 
-#welcome .bg-lightning {
+.welcome .bg-lightning {
     position: absolute;
     top: 48%;
     left: 0;
@@ -39,7 +39,7 @@
     }
 }
 
-#welcome h1 {
+.welcome h1 {
     font-style: normal;
     font-weight: $bold;
     font-size: 6rem;
@@ -72,7 +72,7 @@
     }
 }
 
-#welcome p {
+.welcome p {
     font-style: normal;
     font-weight: $light;
     font-size: 1.125rem;
@@ -80,11 +80,11 @@
     margin-bottom: 40px;
 }
 
-#welcome a strong {
+.welcome a strong {
     border-color: $color-dark !important;
 }
 
-#welcome .scroll-cta-container {
+.welcome .scroll-cta-container {
     position: absolute;
     bottom: 48px;
     right: 0px;
@@ -94,7 +94,7 @@
     z-index: 2;
 }
 
-#welcome .arrow-icon-container {
+.welcome .arrow-icon-container {
     width: 50px;
     height: 50px;
     display: flex;
@@ -104,11 +104,11 @@
     border: 1px solid $color-dark;
 }
 
-#welcome .arrow-icon {
+.welcome .arrow-icon {
     object-fit: contain;
 }
 
-#welcome .dot {
+.welcome .dot {
     position: absolute;
     width: 16px;
     height: 16px;
@@ -118,9 +118,9 @@
     opacity: 0;
 }
 
-#welcome .dot .dot-inner-layer-1,
-#welcome .dot .dot-inner-layer-2,
-#welcome .dot .dot-inner-layer-3 {
+.welcome .dot .dot-inner-layer-1,
+.welcome .dot .dot-inner-layer-2,
+.welcome .dot .dot-inner-layer-3 {
     position: absolute;
     left: 0;
     top: 0;
@@ -130,21 +130,21 @@
     background: #ffffff;
 }
 
-#welcome .dot .dot-inner-layer-1 {
+.welcome .dot .dot-inner-layer-1 {
     filter: blur(2px);
 }
 
-#welcome .dot .dot-inner-layer-2 {
+.welcome .dot .dot-inner-layer-2 {
     opacity: 0.2;
     filter: blur(9px);
 }
 
-#welcome .dot .dot-inner-layer-3 {
+.welcome .dot .dot-inner-layer-3 {
     opacity: 0.8;
     filter: blur(14px);
 }
 
-#welcome svg {
+.welcome svg {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -157,7 +157,7 @@
     z-index: -1;
 }
 
-#welcome .crystal-illu-container {
+.welcome .crystal-illu-container {
     position: relative;
     width: 330px;
     height: 410px;
@@ -174,7 +174,7 @@
     }
 }
 
-#welcome .crystal-wrapper {
+.welcome .crystal-wrapper {
     position: absolute;
     left: 0;
     top: 0;
@@ -182,7 +182,7 @@
     bottom: 0;
 }
 
-#welcome .crystal-illu-container .crystals-shadows {
+.welcome .crystal-illu-container .crystals-shadows {
     position: absolute;
     bottom: -170px;
     left: -370px;
@@ -190,7 +190,7 @@
     z-index: 0;
 }
 
-#welcome .crystal-illu-container .crystal-large {
+.welcome .crystal-illu-container .crystal-large {
     position: absolute;
     height: 330px;
     left: 30px;
@@ -198,7 +198,7 @@
     animation: crystalFloatVerticalLarge 7s infinite alternate-reverse ease-in-out;
 }
 
-#welcome .crystal-illu-container .crystal-medium {
+.welcome .crystal-illu-container .crystal-medium {
     position: absolute;
     height: 200px;
     bottom: 0;
@@ -206,7 +206,7 @@
     animation: crystalFloatVerticalMedium 5s infinite alternate ease-in-out;
 }
 
-#welcome .crystal-illu-container .crystal-small {
+.welcome .crystal-illu-container .crystal-small {
     position: absolute;
     height: 90px;
     top: 0;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
+import { useTranslation } from 'next-i18next';
+import { gsap } from 'gsap/dist/gsap';
 
 import Image from 'next/image';
 
@@ -11,13 +11,28 @@ const LenseIllustration = (): JSX.Element => {
     return (
         <div className="lense-illu-container">
             <div className="lense-wrapper lense-large-wrapper">
-                <Image className="lense-large" src={AssetsSrc.images.lenseWhiteLarge} alt="Large White Lense" />
+                <Image
+                    className="lense-large"
+                    src={AssetsSrc.images.lenseWhiteLarge}
+                    alt="Large White Lense"
+                    layout="fill"
+                />
             </div>
             <div className="lense-wrapper lense-medium-wrapper">
-                <Image className="lense-medium" src={AssetsSrc.images.lenseWhiteMedium} alt="Medium White Lense" />
+                <Image
+                    className="lense-medium"
+                    src={AssetsSrc.images.lenseWhiteMedium}
+                    alt="Medium White Lense"
+                    layout="fill"
+                />
             </div>
             <div className="lense-wrapper lense-small-wrapper">
-                <Image className="lense-small" src={AssetsSrc.images.lenseWhiteSmall} alt="Small White Lense" />
+                <Image
+                    className="lense-small"
+                    src={AssetsSrc.images.lenseWhiteSmall}
+                    alt="Small White Lense"
+                    layout="fill"
+                />
             </div>
         </div>
     );
@@ -66,7 +81,7 @@ const PartneringSection = (): JSX.Element => {
     }, []);
 
     return (
-        <section className="dark" id="partnering">
+        <section id="dark" className="partnering">
             <div id="partnering-content" className="container">
                 <div className="row d-flex flex-column-reverse flex-lg-row justify-content-between">
                     <div className="col-lg-6 col-xl-5">
@@ -74,7 +89,7 @@ const PartneringSection = (): JSX.Element => {
                         <div className="row">
                             <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="blue-icon-wrapper">
-                                    <Image src={AssetsSrc.images.diamondIcon} className="section-icon" />
+                                    <Image src={AssetsSrc.images.diamondIcon} className="section-icon" layout="fill" />
                                 </div>
                                 <div className="d-flex flex-column">
                                     <h2 dangerouslySetInnerHTML={{ __html: t('qAndA.companies.title') }} />
@@ -83,7 +98,7 @@ const PartneringSection = (): JSX.Element => {
                             </div>
                             <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="blue-icon-wrapper">
-                                    <Image src={AssetsSrc.images.layersIcon} className="section-icon" />
+                                    <Image src={AssetsSrc.images.layersIcon} className="section-icon" layout="fill" />
                                 </div>
                                 <div>
                                     <h2 dangerouslySetInnerHTML={{ __html: t('qAndA.trust.title') }} />
@@ -92,7 +107,11 @@ const PartneringSection = (): JSX.Element => {
                             </div>
                             <div className="section-content-info col-12 d-flex uvp-container">
                                 <div className="blue-icon-wrapper">
-                                    <Image src={AssetsSrc.images.communityIcon} className="section-icon" />
+                                    <Image
+                                        src={AssetsSrc.images.communityIcon}
+                                        className="section-icon"
+                                        layout="fill"
+                                    />
                                 </div>
                                 <div>
                                     <h2 dangerouslySetInnerHTML={{ __html: t('qAndA.community.title') }} />

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 import WelcomeSection from './WelcomeSection';
 import TrustLayerSection from './TrustLayerSection';
@@ -69,7 +67,7 @@ const Landing = (): JSX.Element => {
                 </div>
             </Modal>
             <Modal id={'newsletter-modal'} ref={nlModRef}>
-                <Image src={AssetsSrc.images.notificationIllu} className="illu" alt="Newsletter" />
+                <img src={AssetsSrc.images.notificationIllu} className="illu" alt="Newsletter" />
                 <iframe
                     className="mj-w-res-iframe"
                     frameBorder="0"

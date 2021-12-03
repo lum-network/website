@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#trustedby {
+.trustedby {
     min-height: auto;
     padding: 140px 0px;
 
@@ -12,7 +12,7 @@
     }
 }
 
-#trustedby h1 {
+.trustedby h1 {
     font-style: normal;
     font-weight: $bold;
     font-size: 3.25rem;
@@ -28,7 +28,7 @@
     }
 }
 
-#trustedby a.partner {
+.trustedby a.partner {
     display: flex;
     flex: 0 1 0;
     width: 15%;
@@ -62,12 +62,12 @@
     }
 }
 
-#trustedby a.partner:hover {
+.trustedby a.partner:hover {
     cursor: pointer;
     transform: scale(1.025);
 }
 
-#trustedby a.partner img {
+.trustedby a.partner img {
     height: 100%;
     min-height: 100%;
     max-height: 100%;

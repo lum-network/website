@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
+import { useTranslation } from 'next-i18next';
+import { gsap } from 'gsap/dist/gsap';
 import Image from 'next/image';
 import { Link } from 'components';
 
@@ -31,7 +31,7 @@ const CaseContent = ({
         >
             <div className="row">
                 <div className="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center">
-                    <Image src={imgUrl} alt={`${caseId}`} />
+                    <Image src={imgUrl} alt={`${caseId}`} layout="fill" />
                 </div>
                 <div className="col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
                     <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -70,7 +70,7 @@ const ShowCaseSection = (): JSX.Element => {
     }, []);
 
     return (
-        <section className="light" id="showcase">
+        <section id="light" className="showcase">
             <div id="usecases-content" className="container">
                 <div className="row">
                     <div className="col-12 d-flex align-items-center justify-content-center">

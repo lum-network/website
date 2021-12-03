@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { gsap } from 'gsap';
 
-import Image from 'next/image';
-
 import { Hooks } from 'utils';
 import { MIN_LARGE_DEVICE_WIDTH, IS_SAFARI, IS_IOS } from 'constant';
 
@@ -102,7 +100,7 @@ const SpotlightImage = (props: Props): JSX.Element => {
             <div className={`spotlight ${showLights ? '' : 'hide'}`} ref={spotlightRef}>
                 <div className="spotlight-inner" ref={spotlightInnerRef} />
             </div>
-            <Image src={props.imgSrc} alt={props.imgAlt} />
+            <img src={props.imgSrc} alt={props.imgAlt} />
             {props.children}
         </div>
     );

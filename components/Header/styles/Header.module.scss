@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#header {
+.header {
     position: relative;
     z-index: 100;
     height: 100px;
@@ -20,7 +20,7 @@
     }
 }
 
-#header .background {
+.header .background {
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: saturate(180%) blur(20px);
     position: absolute;
@@ -31,15 +31,15 @@
     opacity: 0;
 }
 
-#header .background.blue {
+.header .background.blue {
     background: rgba(32, 34, 80, 0.6);
 }
 
-#header .navbar-brand {
+.header .navbar-brand {
     margin-right: 0;
 }
 
-#header .navbar-brand img {
+.header .navbar-brand img {
     @include media-breakpoint-down(md) {
         width: 172px;
     }

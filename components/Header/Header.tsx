@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
+import { useTranslation } from 'next-i18next';
+import { gsap } from 'gsap/dist/gsap';
 
 import Image from 'next/image';
 
 import { AssetsSrc, LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET } from 'constant';
 import { Button, Link } from 'components';
 
-import './styles/Header.module.scss';
+import styles from './styles/Header.module.scss';
 
 const Header = ({
     modalId,
@@ -37,7 +37,7 @@ const Header = ({
 
     useEffect(() => {
         if (bgTriggerElem) {
-            gsap.to(`header .background`, {
+            gsap.to(`header ${styles.background}`, {
                 opacity: 1,
                 ease: 'none',
                 scrollTrigger: {
@@ -48,7 +48,7 @@ const Header = ({
                 },
             });
         } else {
-            gsap.to(`header .background`, {
+            gsap.to(`header ${styles.background}`, {
                 opacity: 1,
                 duration: 0,
             });
@@ -56,15 +56,15 @@ const Header = ({
     }, [bgTriggerElem]);
 
     return (
-        <header id="header" className="navbar fixed-top">
-            <div className={`background ${mainnetEnded ? 'blue' : ''}`} />
+        <header className={`${styles.header} navbar fixed-top`}>
+            <div className={`${styles.background} ${mainnetEnded ? styles.blue : ''}`} />
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
                 <a href="/" className="navbar-brand">
                     <Image
                         src={AssetsSrc.images.lumNetworkLogoDark}
                         width="235"
                         height="38"
-                        className="lum-logo-header"
+                        className={styles['lum-logo-header']}
                     />
                 </a>
                 <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">

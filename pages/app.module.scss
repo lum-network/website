@@ -63,7 +63,7 @@
     width: 100%;
 }
 
-#loader {
+.loader {
     z-index: 9999;
     opacity: 1;
     position: absolute;
@@ -74,11 +74,11 @@
     background: $color-light;
 }
 
-#loader.slow-hide {
+.loader.slow-hide {
     animation: slowHideAnim 300ms forwards linear;
 }
 
-#loader .loading-bar-container {
+.loader .loading-bar-container {
     width: 300px;
     margin-top: 34px;
 }

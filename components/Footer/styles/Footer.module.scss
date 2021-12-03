@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#footer {
+.footer {
     background: linear-gradient(0deg, #0f7bed, #0f7bed), linear-gradient(180deg, #9fb4ff -142.95%, #0375ed 29.9%);
     margin-top: auto;
     padding-top: 2rem;
@@ -17,17 +17,17 @@
     }
 }
 
-#footer form,
-#footer form input {
+.footer form,
+.footer form input {
     cursor: pointer;
 }
 
-#footer .form-control,
-#footer .form-control:focus,
-#footer input.form-control:-webkit-autofill,
-#footer input.form-control:-webkit-autofill:hover,
-#footer input.form-control:-webkit-autofill:focus,
-#footer input.form-control:-webkit-autofill:active {
+.footer .form-control,
+.footer .form-control:focus,
+.footer input.form-control:-webkit-autofill,
+.footer input.form-control:-webkit-autofill:hover,
+.footer input.form-control:-webkit-autofill:focus,
+.footer input.form-control:-webkit-autofill:active {
     box-shadow: 0 0 0px 1000px #0f7bed inset;
     background-color: transparent !important;
     -webkit-text-fill-color: white !important;
@@ -37,20 +37,20 @@
     }
 }
 
-#footer .footer-link {
+.footer .footer-link {
     margin-bottom: 0 !important;
     padding-bottom: 14px;
 }
 
-#footer p.footer-link {
+.footer p.footer-link {
     font-size: 0.875rem;
 }
 
-#footer .github-icon {
+.footer .github-icon {
     filter: brightness(0) invert(1);
     object-fit: contain;
 }
 
-#footer .color-error {
+.footer .color-error {
     color: #ff7245;
 }

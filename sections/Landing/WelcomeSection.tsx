@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { gsap, Linear, Power1 } from 'gsap';
 
 import Image from 'next/image';
@@ -8,7 +8,7 @@ import { Button, Link } from 'components';
 import { AssetsSrc, MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER, MAX_PHONE_DEVICE_WIDTH } from 'constant';
 import { Hooks } from 'utils';
 
-import './WelcomeSection.module.scss';
+import styles from './WelcomeSection.module.scss';
 
 const MV_PATH_COUNT = 4;
 
@@ -57,20 +57,36 @@ const DotsSvgPaths = (): JSX.Element => {
 
 const CrystalIllustration = (): JSX.Element => {
     return (
-        <div className="crystal-illu-container">
-            <Image className="crystals-shadows" src={AssetsSrc.images.crystalsShadows} alt="Crystals shadows" />
-            <div className="crystal-wrapper crystal-small-wrapper">
-                <Image className="crystal-small" src={AssetsSrc.images.crystalWhiteSmall} alt="Small White Crystal" />
+        <div className={styles['crystal-illu-container']}>
+            <Image
+                className={styles['crystals-shadows']}
+                src={AssetsSrc.images.crystalsShadows}
+                alt="Crystals shadows"
+                layout="fill"
+            />
+            <div className={styles['crystal-wrapper']}>
+                <Image
+                    className={styles['crystal-small']}
+                    src={AssetsSrc.images.crystalWhiteSmall}
+                    alt="Small White Crystal"
+                    layout="fill"
+                />
             </div>
             <div className="crystal-wrapper crystal-medium-wrapper">
                 <Image
-                    className="crystal-medium"
+                    className={styles['crystal-medium']}
                     src={AssetsSrc.images.crystalWhiteMedium}
                     alt="Medium White Crystal"
+                    layout="fill"
                 />
             </div>
             <div className="crystal-wrapper crystal-large-wrapper">
-                <Image className="crystal-large" src={AssetsSrc.images.crystalWhiteLarge} alt="Large White Crystal" />
+                <Image
+                    className={styles['crystal-large']}
+                    src={AssetsSrc.images.crystalWhiteLarge}
+                    alt="Large White Crystal"
+                    layout="fill"
+                />
             </div>
         </div>
     );
@@ -187,7 +203,7 @@ const WelcomeSection = (): JSX.Element => {
             scrollTrigger: scrollTrigger,
             stragger: 0.25,
         });
-        gsap.to(`#welcome .crystal-small-wrapper`, {
+        gsap.to(`#welcome .crystal-wrapper`, {
             translateY: -125,
             ease: 'none',
             scrollTrigger: scrollTrigger,
@@ -307,11 +323,11 @@ const WelcomeSection = (): JSX.Element => {
     }, [width]);
 
     return (
-        <section className="dark" id="welcome">
+        <section id="dark" className={styles.welcome}>
             {dots}
             <div className="bg-lightning" />
             <div className="container" />
-            <div id="welcome-content" className="container">
+            <div className={`container ${styles.welcome}`}>
                 <div className="row flex-lg-row flex-column-reverse align-items-center">
                     <DotsSvgPaths />
 

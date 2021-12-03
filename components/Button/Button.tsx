@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/Button.module.scss';
+import styles from './styles/Button.module.scss';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     outline?: boolean;
@@ -10,7 +10,12 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = (props: Props): JSX.Element => {
     const { children, className, outline, inverted, ...rest } = props;
     return (
-        <button {...rest} className={`normal-btn ${outline && 'btn-outlined'} ${inverted && 'inverted'} ${className}`}>
+        <button
+            {...rest}
+            className={`${styles['normal-btn']} ${outline && styles['btn-outlined']} ${
+                inverted && styles.inverted
+            } ${className}`}
+        >
             {children}
         </button>
     );

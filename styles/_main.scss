@@ -381,16 +381,16 @@ section {
     color: $color-dark;
 }
 
-section.dark {
+section#dark {
     background-color: $color-dark;
 }
 
-section.light {
+section#light {
     background-color: $color-light;
 }
 
-section.light h1,
-section.light h2,
-section.light p {
+section#light h1,
+section#light h2,
+section#light p {
     color: $color-black;
 }
