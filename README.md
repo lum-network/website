@@ -11,7 +11,7 @@ The official website of the Lum Network, hosted by the Lum Foundation at https:/
 
 This project has a git submodule so clone it with:
 
-> $ git clone git@github.com:lum-network/explorer.git --recursive
+> $ git clone git@github.com:lum-network/website.git --recursive
 
 ### Install dependencies
 
@@ -21,7 +21,7 @@ This project has a git submodule so clone it with:
 
 Now you can run your app with:
 
-> $ yarn start
+> $ yarn dev
 
 ### Building your app
 
@@ -34,7 +34,7 @@ You can build your app with:
 All React components are functional components with hooks.
 
 All stylesheets are written in SASS with [Bootstrap 5](https://getbootstrap.com/).
-To avoid SASS issue, add `SASS_PATH=node_modules:src/styles` in a `.env` file
+To avoid SASS issue, add `SASS_PATH=node_modules:styles` in a `.env` file
 
 There is a Prettier and ES Lint configuration to follow.
 
