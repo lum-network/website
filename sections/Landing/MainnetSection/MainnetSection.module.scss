@@ -1,0 +1,66 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import 'variables';
+
+.mainnet {
+    opacity: 0;
+    min-height: max(760px, 100vh);
+    text-align: center;
+    justify-content: start;
+    font-family: 'Fira Sans';
+
+    color: white;
+    background: linear-gradient(
+        99.75deg,
+        #1b1d56 6.16%,
+        #1d2265 28.58%,
+        #242974 41.08%,
+        #464ecb 56.06%,
+        #3b41bb 66.62%,
+        #1c2470 80.18%,
+        #1c1d61 93.81%
+    );
+
+    padding-top: 180px;
+    @include media-breakpoint-down(lg) {
+        padding-top: 150px;
+    }
+}
+
+.mainnet-title {
+    margin-bottom: 80px;
+    letter-spacing: 0.14rem;
+}
+
+.mainnet-content {
+    z-index: 2;
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 20px;
+        padding-bottom: 60px;
+    }
+}
+
+.bg-blue {
+    position: absolute;
+    top: 48%;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 100%;
+
+    @include media-breakpoint-down(lg) {
+        top: 20%;
+    }
+}
+
+.number {
+    font-size: 12rem;
+    font-weight: 200;
+}
+
+.label {
+    letter-spacing: 0.25rem;
+    font-weight: 300;
+}

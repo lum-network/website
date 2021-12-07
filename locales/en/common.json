@@ -133,10 +133,10 @@
         "community": "Community"
     },
     "mainnet": {
-        "launchInTitle": "Launch of the mainnet in:",
-        "days": "Days",
-        "hours": "Hours",
-        "minutes": "Minutes",
-        "seconds": "Seconds"
+        "launchInTitle": "LAUNCH OF THE MAIN NET IN",
+        "days": "DAYS",
+        "hours": "HOURS",
+        "minutes": "MINUTES",
+        "seconds": "SECONDS"
     }
 }

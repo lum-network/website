@@ -8,8 +8,9 @@ import LumSection from './LumSection';
 import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
 import TrustedBySection from './TrustedBySection';
+import MainnetSection from './MainnetSection';
 
-import { AssetsSrc, LUM_WHITELIST_TYPEFORM } from '../../constant';
+import { AssetsSrc, LUM_WHITELIST_TYPEFORM, MAINNET_LAUNCH_DATE } from '../../constant';
 import { Footer, Header, Modal } from '../../components';
 
 import styles from './index.module.scss';
@@ -50,6 +51,7 @@ const Landing = (): JSX.Element => {
                 gsapScrollTrigger="#welcome"
                 bgTriggerElem="#welcome"
             />
+            <MainnetSection launchAt={MAINNET_LAUNCH_DATE} />
             <WelcomeSection onGetLum={openGiModal} />
             <TrustLayerSection />
             <PartneringSection />
