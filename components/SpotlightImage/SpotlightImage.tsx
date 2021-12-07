@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useCallback } from 'react';
-import { gsap } from 'gsap';
+import { gsap } from 'utils';
 
 import { Hooks } from 'utils';
 import { MIN_LARGE_DEVICE_WIDTH, IS_SAFARI, IS_IOS } from 'constant';
 
-import './styles/SpotlightImage.module.scss';
+import styles from './styles/SpotlightImage.module.scss';
 
 interface Props {
     beamSize?: number;
@@ -93,12 +93,12 @@ const SpotlightImage = (props: Props): JSX.Element => {
 
     return (
         <div
-            className={`spotlight-Image-container ${direction === -1 ? 'reverse' : ''} ${
+            className={`${styles['spotlight-img-container']} ${direction === -1 ? styles.reverse : ''} ${
                 props.className || ''
             } spotlight-${props.uid}`}
         >
-            <div className={`spotlight ${showLights ? '' : 'hide'}`} ref={spotlightRef}>
-                <div className="spotlight-inner" ref={spotlightInnerRef} />
+            <div className={`${styles.spotlight} ${showLights ? '' : styles.hide}`} ref={spotlightRef}>
+                <div className={styles['spotlight-inner']} ref={spotlightInnerRef} />
             </div>
             <img src={props.imgSrc} alt={props.imgAlt} />
             {props.children}

@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#green {
+.green {
     min-height: auto;
     padding: 160px 0px 120px 0px;
 
@@ -12,8 +12,8 @@
     }
 }
 
-#green h1 {
-    color: $color-green;
+.green h1 {
+    color: $color-green !important;
     font-style: normal;
     font-weight: $bold;
     font-size: 3.25rem;
@@ -32,7 +32,7 @@
     }
 }
 
-#green h2 {
+.green h2 {
     font-style: normal;
     font-weight: $bold;
     font-size: 1.125rem;
@@ -43,7 +43,7 @@
     margin-bottom: 16px;
 }
 
-#green p {
+.green p {
     font-style: normal;
     font-weight: $regular;
     font-size: 1.125rem;
@@ -57,7 +57,7 @@
     }
 }
 
-#green .green-dot {
+.green .green-dot {
     background-color: $color-green;
     width: 14px;
     height: 14px;

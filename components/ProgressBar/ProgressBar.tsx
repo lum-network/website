@@ -11,10 +11,11 @@ interface Props {
 const ProgressBar = (props: Props): JSX.Element => {
     const { progress, containerClassName, className } = props;
     const p = Math.min(progress, 100);
+
     return (
-        <div className={`${styles.progress} ${containerClassName}`}>
+        <div className={`progress ${styles.progress} ${containerClassName}`}>
             <div
-                className={`${styles.progress} ${className} rounded-pill`}
+                className={`progress-bar ${styles['progress-bar']} ${className} rounded-pill`}
                 style={{ width: `${p}%` }}
                 role="progressbar"
                 aria-valuenow={p}

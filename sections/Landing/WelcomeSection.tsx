@@ -2,13 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { gsap, Linear, Power1 } from 'gsap';
 
-import Image from 'next/image';
-
 import { Button, Link } from 'components';
 import { AssetsSrc, MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER, MAX_PHONE_DEVICE_WIDTH } from 'constant';
 import { Hooks } from 'utils';
 
 import styles from './WelcomeSection.module.scss';
+import globalStyles from '../sections.module.scss';
 
 const MV_PATH_COUNT = 4;
 
@@ -57,35 +56,27 @@ const DotsSvgPaths = (): JSX.Element => {
 
 const CrystalIllustration = (): JSX.Element => {
     return (
-        <div className={styles['crystal-illu-container']}>
-            <Image
-                className={styles['crystals-shadows']}
-                src={AssetsSrc.images.crystalsShadows}
-                alt="Crystals shadows"
-                layout="fill"
-            />
+        <div id="crystals-container" className={styles['crystal-illu-container']}>
+            <img className={styles['crystals-shadows']} src={AssetsSrc.images.crystalsShadows} alt="Crystals shadows" />
             <div className={styles['crystal-wrapper']}>
-                <Image
+                <img
                     className={styles['crystal-small']}
                     src={AssetsSrc.images.crystalWhiteSmall}
                     alt="Small White Crystal"
-                    layout="fill"
                 />
             </div>
-            <div className="crystal-wrapper crystal-medium-wrapper">
-                <Image
+            <div className={`${styles['crystal-wrapper']} crystal-medium-wrapper`}>
+                <img
                     className={styles['crystal-medium']}
                     src={AssetsSrc.images.crystalWhiteMedium}
                     alt="Medium White Crystal"
-                    layout="fill"
                 />
             </div>
-            <div className="crystal-wrapper crystal-large-wrapper">
-                <Image
+            <div className={`${styles['crystal-wrapper']} crystal-large-wrapper`}>
+                <img
                     className={styles['crystal-large']}
                     src={AssetsSrc.images.crystalWhiteLarge}
                     alt="Large White Crystal"
-                    layout="fill"
                 />
             </div>
         </div>
@@ -186,54 +177,60 @@ const WelcomeSection = (): JSX.Element => {
 
     useEffect(() => {
         // GSAP Section Scroll Animations
+        const q = gsap.utils.selector('#welcome');
         const scrollTrigger = {
-            trigger: `#welcome`,
+            trigger: '#welcome',
             start: '5% top',
             end: '50% top',
             scrub: true,
         };
-        gsap.to(`#welcome .section-content-title`, {
+        gsap.to(q('.section-content-title'), {
             translateY: -100,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.to(`#welcome .section-content-info`, {
+        gsap.to(q('.section-content-info'), {
             translateY: -75,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
-            stragger: 0.25,
+            scrollTrigger,
+            stagger: 0.25,
         });
-        gsap.to(`#welcome .crystal-wrapper`, {
+        gsap.to(q(`.crystal-wrapper`), {
             translateY: -125,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.to(`#welcome .crystal-medium-wrapper`, {
+        gsap.to(q(`.crystal-medium-wrapper`), {
             translateY: -100,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.to(`#welcome .crystal-large-wrapper`, {
+        gsap.to(q(`.crystal-large-wrapper`), {
             translateY: -75,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.to(`#welcome .crystals-shadows`, {
+        gsap.to(q(`${styles['crystals-shadows']}`), {
             translateY: -75,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
     }, []);
 
     useEffect(() => {
         // GSAP Section Show Animations
+
         if (!timeline.current) {
             const tl = gsap.timeline();
+            const q = gsap.utils.selector('#welcome');
+
             timeline.current = tl;
-            tl.fromTo(`#welcome`, { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
+
+            tl.fromTo('#welcome', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
+
             if (width < MAX_PHONE_DEVICE_WIDTH) {
                 tl.fromTo(
-                    `#welcome .section-content-title`,
+                    q(`.section-content-title`),
                     {
                         opacity: 0,
                         y: 10,
@@ -246,7 +243,8 @@ const WelcomeSection = (): JSX.Element => {
                     '=-1',
                 );
             } else {
-                const titleSplit = new SplitText(`#welcome .section-content-title`, { type: 'words,chars' });
+                const titleSplit = new SplitText(q(`.section-content-title`), { type: 'words,chars' });
+
                 tl.fromTo(
                     titleSplit.chars,
                     {
@@ -267,7 +265,7 @@ const WelcomeSection = (): JSX.Element => {
                 );
             }
             tl.fromTo(
-                `#welcome .section-content-info`,
+                q('.section-content-info'),
                 {
                     opacity: 0,
                     y: 10,
@@ -281,7 +279,7 @@ const WelcomeSection = (): JSX.Element => {
                 '=-0.3',
             );
             tl.fromTo(
-                `#welcome .crystal-illu-container > *`,
+                q(`#crystals-container > *`),
                 {
                     opacity: 0,
                     y: 10,
@@ -295,7 +293,7 @@ const WelcomeSection = (): JSX.Element => {
                 '=-0.5',
             );
             tl.fromTo(
-                `#welcome .bg-lightning`,
+                q('#background'),
                 {
                     opacity: 0,
                     y: 10,
@@ -308,7 +306,7 @@ const WelcomeSection = (): JSX.Element => {
                 '=-1',
             );
             tl.fromTo(
-                `#welcome .scroll-cta-container`,
+                q(`#scroll-cta`),
                 {
                     opacity: 0,
                     y: 20,
@@ -323,11 +321,11 @@ const WelcomeSection = (): JSX.Element => {
     }, [width]);
 
     return (
-        <section id="dark" className={styles.welcome}>
+        <section id="welcome" className={styles.welcome}>
             {dots}
-            <div className="bg-lightning" />
+            <div id="background" className={styles['bg-lightning']} />
             <div className="container" />
-            <div className={`container ${styles.welcome}`}>
+            <div className={`container ${styles['welcome-content']}`}>
                 <div className="row flex-lg-row flex-column-reverse align-items-center">
                     <DotsSvgPaths />
 
@@ -344,10 +342,7 @@ const WelcomeSection = (): JSX.Element => {
                             <Button data-bs-toggle="modal" data-bs-target={'#get-informed-modal'}>
                                 <strong>{t('common.getLum')}</strong>
                             </Button>
-                            <Link
-                                className="ms-5 scale-anim d-flex flex-row align-items-baseline"
-                                link={LUM_NETWORK_WHITEPAPER}
-                            >
+                            <Link className="ms-5 d-flex flex-row align-items-baseline" link={LUM_NETWORK_WHITEPAPER}>
                                 <strong className="border-bottom border-2 pb-2 me-2">{t('landing.whitePaper')}</strong>
                                 {'➤'}
                             </Link>
@@ -365,11 +360,18 @@ const WelcomeSection = (): JSX.Element => {
                             document.getElementById('trustlayer')?.scrollIntoView();
                         }
                     }}
-                    className="scroll-cta-container scale-anim d-flex flex-row align-self-end align-items-center d-none d-lg-flex"
+                    id="scroll-cta"
+                    className={`${styles['scroll-cta-container']} ${globalStyles['scale-anim']} d-flex flex-row align-self-end align-items-center d-none d-lg-flex`}
                 >
                     <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
-                    <div className="rounded-circle ms-md-4 arrow-icon-container">
-                        <Image src={AssetsSrc.images.downArrowIcon} alt="Scroll down arrow" width="11" height="11" />
+                    <div className={`rounded-circle ms-md-4 ${styles['arrow-icon-container']}`}>
+                        <img
+                            src={AssetsSrc.images.downArrowIcon}
+                            alt="Scroll down arrow"
+                            className={styles['arrow-icon']}
+                            width="11"
+                            height="11"
+                        />
                     </div>
                 </a>
             </div>

@@ -4,15 +4,8 @@ import Script from 'next/script';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 
-import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/dist/MotionPathPlugin';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/_main.scss';
-
-gsap.config({ nullTargetWarn: false });
-gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (

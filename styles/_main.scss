@@ -28,8 +28,6 @@ html {
    */
 
 body {
-    margin: 0;
-    font-family: $primary_font;
     font-size: 1rem;
     font-weight: $regular;
 }
@@ -48,21 +46,6 @@ main {
     flex: 1;
     min-height: 100vh;
     overflow: hidden;
-}
-
-/**
-   * Correct the font size and margin on `h1` elements within `section` and
-   * `article` contexts in Chrome, Firefox, and Safari.
-   */
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-    font-kerning: none;
-    -webkit-text-rendering: optimizeSpeed;
-    text-rendering: optimizeSpeed;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 }
 
 /* Grouping content
@@ -187,8 +170,6 @@ select,
 textarea {
     font-family: inherit; /* 1 */
     font-size: 100%; /* 1 */
-    line-height: 1.15; /* 1 */
-    margin: 0; /* 2 */
 }
 
 /**
@@ -373,6 +354,32 @@ template {
     display: none;
 }
 
+/* Reset button default styling */
+
+button {
+    padding: 12px 24px;
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
+button:hover {
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+    outline: none;
+}
+
+button:focus {
+    outline: 0;
+}
+
+/* END Reset button default styling */
+
 section {
     position: relative;
     display: flex;
@@ -381,16 +388,20 @@ section {
     color: $color-dark;
 }
 
-section#dark {
+section.dark {
     background-color: $color-dark;
 }
 
-section#light {
+section.light {
     background-color: $color-light;
 }
 
-section#light h1,
-section#light h2,
-section#light p {
+section.light h1,
+section.light h2,
+section.light p {
     color: $color-black;
+}
+
+.container {
+    position: relative;
 }

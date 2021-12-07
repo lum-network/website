@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
-import { gsap } from 'gsap/dist/gsap';
-import Image from 'next/image';
+import { gsap } from 'utils';
 
 import styles from './TrustLayerSection.module.scss';
+import globalStyles from '../sections.module.scss';
 import { AssetsSrc } from 'constant';
 
 const TrustLayerSection = (): JSX.Element => {
     const { t } = useTranslation();
 
     useEffect(() => {
+        const q = gsap.utils.selector(`#trustlayer`);
+
         const scrollTrigger = {
             trigger: `#trustlayer`,
             start: 'top 60%',
@@ -17,43 +19,41 @@ const TrustLayerSection = (): JSX.Element => {
             scrub: true,
         };
 
-        gsap.from(`#trustlayer .section-content-title`, {
+        gsap.from(q(`.section-content-title`), {
             y: 100,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#trustlayer .section-content-info`, {
+        gsap.from(q(`.section-content-info`), {
             y: 150,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#trustlayer .trust-layers-wrapper`, {
+        gsap.from(q(`.trust-layers-wrapper`), {
             y: 200,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
     }, []);
 
     return (
-        <section id="dark" className={styles.trustlayer}>
+        <section id="trustlayer" className={styles.trustlayer}>
             <div className={`container ${styles['trust-layers']}`}>
                 <div className="row d-flex flex-lg-row flex-column justify-content-between">
                     <div className="col-12 col-lg-6 col-xl-7 d-flex justify-content-center justify-content-lg-start">
                         <div className={styles['trust-layers-wrapper']}>
-                            <Image
+                            <img
                                 className={styles['trust-layers']}
                                 src={AssetsSrc.images.trustLayers}
                                 alt="Trust layers"
-                                layout="fill"
                             />
-                            <Image
+                            <img
                                 className={styles['trust-layers-shadows']}
                                 src={AssetsSrc.images.trustLayersShadows}
                                 alt="Trust layers shadows"
-                                layout="fill"
                             />
                         </div>
                     </div>
@@ -63,38 +63,38 @@ const TrustLayerSection = (): JSX.Element => {
                             dangerouslySetInnerHTML={{ __html: t('business.title') }}
                         />
                         <div className="row">
-                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
-                                <div className="light-icon-wrapper">
-                                    <Image
-                                        src={AssetsSrc.images.contentStamping}
-                                        alt="Content stamping"
-                                        layout="fill"
-                                    />
+                            <div
+                                className={`section-content-info col-12 col-sm-6 d-flex flex-column ${styles['uvp-container']}`}
+                            >
+                                <div className={styles['light-icon-wrapper']}>
+                                    <img src={AssetsSrc.images.contentStamping} alt="Content stamping" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.store.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.store.description') }} />
                             </div>
-                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
-                                <div className="light-icon-wrapper">
-                                    <Image src={AssetsSrc.images.traceabilityIcon} alt="Traceability" layout="fill" />
+                            <div
+                                className={`section-content-info col-12 col-sm-6 d-flex flex-column ${styles['uvp-container']}`}
+                            >
+                                <div className={styles['light-icon-wrapper']}>
+                                    <img src={AssetsSrc.images.traceabilityIcon} alt="Traceability" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.tracability.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.tracability.description') }} />
                             </div>
-                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
-                                <div className="light-icon-wrapper">
-                                    <Image src={AssetsSrc.images.transparencyIcon} alt="Transparency" layout="fill" />
+                            <div
+                                className={`section-content-info col-12 col-sm-6 d-flex flex-column ${styles['uvp-container']}`}
+                            >
+                                <div className={styles['light-icon-wrapper']}>
+                                    <img src={AssetsSrc.images.transparencyIcon} alt="Transparency" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.transparency.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.transparency.description') }} />
                             </div>
-                            <div className="section-content-info col-12 col-sm-6 d-flex flex-column uvp-container">
-                                <div className="light-icon-wrapper">
-                                    <Image
-                                        src={AssetsSrc.images.businessIcon}
-                                        alt="Business application"
-                                        layout="fill"
-                                    />
+                            <div
+                                className={`section-content-info col-12 col-sm-6 d-flex flex-column ${styles['uvp-container']}`}
+                            >
+                                <div className={styles['light-icon-wrapper']}>
+                                    <img src={AssetsSrc.images.businessIcon} alt="Business application" />
                                 </div>
                                 <h2 dangerouslySetInnerHTML={{ __html: t('business.practices.title') }} />
                                 <p dangerouslySetInnerHTML={{ __html: t('business.practices.description') }} />

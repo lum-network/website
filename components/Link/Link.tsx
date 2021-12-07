@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/Link.module.scss';
+import styles from './styles/Link.module.scss';
 
 interface Props {
     link: string;
@@ -10,7 +10,7 @@ interface Props {
 
 const Link = (props: Props): JSX.Element => {
     return (
-        <a href={props.link} className={`link-btn ${props.className}`} target="_blank" rel="noreferrer">
+        <a href={props.link} className={`${styles['link-btn']} ${props.className}`} target="_blank" rel="noreferrer">
             {props.children}
         </a>
     );

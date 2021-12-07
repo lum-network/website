@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
-import { gsap } from 'gsap/dist/gsap';
-import Image from 'next/image';
+import { gsap } from 'utils';
 
 import { AssetsSrc } from 'constant';
 
@@ -11,28 +10,29 @@ const TrustedBySection = (): JSX.Element => {
     const { t } = useTranslation();
 
     useEffect(() => {
+        const q = gsap.utils.selector('#trustedby');
         const scrollTrigger = {
             trigger: `#trustedby`,
             start: 'top 60%',
             end: 'top 10%',
             scrub: true,
         };
-        gsap.from(`#trustedby .section-content-title`, {
+        gsap.from(q(`.section-content-title`), {
             y: 50,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#trustedby .section-content-info`, {
+        gsap.from(q(`.section-content-info`), {
             y: 100,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#trustedby .partner`, {
+        gsap.from(q(`.partner`), {
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
             stagger: 0.05,
         });
     }, []);
@@ -101,7 +101,7 @@ const TrustedBySection = (): JSX.Element => {
     ];
 
     return (
-        <section id="light" className={styles.trustedby}>
+        <section id="trustedby" className={`light ${styles.trustedby}`}>
             <div id="trustedby-content" className="container">
                 <div className="row">
                     <div className="col-12">

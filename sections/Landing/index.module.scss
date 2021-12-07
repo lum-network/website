@@ -3,68 +3,58 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#newsletter-modal {
-    & .modal-dialog {
-        position: relative;
+.newsletter-modal-dialog {
+    position: relative;
 
-        @include media-breakpoint-up(lg) {
-            max-width: 580px;
-        }
-    }
-
-    & .modal-content {
-        position: relative;
-        min-height: 520px;
-    }
-
-    & .modal-body {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    & iframe {
-        z-index: 2;
-        height: 380px;
-        width: 100%;
-    }
-
-    & img.illu {
-        z-index: 0;
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        height: 200px;
-        transform: translateX(-50%);
-    }
-
-    @include media-breakpoint-down(sm) {
-        & .modal-content {
-            position: relative;
-            min-height: 560px;
-        }
-
-        & img.illu {
-            height: 160px;
-        }
+    @include media-breakpoint-up(lg) {
+        max-width: 580px;
     }
 }
 
-#get-informed-modal {
+.newsletter-modal-content {
+    position: relative;
+    min-height: 520px;
+    @include media-breakpoint-down(sm) {
+        min-height: 560px;
+    }
+}
+
+.newsletter-modal-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.newsletter-modal-iframe {
+    z-index: 2;
+    height: 380px;
+    width: 100%;
+}
+
+.newsletter-modal-illu {
+    z-index: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    height: 200px;
+    transform: translateX(-50%);
+    @include media-breakpoint-down(sm) {
+        height: 160px;
+    }
+}
+
+.get-informed-modal-dialog {
+    @include media-breakpoint-up(lg) {
+        max-width: 580px;
+    }
+}
+
+.get-informed-modal-body {
     color: $color-dark;
-
-    & .modal-dialog {
-        @include media-breakpoint-up(lg) {
-            max-width: 580px;
-        }
-    }
-
-    & .modal-body {
-        padding: 32px;
-        text-align: start;
-    }
+    padding: 32px;
+    text-align: start;
 
     & h1 {
         font-style: normal;

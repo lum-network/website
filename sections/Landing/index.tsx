@@ -12,7 +12,7 @@ import TrustedBySection from './TrustedBySection';
 import { AssetsSrc, LUM_WHITELIST_TYPEFORM } from '../../constant';
 import { Footer, Header, Modal } from '../../components';
 
-import './index.module.scss';
+import styles from './index.module.scss';
 
 const Landing = (): JSX.Element => {
     const { t } = useTranslation();
@@ -32,7 +32,16 @@ const Landing = (): JSX.Element => {
 
     return (
         <>
-            <Header mainnetEnded modalId="#get-informed-modal" bgTriggerElem="#welcome" />
+            <Header
+                mainnetEnded={false}
+                onGetInformed={() => {
+                    if (giModRef && giModRef.current) {
+                        giModRef.current.show();
+                    }
+                }}
+                gsapScrollTrigger="#welcome"
+                bgTriggerElem="#welcome"
+            />
             <WelcomeSection />
             <TrustLayerSection />
             <PartneringSection />
@@ -40,8 +49,19 @@ const Landing = (): JSX.Element => {
             <ShowCaseSection />
             <TrustedBySection />
             <GreenSection />
-            <Footer />
-            <Modal id={'get-informed-modal'} ref={giModRef}>
+            <Footer
+                onNewsletterClick={() => {
+                    if (nlModRef && nlModRef.current) {
+                        nlModRef.current.show();
+                    }
+                }}
+            />
+            <Modal
+                id="get-informed-modal"
+                bodyClassName={styles['get-informed-modal-body']}
+                dialogClassName={styles['get-informed-modal-dialog']}
+                ref={giModRef}
+            >
                 <div className="row">
                     <div className="col-12">
                         <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />
@@ -53,7 +73,7 @@ const Landing = (): JSX.Element => {
                 <div className="row">
                     <div className="col-12 d-flex justify-content-between flex-column flex-md-row">
                         <a
-                            className="btn-blue mb-3 mb-md-0"
+                            className={`${styles['btn-blue']} mb-3 mb-md-0`}
                             href={LUM_WHITELIST_TYPEFORM}
                             target="_blank"
                             rel="noreferrer"
@@ -66,10 +86,20 @@ const Landing = (): JSX.Element => {
                     </div>
                 </div>
             </Modal>
-            <Modal id={'newsletter-modal'} ref={nlModRef}>
-                <img src={AssetsSrc.images.notificationIllu} className="illu" alt="Newsletter" />
+            <Modal
+                id="newsletter-modal"
+                bodyClassName={styles['newsletter-modal-body']}
+                contentClassName={styles['newsletter-modal-content']}
+                dialogClassName={styles['newsletter-modal-dialog']}
+                ref={nlModRef}
+            >
+                <img
+                    src={AssetsSrc.images.notificationIllu}
+                    className={styles['newsletter-modal-illu']}
+                    alt="Newsletter"
+                />
                 <iframe
-                    className="mj-w-res-iframe"
+                    className={`mj-w-res-iframe ${styles['newsletter-modal-iframe']}`}
                     frameBorder="0"
                     scrolling="no"
                     marginHeight={0}

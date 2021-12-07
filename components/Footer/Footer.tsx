@@ -3,8 +3,6 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'next-i18next';
 
-import Image from 'next/image';
-
 import {
     AssetsSrc,
     LUM_NETWORK_DOCUMENTATION,
@@ -21,7 +19,7 @@ import { Button, Link } from 'components';
 
 import styles from './styles/Footer.module.scss';
 
-const Footer = (): JSX.Element => {
+const Footer = ({ onNewsletterClick }: { onNewsletterClick: () => void }): JSX.Element => {
     const { t } = useTranslation();
 
     const mailingListForm = useFormik({
@@ -48,16 +46,12 @@ const Footer = (): JSX.Element => {
                         <div className="h-100 me-md-5 d-flex flex-column justify-content-between">
                             <div>
                                 <h3>{t('footer.newsletter.title')}</h3>
-                                <form
-                                    onSubmit={mailingListForm.handleSubmit}
-                                    data-bs-toggle="modal"
-                                    data-bs-target={'#newsletter-modal'}
-                                >
-                                    <div className="input-group align-items-baseline border-bottom mt-4">
+                                <form onSubmit={mailingListForm.handleSubmit} onClick={onNewsletterClick}>
+                                    <div className={`input-group align-items-baseline border-bottom mt-4`}>
                                         <input
                                             disabled
                                             {...mailingListForm.getFieldProps('email')}
-                                            className="form-control border-0 px-0 pb-3 mt-3"
+                                            className={`form-control ${styles['form-control']} border-0 px-0 pb-3 mt-3`}
                                             placeholder={t('footer.newsletter.placeholder')}
                                         />
                                         <span>
@@ -119,10 +113,10 @@ const Footer = (): JSX.Element => {
                                 className="px-4 mb-4 mb-md-0"
                                 onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
                             >
-                                <Image
+                                <img
                                     alt="github"
                                     src={AssetsSrc.images.githubIcon}
-                                    className="github-icon ms-2"
+                                    className={`${styles['github-icon']} ms-2`}
                                     width="20"
                                     height="20"
                                 />

@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#showcase {
+.showcase {
     background: $color-light;
     color: $color-dark;
     padding-top: 148px;
@@ -15,7 +15,7 @@
     }
 }
 
-#showcase h1 {
+.showcase h1 {
     text-align: center;
     font-style: normal;
     font-weight: $regular;
@@ -32,7 +32,7 @@
     }
 }
 
-#showcase p {
+.showcase p {
     color: #000000;
     font-style: normal;
     font-weight: $medium;
@@ -50,11 +50,11 @@
     }
 }
 
-#showcase .nav-tabs {
+.nav-tabs {
     border: none;
 }
 
-#showcase .nav-tabs .nav-link {
+.nav-tabs .nav-link {
     position: relative;
     border: none;
     color: #c4c4c4;
@@ -71,7 +71,7 @@
     }
 }
 
-#showcase .nav-tabs .nav-link::before {
+.nav-tabs .nav-link::before {
     content: ' ';
     position: absolute;
     left: 0;
@@ -88,43 +88,39 @@
     }
 }
 
-#showcase .nav-tabs .nav-link:hover,
-#showcase .nav-tabs .nav-link.active {
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link.active {
     color: #000000;
 }
 
-#showcase .nav-tabs .nav-link:hover::before,
-#showcase .nav-tabs .nav-link.active::before {
+.nav-tabs .nav-link:hover::before,
+.nav-tabs .nav-link.active::before {
     background-color: #000000;
 }
 
-#showcase .tab-pane {
+.tab-pane {
     padding-top: 68px;
+    transition: opacity 0.3s linear;
 
     @include media-breakpoint-down(lg) {
         padding-top: 32px;
     }
 }
 
-#showcase .tab-pane a {
+.tab-pane a {
     color: #000000;
 }
 
-#showcase .tab-pane .border-bottom {
+.tab-pane .border-bottom {
     border-color: #000000 !important;
 }
 
-#showcase .tab-pane img {
+.tab-pane img {
     width: 100%;
     max-width: 480px;
 }
 
-#showcase .tab-pane.fade {
-    transition: all 0.3s linear;
-    opacity: 0;
-}
-
-#showcase .tab-pane.fade.show {
+.tab-pane:global(.fade.show) {
     opacity: 1;
     transition-delay: 150ms;
 }

@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
-import { gsap } from 'gsap/dist/gsap';
-
-import Image from 'next/image';
 
 import { AssetsSrc, LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET } from 'constant';
 import { Button, Link } from 'components';
+import { gsap } from 'utils';
 
 import styles from './styles/Header.module.scss';
 
 const Header = ({
-    modalId,
+    onGetInformed,
+    gsapScrollTrigger,
     bgTriggerElem,
     mainnetEnded,
 }: {
-    modalId: string;
+    onGetInformed: () => void;
+    gsapScrollTrigger: string;
     mainnetEnded: boolean;
     bgTriggerElem?: string;
 }): JSX.Element => {
     const { t } = useTranslation();
     useEffect(() => {
         gsap.fromTo(
-            `header`,
+            'header',
             {
                 opacity: 0,
                 y: -50,
@@ -36,19 +36,20 @@ const Header = ({
     }, []);
 
     useEffect(() => {
+        const q = gsap.utils.selector('header');
         if (bgTriggerElem) {
-            gsap.to(`header ${styles.background}`, {
+            gsap.to(q(`#background`), {
                 opacity: 1,
                 ease: 'none',
                 scrollTrigger: {
-                    trigger: `#welcome`,
+                    trigger: gsapScrollTrigger,
                     start: '10% top',
                     end: '30% top',
                     scrub: true,
                 },
             });
         } else {
-            gsap.to(`header ${styles.background}`, {
+            gsap.to(q(`#background`), {
                 opacity: 1,
                 duration: 0,
             });
@@ -56,11 +57,11 @@ const Header = ({
     }, [bgTriggerElem]);
 
     return (
-        <header className={`${styles.header} navbar fixed-top`}>
-            <div className={`${styles.background} ${mainnetEnded ? styles.blue : ''}`} />
+        <header id={styles.header} className="navbar fixed-top">
+            <div id="background" className={`${styles.background} ${mainnetEnded ? styles.blue : ''}`} />
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
-                <a href="/" className="navbar-brand">
-                    <Image
+                <a href="/" className={`navbar-brand ${styles['navbar-brand']}`}>
+                    <img
                         src={AssetsSrc.images.lumNetworkLogoDark}
                         width="235"
                         height="38"
@@ -77,7 +78,7 @@ const Header = ({
                     <Link link={LUM_EXPLORER} className="me-sm-3 me-md-5">
                         Explorer
                     </Link>
-                    <Button outline inverted data-bs-toggle="modal" data-bs-target={modalId}>
+                    <Button outline inverted onClick={onGetInformed}>
                         {t('header.getInformed')}
                     </Button>
                 </div>

@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import 'variables';
 
-#partnering {
+.partnering {
     background: linear-gradient(180deg, #e5eaeb 0%, #edf1f5 66.77%, #f2f5f9 75.69%, #dce4e4 87.81%);
     padding-top: 92px;
     padding-bottom: 128px;
@@ -14,7 +14,7 @@
     }
 }
 
-#partnering h1 {
+.partnering h1 {
     font-style: normal;
     font-weight: $regular;
     font-size: 2.625rem;
@@ -28,15 +28,15 @@
     }
 }
 
-#partnering h1 strong {
+.partnering h1 strong {
     font-weight: $bold;
 }
 
-#partnering .blue-icon-wrapper {
+.partnering .blue-icon-wrapper {
     margin-right: 24px;
 }
 
-#partnering h2 {
+.partnering h2 {
     font-style: normal;
     font-weight: $bold;
     font-size: 1.25rem;
@@ -46,7 +46,7 @@
     margin-bottom: 16px;
 }
 
-#partnering p {
+.partnering p {
     font-style: normal;
     font-weight: $regular;
     font-size: 0.9375rem;
@@ -55,12 +55,12 @@
     margin: 0;
 }
 
-#partnering .uvp-container {
+.partnering .uvp-container {
     max-width: 480px;
     margin-top: 48px;
 }
 
-#partnering .lense-wrapper {
+.partnering .lense-wrapper {
     position: absolute;
     left: 0;
     top: 0;
@@ -68,7 +68,7 @@
     bottom: 0;
 }
 
-#partnering .lense-illu-container {
+.partnering .lense-illu-container {
     position: relative;
     width: 460px;
     min-width: 460px;
@@ -80,7 +80,7 @@
     }
 }
 
-#partnering .lense-illu-container .lense-large {
+.partnering .lense-illu-container .lense-large {
     position: absolute;
     height: 330px;
     left: 0px;
@@ -88,7 +88,7 @@
     animation: lenseFloatVerticalLarge 6s infinite alternate ease-in-out;
 }
 
-#partnering .lense-illu-container .lense-medium {
+.partnering .lense-illu-container .lense-medium {
     position: absolute;
     height: 230px;
     left: 160px;
@@ -96,12 +96,29 @@
     animation: lenseFloatVerticalMedium 6s infinite alternate ease-in-out;
 }
 
-#partnering .lense-illu-container .lense-small {
+.partnering .lense-illu-container .lense-small {
     position: absolute;
     height: 160px;
     top: 0px;
     right: 0px;
     animation: lenseFloatVerticalSmall 6s infinite alternate ease-in-out;
+}
+
+.blue-icon-wrapper {
+    background-color: #2864d1;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.blue-icon-wrapper img {
+    width: 100%;
 }
 
 @keyframes lenseFloatVerticalSmall {

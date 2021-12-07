@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import NextImage from 'next/image';
 
 import { Landing, Mainnet } from '../sections';
 import { ProgressBar } from '../components';
 
 import { AssetsSrc } from '../constant';
 
-import styles from './app.module.scss';
+import styles from './index.module.scss';
 
 const Loader = ({ progress, loading }: { progress: number; loading: boolean }): JSX.Element => {
     return (
@@ -18,7 +17,7 @@ const Loader = ({ progress, loading }: { progress: number; loading: boolean }): 
             }`}
         >
             <div className="text-center" style={{ marginTop: '-5%' }}>
-                <NextImage src={AssetsSrc.images.lumNetworkLogoDark} width="235" height="38" />
+                <img src={AssetsSrc.images.lumNetworkLogoDark} width="235" height="38" />
                 <ProgressBar progress={progress} containerClassName={styles['loading-bar-container']} />
             </div>
         </div>

@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import Image from 'next/image';
-
-import { gsap } from 'gsap/dist/gsap';
+import { gsap } from 'utils';
 
 import { AssetsSrc } from 'constant';
 import { Button, SpotlightImage } from 'components';
@@ -14,42 +12,46 @@ const UniversalReward = (): JSX.Element => {
     const { t } = useTranslation();
 
     useEffect(() => {
+        const q = gsap.utils.selector('#universal-reward');
         const scrollTrigger = {
-            trigger: `#lum .universal-reward`,
+            trigger: `#universal-reward`,
             start: 'top 65%',
             end: 'top 30%',
             scrub: true,
         };
-        gsap.from(`#lum .universal-reward .section-content-title`, {
+        gsap.from(q(`.section-content-title`), {
             y: 40,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#lum .universal-reward .section-content-info`, {
+        gsap.from(q(`.section-content-info`), {
             y: 80,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#lum .universal-reward .section-content-illu`, {
+        gsap.from(q(`#illu`), {
             y: 120,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
     }, []);
 
     return (
-        <div className="universal-reward row flex-md-row flex-column justify-content-between align-items-center">
-            <div className="section-content-illu col-lg-6 d-flex justify-content-center">
+        <div
+            id="universal-reward"
+            className={`${styles['universal-reward']} row flex-md-row flex-column justify-content-between align-items-center`}
+        >
+            <div id="illu" className={`col-lg-6 d-flex justify-content-center ${styles['section-content-illu']}`}>
                 <SpotlightImage
                     uid={'lumreward'}
                     imgSrc={AssetsSrc.images.rewardBlueLarge}
                     imgAlt="Universal LUM reward"
                     beamSize={0.75}
                     animated={true}
-                    scrollTrigger={`#lum .universal-reward`}
+                    scrollTrigger={`#universal-reward`}
                 >
                     <img
                         className={styles['reward-blue-medium']}
@@ -75,50 +77,60 @@ const PoweredBy = (): JSX.Element => {
     const { t } = useTranslation();
 
     useEffect(() => {
+        const q = gsap.utils.selector('#powered-by');
         const scrollTrigger = {
-            trigger: `#lum .powered-by`,
+            trigger: '#powered-by',
             start: 'top 65%',
             end: 'top 30%',
             scrub: true,
         };
-        gsap.from(`#lum .powered-by .section-content-title`, {
+        gsap.from(q(`.section-content-title`), {
             y: 40,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
             stagger: 0.2,
         });
-        gsap.from(`#lum .powered-by .section-content-info`, {
+        gsap.from(q(`.section-content-info`), {
             y: 80,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
-        gsap.from(`#lum .powered-by .section-content-illu`, {
+        gsap.from(q(`#illu`), {
             y: 120,
             scale: 0.75,
             opacity: 0,
             ease: 'none',
-            scrollTrigger: scrollTrigger,
+            scrollTrigger,
         });
     }, []);
 
     return (
-        <div className="row powered-by d-flex justify-content-center">
+        <div id="powered-by" className={`row ${styles['powered-by']} d-flex justify-content-center`}>
             <div
                 className="col-12 d-flex align-items-center justify-content-start justify-content-sm-center flex-wrap"
                 style={{ position: 'relative' }}
             >
                 <h1
-                    className="section-content-title part-1"
+                    className={`section-content-title ${styles['part-1']}`}
                     dangerouslySetInnerHTML={{ __html: t('poweredBy.title1') }}
                 />
                 <h1
-                    className="section-content-title part-2"
+                    className={`section-content-title ${styles['part-2']}`}
                     dangerouslySetInnerHTML={{ __html: t('poweredBy.title2') }}
                 />
-                <img className="section-content-title part-3" src={AssetsSrc.images.lumLogoTextWhite} alt="Lum" />
-                <img className="section-content-illu" src={AssetsSrc.images.poweredByLum} alt="Huge Lum Coin" />
+                <img
+                    className={`section-content-title ${styles['part-3']}`}
+                    src={AssetsSrc.images.lumLogoTextWhite}
+                    alt="Lum"
+                />
+                <img
+                    id="illu"
+                    className={styles['section-content-illu']}
+                    src={AssetsSrc.images.poweredByLum}
+                    alt="Huge Lum Coin"
+                />
             </div>
             <div className="col-12 col-lg-6 col-xl-4">
                 <p className="section-content-info" dangerouslySetInnerHTML={{ __html: t('poweredBy.description1') }} />
@@ -134,13 +146,13 @@ const LumSection = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
-        <div id="dark" className={styles.lum}>
+        <div id="lum" className={styles.lum}>
             <div className="container">
                 <UniversalReward />
                 <PoweredBy />
                 <div className="row d-flex justify-content-center">
                     <div className="col-12 col-lg-4 col-xl-3">
-                        <div className="section-content-info power-card">
+                        <div className={`section-content-info ${styles['power-card']}`}>
                             <img src={AssetsSrc.images.stakeEarn} alt="Stake and earn" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.future.title') }} />
@@ -149,7 +161,7 @@ const LumSection = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="col-12 col-lg-4 col-xl-3">
-                        <div className="section-content-info power-card">
+                        <div className={`section-content-info ${styles['power-card']}`}>
                             <img src={AssetsSrc.images.secureChain} alt="Secure the chain" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.stake.title') }} />
@@ -158,7 +170,7 @@ const LumSection = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="col-12 col-lg-4 col-xl-3">
-                        <div className="section-content-info power-card">
+                        <div className={`section-content-info ${styles['power-card']}`}>
                             <img src={AssetsSrc.images.rewardBlueLarge} alt="Become the future" />
                             <div className="text-center text-lg-start">
                                 <h2 dangerouslySetInnerHTML={{ __html: t('poweredBy.security.title') }} />
@@ -168,7 +180,7 @@ const LumSection = (): JSX.Element => {
                     </div>
                 </div>
                 <div className="section-content-info row">
-                    <div className="col-12 d-flex align-items-center justify-content-center cta">
+                    <div className={`col-12 d-flex align-items-center justify-content-center ${styles.cta}`}>
                         <Button
                             className="align-self-center"
                             data-bs-toggle="modal"
