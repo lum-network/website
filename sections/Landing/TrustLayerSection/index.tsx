@@ -31,7 +31,7 @@ const TrustLayerSection = (): JSX.Element => {
             ease: 'none',
             scrollTrigger,
         });
-        gsap.from(q(`.trust-layers-wrapper`), {
+        gsap.from(q(`#layers-wrapper`), {
             y: 200,
             opacity: 0,
             ease: 'none',
@@ -44,7 +44,7 @@ const TrustLayerSection = (): JSX.Element => {
             <div className={`container ${styles['trust-layers']}`}>
                 <div className="row d-flex flex-lg-row flex-column justify-content-between">
                     <div className="col-12 col-lg-6 col-xl-7 d-flex justify-content-center justify-content-lg-start">
-                        <div className={styles['trust-layers-wrapper']}>
+                        <div id="layers-wrapper" className={styles['trust-layers-wrapper']}>
                             <img
                                 className={styles['trust-layers']}
                                 src={AssetsSrc.images.trustLayers}
