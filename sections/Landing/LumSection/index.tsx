@@ -142,7 +142,7 @@ const PoweredBy = (): JSX.Element => {
     );
 };
 
-const LumSection = (): JSX.Element => {
+const LumSection = ({ onGetLum }: { onGetLum: () => void }): JSX.Element => {
     const { t } = useTranslation();
 
     return (
@@ -181,11 +181,7 @@ const LumSection = (): JSX.Element => {
                 </div>
                 <div className="section-content-info row">
                     <div className={`col-12 d-flex align-items-center justify-content-center ${styles.cta}`}>
-                        <Button
-                            className="align-self-center"
-                            data-bs-toggle="modal"
-                            data-bs-target={'#get-informed-modal'}
-                        >
+                        <Button className="align-self-center" onClick={onGetLum}>
                             <strong className="px-3">{t('common.getLum')}</strong>
                         </Button>
                     </div>

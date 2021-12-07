@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { Landing, Mainnet } from '../sections';
+import { Landing } from '../sections';
 import { ProgressBar } from '../components';
 
 import { AssetsSrc } from '../constant';

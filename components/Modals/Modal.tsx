@@ -35,23 +35,18 @@ const Modal: React.ForwardRefRenderFunction<Handlers, Props> = (props, ref) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const modalRef = useRef<HTMLDivElement>(null);
-    const bootstrapModalRef = useRef();
 
-    useImperativeHandle(
-        ref,
-        () => ({
-            toggle: () => {
-                setIsVisible(!isVisible);
-            },
-            show: () => {
-                setIsVisible(true);
-            },
-            hide: () => {
-                setIsVisible(false);
-            },
-        }),
-        [bootstrapModalRef],
-    );
+    useImperativeHandle(ref, () => ({
+        toggle: () => {
+            setIsVisible(!isVisible);
+        },
+        show: () => {
+            setIsVisible(true);
+        },
+        hide: () => {
+            setIsVisible(false);
+        },
+    }));
 
     const onClose = () => {
         setIsVisible(false);
@@ -64,6 +59,7 @@ const Modal: React.ForwardRefRenderFunction<Handlers, Props> = (props, ref) => {
         <BootstrapModal
             centered
             onEscapeKeyDown={onClose}
+            onHide={dataBsBackdrop !== 'static' ? onClose : null}
             id={id}
             show={isVisible}
             ref={modalRef}

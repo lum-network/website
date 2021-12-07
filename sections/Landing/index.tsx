@@ -30,32 +30,34 @@ const Landing = (): JSX.Element => {
         }
     }, [giModRef, nlModRef]);
 
+    const openGiModal = () => {
+        if (giModRef && giModRef.current) {
+            giModRef.current.show();
+        }
+    };
+
+    const openNlModal = () => {
+        if (nlModRef && nlModRef.current) {
+            nlModRef.current.show();
+        }
+    };
+
     return (
         <>
             <Header
                 mainnetEnded={false}
-                onGetInformed={() => {
-                    if (giModRef && giModRef.current) {
-                        giModRef.current.show();
-                    }
-                }}
+                onGetInformed={openGiModal}
                 gsapScrollTrigger="#welcome"
                 bgTriggerElem="#welcome"
             />
-            <WelcomeSection />
+            <WelcomeSection onGetLum={openGiModal} />
             <TrustLayerSection />
             <PartneringSection />
-            <LumSection />
+            <LumSection onGetLum={openGiModal} />
             <ShowCaseSection />
             <TrustedBySection />
             <GreenSection />
-            <Footer
-                onNewsletterClick={() => {
-                    if (nlModRef && nlModRef.current) {
-                        nlModRef.current.show();
-                    }
-                }}
-            />
+            <Footer onNewsletterClick={openNlModal} />
             <Modal
                 id="get-informed-modal"
                 bodyClassName={styles['get-informed-modal-body']}
@@ -80,7 +82,7 @@ const Landing = (): JSX.Element => {
                         >
                             <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.whitelist') }} />
                         </a>
-                        <a className="btn-default" data-bs-toggle="modal" data-bs-target={'#newsletter-modal'}>
+                        <a className="btn-default" onClick={openNlModal}>
                             <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.newsletter') }} />
                         </a>
                     </div>

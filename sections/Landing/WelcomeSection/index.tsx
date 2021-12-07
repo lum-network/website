@@ -7,7 +7,6 @@ import { AssetsSrc, MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER, MAX_PHONE_DE
 import { Hooks } from 'utils';
 
 import styles from './WelcomeSection.module.scss';
-import globalStyles from '../sections.module.scss';
 
 const MV_PATH_COUNT = 4;
 
@@ -128,7 +127,7 @@ const MovingDot = (props: { uid: string }): JSX.Element => {
     );
 };
 
-const WelcomeSection = (): JSX.Element => {
+const WelcomeSection = ({ onGetLum }: { onGetLum: () => void }): JSX.Element => {
     const { t } = useTranslation();
     const { width } = Hooks.useWindowSize();
 
@@ -339,7 +338,7 @@ const WelcomeSection = (): JSX.Element => {
                             dangerouslySetInnerHTML={{ __html: t('landing.description') }}
                         />
                         <div className="section-content-info d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <Button data-bs-toggle="modal" data-bs-target={'#get-informed-modal'}>
+                            <Button onClick={onGetLum}>
                                 <strong>{t('common.getLum')}</strong>
                             </Button>
                             <Link className="ms-5 d-flex flex-row align-items-baseline" link={LUM_NETWORK_WHITEPAPER}>
@@ -361,7 +360,7 @@ const WelcomeSection = (): JSX.Element => {
                         }
                     }}
                     id="scroll-cta"
-                    className={`${styles['scroll-cta-container']} ${globalStyles['scale-anim']} d-flex flex-row align-self-end align-items-center d-none d-lg-flex`}
+                    className={`${styles['scroll-cta-container']} scale-anim d-flex flex-row align-self-end align-items-center d-none d-lg-flex`}
                 >
                     <div className="d-none d-md-block">{t('landing.scrollAction')}</div>
                     <div className={`rounded-circle ms-md-4 ${styles['arrow-icon-container']}`}>

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { gsap } from 'utils';
 
-import styles from './TrustLayerSection.module.scss';
-import globalStyles from '../sections.module.scss';
 import { AssetsSrc } from 'constant';
+
+import styles from './TrustLayerSection.module.scss';
 
 const TrustLayerSection = (): JSX.Element => {
     const { t } = useTranslation();

@@ -8,7 +8,7 @@ const Mainnet = (): JSX.Element => {
 
     return (
         <section id="dark" className="mainnet">
-            <div className="bg-lightning" />
+            <div className="" />
             <div className="container" />
 
             <div className="container" id="mainnet-content">
