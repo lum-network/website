@@ -56,7 +56,12 @@ const DotsSvgPaths = (): JSX.Element => {
 const CrystalIllustration = (): JSX.Element => {
     return (
         <div id="crystals-container" className={styles['crystal-illu-container']}>
-            <img className={styles['crystals-shadows']} src={AssetsSrc.images.crystalsShadows} alt="Crystals shadows" />
+            <img
+                id="crystals-shadows"
+                className={styles['crystals-shadows']}
+                src={AssetsSrc.images.crystalsShadows}
+                alt="Crystals shadows"
+            />
             <div className={styles['crystal-wrapper']}>
                 <img
                     className={styles['crystal-small']}
@@ -209,7 +214,7 @@ const WelcomeSection = ({ onGetLum }: { onGetLum: () => void }): JSX.Element => 
             ease: 'none',
             scrollTrigger,
         });
-        gsap.to(q(`${styles['crystals-shadows']}`), {
+        gsap.to(q(`#crystals-shadows`), {
             translateY: -75,
             ease: 'none',
             scrollTrigger,
