@@ -21,6 +21,6 @@
         "incremental": true,
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
     },
-    "include": ["utils", "sections", "locales", "constant", "components", "pages"],
+    "include": ["utils", "sections", "locales", "constant", "components", "pages", "additional.d.ts"],
     "exclude": ["node_modules"]
 }

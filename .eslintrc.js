@@ -1,7 +1,7 @@
 module.exports = {
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     extends: [
-        'next/core-web-vitals'
+        'next/core-web-vitals',
         'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
         'plugin:react-hooks/recommended',
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
@@ -24,7 +24,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/prop-types': 'off',
         'react-hooks/rules-of-hooks': 'warn',
-        'react-hooks/exhaustive-deps': 'error',
+        'react-hooks/exhaustive-deps': 'off',
     },
     settings: {
         react: {
