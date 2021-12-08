@@ -60,7 +60,7 @@ const Header = ({
         <header id={styles.header} className="navbar fixed-top">
             <div id="background" className={`${styles.background} ${mainnetEnded ? styles.blue : ''}`} />
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
-                <a href="/" className={`navbar-brand ${styles['navbar-brand']}`}>
+                <a href="" className={`navbar-brand ${styles['navbar-brand']}`}>
                     <img
                         src={AssetsSrc.images.lumNetworkLogoDark}
                         width="235"
