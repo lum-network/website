@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "lum-network",
-      "public": "build",
+      "public": "out",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -21,7 +21,7 @@
     },
     {
       "target": "lum-network-website",
-      "public": "build",
+      "public": "out",
       "ignore": [
         "firebase.json",
         "**/.*",
