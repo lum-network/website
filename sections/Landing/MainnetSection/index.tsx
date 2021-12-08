@@ -92,7 +92,11 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
             <div className="position-absolute bottom-0 d-flex justify-content-center w-100">
                 <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
             </div>
-            <div className="position-absolute bottom-0 d-flex justify-content-center w-100">TEST</div>
+            <div className={`position-absolute d-flex justify-content-center w-100 ${styles.ringPosition}`}>
+                <div className={styles.ringContainer}>
+                    <div className={styles.ring} />
+                </div>
+            </div>
         </section>
     );
 };
