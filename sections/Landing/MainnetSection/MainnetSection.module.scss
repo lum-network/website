@@ -5,7 +5,7 @@
 
 .mainnet {
     opacity: 0;
-    height: max(760px, 100vh);
+    height: max(1050px, 100vh);
     text-align: center;
     justify-content: start;
     font-family: 'Fira Sans';
@@ -91,16 +91,22 @@
 }
 
 .ringCircle {
-    //animation
+    animation: lineAnimation 1s linear infinite;
 }
 
 .planetIllu {
     object-fit: contain;
-    width: calc(100vw - 12rem);
+    min-width: 1000px;
     max-width: 1800px;
     z-index: 0;
     @include media-breakpoint-up(lg) {
-        transform: translateY(10%);
+        //transform: translateY(10%);
         z-index: inherit;
+    }
+}
+
+@keyframes lineAnimation {
+    to {
+        stroke-dashoffset: 0;
     }
 }
