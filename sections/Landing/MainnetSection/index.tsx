@@ -97,6 +97,24 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                     <div className={styles.ring} />
                 </div>
             </div>
+            <div className={`position-absolute d-flex justify-content-center w-100 ${styles['cta-container']}`}>
+                <div
+                    className={`rounded-circle ms-md-4 ${styles['arrow-icon-container']}`}
+                    onClick={() => {
+                        if (typeof document !== 'undefined') {
+                            document.getElementById('welcome')?.scrollIntoView();
+                        }
+                    }}
+                >
+                    <img
+                        src={AssetsSrc.images.downArrowIcon}
+                        alt="Scroll down arrow"
+                        className={styles['arrow-icon']}
+                        width="11"
+                        height="11"
+                    />
+                </div>
+            </div>
         </section>
     );
 };

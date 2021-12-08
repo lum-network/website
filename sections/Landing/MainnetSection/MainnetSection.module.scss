@@ -10,7 +10,7 @@ $line-offset: 40px;
 
 .mainnet {
     opacity: 0;
-    height: max(1050px, 100vh);
+    height: max(960px, 100vh);
     text-align: center;
     justify-content: start;
     font-family: 'Fira Sans';
@@ -117,4 +117,28 @@ $line-offset: 40px;
     to {
         transform: rotate(360deg);
     }
+}
+
+.cta-container {
+    bottom: 60px;
+}
+
+.arrow-icon-container {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all linear 150ms;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.arrow-icon {
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
