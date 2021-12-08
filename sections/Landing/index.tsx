@@ -49,7 +49,7 @@ const Landing = (): JSX.Element => {
                 mainnetEnded={false}
                 onGetInformed={openGiModal}
                 gsapScrollTrigger="#welcome"
-                bgTriggerElem="#welcome"
+                bgTriggerElem="#mainnet"
             />
             <MainnetSection launchAt={MAINNET_LAUNCH_DATE} />
             <WelcomeSection onGetLum={openGiModal} />

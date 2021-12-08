@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 
 import { AssetsSrc, LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET } from 'constant';
@@ -18,7 +18,9 @@ const Header = ({
     mainnetEnded: boolean;
     bgTriggerElem?: string;
 }): JSX.Element => {
+    const [darkHeaderText, setDarkHeaderText] = useState(false);
     const { t } = useTranslation();
+
     useEffect(() => {
         gsap.fromTo(
             'header',
@@ -40,12 +42,23 @@ const Header = ({
         if (bgTriggerElem) {
             gsap.to(q(`#background`), {
                 opacity: 1,
-                ease: 'none',
                 scrollTrigger: {
-                    trigger: gsapScrollTrigger,
+                    trigger: bgTriggerElem,
                     start: '10% top',
                     end: '30% top',
                     scrub: true,
+                },
+            });
+
+            gsap.to(gsapScrollTrigger, {
+                color: '#515151',
+                duration: 100,
+                scrollTrigger: {
+                    trigger: gsapScrollTrigger,
+                    start: 'top top',
+                    end: '10% top',
+                    onEnter: () => setDarkHeaderText(true),
+                    onLeaveBack: () => setDarkHeaderText(false),
                 },
             });
         } else {
@@ -57,7 +70,7 @@ const Header = ({
     }, [bgTriggerElem]);
 
     return (
-        <header id={styles.header} className="navbar fixed-top">
+        <header id={styles.header} className={`navbar fixed-top`}>
             <div id="background" className={`${styles.background} ${mainnetEnded ? styles.blue : ''}`} />
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
                 <a href="" className={`navbar-brand ${styles['navbar-brand']}`}>
@@ -65,10 +78,15 @@ const Header = ({
                         src={AssetsSrc.images.lumNetworkLogoDark}
                         width="235"
                         height="38"
-                        className={styles['lum-logo-header']}
+                        id="lum-logo"
+                        className={`${styles['lum-logo-header']} ${darkHeaderText && styles['lum-logo-header-black']}`}
                     />
                 </a>
-                <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">
+                <div
+                    className={`navbar-items-container d-none d-md-flex flex-row align-items-center ${
+                        darkHeaderText && styles['header-dark-text']
+                    }`}
+                >
                     <Link link={LUM_MEDIUM} className="me-sm-3 me-md-5">
                         Blog
                     </Link>
@@ -78,7 +96,7 @@ const Header = ({
                     <Link link={LUM_EXPLORER} className="me-sm-3 me-md-5">
                         Explorer
                     </Link>
-                    <Button outline onClick={onGetInformed}>
+                    <Button outline inverted={darkHeaderText} onClick={onGetInformed}>
                         {t('header.getInformed')}
                     </Button>
                 </div>

@@ -52,3 +52,11 @@
     object-fit: contain;
     filter: brightness(0) invert(1);
 }
+
+.lum-logo-header-black {
+    filter: none;
+}
+
+.header-dark-text {
+    color: $color-dark;
+}
