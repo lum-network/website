@@ -26,7 +26,7 @@ const calculateTimeLeft = (end: Date) => {
     };
 };
 
-const format = (number: number) => (number > 10 ? number.toString() : '0' + number.toString());
+const format = (number: number) => (number > 9 ? number.toString() : '0' + number.toString());
 
 const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(launchAt));
@@ -90,20 +90,14 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <div className={styles.ringContainer}>
-                <svg className={styles.ring} preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 500">
-                    <circle
-                        className={styles.ringCircle}
-                        stroke="white"
-                        strokeWidth="1"
-                        fill="transparent"
-                        r="248"
-                        cx="250"
-                        cy="250"
-                    />
-                </svg>
+            <div className="container position-absolute bottom-0">
+                <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
+                {/* <div className={styles.ringContainer}>
+                    <svg className={styles.ring} preserveAspectRatio="xMinYMin meet" viewBox="0 0 600 600">
+                        <circle stroke="white" strokeWidth="1" fill="transparent" r="298" cx="300" cy="300" />
+                    </svg>
+                </div> */}
             </div>
-            <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} />
         </section>
     );
 };
