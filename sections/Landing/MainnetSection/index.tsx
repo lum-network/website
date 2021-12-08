@@ -90,7 +90,9 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <div className="container position-absolute bottom-0">
+            <div
+                className={`container position-absolute d-none d-lg-flex align-items-center bottom-0 ${styles.bottomContainer}`}
+            >
                 <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
                 {/* <div className={styles.ringContainer}>
                     <svg className={styles.ring} preserveAspectRatio="xMinYMin meet" viewBox="0 0 600 600">
