@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { gsap } from 'utils';
 
 import styles from './MainnetSection.module.scss';
+import { AssetsSrc } from 'constant';
 
 const calculateTimeLeft = (end: Date) => {
     const diff = +end - +new Date();
@@ -62,7 +63,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                 <div className={`container ${styles['mainnet-content']}`} id="">
                     <div className="row">
                         <div className="col-12"></div>
-                        <div className="col-4">
+                        <div className="col-md-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
                             </div>
@@ -70,7 +71,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                                 {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
                             </h1>
                         </div>
-                        <div className="col-4">
+                        <div className="col-md-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
                             </div>
@@ -78,7 +79,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                                 {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
                             </h1>
                         </div>
-                        <div className="col-4">
+                        <div className="col-md-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
                             </div>
@@ -102,6 +103,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                     />
                 </svg>
             </div>
+            <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} />
         </section>
     );
 };

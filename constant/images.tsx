@@ -28,10 +28,10 @@ const AssetsSrc = {
         transparencyIcon: '/assets/images/transparency.png',
         trustLayers: '/assets/images/trust_layers.png',
         trustLayersShadows: '/assets/images/trust_layers_shadows.png',
-
         showcaseLumkiIllu: '/assets/images/showcase_lumki_illu.png',
         showcaseNetreviewsIllu: '/assets/images/showcase_netreviews_illu.png',
         showcaseJoinIllu: '/assets/images/showcase_join_illu.png',
+        mainnetIllu: '/assets/images/mainnet_illu.png',
     },
     partners: {
         tendermint: '/assets/images/partners/tendermint.png',
