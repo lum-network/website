@@ -78,7 +78,7 @@ const Header = ({
                     <Link link={LUM_EXPLORER} className="me-sm-3 me-md-5">
                         Explorer
                     </Link>
-                    <Button outline inverted onClick={onGetInformed}>
+                    <Button outline onClick={onGetInformed}>
                         {t('header.getInformed')}
                     </Button>
                 </div>

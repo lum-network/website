@@ -25,6 +25,8 @@ const calculateTimeLeft = (end: Date) => {
     };
 };
 
+const format = (number: number) => (number > 10 ? number.toString() : '0' + number.toString());
+
 const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(launchAt));
 
@@ -64,24 +66,41 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
                             </div>
-                            <h1 className={styles.number}>{lessThan24HoursLeft ? timeLeft.hours : timeLeft.days}</h1>
+                            <h1 className={styles.number}>
+                                {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
+                            </h1>
                         </div>
                         <div className="col-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
                             </div>
-                            <h1 className={styles.number}>{lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours}</h1>
+                            <h1 className={styles.number}>
+                                {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
+                            </h1>
                         </div>
                         <div className="col-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
                             </div>
                             <h1 className={styles.number}>
-                                {lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes}
+                                {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
                             </h1>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={styles.ringContainer}>
+                <svg className={styles.ring} preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 500">
+                    <circle
+                        className={styles.ringCircle}
+                        stroke="white"
+                        strokeWidth="1"
+                        fill="transparent"
+                        r="248"
+                        cx="250"
+                        cy="250"
+                    />
+                </svg>
             </div>
         </section>
     );
