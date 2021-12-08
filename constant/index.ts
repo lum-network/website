@@ -41,4 +41,4 @@ export const IS_IOS =
           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
         : false;
 
-export const MAINNET_LAUNCH_DATE = new Date(2021, 11, 14);
+export const MAINNET_LAUNCH_DATE = new Date('2021-12-14T17:00:00');

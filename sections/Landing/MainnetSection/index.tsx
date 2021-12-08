@@ -39,7 +39,6 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
 
         if (!timeline.current) {
             const tl = gsap.timeline();
-            const q = gsap.utils.selector('#mainnet');
 
             timeline.current = tl;
             tl.fromTo('#mainnet', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.75 });
@@ -63,7 +62,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                 <div className={`container ${styles['mainnet-content']}`} id="">
                     <div className="row">
                         <div className="col-12"></div>
-                        <div className="col-md-4">
+                        <div className="col-lg-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
                             </div>
@@ -71,7 +70,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                                 {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
                             </h1>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-lg-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
                             </div>
@@ -79,7 +78,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                                 {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
                             </h1>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-lg-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
                             </div>
@@ -91,14 +90,16 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                 </div>
             </div>
             <div
-                className={`container position-absolute d-none d-lg-flex align-items-center bottom-0 ${styles.bottomContainer}`}
+                className={`container position-absolute d-none d-lg-flex justify-content-center bottom-0 ${styles.bottomContainer}`}
             >
-                <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
                 {/* <div className={styles.ringContainer}>
                     <svg className={styles.ring} preserveAspectRatio="xMinYMin meet" viewBox="0 0 600 600">
-                        <circle stroke="white" strokeWidth="1" fill="transparent" r="298" cx="300" cy="300" />
+                    <circle stroke="white" strokeWidth="1" fill="transparent" r="298" cx="300" cy="300" />
                     </svg>
                 </div> */}
+            </div>
+            <div className="position-absolute bottom-0 d-flex justify-content-center w-100">
+                <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
             </div>
         </section>
     );

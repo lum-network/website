@@ -40,6 +40,7 @@
     @include media-breakpoint-down(lg) {
         margin-top: 20px;
         padding-bottom: 60px;
+        z-index: 100;
     }
 }
 
@@ -95,5 +96,11 @@
 
 .planetIllu {
     object-fit: contain;
-    width: 100%;
+    width: calc(100vw - 12rem);
+    max-width: 1800px;
+    z-index: 0;
+    @include media-breakpoint-up(lg) {
+        transform: translateY(10%);
+        z-index: inherit;
+    }
 }
