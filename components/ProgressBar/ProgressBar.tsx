@@ -21,7 +21,7 @@ const ProgressBar = (props: Props): JSX.Element => {
                 aria-valuenow={p}
                 aria-valuemin={0}
                 aria-valuemax={100}
-            ></div>
+            />
         </div>
     );
 };

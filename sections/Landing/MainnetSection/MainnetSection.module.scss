@@ -142,3 +142,22 @@ $line-offset: 40px;
     object-fit: contain;
     filter: brightness(0) invert(1);
 }
+
+.done .number {
+    animation: doneAnimation ease-in-out 3s infinite;
+}
+
+@keyframes doneAnimation {
+    from {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+    to {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+}

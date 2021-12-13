@@ -15,6 +15,7 @@ const calculateTimeLeft = (end: Date) => {
             hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
             minutes: Math.floor((diff / 1000 / 60) % 60),
             seconds: Math.floor((diff / 1000) % 60),
+            done: false,
         };
     }
 
@@ -23,6 +24,7 @@ const calculateTimeLeft = (end: Date) => {
         hours: 0,
         minutes: 0,
         seconds: 0,
+        done: true,
     };
 };
 
@@ -51,6 +53,22 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
         return () => clearInterval(countdown);
     }, []);
 
+    useEffect(() => {
+        if (!timeLeft.done) {
+            return;
+        }
+
+        // fetch('/api/getNodes', {
+        //     method: 'GET',
+        //     headers: {
+        //         Accept: 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        // }).then((res) => {
+        //     console.log(res);
+        // });
+    }, [timeLeft]);
+
     const lessThan24HoursLeft = timeLeft.days === 0;
 
     return (
@@ -60,8 +78,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
             </p>
             <div className="d-flex flex-row align-items-center justify-content-center">
                 <div className={`container ${styles['mainnet-content']}`} id="">
-                    <div className="row">
-                        <div className="col-12"></div>
+                    <div className={`row ${styles[timeLeft.done ? 'done' : '']}`}>
                         <div className="col-lg-4">
                             <div className={styles.label}>
                                 {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
