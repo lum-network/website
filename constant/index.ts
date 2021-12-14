@@ -42,3 +42,14 @@ export const IS_IOS =
         : false;
 
 export const MAINNET_LAUNCH_DATE = new Date('2021-12-14T17:00:00Z');
+
+export const FIREBASE = {
+    apiKey: 'AIzaSyA49DTslUcJG2b5TUdI_EbPzugFFXOfO0o',
+    authDomain: 'lum-network.firebaseapp.com',
+    databaseURL: 'https://lum-network-mainnet-event.firebaseio.com',
+    projectId: 'lum-network',
+    storageBucket: 'lum-network.appspot.com',
+    messagingSenderId: '904911254564',
+    appId: '1:904911254564:web:01e8e021d11e80f40394b1',
+    measurementId: 'G-L2CS8HNXF1',
+};

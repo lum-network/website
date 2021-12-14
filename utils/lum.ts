@@ -10,7 +10,7 @@ class Lum {
     public static getInstance(): Lum {
         if (!this.instance) {
             this.instance = new Lum();
-            LumClient.connect('').then((client) => {
+            LumClient.connect('https://node0.testnet.lum.network/rpc').then((client) => {
                 this.client = client;
             });
         }
@@ -23,7 +23,7 @@ class Lum {
             return null;
         }
 
-        const result = await Lum.client.status();
+        const result = await Lum.client.tmClient.health();
 
         return result;
     };

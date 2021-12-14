@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
+import { initializeApp, FirebaseApp } from 'firebase/app';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 import { gsap } from 'utils';
 
 import styles from './MainnetSection.module.scss';
-import { AssetsSrc } from 'constant';
+import { AssetsSrc, FIREBASE } from 'constant';
 
 const calculateTimeLeft = (end: Date) => {
     const diff = +end - +new Date();
@@ -32,6 +34,9 @@ const format = (number: number) => (number > 9 ? number.toString() : '0' + numbe
 
 const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(launchAt));
+    const [fb, setFb] = useState<FirebaseApp | null>(null);
+    const [height, setHeight] = useState(0);
+    const [nodes, setNodes] = useState(0);
 
     const { t } = useTranslation();
     const timeline = useRef<gsap.core.Timeline>();
@@ -54,55 +59,89 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
     }, []);
 
     useEffect(() => {
-        if (!timeLeft.done) {
+        setFb(initializeApp(FIREBASE));
+    }, []);
+
+    useEffect(() => {
+        if (!fb) {
             return;
         }
 
-        // fetch('/api/getNodes', {
-        //     method: 'GET',
-        //     headers: {
-        //         Accept: 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        // }).then((res) => {
-        //     console.log(res);
-        // });
-    }, [timeLeft]);
+        const database = getDatabase(fb);
+        const dbRef = ref(database, 'website');
+        onValue(dbRef, (snapshop) => {
+            if (!snapshop.exists()) {
+                console.log('Firebase rtdb error');
+                return;
+            }
+
+            const { height, nodes } = snapshop.val();
+
+            setHeight(height);
+            setNodes(nodes);
+        });
+    }, [fb]);
+
+    useEffect(() => {
+        if (!nodes) {
+            return;
+        }
+    }, [nodes]);
+
+    useEffect(() => {
+        if (!height) {
+            return;
+        }
+    }, [height]);
 
     const lessThan24HoursLeft = timeLeft.days === 0;
 
     return (
         <section id="mainnet" className={styles.mainnet}>
-            <p className={styles['mainnet-title']}>
-                <strong>{t('mainnet.launchInTitle')}</strong>
-            </p>
+            {(!nodes && !height && (
+                <p className={styles['mainnet-title']}>
+                    <strong>{t('mainnet.launchInTitle')}</strong>
+                </p>
+            )) || <div className="m-5" />}
             <div className="d-flex flex-row align-items-center justify-content-center">
                 <div className={`container ${styles['mainnet-content']}`} id="">
-                    <div className={`row ${styles[timeLeft.done ? 'done' : '']}`}>
+                    <div
+                        className={`row justify-content-center align-items-center ${
+                            styles[timeLeft.done && !nodes && !height ? 'done' : '']
+                        }`}
+                    >
+                        {!nodes && (
+                            <div className="col-lg-4">
+                                <div className={styles.label}>
+                                    {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
+                                </div>
+                                <h1 className={styles.number}>
+                                    {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
+                                </h1>
+                            </div>
+                        )}
                         <div className="col-lg-4">
                             <div className={styles.label}>
-                                {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
+                                {nodes
+                                    ? 'ALIVE NODES'
+                                    : lessThan24HoursLeft
+                                    ? t('mainnet.minutes')
+                                    : t('mainnet.hours')}
                             </div>
                             <h1 className={styles.number}>
-                                {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
+                                {nodes ? nodes : format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
                             </h1>
                         </div>
-                        <div className="col-lg-4">
-                            <div className={styles.label}>
-                                {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
+                        {!nodes && (
+                            <div className="col-lg-4">
+                                <div className={styles.label}>
+                                    {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
+                                </div>
+                                <h1 className={styles.number}>
+                                    {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
+                                </h1>
                             </div>
-                            <h1 className={styles.number}>
-                                {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
-                            </h1>
-                        </div>
-                        <div className="col-lg-4">
-                            <div className={styles.label}>
-                                {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
-                            </div>
-                            <h1 className={styles.number}>
-                                {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
-                            </h1>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
