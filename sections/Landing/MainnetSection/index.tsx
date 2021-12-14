@@ -197,7 +197,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
             </div>
             <div className="position-absolute bottom-0 d-flex justify-content-center w-100">
                 <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
-                {height ? (
+                {height && !nodes ? (
                     <div className="d-flex justify-content-center position-absolute start-0 end-0 bottom-50">
                         <div className={`${styles['height-card']} ${styles['appear']}`}>
                             <div className="">
