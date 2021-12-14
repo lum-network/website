@@ -147,6 +147,44 @@ $line-offset: 40px;
     animation: doneAnimation ease-in-out 3s infinite;
 }
 
+.height-card {
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90vw;
+    max-width: 284px;
+    height: 88px;
+    background: linear-gradient(87.22deg, rgba(255, 255, 255, 0.4) -1.84%, rgba(255, 255, 255, 0.084) 110.25%);
+    box-shadow: 0 4px 64px rgba(8, 34, 66, 0.09);
+    border-radius: 21px;
+}
+
+.height-number {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.height-legend {
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+.height-explore-button {
+    text-decoration: none;
+    background: #FFFFFF;
+    font-size: 18px;
+    border-radius: 21px;
+    color: black;
+    padding: 12px 24px;
+    transition: all 150ms linear;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+        color: black;
+    }
+}
+
 .appear {
     animation: show ease-out 400ms forwards;
 }

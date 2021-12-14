@@ -7,7 +7,7 @@ import confetti from 'canvas-confetti';
 import { gsap } from 'utils';
 
 import styles from './MainnetSection.module.scss';
-import { AssetsSrc, FIREBASE } from 'constant';
+import { AssetsSrc, FIREBASE, LUM_EXPLORER } from 'constant';
 
 const colors = ['#C2E1FE', '#FFCB54', '#FEC6FC', '#FDAB9F'];
 
@@ -130,7 +130,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
                 <>
                     <div className="col-12">
                         <div className={`${styles.label} ${styles.appear}`}>🚀 LAUNCH COMPLETED 🚀</div>
-                        <h1 className={`${styles.number} ${styles.appear}`}>MAIN-NET</h1>
+                        <h1 className={`text-center ${styles.number} ${styles.appear}`}>MAIN NET</h1>
                     </div>
                 </>
             );
@@ -197,6 +197,24 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
             </div>
             <div className="position-absolute bottom-0 d-flex justify-content-center w-100">
                 <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
+                {height ? (
+                    <div className="d-flex justify-content-center position-absolute start-0 end-0 bottom-50">
+                        <div className={`${styles['height-card']} ${styles['appear']}`}>
+                            <div className="">
+                                <div className={styles['height-number']}>{height}</div>
+                                <div className={styles['height-legend']}>BLOCK HEIGHT</div>
+                            </div>
+                            <a
+                                href={LUM_EXPLORER}
+                                target={'_blank'}
+                                rel={'noreferrer'}
+                                className={styles['height-explore-button']}
+                            >
+                                Explore
+                            </a>
+                        </div>
+                    </div>
+                ) : null}
             </div>
             <div className={`position-absolute d-flex justify-content-center w-100 ${styles.ringPosition}`}>
                 <div className={styles.ringContainer}>
