@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { initializeApp, FirebaseApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
+import confetti from 'canvas-confetti';
 
 import { gsap } from 'utils';
 
 import styles from './MainnetSection.module.scss';
 import { AssetsSrc, FIREBASE } from 'constant';
+
+const colors = ['#C2E1FE', '#FFCB54', '#FEC6FC', '#FDAB9F'];
 
 const calculateTimeLeft = (end: Date) => {
     const diff = +end - +new Date();
@@ -89,12 +92,96 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
     }, [nodes]);
 
     useEffect(() => {
-        if (!height) {
+        if (nodes !== 0 || height <= 0 || height > 30) {
             return;
         }
+
+        const interval = setInterval(() => {
+            confetti({
+                particleCount: 4,
+                angle: 60,
+                spread: 60,
+                origin: { x: -0.1 },
+                colors: colors,
+                ticks: 300,
+                scalar: 2,
+            });
+            confetti({
+                particleCount: 4,
+                angle: 120,
+                spread: 60,
+                origin: { x: 1.1 },
+                colors: colors,
+                ticks: 300,
+                scalar: 2,
+            });
+        }, 100);
+
+        setTimeout(() => {
+            clearInterval(interval);
+        }, 10000);
     }, [height]);
 
     const lessThan24HoursLeft = timeLeft.days === 0;
+
+    const renderContent = () => {
+        if (height && !nodes) {
+            return (
+                <>
+                    <div className="col-12">
+                        <div className={`${styles.label} ${styles.appear}`}>🚀 LAUNCH COMPLETED 🚀</div>
+                        <h1 className={`${styles.number} ${styles.appear}`}>MAIN-NET</h1>
+                    </div>
+                </>
+            );
+        }
+
+        return (
+            <div
+                className={`row justify-content-center align-items-center ${
+                    styles[timeLeft.done && !nodes && !height ? 'done' : '']
+                }`}
+            >
+                {!nodes && (
+                    <div className="col-lg-4">
+                        <div className={styles.label}>
+                            {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
+                        </div>
+                        <h1 className={styles.number}>
+                            {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
+                        </h1>
+                    </div>
+                )}
+                <div className="col-lg-4">
+                    {nodes ? (
+                        <>
+                            <div className={`${styles.label} ${styles.appear}`}>ALIVE NODES</div>
+                            <h1 className={`${styles.number} ${styles.appear}`}>{nodes}</h1>
+                        </>
+                    ) : (
+                        <>
+                            <div className={styles.label}>
+                                {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
+                            </div>
+                            <h1 className={styles.number}>
+                                {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
+                            </h1>
+                        </>
+                    )}
+                </div>
+                {!nodes && (
+                    <div className="col-lg-4">
+                        <div className={styles.label}>
+                            {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
+                        </div>
+                        <h1 className={styles.number}>
+                            {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
+                        </h1>
+                    </div>
+                )}
+            </div>
+        );
+    };
 
     return (
         <section id="mainnet" className={styles.mainnet}>
@@ -105,44 +192,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
             )) || <div className="m-5" />}
             <div className="d-flex flex-row align-items-center justify-content-center">
                 <div className={`container ${styles['mainnet-content']}`} id="">
-                    <div
-                        className={`row justify-content-center align-items-center ${
-                            styles[timeLeft.done && !nodes && !height ? 'done' : '']
-                        }`}
-                    >
-                        {!nodes && (
-                            <div className="col-lg-4">
-                                <div className={styles.label}>
-                                    {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
-                                </div>
-                                <h1 className={styles.number}>
-                                    {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
-                                </h1>
-                            </div>
-                        )}
-                        <div className="col-lg-4">
-                            <div className={styles.label}>
-                                {nodes
-                                    ? 'ALIVE NODES'
-                                    : lessThan24HoursLeft
-                                    ? t('mainnet.minutes')
-                                    : t('mainnet.hours')}
-                            </div>
-                            <h1 className={styles.number}>
-                                {nodes ? nodes : format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
-                            </h1>
-                        </div>
-                        {!nodes && (
-                            <div className="col-lg-4">
-                                <div className={styles.label}>
-                                    {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
-                                </div>
-                                <h1 className={styles.number}>
-                                    {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
-                                </h1>
-                            </div>
-                        )}
-                    </div>
+                    {renderContent()}
                 </div>
             </div>
             <div className="position-absolute bottom-0 d-flex justify-content-center w-100">

@@ -992,6 +992,11 @@
     "@popperjs/core" "^2.9.2"
     "@types/jquery" "*"
 
+"@types/canvas-confetti@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@types/canvas-confetti/-/canvas-confetti-1.4.2.tgz#35c99fc904492fdcc6515c742509e04f3527211c"
+  integrity sha512-t45KUDHlwrD9PJVRHc5z1SlXhO82BQEgMKUXGEV1KnWLFMPA6Y5LfUsLTHHzH9KcKDHZLEiYYH5nIDcjRKWNTg==
+
 "@types/crypto-js@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@types/crypto-js/-/crypto-js-4.0.2.tgz#4524325a175bf819fec6e42560c389ce1fb92c97"
@@ -1739,6 +1744,11 @@ caniuse-lite@^1.0.30001202, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.300012
   version "1.0.30001283"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001283.tgz"
   integrity sha512-9RoKo841j1GQFSJz/nCXOj0sD7tHBtlowjYlrqIUS812x9/emfBLBt6IyMz1zIaYc/eRL8Cs6HPUVi2Hzq4sIg==
+
+canvas-confetti@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.4.0.tgz#840f6db4a566f8f32abe28c00dcd82acf39c92bd"
+  integrity sha512-S18o4Y9PqI/uabdlT/jI3MY7XBJjNxnfapFIkjkMwpz6qNxLFZOm2b22OMf4ZYDL9lpNWI+Ih4fEMVPwO1KHFQ==
 
 caseless@~0.12.0:
   version "0.12.0"
