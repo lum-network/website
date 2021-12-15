@@ -125,71 +125,67 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
     const lessThan24HoursLeft = timeLeft.days === 0;
 
     const renderContent = () => {
-        if (height && !nodes) {
-            return (
-                <>
-                    <div className="col-12">
-                        <div className={`${styles.label} ${styles.appear}`}>🚀 LAUNCH COMPLETED 🚀</div>
-                        <h1 className={`text-center ${styles.number} ${styles.appear}`}>MAIN NET</h1>
-                    </div>
-                </>
-            );
-        }
-
+        // if (height && !nodes) {
         return (
-            <div
-                className={`row justify-content-center align-items-center ${
-                    styles[timeLeft.done && !nodes && !height ? 'done' : '']
-                }`}
-            >
-                {!nodes && (
-                    <div className="col-lg-4">
-                        <div className={styles.label}>
-                            {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
-                        </div>
-                        <h1 className={styles.number}>
-                            {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
-                        </h1>
-                    </div>
-                )}
-                <div className="col-lg-4">
-                    {nodes ? (
-                        <>
-                            <div className={`${styles.label} ${styles.appear}`}>ALIVE NODES</div>
-                            <h1 className={`${styles.number} ${styles.appear}`}>{nodes}</h1>
-                        </>
-                    ) : (
-                        <>
-                            <div className={styles.label}>
-                                {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
-                            </div>
-                            <h1 className={styles.number}>
-                                {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
-                            </h1>
-                        </>
-                    )}
+            <>
+                <div className="col-12">
+                    <div className={`${styles.label} ${styles.appear}`}>🚀 LAUNCH COMPLETED 🚀</div>
+                    <h1 className={`text-center ${styles.number} ${styles.appear}`}>MAIN NET</h1>
                 </div>
-                {!nodes && (
-                    <div className="col-lg-4">
-                        <div className={styles.label}>
-                            {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
-                        </div>
-                        <h1 className={styles.number}>
-                            {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
-                        </h1>
-                    </div>
-                )}
-            </div>
+            </>
         );
+        // }
+
+        // return (
+        //     <div
+        //         className={`row justify-content-center align-items-center ${
+        //             styles[timeLeft.done && !nodes && !height ? 'done' : '']
+        //         }`}
+        //     >
+        //         {!nodes && (
+        //             <div className="col-lg-4">
+        //                 <div className={styles.label}>
+        //                     {lessThan24HoursLeft ? t('mainnet.hours') : t('mainnet.days')}
+        //                 </div>
+        //                 <h1 className={styles.number}>
+        //                     {format(lessThan24HoursLeft ? timeLeft.hours : timeLeft.days)}
+        //                 </h1>
+        //             </div>
+        //         )}
+        //         <div className="col-lg-4">
+        //             {nodes ? (
+        //                 <>
+        //                     <div className={`${styles.label} ${styles.appear}`}>ALIVE NODES</div>
+        //                     <h1 className={`${styles.number} ${styles.appear}`}>{nodes}</h1>
+        //                 </>
+        //             ) : (
+        //                 <>
+        //                     <div className={styles.label}>
+        //                         {lessThan24HoursLeft ? t('mainnet.minutes') : t('mainnet.hours')}
+        //                     </div>
+        //                     <h1 className={styles.number}>
+        //                         {format(lessThan24HoursLeft ? timeLeft.minutes : timeLeft.hours)}
+        //                     </h1>
+        //                 </>
+        //             )}
+        //         </div>
+        //         {!nodes && (
+        //             <div className="col-lg-4">
+        //                 <div className={styles.label}>
+        //                     {lessThan24HoursLeft ? t('mainnet.seconds') : t('mainnet.minutes')}
+        //                 </div>
+        //                 <h1 className={styles.number}>
+        //                     {format(lessThan24HoursLeft ? timeLeft.seconds : timeLeft.minutes)}
+        //                 </h1>
+        //             </div>
+        //         )}
+        //     </div>
+        // );
     };
 
     return (
         <section id="mainnet" className={styles.mainnet}>
-            {(!nodes && !height && (
-                <p className={styles['mainnet-title']}>
-                    <strong>{t('mainnet.launchInTitle')}</strong>
-                </p>
-            )) || <div className="m-5" />}
+            <div className="m-5" />
             <div className="d-flex flex-row align-items-center justify-content-center">
                 <div className={`container ${styles['mainnet-content']}`} id="">
                     {renderContent()}
@@ -197,7 +193,7 @@ const Mainnet = ({ launchAt }: { launchAt: Date }): JSX.Element => {
             </div>
             <div className="position-absolute bottom-0 d-flex justify-content-center w-100">
                 <img src={AssetsSrc.images.mainnetIllu} className={styles.planetIllu} alt="Mainnet illu" />
-                {height && !nodes ? (
+                {height ? (
                     <div className="d-flex justify-content-center position-absolute start-0 end-0 bottom-50">
                         <div className={`${styles['height-card']} ${styles['appear']}`}>
                             <div className="">

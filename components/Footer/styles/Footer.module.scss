@@ -50,6 +50,10 @@
     font-size: 0.875rem;
     text-decoration: none;
     color: white;
+    transition: all 150ms linear;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .footer .github-icon {
