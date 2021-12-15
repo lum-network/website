@@ -77,7 +77,7 @@ const Footer = ({ onNewsletterClick }: { onNewsletterClick: () => void }): JSX.E
                                 <Link link={LUM_EXPLORER} className={`${styles['footer-link']} mb-4`}>
                                     Explorer
                                 </Link>
-                                <Link link={LUM_WALLET} className={styles['footer-link']}>
+                                <Link link={LUM_WALLET} className={`${styles['footer-link']}`}>
                                     Wallet
                                 </Link>
                             </div>
@@ -106,6 +106,9 @@ const Footer = ({ onNewsletterClick }: { onNewsletterClick: () => void }): JSX.E
                             <div className="d-inline-flex justify-content-around">
                                 <p className={`${styles['footer-link']} mb-0`}>Lum Network 2021 ©</p>
                                 <p className={`${styles['footer-link']} mb-0 ms-5`}>contact@lum.network</p>
+                                <a href="/lum-media-kit.zip" className={`${styles['footer-link']} mb-0 ms-5`}>
+                                    Media Kit
+                                </a>
                                 {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                             </div>
                             <Button

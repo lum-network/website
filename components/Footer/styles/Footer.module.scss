@@ -46,6 +46,12 @@
     font-size: 0.875rem;
 }
 
+.footer a.footer-link {
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: white;
+}
+
 .footer .github-icon {
     filter: brightness(0) invert(1);
     object-fit: contain;
