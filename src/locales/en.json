@@ -120,7 +120,9 @@
         "title": "Lum Network<br/>Main Net Launch",
         "description": "Register to the Lum Network private sale whitelist now and get a chance to be the first aboard.<br/><br/>Or simply join our newsletter to keep up to date with the Lum Network announcements.",
         "newsletter": "Join the newsletter",
-        "whitelist": "Whitelist registration"
+        "whitelist": "Whitelist registration",
+        "lbp": "Get LUM on Osmosis",
+        "lbpArticle": "Learn more about LBP"
     },
     "footer": {
         "newsletter": {

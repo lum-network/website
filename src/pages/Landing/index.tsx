@@ -11,9 +11,10 @@ import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
 import TrustedBySection from './TrustedBySection';
 
-import { LUM_WHITELIST_TYPEFORM } from 'constant';
+import { LUM_OSMOSIS_LBP, LUM_OSMOSIS_LBP_ARTICLE } from 'constant';
 
 import notificationIllu from 'assets/images/notification_illu.png';
+import osmosisLbp from 'assets/images/osmosisLBP.png';
 
 import './index.scss';
 
@@ -45,26 +46,22 @@ const Landing = (): JSX.Element => {
             <GreenSection />
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
-                <div className="row">
-                    <div className="col-12">
-                        <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />
-                    </div>
-                    <div className="col-12">
-                        <p dangerouslySetInnerHTML={{ __html: t('getInformedModal.description') }} />
-                    </div>
+                <div className="row mb-4">
+                    {/*<div className="col-12">*/}
+                    {/*    <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />*/}
+                    {/*</div>*/}
+                    {/*<div className="col-12">*/}
+                    {/*    <p dangerouslySetInnerHTML={{ __html: t('getInformedModal.description') }} />*/}
+                    {/*</div>*/}
+                    <img alt="Osmosis LBP" src={osmosisLbp} />
                 </div>
                 <div className="row">
-                    <div className="col-12 d-flex justify-content-between flex-column flex-md-row">
-                        <a
-                            className="btn-blue mb-3 mb-md-0"
-                            href={LUM_WHITELIST_TYPEFORM}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.whitelist') }} />
+                    <div className="col-12 d-flex justify-content-between flex-column flex-lg-row">
+                        <a className="btn-blue mb-3 mb-lg-0" href={LUM_OSMOSIS_LBP} target="_blank" rel="noreferrer">
+                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.lbp') }} />
                         </a>
-                        <a className="btn-default" data-bs-toggle="modal" data-bs-target={'#newsletter-modal'}>
-                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.newsletter') }} />
+                        <a className="btn-default" href={LUM_OSMOSIS_LBP_ARTICLE} target="_blank" rel="noreferrer">
+                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.lbpArticle') }} />
                         </a>
                     </div>
                 </div>
@@ -79,7 +76,7 @@ const Landing = (): JSX.Element => {
                     marginWidth={0}
                     src="https://app.mailjet.com/widget/iframe/5YGg/KDl"
                     width="100%"
-                ></iframe>
+                />
             </Modal>
         </>
     );
