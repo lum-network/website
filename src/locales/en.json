@@ -1,6 +1,8 @@
 {
     "common": {
-        "getLum": "Get Lum"
+        "getLum": "Get Lum",
+        "buyLum": "Buy Lum",
+        "day": "24h"
     },
     "header": {
         "getInformed": "Get informed"
