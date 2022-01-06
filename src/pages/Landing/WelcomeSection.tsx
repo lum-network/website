@@ -372,9 +372,9 @@ const WelcomeSection = (): JSX.Element => {
                             <div className="price-card">
                                 <div className="price-card blur" />
                                 <div className="price-card-content">
-                                    <div>
+                                    <div className="align-self-start">
                                         <Chart
-                                            height={100}
+                                            height={90}
                                             width={size.width > 400 ? 150 : 100}
                                             options={{
                                                 priceScale: {
