@@ -16,6 +16,7 @@ import crystalsShadows from 'assets/images/crystals_shadows.png';
 import downArrowIcon from 'assets/images/down-arrow.svg';
 
 import './WelcomeSection.scss';
+import { useWindowSize } from 'utils/hooks';
 
 const MV_PATH_COUNT = 4;
 
@@ -347,6 +348,8 @@ const WelcomeSection = (): JSX.Element => {
         setPreviousDayPercentage(NumbersUtils.getDifferencePercentage(chartData[0].value, currentPrice));
     }, [currentPrice, chartData]);
 
+    const size = useWindowSize();
+
     return (
         <section className="dark" id="welcome">
             {dots}
@@ -372,7 +375,7 @@ const WelcomeSection = (): JSX.Element => {
                                     <div>
                                         <Chart
                                             height={100}
-                                            width={150}
+                                            width={size.width > 400 ? 150 : 100}
                                             options={{
                                                 priceScale: {
                                                     position: 'none',
@@ -432,7 +435,11 @@ const WelcomeSection = (): JSX.Element => {
                                         <span className="big-text">{numeral(currentPrice).format('$0,0.0000')}</span>
                                     </div>
                                     <div>
-                                        <Button data-bs-toggle="modal" data-bs-target={'#get-informed-modal'}>
+                                        <Button
+                                            className="get-lum-button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target={'#get-informed-modal'}
+                                        >
                                             <strong>{t('common.buyLum')}</strong>
                                         </Button>
                                     </div>
