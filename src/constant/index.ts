@@ -16,7 +16,7 @@ export const LUM_FACEBOOK = 'https://www.facebook.com/lum.network';
 export const LUM_MEDIUM = 'https://medium.com/lum-network';
 export const LUM_WHITELIST_TYPEFORM = 'https://lum-network.typeform.com/whitelist';
 export const LUM_NETWORK_WHITEPAPER = '/whitepaper.pdf';
-export const LUM_OSMOSIS_LBP = 'https://app.osmosis.zone/pool/608';
+export const LUM_OSMOSIS = 'https://app.osmosis.zone/?from=ATOM&to=LUM';
 export const LUM_OSMOSIS_LBP_ARTICLE =
     'https://medium.com/lum-network/participate-to-lum-liquidity-pool-2-2-d8af19e94a21';
 export const OSMOSIS_API_URL = 'https://api-osmosis.imperator.co';

@@ -10,11 +10,12 @@ import LumSection from './LumSection';
 import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
 import TrustedBySection from './TrustedBySection';
+import LatestHighlights from './LatestHighlights';
 
-import { LUM_OSMOSIS_LBP, LUM_OSMOSIS_LBP_ARTICLE } from 'constant';
+import { LUM_OSMOSIS } from 'constant';
 
 import notificationIllu from 'assets/images/notification_illu.png';
-import osmosisLbp from 'assets/images/osmosisLBP.png';
+import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
 
 import './index.scss';
 
@@ -43,6 +44,7 @@ const Landing = (): JSX.Element => {
             <LumSection />
             <ShowCaseSection />
             <TrustedBySection />
+            <LatestHighlights />
             <GreenSection />
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
@@ -53,15 +55,14 @@ const Landing = (): JSX.Element => {
                     {/*<div className="col-12">*/}
                     {/*    <p dangerouslySetInnerHTML={{ __html: t('getInformedModal.description') }} />*/}
                     {/*</div>*/}
-                    <img alt="Osmosis LBP" src={osmosisLbp} />
+                    <video muted playsInline autoPlay controls>
+                        <source src={videoSrc} type="video/mp4" />
+                    </video>
                 </div>
                 <div className="row">
-                    <div className="col-12 d-flex justify-content-between flex-column flex-lg-row">
-                        <a className="btn-blue mb-3 mb-lg-0" href={LUM_OSMOSIS_LBP} target="_blank" rel="noreferrer">
+                    <div className="col-12 d-flex justify-content-center flex-column flex-lg-row">
+                        <a className="btn-blue mb-3 mb-lg-0" href={LUM_OSMOSIS} target="_blank" rel="noreferrer">
                             <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.lbp') }} />
-                        </a>
-                        <a className="btn-default" href={LUM_OSMOSIS_LBP_ARTICLE} target="_blank" rel="noreferrer">
-                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.lbpArticle') }} />
                         </a>
                     </div>
                 </div>

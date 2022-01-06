@@ -1,0 +1,116 @@
+@import '_main';
+
+#latest-highlights {
+    background: linear-gradient(0deg, #0F7BED, #0F7BED), linear-gradient(180deg, #9FB4FF -142.95%, #0375ED 29.9%);
+    color: $color-light;
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 46px;
+        padding-bottom: 46px;
+    }
+}
+
+#latest-highlights .container {
+    @include media-breakpoint-down(md) {
+        max-width: unset !important;
+    }
+}
+
+#latest-highlights .section-content {
+    display: flex;
+    overflow-x: scroll;
+    padding: 0 9vw;
+    margin: 70px -10vw 0 -10vw;
+
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1350px) {
+    #latest-highlights .section-content {
+        margin: 45px calc((100vw - 1080px) / 2 * -1) 0 calc((100vw - 1080px) / 2 * -1);
+        padding: 0 calc((100vw - 1080px) / 2 - 10px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #latest-highlights .section-content{
+        margin: 45px -5vw 0 -5vw;
+        padding: 0 4vw;
+    }
+}
+
+#latest-highlights .article-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    //box-shadow: 0px -14px 84px rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    margin-right: 24px;
+    padding: 28px;
+    height: 340px;
+    position: relative;
+}
+
+#latest-highlights .article-card .article-card-content {
+    width: 279px;
+}
+
+#latest-highlights .article-card .article-card-logo .lum-article {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+
+    box-shadow: 0 0 32px rgb(255, 255, 255);
+}
+
+#latest-highlights .article-card .article-card-title {
+    margin-top: 32px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+}
+
+#latest-highlights .article-card .article-link-container {
+    position: absolute;
+    bottom: 30px;
+    transition: all linear 150ms;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+#latest-highlights .article-card .article-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+@mixin bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+a .bar {
+    @include bar;
+}
+
+a .bar-2 {
+    @include bar;
+    opacity: 0.6;
+    filter: blur(5px);
+}
+
+a .bar-3 {
+    @include bar;
+    filter: blur(2px);
+}

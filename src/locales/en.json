@@ -99,6 +99,10 @@
     "trustedBy": {
         "title": "Trusted partners"
     },
+    "latestHighlights": {
+        "title": "Latest Highlights",
+        "link": "Read this article"
+    },
     "greenSection": {
         "title": "Built with <br class=\"d-none d-lg-block\"/>green mindset",
         "pOfS": {
