@@ -2,45 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import './LatestHighlights.scss';
-
-interface Article {
-    title: string;
-    logo: string | null;
-    link: string;
-}
-
-const articles: Article[] = [
-    {
-        title: 'How Lum will be soon the universal reward token?',
-        link: 'https://google.com',
-        logo: null,
-    },
-    {
-        title: 'How Lum will be soon the universal reward token 2?',
-        link: 'https://google.com',
-        logo: null,
-    },
-    {
-        title: 'How Lum will be soon the universal reward token 2?',
-        link: 'https://google.com',
-        logo: null,
-    },
-    {
-        title: 'How Lum will be soon the universal reward token 2?',
-        link: 'https://google.com',
-        logo: null,
-    },
-    {
-        title: 'How Lum will be soon the universal reward token 2?',
-        link: 'https://google.com',
-        logo: null,
-    },
-    {
-        title: 'How Lum will be soon the universal reward token 2?',
-        link: 'https://google.com',
-        logo: null,
-    },
-];
+import { ARTICLES } from 'constant';
 
 const LatestHighlights = (): JSX.Element => {
     const { t } = useTranslation();
@@ -74,7 +36,7 @@ const LatestHighlights = (): JSX.Element => {
                     <h1 dangerouslySetInnerHTML={{ __html: t('latestHighlights.title') }} />
                 </div>
                 <div className="section-content">
-                    {articles.map((article, index) => (
+                    {ARTICLES.map((article, index) => (
                         <div key={index} className="article-card">
                             <div className="article-card-content">
                                 <div className="article-card-logo">

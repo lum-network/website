@@ -33,3 +33,42 @@ export const IS_SAFARI =
     })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
 export const IS_IOS =
     /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+export interface Article {
+    title: string;
+    logo: string | null;
+    link: string;
+}
+
+export const ARTICLES: Article[] = [
+    {
+        title: 'How Lum will be soon the universal reward token?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+];
