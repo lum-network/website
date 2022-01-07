@@ -13,6 +13,7 @@ import {
     LUM_WALLET,
     LUM_MEDIUM,
     LUM_DISCORD,
+    LUM_NETWORK_WHITEPAPER,
 } from 'constant';
 import { Button, Link } from 'components';
 
@@ -111,6 +112,9 @@ const Footer = (): JSX.Element => {
                             <div className="d-inline-flex justify-content-around">
                                 <p className="footer-link mb-0">Lum Network 2021 ©</p>
                                 <p className="footer-link mb-0 ms-5">contact@lum.network</p>
+                                <Link link={LUM_NETWORK_WHITEPAPER} className="footer-link mb-0 ms-5">
+                                    White paper
+                                </Link>
                                 {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                             </div>
                             <Button
