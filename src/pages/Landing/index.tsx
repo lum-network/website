@@ -10,7 +10,7 @@ import LumSection from './LumSection';
 import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
 import TrustedBySection from './TrustedBySection';
-import LatestHighlights from './LatestHighlights';
+// import LatestHighlights from './LatestHighlights';
 
 import { LUM_OSMOSIS } from 'constant';
 
