@@ -44,7 +44,7 @@ const Landing = (): JSX.Element => {
             <LumSection />
             <ShowCaseSection />
             <TrustedBySection />
-            <LatestHighlights />
+            {/*<LatestHighlights />*/}
             <GreenSection />
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>

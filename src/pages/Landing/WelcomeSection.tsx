@@ -327,7 +327,7 @@ const WelcomeSection = (): JSX.Element => {
                 setChartData(chart);
             }
         });
-        fetch(`${OSMOSIS_API_URL}/tokens/v1/LUM`).then(async (res) => {
+        fetch(`${OSMOSIS_API_URL}/tokens/v2/LUM`).then(async (res) => {
             if (res.status === 200) {
                 const body = await res.json();
 
