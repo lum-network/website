@@ -2,9 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap, Linear, Power1 } from 'gsap';
 
-import { Button, Link } from 'components';
-import { MIN_LARGE_DEVICE_WIDTH, LUM_NETWORK_WHITEPAPER, MAX_PHONE_DEVICE_WIDTH } from 'constant';
-import { Hooks } from 'utils';
+import { Button } from 'components';
+import { MIN_LARGE_DEVICE_WIDTH, MAX_PHONE_DEVICE_WIDTH, OSMOSIS_API_URL } from 'constant';
+import { Hooks, NumbersUtils } from 'utils';
+import numeral from 'numeral';
+import Chart from 'kaktana-react-lightweight-charts';
+import { UTCTimestamp } from 'lightweight-charts';
 
 import crystalWhiteLarge from 'assets/images/crystal_white_large.png';
 import crystalWhiteMedium from 'assets/images/crystal_white_medium.png';
@@ -13,6 +16,7 @@ import crystalsShadows from 'assets/images/crystals_shadows.png';
 import downArrowIcon from 'assets/images/down-arrow.svg';
 
 import './WelcomeSection.scss';
+import { useWindowSize } from 'utils/hooks';
 
 const MV_PATH_COUNT = 4;
 
@@ -128,6 +132,10 @@ const WelcomeSection = (): JSX.Element => {
     const timeline = useRef<gsap.core.Timeline>();
     const [dots, setDots] = useState<JSX.Element[]>([]);
     const [enableDots, setEnableDots] = useState<boolean>(true);
+
+    const [chartData, setChartData] = useState<any>([]);
+    const [currentPrice, setCurrentPrice] = useState<any | null>(null);
+    const [previousDayPercentage, setPreviousDayPercentage] = useState(0);
 
     const sendDot = useCallback(() => {
         // Create a new dot and add it to the dots array
@@ -306,6 +314,42 @@ const WelcomeSection = (): JSX.Element => {
         }
     }, [width]);
 
+    useEffect(() => {
+        fetch(`${OSMOSIS_API_URL}/tokens/v1/historical/LUM/chart?range=1d`).then(async (res) => {
+            if (res.status === 200) {
+                const body = await res.json();
+
+                const chart = body.map((value: any) => ({
+                    time: value.time as UTCTimestamp,
+                    value: value.close,
+                }));
+
+                setChartData(chart);
+            }
+        });
+        fetch(`${OSMOSIS_API_URL}/tokens/v2/LUM`).then(async (res) => {
+            if (res.status === 200) {
+                const body = await res.json();
+
+                if (!body || !body.length || !body[0].price) {
+                    return;
+                }
+
+                setCurrentPrice(body[0].price);
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        if (!currentPrice || !chartData || !chartData.length) {
+            return;
+        }
+
+        setPreviousDayPercentage(NumbersUtils.getDifferencePercentage(chartData[0].value, currentPrice));
+    }, [currentPrice, chartData]);
+
+    const size = useWindowSize();
+
     return (
         <section className="dark" id="welcome">
             {dots}
@@ -314,7 +358,6 @@ const WelcomeSection = (): JSX.Element => {
             <div id="welcome-content" className="container">
                 <div className="row flex-lg-row flex-column-reverse align-items-center">
                     <DotsSvgPaths />
-
                     <div className="col-12 col-lg-7 text-center text-lg-start">
                         <h1
                             className="section-content-title"
@@ -324,17 +367,84 @@ const WelcomeSection = (): JSX.Element => {
                             className="section-content-info"
                             dangerouslySetInnerHTML={{ __html: t('landing.description') }}
                         />
+
                         <div className="section-content-info d-flex align-items-center justify-content-center justify-content-lg-start">
-                            <Button data-bs-toggle="modal" data-bs-target={'#get-informed-modal'}>
-                                <strong>{t('common.getLum')}</strong>
-                            </Button>
-                            <Link
-                                className="ms-5 scale-anim d-flex flex-row align-items-baseline"
-                                link={LUM_NETWORK_WHITEPAPER}
-                            >
-                                <strong className="border-bottom border-2 pb-2 me-2">{t('landing.whitePaper')}</strong>
-                                {'➤'}
-                            </Link>
+                            <div className="price-card">
+                                <div className="price-card blur" />
+                                <div className="price-card-content">
+                                    <div className="align-self-start">
+                                        <Chart
+                                            height={90}
+                                            width={size.width > 400 ? 150 : 100}
+                                            options={{
+                                                priceScale: {
+                                                    position: 'none',
+                                                    autoScale: true,
+                                                },
+                                                layout: {
+                                                    textColor: '#00000000',
+                                                    backgroundColor: '#00000000',
+                                                },
+                                                timeScale: {
+                                                    visible: false,
+                                                },
+                                                grid: {
+                                                    vertLines: {
+                                                        visible: false,
+                                                    },
+                                                    horzLines: {
+                                                        visible: false,
+                                                    },
+                                                },
+                                                crosshair: {
+                                                    vertLine: {
+                                                        visible: false,
+                                                        labelVisible: false,
+                                                    },
+                                                    horzLine: {
+                                                        visible: false,
+                                                        labelVisible: false,
+                                                    },
+                                                },
+                                                handleScale: false,
+                                                handleScroll: false,
+                                            }}
+                                            areaSeries={[
+                                                {
+                                                    data: chartData,
+                                                    options: {
+                                                        topColor: 'rgba(118, 219, 122, 100)',
+                                                        bottomColor: 'rgba(118, 219, 122, 0)',
+                                                        lineColor: 'rgba(118, 219, 122, 100)',
+                                                        lineStyle: 0,
+                                                        lineWidth: 3,
+                                                        crosshairMarkerVisible: false,
+                                                        priceLineVisible: false,
+                                                    },
+                                                },
+                                            ]}
+                                        />
+                                    </div>
+                                    <div className="price-text">
+                                        <span className="small-text d-flex flex-row align-items-center">
+                                            <span
+                                                className={`${previousDayPercentage >= 0 ? 'arrow-up' : 'arrow-down'}`}
+                                            />
+                                            {numeral(previousDayPercentage).format('+0.00%')} ({t('common.day')})
+                                        </span>
+                                        <span className="big-text">{numeral(currentPrice).format('$0,0.0000')}</span>
+                                    </div>
+                                    <div>
+                                        <Button
+                                            className="get-lum-button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target={'#get-informed-modal'}
+                                        >
+                                            <strong>{t('common.buyLum')}</strong>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">

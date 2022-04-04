@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
-import { LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET } from 'constant';
+import { LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET, LUM_NETWORK_WHITEPAPER } from 'constant';
 import { Button, Link } from 'components';
 
 import './styles/Header.scss';
@@ -52,9 +52,12 @@ const Header = ({ modalId, bgTriggerElem }: { modalId: string; bgTriggerElem?: s
             <div className="background" />
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
                 <a href="/" className="navbar-brand">
-                    <img src={lumNetworkLogoDark} width="235" height="38" className="lum-logo-header" />
+                    <img alt="Lum" src={lumNetworkLogoDark} width="235" height="38" className="lum-logo-header" />
                 </a>
                 <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">
+                    <Link className="me-sm-3 me-md-5" link={LUM_NETWORK_WHITEPAPER}>
+                        {t('landing.whitePaper')}
+                    </Link>
                     <Link link={LUM_MEDIUM} className="me-sm-3 me-md-5">
                         Blog
                     </Link>

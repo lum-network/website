@@ -2,10 +2,10 @@
 
 #trustedby {
     min-height: auto;
-    padding: 140px 0px;
+    padding: 140px 0;
 
     @include media-breakpoint-down(lg) {
-        padding: 72px 0px 0px 0px;
+        padding: 72px 0;
     }
 }
 
