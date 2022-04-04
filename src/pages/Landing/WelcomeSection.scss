@@ -184,7 +184,7 @@
     bottom: -170px;
     left: -370px;
     width: 912px;
-    z-index: 0;
+    z-index: -1;
 }
 
 #welcome .crystal-illu-container .crystal-large {
@@ -209,6 +209,121 @@
     top: 0;
     left: 0;
     animation: crystalFloatVerticalSmall 3s infinite alternate ease-in-out;
+}
+
+#welcome .price-card {
+    position: relative;
+    background: linear-gradient(87.22deg, rgba(255, 255, 255, 0.4) -1.84%, rgba(255, 255, 255, 0.084) 110.25%);
+    box-shadow: 0 4px 64px rgba(8, 34, 66, 0.09);
+    border-radius: 21px;
+    max-width: 500px;
+    min-width: 330px;
+    width: 90vw;
+    height: 110px;
+
+    @include media-breakpoint-down(sm) {
+        width: 95vw;
+    }
+}
+
+#welcome .price-card.blur {
+    position: absolute;
+    background: linear-gradient(87.22deg, rgba(255, 255, 255, 0.4) -1.84%, rgba(195, 190, 255, 0.084) 110.25%);
+    opacity: 0.8;
+    backdrop-filter: blur(7px);
+    border-radius: 21px;
+    max-width: 500px;
+    min-width: 330px;
+    width: 90vw;
+    height: 110px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+
+    @include media-breakpoint-down(sm) {
+        width: 95vw;
+    }
+}
+
+#welcome .price-card-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+
+    @include media-breakpoint-down(sm) {
+        padding: 0 12px;
+    }
+}
+
+#welcome .price-card .price-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#welcome .price-card .price-text .small-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: right;
+    color: #515151;
+    @include media-breakpoint-down(sm) {
+        font-size: 12px;
+    }
+}
+
+#welcome .price-card .price-text .big-text {
+    font-family: $primary_font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    color: #515151;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 24px;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .get-lum-button {
+        padding: 12px;
+        border-radius: 12px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .get-lum-button > strong {
+        font-size: 14px;
+    }
+}
+
+#welcome .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+
+    border-bottom: 6px solid $color-arrow-green;
+}
+
+#welcome .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+
+    border-top: 6px solid $color-arrow-red;
 }
 
 @keyframes crystalFloatVerticalSmall {

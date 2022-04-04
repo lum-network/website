@@ -5,11 +5,15 @@ on:
       - master
 
 jobs:
-  build_deploy_testnet:
-    name: Deploy on testnet hosting
+  deploy:
+    name: Deploy on production
     runs-on: ubuntu-latest
-    environment: testnet
+    environment: production
     steps:
+      - name: Set up Node version to 14
+        uses: actions/setup-node@v2
+        with:
+            node-version: '14'
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -31,30 +35,3 @@ jobs:
           channelId: live
           projectId: lum-network
           target: lum-network-website
-
-  build_deploy_mainnet:
-    name: Deploy on main net hosting
-    runs-on: ubuntu-latest
-    environment: mainnet
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-
-      - name: Install packages
-        run: yarn
-
-      - name: Build
-        run: yarn build
-        env:
-          SASS_PATH: "node_modules:src/styles"
-
-      - name: Deploy
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          channelId: live
-          projectId: lum-network
-          target: lum-network

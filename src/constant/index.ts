@@ -16,6 +16,10 @@ export const LUM_FACEBOOK = 'https://www.facebook.com/lum.network';
 export const LUM_MEDIUM = 'https://medium.com/lum-network';
 export const LUM_WHITELIST_TYPEFORM = 'https://lum-network.typeform.com/whitelist';
 export const LUM_NETWORK_WHITEPAPER = '/whitepaper.pdf';
+export const LUM_OSMOSIS = 'https://app.osmosis.zone/?from=ATOM&to=LUM';
+export const LUM_OSMOSIS_LBP_ARTICLE =
+    'https://medium.com/lum-network/participate-to-lum-liquidity-pool-2-2-d8af19e94a21';
+export const OSMOSIS_API_URL = 'https://api-osmosis.imperator.co';
 export const MIN_LARGE_DEVICE_WIDTH = 992;
 export const MAX_PHONE_DEVICE_WIDTH = 640;
 // @ts-ignore
@@ -29,3 +33,42 @@ export const IS_SAFARI =
     })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
 export const IS_IOS =
     /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+export interface Article {
+    title: string;
+    logo: string | null;
+    link: string;
+}
+
+export const ARTICLES: Article[] = [
+    {
+        title: 'How Lum will be soon the universal reward token?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+    {
+        title: 'How Lum will be soon the universal reward token 2?',
+        link: 'https://google.com',
+        logo: null,
+    },
+];

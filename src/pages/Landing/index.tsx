@@ -10,10 +10,12 @@ import LumSection from './LumSection';
 import ShowCaseSection from './ShowCaseSection';
 import GreenSection from './GreenSection';
 import TrustedBySection from './TrustedBySection';
+// import LatestHighlights from './LatestHighlights';
 
-import { LUM_WHITELIST_TYPEFORM } from 'constant';
+import { LUM_OSMOSIS } from 'constant';
 
 import notificationIllu from 'assets/images/notification_illu.png';
+import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
 
 import './index.scss';
 
@@ -42,29 +44,25 @@ const Landing = (): JSX.Element => {
             <LumSection />
             <ShowCaseSection />
             <TrustedBySection />
+            {/*<LatestHighlights />*/}
             <GreenSection />
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
-                <div className="row">
-                    <div className="col-12">
-                        <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />
-                    </div>
-                    <div className="col-12">
-                        <p dangerouslySetInnerHTML={{ __html: t('getInformedModal.description') }} />
-                    </div>
+                <div className="row mb-4">
+                    {/*<div className="col-12">*/}
+                    {/*    <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />*/}
+                    {/*</div>*/}
+                    {/*<div className="col-12">*/}
+                    {/*    <p dangerouslySetInnerHTML={{ __html: t('getInformedModal.description') }} />*/}
+                    {/*</div>*/}
+                    <video muted playsInline autoPlay controls>
+                        <source src={videoSrc} type="video/mp4" />
+                    </video>
                 </div>
                 <div className="row">
-                    <div className="col-12 d-flex justify-content-between flex-column flex-md-row">
-                        <a
-                            className="btn-blue mb-3 mb-md-0"
-                            href={LUM_WHITELIST_TYPEFORM}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.whitelist') }} />
-                        </a>
-                        <a className="btn-default" data-bs-toggle="modal" data-bs-target={'#newsletter-modal'}>
-                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.newsletter') }} />
+                    <div className="col-12 d-flex justify-content-center flex-column flex-lg-row">
+                        <a className="btn-blue mb-3 mb-lg-0" href={LUM_OSMOSIS} target="_blank" rel="noreferrer">
+                            <strong dangerouslySetInnerHTML={{ __html: t('getInformedModal.lbp') }} />
                         </a>
                     </div>
                 </div>
@@ -79,7 +77,7 @@ const Landing = (): JSX.Element => {
                     marginWidth={0}
                     src="https://app.mailjet.com/widget/iframe/5YGg/KDl"
                     width="100%"
-                ></iframe>
+                />
             </Modal>
         </>
     );
