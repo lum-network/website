@@ -14,6 +14,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
             node-version: '14'
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -34,4 +35,4 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           channelId: live
           projectId: lum-network
-          target: lum-network-website
+          target: lum-network
