@@ -315,7 +315,7 @@ const WelcomeSection = (): JSX.Element => {
     }, [width]);
 
     useEffect(() => {
-        fetch(`${OSMOSIS_API_URL}/tokens/v1/historical/LUM/chart?range=1d`).then(async (res) => {
+        fetch(`${OSMOSIS_API_URL}/tokens/v2/historical/LUM/chart?tf=60`).then(async (res) => {
             if (res.status === 200) {
                 const body = await res.json();
 
@@ -345,7 +345,11 @@ const WelcomeSection = (): JSX.Element => {
             return;
         }
 
-        setPreviousDayPercentage(NumbersUtils.getDifferencePercentage(chartData[0].value, currentPrice));
+        if (chartData && chartData.length && chartData.length - 24 >= 0 && chartData[chartData.length - 24]) {
+            setPreviousDayPercentage(
+                NumbersUtils.getDifferencePercentage(chartData[chartData.length - 24].value, currentPrice),
+            );
+        }
     }, [currentPrice, chartData]);
 
     const size = useWindowSize();
