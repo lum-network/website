@@ -19,7 +19,7 @@ export const LUM_NETWORK_WHITEPAPER = '/whitepaper.pdf';
 export const LUM_OSMOSIS = 'https://app.osmosis.zone/?from=ATOM&to=LUM';
 export const LUM_OSMOSIS_LBP_ARTICLE =
     'https://medium.com/lum-network/participate-to-lum-liquidity-pool-2-2-d8af19e94a21';
-export const OSMOSIS_API_URL = 'https://api-osmosis.imperator.co';
+export const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
 export const MIN_LARGE_DEVICE_WIDTH = 992;
 export const MAX_PHONE_DEVICE_WIDTH = 640;
 // @ts-ignore

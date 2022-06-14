@@ -31,7 +31,6 @@ import showcaseLumkiIllu from './images/showcase_lumki_illu.png';
 import showcaseNetreviewsIllu from './images/showcase_netreviews_illu.png';
 import showcaseJoinIllu from './images/showcase_join_illu.png';
 
-import tendermint from './images/partners/tendermint.png';
 import skeepers from './images/partners/skeepers.png';
 import arcanum from './images/partners/arcanum.png';
 import swissborg from './images/partners/swissborg.png';
@@ -43,6 +42,7 @@ import sg1 from './images/partners/sg-1.png';
 import sentinel from './images/partners/sentinel.png';
 import stakewithus from './images/partners/stakewithus.png';
 import cryptocrew from './images/partners/cryptocrew.png';
+import ignite from './images/partners/ignite.svg';
 
 const Assets = {
     images: {
@@ -79,7 +79,7 @@ const Assets = {
         showcaseJoinIllu,
     },
     partners: {
-        tendermint,
+        ignite,
         skeepers,
         arcanum,
         swissborg,

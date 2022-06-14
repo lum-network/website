@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { gsap, Linear, Power1 } from 'gsap';
 
 import { Button } from 'components';
-import { MIN_LARGE_DEVICE_WIDTH, MAX_PHONE_DEVICE_WIDTH, OSMOSIS_API_URL } from 'constant';
+import { MIN_LARGE_DEVICE_WIDTH, MAX_PHONE_DEVICE_WIDTH, COINGECKO_API_URL } from 'constant';
 import { Hooks, NumbersUtils } from 'utils';
 import numeral from 'numeral';
 import Chart from 'kaktana-react-lightweight-charts';
@@ -315,27 +315,27 @@ const WelcomeSection = (): JSX.Element => {
     }, [width]);
 
     useEffect(() => {
-        fetch(`${OSMOSIS_API_URL}/tokens/v2/historical/LUM/chart?tf=60`).then(async (res) => {
+        fetch(`${COINGECKO_API_URL}/coins/lum-network/market_chart?vs_currency=usd&days=14`).then(async (res) => {
             if (res.status === 200) {
                 const body = await res.json();
 
-                const chart = body.map((value: any) => ({
-                    time: value.time as UTCTimestamp,
-                    value: value.close,
+                const chart = body.prices.map(([time, value]: [number, number]) => ({
+                    time: time as UTCTimestamp,
+                    value,
                 }));
 
                 setChartData(chart);
             }
         });
-        fetch(`${OSMOSIS_API_URL}/tokens/v2/LUM`).then(async (res) => {
+        fetch(`${COINGECKO_API_URL}/coins/lum-network`).then(async (res) => {
             if (res.status === 200) {
                 const body = await res.json();
 
-                if (!body || !body.length || !body[0].price) {
+                if (!body || !body.market_data.current_price.usd) {
                     return;
                 }
 
-                setCurrentPrice(body[0].price);
+                setCurrentPrice(body.market_data.current_price.usd);
             }
         });
     }, []);

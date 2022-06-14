@@ -2,18 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
-import tendermint from 'assets/images/partners/tendermint.png';
-import skeepers from 'assets/images/partners/skeepers.png';
-import arcanum from 'assets/images/partners/arcanum.png';
-import swissborg from 'assets/images/partners/swissborg.png';
-import stakefish from 'assets/images/partners/stakefish.png';
-import cosmostation from 'assets/images/partners/cosmostation.png';
-import klub from 'assets/images/partners/klub.png';
-import imperator from 'assets/images/partners/imperator.png';
-import sg1 from 'assets/images/partners/sg-1.png';
-import sentinel from 'assets/images/partners/sentinel.png';
-import stakewithus from 'assets/images/partners/stakewithus.png';
-import cryptocrew from 'assets/images/partners/cryptocrew.png';
+import Assets from 'assets';
 
 import './TrustedBySection.scss';
 
@@ -49,62 +38,62 @@ const TrustedBySection = (): JSX.Element => {
 
     const partners: Array<{ logo: string; title: string; url: string }> = [
         {
-            logo: tendermint,
-            title: 'Tendermint',
-            url: 'https://tendermint.com',
+            logo: Assets.partners.ignite,
+            title: 'Ignite',
+            url: 'https://ignite.com/',
         },
         {
-            logo: swissborg,
+            logo: Assets.partners.swissborg,
             title: 'Swissborg Ventures',
             url: 'https://swissborg.com',
         },
         {
-            logo: cosmostation,
+            logo: Assets.partners.cosmostation,
             title: 'Cosmostation',
             url: 'https://mintscan.io',
         },
         {
-            logo: stakefish,
+            logo: Assets.partners.stakefish,
             title: 'Stake.Fish',
             url: 'https://stake.fish',
         },
         {
-            logo: arcanum,
+            logo: Assets.partners.arcanum,
             title: 'Arcanum Capital',
             url: 'https://www.arcanum.capital',
         },
         {
-            logo: skeepers,
+            logo: Assets.partners.skeepers,
             title: 'Skeepers',
             url: 'https://skeepers.io',
         },
         {
-            logo: klub,
+            logo: Assets.partners.klub,
             title: 'Klub',
             url: 'https://klub.ki',
         },
         {
-            logo: imperator,
+            logo: Assets.partners.imperator,
             title: 'Imperator',
             url: 'https://imperator.co',
         },
         {
-            logo: sg1,
+            logo: Assets.partners.sg1,
             title: 'SG-1',
             url: 'https://sg-1.online',
         },
         {
-            logo: sentinel,
+            logo: Assets.partners.sentinel,
             title: 'Sentinel',
             url: 'https://sentinel.co',
         },
         {
-            logo: stakewithus,
+            logo: Assets.partners.stakewithus,
             title: 'StakeWithUs',
             url: 'https://www.stakewith.us',
         },
         {
-            logo: cryptocrew,
+            logo: Assets.partners.cryptocrew,
             title: 'CryptoCrew Validators',
             url: 'https://ccvalidators.com/',
         },
