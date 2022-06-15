@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
-import { Button, SpotlightImage } from 'components';
+import { Button, Link, SpotlightImage } from 'components';
 
 import lumLogoTextWhite from 'assets/images/lum_logo_text_white.png';
 import poweredByIllu from 'assets/images/power_by_the_lum.png';
@@ -13,6 +13,7 @@ import rewardBlueMedium from 'assets/images/reward_blue_medium.png';
 import rewardBlueSmall from 'assets/images/reward_blue_small.png';
 
 import './LumSection.scss';
+import { LUM_EXPLORER } from 'constant';
 
 const UniversalReward = (): JSX.Element => {
     const { t } = useTranslation();
@@ -126,12 +127,81 @@ const PoweredBy = (): JSX.Element => {
     );
 };
 
+const DataSection = (): JSX.Element => {
+    const { t } = useTranslation();
+
+    useEffect(() => {
+        const scrollTrigger = {
+            trigger: `#lum .data-section`,
+            start: 'top 65%',
+            end: 'top 30%',
+            scrub: true,
+        };
+        gsap.from(`#lum .data-section .section-content-title`, {
+            y: 40,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+            stagger: 0.2,
+        });
+        gsap.from(`#lum .data-card`, {
+            y: 80,
+            opacity: 0,
+            ease: 'none',
+            scrollTrigger: scrollTrigger,
+        });
+    }, []);
+
+    return (
+        <>
+            <div className="row d-flex justify-content-center data-section">
+                <div className="col-12 col-lg-6 col-xl-4">
+                    <h1
+                        className="section-content-title fw-normal ms-0 ms-lg-5"
+                        dangerouslySetInnerHTML={{ __html: t('dataSection.title') }}
+                    />
+                </div>
+                <div className="col-12 col-lg-6 col-xl-6">
+                    <p
+                        className="section-content-title fw-normal ms-0 ms-lg-5"
+                        dangerouslySetInnerHTML={{ __html: t('dataSection.description') }}
+                    />
+                </div>
+            </div>
+            <div className="data-card d-flex flex-column align-items-center">
+                <div className="d-flex flex-column flex-md-row align-items-center justify-content-evenly w-100 text-center text-md-start">
+                    <div>
+                        <p className="fw-bold">{t('dataSection.users')}</p>
+                        <h2 className="fw-light mb-4 mb-md-0">$1 230 000</h2>
+                    </div>
+                    <div>
+                        <p className="fw-bold">{t('dataSection.companies')}</p>
+                        <h2 className="fw-light mb-4 mb-md-0">3 000 000</h2>
+                    </div>
+                    <div>
+                        <p className="fw-bold">{t('dataSection.transactions')}</p>
+                        <h2 className="fw-light mb-4 mb-md-0">1 000 000</h2>
+                    </div>
+                    <div>
+                        <p className="fw-bold">{t('dataSection.reviews')}</p>
+                        <h2 className="fw-light mb-4 mb-md-0">20 000</h2>
+                    </div>
+                </div>
+                <Link className="scale-anim d-flex flex-row align-items-baseline mt-5" link={LUM_EXPLORER}>
+                    <strong className="border-bottom border-2 pb-2 me-2">{t('dataSection.explorerBtn')}</strong>
+                    {'➤'}
+                </Link>
+            </div>
+        </>
+    );
+};
+
 const LumSection = (): JSX.Element => {
     const { t } = useTranslation();
 
     return (
         <div className="dark" id="lum">
-            <div id="lum-content" className="container">
+            <div id="lum-content" className="container position-relative">
                 <UniversalReward />
                 <PoweredBy />
                 <div className="row d-flex justify-content-center">
@@ -163,17 +233,12 @@ const LumSection = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="section-content-info row">
-                    <div className="col-12 d-flex align-items-center justify-content-center cta">
-                        <Button
-                            className="align-self-center"
-                            data-bs-toggle="modal"
-                            data-bs-target={'#get-informed-modal'}
-                        >
-                            <strong className="px-3">{t('common.getLum')}</strong>
-                        </Button>
-                    </div>
+                <div className="d-flex align-items-center justify-content-center cta">
+                    <Button className="align-self-center" data-bs-toggle="modal" data-bs-target={'#get-informed-modal'}>
+                        <strong className="px-3">{t('common.getLum')}</strong>
+                    </Button>
                 </div>
+                <DataSection />
             </div>
         </div>
     );

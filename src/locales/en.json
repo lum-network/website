@@ -69,6 +69,15 @@
             "description": "Every single Lum holder can participate in securing the network by staking their Lum and getting rewarded for it."
         }
     },
+    "dataSection": {
+        "title": "<strong>Numbers speak</strong> <br class=\"d-none d-lg-block\"/>for themselves",
+        "description": "Ever wondered, but whoever really use this blockchain products anyway? <br />The answer is pretty simple for the Lum Network.",
+        "users": "USERS",
+        "companies": "COMPANIES",
+        "transactions": "TRANSACTIONS",
+        "reviews": "REVIEWS",
+        "explorerBtn": "View in Explorer"
+    },
     "showcaseSection": {
         "title": "Partners <br />Show case",
         "lumki": {

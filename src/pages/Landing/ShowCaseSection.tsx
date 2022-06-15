@@ -83,7 +83,11 @@ const ShowCaseSection = (): JSX.Element => {
                         />
                     </div>
                     <div className="col-12">
-                        <ul className="nav nav-tabs justify-content-center" id="showCaseTab" role="tablist">
+                        <ul
+                            className="nav nav-tabs justify-content-center section-content-info"
+                            id="showCaseTab"
+                            role="tablist"
+                        >
                             <li className="nav-item" role="presentation">
                                 <button
                                     className="nav-link active"

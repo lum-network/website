@@ -3,12 +3,14 @@
 #showcase {
     background: $color-light;
     color: $color-dark;
-    padding-top: 148px;
+    padding-top: 248px;
     padding-bottom: 64px;
 
     @include media-breakpoint-down(lg) {
-        padding-top: 72px;
         padding-bottom: 48px;
+    }
+    @include media-breakpoint-down(md) {
+        padding-top: 348px;
     }
 }
 
