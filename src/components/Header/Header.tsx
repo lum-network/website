@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
-import { LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET, LUM_NETWORK_WHITEPAPER } from 'constant';
+import { LUM_EXPLORER, LUM_MEDIUM, LUM_WALLET, LUM_NETWORK_WHITEPAPER, LUM_DFRACT } from 'constant';
 import { Button, Link } from 'components';
 
 import './styles/Header.scss';
@@ -66,6 +66,9 @@ const Header = ({ modalId, bgTriggerElem }: { modalId: string; bgTriggerElem?: s
                     </Link>
                     <Link link={LUM_EXPLORER} className="me-sm-3 me-md-5">
                         Explorer
+                    </Link>
+                    <Link link={LUM_DFRACT} className="me-sm-3 me-md-5">
+                        DFract
                     </Link>
                     <Button outline inverted data-bs-toggle="modal" data-bs-target={modalId}>
                         {t('header.getInformed')}
