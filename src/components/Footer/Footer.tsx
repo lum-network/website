@@ -14,6 +14,7 @@ import {
     LUM_MEDIUM,
     LUM_DISCORD,
     LUM_NETWORK_WHITEPAPER,
+    LUM_DFRACT,
 } from 'constant';
 import { Button, Link } from 'components';
 
@@ -83,8 +84,11 @@ const Footer = (): JSX.Element => {
                                 <Link link={LUM_EXPLORER} className="footer-link mb-4">
                                     Explorer
                                 </Link>
-                                <Link link={LUM_WALLET} className="footer-link">
+                                <Link link={LUM_WALLET} className="footer-link mb-4">
                                     Wallet
+                                </Link>
+                                <Link link={LUM_DFRACT} className="footer-link">
+                                    DFract
                                 </Link>
                             </div>
                             <div className="d-flex flex-column">
