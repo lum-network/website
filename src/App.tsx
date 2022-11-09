@@ -3,9 +3,9 @@ import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { Landing } from 'pages';
-import { ProgressBar } from 'components';
 import Assets from 'assets';
+import { ProgressBar } from 'components';
+import RootNavigator from 'navigation';
 
 import './styles/App.scss';
 
@@ -70,7 +70,7 @@ const App = (): JSX.Element => {
     return (
         <main>
             <Loader progress={progress} loading={loading} />
-            {!loading ? <Landing /> : null}
+            {!loading ? <RootNavigator /> : null}
         </main>
     );
 };

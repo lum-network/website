@@ -1,0 +1,39 @@
+@import '_main';
+
+#numbers {
+    min-height: auto;
+    padding-bottom: 140px;
+
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 72px;
+    }
+
+    h1 {
+        font-weight: $bold;
+        font-size: 50px;
+    }
+
+    .numbers-container {
+        background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+        backdrop-filter: blur(103.5px);
+        border-radius: 21px;
+
+        .col div {
+            background: white;
+            text-align: center;
+            border-radius: 25px;
+
+            p {
+                margin: 0;
+            }
+
+            .stat-number {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 40.7282px;
+                line-height: 49px;
+                color: $color-blue;
+            }
+        }
+    }
+}

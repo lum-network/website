@@ -29,7 +29,7 @@ button:focus {
 .normal-btn {
     border-radius: 18px;
     background-color: $color-primary;
-    color: $color-dark;
+    color: $color-black;
     transition: all 0.2s ease-in-out;
     &:hover {
         transform: scale(1.05);
@@ -47,6 +47,6 @@ button:focus {
 }
 
 .btn-outlined.inverted {
-    color: $color-dark;
-    border-color: $color-dark;
+    color: $color-black;
+    border-color: $color-black;
 }

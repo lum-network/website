@@ -2,10 +2,10 @@
 
 #trustedby {
     min-height: auto;
-    padding: 140px 0;
+    padding-bottom: 140px;
 
     @include media-breakpoint-down(lg) {
-        padding: 72px 0;
+        padding-bottom: 72px;
     }
 }
 
@@ -28,8 +28,6 @@
 #trustedby a.partner {
     display: flex;
     flex: 0 1 0;
-    width: 15%;
-    min-width: 15%;
     height: 120px;
     cursor: pointer;
     transition: all 150ms linear;

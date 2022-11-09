@@ -136,8 +136,29 @@
             "submit": "Submit ➤",
             "placeholder": "youremail@email.com"
         },
+        "useCases": "Use cases",
         "privacyPolicy": "Privacy Policy",
         "tools": "Tools",
         "community": "Community"
+    },
+    "coreValues":{
+        "cards": [
+            {
+                "title": "Community-based",
+                "description": "Lum Network promotes a decentralized and community-based value creation since 2018."
+            },
+            {
+                "title": "Built with battle-tested tech",
+                "description": "Scalable, secure and interconnected infrastructure powered by the Interchain Stack (Cosmos-SDK, Tendermint, IBC)"
+            },
+            {
+                "title": "Green blockchain",
+                "description": "Our blockchain is designed to be sustainable and uses DPoS consuming 99% less energy than Proof-of-Work."
+            },
+            {
+                "title": "Seamless User Experience",
+                "description": "We have a strong focus on UX to remove barriers to entry as our vision is a future where everyone uses crypto."
+            }
+        ]
     }
 }

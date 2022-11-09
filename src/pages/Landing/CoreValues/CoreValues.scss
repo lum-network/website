@@ -1,0 +1,65 @@
+@import '_main';
+
+#core-values {
+    color: $color-black;
+    padding: 140px 0;
+    
+    @include media-breakpoint-down(lg) {
+        padding: 72px 0;
+    }
+
+    h1 {
+        font-weight: $bold;
+        font-size: 50px;
+    }
+
+    .core-value-card {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+        backdrop-filter: blur(68.1834px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        border-radius: 13.8343px;
+        .background {
+            position: absolute;
+            background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+            backdrop-filter: blur(68.1834px);
+            /* Note: backdrop-filter has minimal browser support */
+
+            border-radius: 13.8343px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+
+            .icon-container {
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .title {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+            }
+            .description {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+    }
+}

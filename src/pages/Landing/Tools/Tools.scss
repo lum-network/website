@@ -1,0 +1,32 @@
+@import '_main';
+
+#tools {
+    padding-bottom: 140px;
+
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 72px;
+    }
+
+    h1 {
+        font-weight: $bold;
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .tools-btn {
+        background-color: $color-blue;
+        color: white;
+        height: 100%;
+    }
+
+    .github-btn img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        filter: brightness(0);
+    }
+}

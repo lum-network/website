@@ -2,6 +2,8 @@ const isTestEnv = (): boolean => {
     return window.location.href.includes('localhost') || window.location.href.includes('testnet');
 };
 
+export * from './navigation';
+
 export const LUM_DOMAIN = isTestEnv() ? 'testnet.lum.network' : 'lum.network';
 export const LUM_NETWORK_DOCUMENTATION = 'https://docs.lum.network';
 export const LUM_EXPLORER_GITHUB = 'https://github.com/lum-network/explorer';

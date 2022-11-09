@@ -1,0 +1,35 @@
+@import '_main';
+
+#use-cases {
+    color: $color-black;
+    padding-bottom: 140px;
+
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 72px;
+    }
+
+    h1 {
+        font-weight: $bold;
+        font-size: 50px;
+    }
+
+    .use-case-card {
+        width: min-content;
+        height: 100%;
+        background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+        backdrop-filter: blur(103.5px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        border-radius: 21px;
+
+        p {
+            color: $color-dark;
+        }
+        
+        .discover-btn {
+            background-color: $color-blue;
+            color: white;
+            height: 100%;
+        }
+    }
+}
