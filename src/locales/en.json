@@ -2,7 +2,8 @@
     "common": {
         "getLum": "Get Lum",
         "buyLum": "Buy Lum",
-        "day": "24h"
+        "day": "24h",
+        "discover": "Discover"
     },
     "header": {
         "getInformed": "Get informed"
@@ -161,8 +162,41 @@
             }
         ]
     },
+    "useCases": {
+        "title": "Use Cases",
+        "skr": {
+            "card": {
+                "title": "Skeepers Rewards",
+                "description": "Companies can now easily provide crypto rewards to their consumers for great user-generated content."
+            }
+        },
+        "dfract": {
+            "card": {
+                "title": "DFract",
+                "description": "First Interchain yield earning index with the mission to bring more users to the Internet of Blockchains."
+            }
+        }
+    },
     "toolsPage": {
+        "title": "Tools",
         "description1": "At Lum Network we believe in open-source code for a more transparent and community-centric code that allow communication between builders.",
-        "description2": "Open-source tools embrace our vision of Mass Adoption since it allows others to built on top of the Lum Network for their own purpose."
+        "description2": "Open-source tools embrace our vision of Mass Adoption since it allows others to built on top of the Lum Network for their own purpose.",
+        "numbers": {
+            "title": "Tools in Numbers",
+            "stars": "Stars",
+            "forks": "Forks",
+            "openSource": "Open source repos",
+            "commits": "Commits"
+        },
+        "wallet": {
+            "title": "Native\nLum Wallet",
+            "description": "The wallet is tailored-suit for the Interchain and has proved his liability with multiple projects that forked it",
+            "cta": "/wallet"
+        },
+        "explorer": {
+            "title": "A specific explorer to view\nthe specific messages",
+            "description": "Specific messages have been developped for the review&rewards use case. You can see them on our dedicated explorer",
+            "cta": "/explorer"
+        }
     }
 }
