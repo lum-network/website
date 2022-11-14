@@ -12,7 +12,7 @@ const UseCases = (): JSX.Element => {
         <section id="use-cases">
             <div className="container">
                 <h1 className="mb-4">Use Cases</h1>
-                <div className="d-flex flex-row justify-content-between">
+                <div className="d-flex flex-lg-row flex-column justify-content-between">
                     <div className="use-case-card">
                         <img src={skr} alt="skeepers-rewards" />
                         <div className="p-4">

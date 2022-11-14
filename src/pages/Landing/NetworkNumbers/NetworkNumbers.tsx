@@ -17,25 +17,25 @@ const NetworkNumbers = (): JSX.Element => {
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">7M+</div>
-                            <p>Market Cap</p>
+                            <p>Transactions</p>
                         </div>
                     </div>
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">7M+</div>
-                            <p>Market Cap</p>
+                            <p>Blocks</p>
                         </div>
                     </div>
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">7M+</div>
-                            <p>Market Cap</p>
+                            <p>Block Time</p>
                         </div>
                     </div>
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">7M+</div>
-                            <p>Market Cap</p>
+                            <p>$LUM Staking APR</p>
                         </div>
                     </div>
                 </div>

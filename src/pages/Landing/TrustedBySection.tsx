@@ -113,7 +113,7 @@ const TrustedBySection = (): JSX.Element => {
                 <div className={`section-content-info row row-cols-${partners.length / 2}`}>
                     {partners.map((p, i) => (
                         <div key={i} className="col">
-                            <a className="partner" href={p.url} target="_blank" rel="noreferrer">
+                            <a className="partner w-100" href={p.url} target="_blank" rel="noreferrer">
                                 <img src={p.logo} alt={`${p.title} logo`} />
                             </a>
                         </div>

@@ -1,13 +1,13 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { Button } from 'components';
+import { LUM_NETWORK_GITHUB, NavigationConstants } from 'constant';
 
 import tools from 'assets/images/tools.png';
 import github from 'assets/images/github.png';
 
-import './Tools.scss';
-import { NavLink } from 'react-router-dom';
-import { LUM_NETWORK_GITHUB, NavigationConstants } from 'constant';
+import './LumTools.scss';
 
 const Tools = (): JSX.Element => {
     const openGithub = (): void => {
@@ -16,7 +16,7 @@ const Tools = (): JSX.Element => {
     };
 
     return (
-        <section id="tools">
+        <section id="lum-tools">
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-lg-5 my-auto">

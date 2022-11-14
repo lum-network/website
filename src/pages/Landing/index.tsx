@@ -11,10 +11,10 @@ import TrustedBySection from './TrustedBySection';
 import CoreValues from './CoreValues/CoreValues';
 import UseCases from './UseCases/UseCases';
 import NetworkNumbers from './NetworkNumbers/NetworkNumbers';
+import JoinLumCommunity from './JoinLumCommunity/JoinLumCommunity';
+import LumTools from './LumTools/LumTools';
 
 import './index.scss';
-import JoinLumCommunity from './JoinLumCommunity/JoinLumCommunity';
-import Tools from './Tools/Tools';
 
 const Landing = (): JSX.Element => {
     return (
@@ -25,7 +25,7 @@ const Landing = (): JSX.Element => {
             <NetworkNumbers />
             <TrustedBySection />
             <JoinLumCommunity />
-            <Tools />
+            <LumTools />
             {/*<LatestHighlights />*/}
         </>
     );

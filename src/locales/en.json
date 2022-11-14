@@ -160,5 +160,9 @@
                 "description": "We have a strong focus on UX to remove barriers to entry as our vision is a future where everyone uses crypto."
             }
         ]
+    },
+    "toolsPage": {
+        "description1": "At Lum Network we believe in open-source code for a more transparent and community-centric code that allow communication between builders.",
+        "description2": "Open-source tools embrace our vision of Mass Adoption since it allows others to built on top of the Lum Network for their own purpose."
     }
 }

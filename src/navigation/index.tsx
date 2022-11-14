@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from 'layout';
+import { Tools } from 'pages';
 
 const router = createBrowserRouter([
     {
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/tools',
-                element: <div className="text-primary">Tools</div>,
+                element: <Tools />,
             },
             {
                 path: '/skeepers-rewards',
