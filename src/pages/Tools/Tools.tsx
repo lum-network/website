@@ -1,13 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
-import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB } from 'constant';
+import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB, NavigationConstants } from 'constant';
 import { Link } from 'components';
 
 import toolsIllu from 'assets/images/tools_big.png';
+import toolsIllu2 from 'assets/images/tools_big2.png';
 import walletBrowser from 'assets/images/wallet_browser.png';
 import explorerBrowser from 'assets/images/explorer_browser.png';
 import github from 'assets/images/github.png';
+import skr from 'assets/images/skr.png';
+import dfract from 'assets/images/dfract.png';
 
 import './Tools.scss';
 
@@ -100,6 +104,48 @@ const Tools = (): JSX.Element => {
                             </span>
                             /explorer
                         </Link>
+                    </div>
+                </div>
+            </div>
+            <img src={toolsIllu2} className="section-margin-top" alt="" />
+            <div className="container use-cases-container">
+                <h1 className="mb-4">Use Cases</h1>
+                <div className="d-flex flex-lg-row flex-column justify-content-between">
+                    <div className="use-case-card">
+                        <img src={skr} alt="skeepers-rewards" />
+                        <div className="p-4">
+                            <div className="fw-bold fs-3">Skeepers Rewards</div>
+                            <div className="d-flex flex-row justify-content-between mt-2">
+                                <p>
+                                    Companies can now easily provide crypto rewards to their consumers for great
+                                    user-generated content.
+                                </p>
+                                <NavLink
+                                    to={NavigationConstants.SKR}
+                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-4"
+                                >
+                                    Discover
+                                </NavLink>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="use-case-card">
+                        <img src={dfract} alt="dfract" />
+                        <div className="p-4">
+                            <div className="fw-bold fs-3">DFract</div>
+                            <div className="d-flex flex-row justify-content-between mt-2">
+                                <p>
+                                    First Interchain yield earning index with the mission to bring more users to the
+                                    Internet of Blockchains.
+                                </p>
+                                <NavLink
+                                    to={NavigationConstants.DFRACT}
+                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-4"
+                                >
+                                    Discover
+                                </NavLink>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
