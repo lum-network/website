@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from 'layout';
-import { Tools } from 'pages';
+import { DfractUseCase, SkrUseCase, Tools } from 'pages';
 
 const router = createBrowserRouter([
     {
@@ -14,11 +14,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/skeepers-rewards',
-                element: <div>SKR</div>,
+                element: <SkrUseCase />,
             },
             {
                 path: '/dfract',
-                element: <div>DFRACT</div>,
+                element: <DfractUseCase />,
             },
         ],
     },

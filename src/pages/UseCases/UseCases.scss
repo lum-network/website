@@ -1,0 +1,91 @@
+@import '_main';
+
+#skr-use-case,
+#dfract-use-case {
+    padding-top: 160px;
+
+    .illustration {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .section-margin-top {
+        margin-top: 132px;
+    }
+    
+    .section-content {
+        margin-left: 8rem;
+        margin-right: 8rem;
+
+        .section-content-title {
+            margin-bottom: 4rem;
+        }
+        
+        h6 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            margin-top: 4rem;
+        }
+        
+        .numbers-container {
+            background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+            backdrop-filter: blur(103.5px);
+            border-radius: 21px;
+    
+            .col div {
+                background: white;
+                text-align: center;
+                border-radius: 25px;
+    
+                p {
+                    margin: 0;
+                }
+    
+                .stat-number {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40.7282px;
+                    line-height: 49px;
+                    color: $color-blue;
+                }
+            }
+        }
+    }
+
+    .wallet-github-btn {
+        background-color: $color-blue;
+        color: white;
+        width: 217px;
+
+        img {
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    .use-cases-container {
+        margin-top: 132px;
+        margin-bottom: 132px;
+
+        .use-case-card {
+            width: min-content;
+            height: 100%;
+            background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+            backdrop-filter: blur(103.5px);
+            /* Note: backdrop-filter has minimal browser support */
+    
+            border-radius: 21px;
+    
+            p {
+                color: $color-dark;
+            }
+            
+            .discover-btn {
+                background-color: $color-blue;
+                color: white;
+                height: 100%;
+            }
+        }
+    }
+}
