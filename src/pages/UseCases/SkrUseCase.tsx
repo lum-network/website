@@ -25,7 +25,7 @@ const SkrUseCase = (): JSX.Element => {
                         <div className="col">{t('useCases.skr.page.description1')}</div>
                         <div className="col">{t('useCases.skr.page.description2')}</div>
                     </div>
-                    <h6 className="mb-3">{t('toolsPage.numbers.title')}</h6>
+                    <h6 className="mb-3">{t('useCases.skr.page.numbers.title')}</h6>
                     <div className="row row-cols-3 numbers-container p-4">
                         <div className="col">
                             <div className="py-3">

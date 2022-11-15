@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 
 import { Footer, Header, Modal } from 'components';
 import { LUM_OSMOSIS } from 'constant';
+import { Landing } from 'pages';
 
 import notificationIllu from 'assets/images/notification_illu.png';
 import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
-import { Landing } from 'pages';
-import { Outlet, useLocation } from 'react-router-dom';
 
 const MainLayout = (): JSX.Element => {
     const { t } = useTranslation();
@@ -16,7 +16,6 @@ const MainLayout = (): JSX.Element => {
     const nlModRef = useRef<React.ElementRef<typeof Modal>>(null);
 
     useEffect(() => {
-        console.log('location', location);
         if (giModRef.current && nlModRef.current) {
             const hash = location.hash;
             if (hash === '#getLum') {
@@ -64,6 +63,7 @@ const MainLayout = (): JSX.Element => {
                     width="100%"
                 />
             </Modal>
+            <ScrollRestoration />
         </>
     );
 };
