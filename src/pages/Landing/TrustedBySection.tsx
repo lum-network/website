@@ -28,12 +28,12 @@ const TrustedBySection = (): JSX.Element => {
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
-        gsap.from(`#trustedby .partner`, {
+        /* gsap.from(`#trustedby .partner`, {
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
             stagger: 0.05,
-        });
+        }); */
     }, []);
 
     const partners: Array<{ logo: string; title: string; url: string }> = [
@@ -110,7 +110,11 @@ const TrustedBySection = (): JSX.Element => {
                         />
                     </div>
                 </div>
-                <div className={`section-content-info row row-cols-${partners.length / 2}`}>
+                <div
+                    className={`section-content-info row row-cols-${partners.length / 5} row-cols-md-${
+                        partners.length / 2
+                    }`}
+                >
                     {partners.map((p, i) => (
                         <div key={i} className="col">
                             <a className="partner w-100" href={p.url} target="_blank" rel="noreferrer">

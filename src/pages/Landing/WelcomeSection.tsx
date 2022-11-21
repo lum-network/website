@@ -237,7 +237,7 @@ const WelcomeSection = (): JSX.Element => {
                 },
                 '=-0.3',
             );
-            tl.fromTo(
+            /* tl.fromTo(
                 `#welcome .planet-illustration`,
                 {
                     opacity: 0,
@@ -250,7 +250,7 @@ const WelcomeSection = (): JSX.Element => {
                     stagger: 0.15,
                 },
                 '=-0.5',
-            );
+            ); */
             tl.fromTo(
                 `#welcome .bg-lightning`,
                 {

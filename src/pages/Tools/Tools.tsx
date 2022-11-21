@@ -24,32 +24,32 @@ const Tools = (): JSX.Element => {
                 <img src={toolsIllu} alt="Tools illustration" className="illustration" />
                 <div className="section-content">
                     <h1 className="section-content-title mt-5">{t('toolsPage.title')}</h1>
-                    <div className="row row-cols-2">
+                    <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
                         <div className="col">{t('toolsPage.description1')}</div>
                         <div className="col">{t('toolsPage.description2')}</div>
                     </div>
                     <h6 className="mb-3">{t('toolsPage.numbers.title')}</h6>
-                    <div className="row row-cols-4 numbers-container p-4">
+                    <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
-                            <div className="py-3">
+                            <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">7M+</div>
                                 <p>{t('toolsPage.numbers.stars')}</p>
                             </div>
                         </div>
                         <div className="col">
-                            <div className="py-3">
+                            <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">7M+</div>
                                 <p>{t('toolsPage.numbers.forks')}</p>
                             </div>
                         </div>
                         <div className="col">
-                            <div className="py-3">
+                            <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">7M+</div>
                                 <p>{t('toolsPage.numbers.commits')}</p>
                             </div>
                         </div>
                         <div className="col">
-                            <div className="py-3">
+                            <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">7M+</div>
                                 <p>{t('toolsPage.numbers.openSource')}</p>
                             </div>
@@ -70,12 +70,12 @@ const Tools = (): JSX.Element => {
                             {t('toolsPage.wallet.cta')}
                         </Link>
                     </div>
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12 col-lg-7 order-first order-lg-last mb-5 mb-lg-0">
                         <img src={walletBrowser} className="illustration" alt="Lum Wallet in browser" />
                     </div>
                 </div>
                 <div className="row section-margin-top">
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12 col-lg-7 mb-5 mb-lg-0">
                         <img src={explorerBrowser} className="illustration" alt="Lum Wallet in browser" />
                     </div>
                     <div className="col-12 col-lg-5 my-auto">
@@ -97,30 +97,30 @@ const Tools = (): JSX.Element => {
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
-                    <div className="use-case-card">
-                        <img src={skr} alt="skeepers-rewards" />
+                    <div className="use-case-card w-100">
+                        <img src={skr} alt="skeepers-rewards" className="w-100" />
                         <div className="p-4">
                             <div className="fw-bold fs-3">{t('useCases.dfract.card.title')}</div>
-                            <div className="d-flex flex-row justify-content-between mt-2">
+                            <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
                                 <p>{t('useCases.skr.card.description')}</p>
                                 <NavLink
                                     to={NavigationConstants.SKR}
-                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-4"
+                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-0 ms-lg-4"
                                 >
                                     {t('common.discover')}
                                 </NavLink>
                             </div>
                         </div>
                     </div>
-                    <div className="use-case-card">
-                        <img src={dfract} alt="dfract" />
+                    <div className="use-case-card w-100 mt-4 mt-lg-0">
+                        <img src={dfract} alt="dfract" className="w-100" />
                         <div className="p-4">
                             <div className="fw-bold fs-3">{t('useCases.dfract.card.title')}</div>
-                            <div className="d-flex flex-row justify-content-between mt-2">
+                            <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
                                 <p>{t('useCases.dfract.card.description')}</p>
                                 <NavLink
                                     to={NavigationConstants.DFRACT}
-                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-4"
+                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-0 ms-lg-4"
                                 >
                                     {t('common.discover')}
                                 </NavLink>

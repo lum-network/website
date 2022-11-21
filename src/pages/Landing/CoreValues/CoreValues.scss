@@ -5,12 +5,28 @@
     padding: 140px 0;
     
     @include media-breakpoint-down(lg) {
-        padding: 72px 0;
+        padding: 0 0 72px 0;
     }
 
     h1 {
         font-weight: $bold;
         font-size: 50px;
+    }
+
+    .cube {
+        width: 440px;
+        height: 733px;
+        object-fit: contain;
+        
+        @include media-breakpoint-only(lg) {
+            transform: scale(0.7);
+        }
+        
+        @include media-breakpoint-down(sm) {
+            width: 264px;
+            height: 440px;
+            //transform: scale(0.6);
+        }
     }
 
     .core-value-card {

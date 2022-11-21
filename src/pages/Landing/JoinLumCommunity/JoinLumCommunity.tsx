@@ -14,19 +14,19 @@ const JoinLumCommunity = (): JSX.Element => {
     return (
         <section id="join-lum-community">
             <div className="container">
-                <div className="d-flex flex-row justify-content-between align-items-center socials-container">
+                <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center socials-container">
                     <h1 className="section-content-title">
                         Join the Lum
                         <br /> Community
                     </h1>
-                    <div className="d-flex flex-row">
-                        <Link link={LUM_MEDIUM} custom className="social-button scale-anim me-3">
+                    <div className="d-flex flex-row justify-content-center justify-content-lg-end flex-wrap socials-btn-container mt-4 mt-lg-0 w-100">
+                        <Link link={LUM_MEDIUM} custom className="social-button scale-anim">
                             <img src={medium} alt="Medium logo" />
                         </Link>
-                        <Link link={LUM_TWITTER} custom className="social-button scale-anim me-3">
+                        <Link link={LUM_TWITTER} custom className="social-button scale-anim">
                             <img src={twitter} alt="Twitter logo" />
                         </Link>
-                        <Link link={LUM_DISCORD} custom className="social-button scale-anim me-3">
+                        <Link link={LUM_DISCORD} custom className="social-button scale-anim">
                             <img src={discord} alt="Discord logo" />
                         </Link>
                         <Link link={LUM_TELEGRAM} custom className="social-button scale-anim">

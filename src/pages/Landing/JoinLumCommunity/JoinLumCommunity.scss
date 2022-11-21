@@ -13,20 +13,36 @@
         border-radius: 21px;
         padding: 60px;
 
+        @include media-breakpoint-down(lg) {
+            padding: 20px;
+        }
+
         h1 {
             font-weight: 700;
             font-size: 50px;
             line-height: 60px;
         }
 
-        .social-button {
-            width: 86px;
-            height: 86px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 15.4248px;
+        .socials-btn-container {
+            @include media-breakpoint-down(lg) {
+                margin: -10px;
+            }
+
+            .social-button {
+                width: 86px;
+                height: 86px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: white;
+                border-radius: 15.4248px;
+                margin-right: 1rem;
+
+                @include media-breakpoint-down(lg) {
+                    margin: 10px;
+                    flex-basis: 106px;
+                }
+            }
         }
     }
 }

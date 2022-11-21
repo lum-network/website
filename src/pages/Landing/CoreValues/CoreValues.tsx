@@ -17,12 +17,12 @@ const CoreValues = (): JSX.Element => {
         <section id="core-values">
             <div className="container">
                 <div className="row">
-                    <div className="col-12 col-lg-5">
-                        <img alt="cube" src={cube} />
+                    <div className="col-12 col-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
+                        <img alt="cube" className="cube" src={cube} />
                     </div>
                     <div className="col-12 col-lg-7">
                         <h1 className="section-content-title mb-4">Core Values</h1>
-                        <div className="row row-cols-2 gy-4">
+                        <div className="row row-cols-1 row-cols-lg-2 gy-4">
                             <div className="col">
                                 <div className="core-value-card">
                                     <div className="background" />

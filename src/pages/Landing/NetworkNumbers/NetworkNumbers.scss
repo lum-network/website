@@ -33,6 +33,10 @@
                 font-size: 40.7282px;
                 line-height: 49px;
                 color: $color-blue;
+
+                @include media-breakpoint-down(lg) {
+                    font-size: 32px;
+                }
             }
         }
     }

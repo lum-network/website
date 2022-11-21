@@ -16,6 +16,11 @@
         margin-left: 8rem;
         margin-right: 8rem;
 
+        @include media-breakpoint-down(lg) {            
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         .section-content-title {
             margin-bottom: 4rem;
         }
@@ -48,6 +53,10 @@
                     font-size: 40.7282px;
                     line-height: 49px;
                     color: $color-blue;
+
+                    @include media-breakpoint-down(lg) {
+                        font-size: 32px;
+                    }
                 }
             }
         }
@@ -84,6 +93,7 @@
                 background-color: $color-blue;
                 color: white;
                 height: 100%;
+                width: fit-content;
             }
         }
     }

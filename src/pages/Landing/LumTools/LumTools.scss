@@ -18,15 +18,19 @@
     }
 
     .tools-btn {
+        width: fit-content;
         background-color: $color-blue;
         color: white;
         height: 100%;
     }
 
-    .github-btn img {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-        filter: brightness(0);
+    .github-btn {
+        width: fit-content;
+        img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0);
+        }
     }
 }

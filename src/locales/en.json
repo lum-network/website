@@ -164,6 +164,7 @@
     },
     "useCases": {
         "title": "Use Cases",
+        "titleOther": "Other Use Case",
         "skr": {
             "card": {
                 "title": "Skeepers Rewards",

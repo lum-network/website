@@ -74,7 +74,7 @@ const Footer = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="col-12 col-md-6">
-                        <div className="d-flex flex-row justify-content-md-between justify-content-sm-around justify-content-between ps-md-5 align-self-end">
+                        <div className="d-flex flex-column flex-lg-row justify-content-md-between justify-content-sm-around justify-content-between ps-0 align-self-end">
                             <div className="d-flex flex-column ms-md-5">
                                 <strong>{t('footer.useCases')}</strong>
                                 <NavLink
@@ -90,7 +90,7 @@ const Footer = (): JSX.Element => {
                                     DFract
                                 </NavLink>
                             </div>
-                            <div className="d-flex flex-column ms-md-5">
+                            <div className="d-flex flex-column ms-md-3 mt-4 mt-lg-0">
                                 <strong>{t('footer.tools')}</strong>
                                 <Link link={LUM_NETWORK_DOCUMENTATION} className="footer-link my-4">
                                     Documentation
@@ -102,7 +102,7 @@ const Footer = (): JSX.Element => {
                                     Wallet
                                 </Link>
                             </div>
-                            <div className="d-flex flex-column">
+                            <div className="d-flex flex-column ms-md-3 mt-4 mt-lg-0">
                                 <strong>{t('footer.community')}</strong>
                                 <Link link={LUM_TWITTER} className="footer-link my-4">
                                     Twitter
@@ -117,11 +117,11 @@ const Footer = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="col-12">
-                        <div className="d-flex flex-md-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
-                            <div className="d-inline-flex justify-content-around">
+                        <div className="d-flex flex-lg-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
+                            <div className="d-flex flex-column-reverse flex-lg-row justify-content-around">
                                 <p className="footer-link mb-0">Lum Network 2021 ©</p>
-                                <p className="footer-link mb-0 ms-5">contact@lum.network</p>
-                                <Link link={LUM_NETWORK_WHITEPAPER} className="footer-link mb-0 ms-5">
+                                <p className="footer-link mb-0 ms-0 ms-lg-5">contact@lum.network</p>
+                                <Link link={LUM_NETWORK_WHITEPAPER} className="footer-link mb-0 ms-0 ms-lg-5">
                                     White paper
                                 </Link>
                                 {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}

@@ -8,7 +8,7 @@ import { DropdownButton, Link } from 'components';
 import './styles/Header.scss';
 
 import lumNetworkLogoDark from 'assets/images/lum_network_logo_dark.png';
-import { NavLink } from 'react-router-dom';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 const Header = ({ bgTriggerElem }: { modalId: string; bgTriggerElem?: string }): JSX.Element => {
     const { t } = useTranslation();
@@ -52,16 +52,16 @@ const Header = ({ bgTriggerElem }: { modalId: string; bgTriggerElem?: string }):
         <header className="navbar fixed-top mt-4 mx-auto container p-4">
             <div className="background" />
             <nav className="container d-flex flex-row justify-content-center justify-content-md-between align-items-center">
-                <NavLink to="/" className="navbar-brand">
+                <ReactRouterLink to="/" className="navbar-brand">
                     <img alt="Lum" src={lumNetworkLogoDark} width="235" height="38" className="lum-logo-header" />
-                </NavLink>
+                </ReactRouterLink>
                 <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">
                     <Link className="me-sm-3 me-md-5" link={LUM_NETWORK_WHITEPAPER}>
                         {t('landing.whitePaper')}
                     </Link>
-                    <NavLink to={NavigationConstants.TOOLS} className="link-btn me-sm-3 me-md-5">
+                    <ReactRouterLink to={NavigationConstants.TOOLS} className="link-btn me-sm-3 me-md-5">
                         Tools
-                    </NavLink>
+                    </ReactRouterLink>
                     <DropdownButton
                         title="Use Cases"
                         items={[
