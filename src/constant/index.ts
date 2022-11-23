@@ -26,15 +26,7 @@ export const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
 export const SKR_URL = 'https://rewards.skeepers.io';
 export const MIN_LARGE_DEVICE_WIDTH = 992;
 export const MAX_PHONE_DEVICE_WIDTH = 640;
-// @ts-ignore
-export const IS_FIREFOX = typeof InstallTrigger !== 'undefined';
-export const IS_SAFARI =
-    // @ts-ignore
-    /constructor/i.test(window.HTMLElement) ||
-    (function (p) {
-        return p.toString() === '[object SafariRemoteNotification]';
-        // @ts-ignore
-    })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+export const IS_SAFARI = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 export const IS_IOS =
     /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
@@ -76,3 +68,6 @@ export const ARTICLES: Article[] = [
         logo: null,
     },
 ];
+
+export const CHAIN_BRIDGE_URL = process.env.REACT_APP_CHAIN_BRIDGE_URL || '';
+export const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || '';

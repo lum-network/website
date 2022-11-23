@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
@@ -14,9 +14,29 @@ import skr from 'assets/images/skr.png';
 import dfract from 'assets/images/dfract.png';
 
 import './Tools.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, Dispatch } from 'redux/store';
 
 const Tools = (): JSX.Element => {
     const { t } = useTranslation();
+
+    const { forks, stars, openSourceRepos, commits } = useSelector((state: RootState) => ({
+        forks:
+            state.stats.tools.wallet.forks !== null && state.stats.tools.explorer.forks !== null
+                ? state.stats.tools.wallet.forks + state.stats.tools.explorer.forks
+                : null,
+        stars:
+            state.stats.tools.wallet.stars !== null && state.stats.tools.explorer.stars !== null
+                ? state.stats.tools.wallet.stars + state.stats.tools.explorer.stars
+                : null,
+        openSourceRepos: state.stats.tools.openSourceRepos,
+        commits: state.stats.tools.commits,
+    }));
+    const dispatch = useDispatch<Dispatch>();
+
+    useEffect(() => {
+        dispatch.stats.getToolsStats().finally(() => null);
+    }, []);
 
     return (
         <section id="tools">
@@ -32,25 +52,25 @@ const Tools = (): JSX.Element => {
                     <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{stars}</div>
                                 <p>{t('toolsPage.numbers.stars')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
-                                <p>{t('toolsPage.numbers.forks')}</p>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{commits}</div>
                                 <p>{t('toolsPage.numbers.commits')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{forks}</div>
+                                <p>{t('toolsPage.numbers.forks')}</p>
+                            </div>
+                        </div>
+                        <div className="col">
+                            <div className="py-3 h-100 d-flex flex-column justify-content-center">
+                                <div className="stat-number">{openSourceRepos}</div>
                                 <p>{t('toolsPage.numbers.openSource')}</p>
                             </div>
                         </div>
@@ -97,10 +117,10 @@ const Tools = (): JSX.Element => {
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
-                    <div className="use-case-card w-100">
+                    <div className="use-case-card me-lg-5 w-100">
                         <img src={skr} alt="skeepers-rewards" className="w-100" />
                         <div className="p-4">
-                            <div className="fw-bold fs-3">{t('useCases.dfract.card.title')}</div>
+                            <div className="fw-bold fs-3">{t('useCases.skr.card.title')}</div>
                             <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
                                 <p>{t('useCases.skr.card.description')}</p>
                                 <NavLink

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as dotenv from 'dotenv';
+
+import 'reflect-metadata';
 
 import '@popperjs/core/dist/esm/popper';
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -9,6 +12,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
 
 import './locales';
+
+dotenv.config();
 
 ReactDOM.render(
     <React.StrictMode>

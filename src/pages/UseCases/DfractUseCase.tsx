@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
@@ -11,9 +11,24 @@ import dfractIllu from 'assets/images/dfract_big.png';
 import skrIllu from 'assets/images/skr_big.png';
 
 import './UseCases.scss';
+import numeral from 'numeral';
+import { useSelector, useDispatch } from 'react-redux';
+import { Dispatch, RootState } from 'redux/store';
 
 const DfractUseCase = (): JSX.Element => {
     const { t } = useTranslation();
+
+    const dispatch = useDispatch<Dispatch>();
+    const { apy, supply, totalValueUsd, unitPriceUsd } = useSelector((state: RootState) => ({
+        apy: state.stats.dfr.apy,
+        supply: state.stats.dfr.supply,
+        totalValueUsd: state.stats.dfr.totalValueUsd,
+        unitPriceUsd: state.stats.dfr.unitPriceUsd,
+    }));
+
+    useEffect(() => {
+        dispatch.stats.getDfrStats().finally(() => null);
+    }, []);
 
     return (
         <section id="dfract-use-case">
@@ -29,26 +44,26 @@ const DfractUseCase = (): JSX.Element => {
                     <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{numeral(unitPriceUsd).format('$0,0.00') || '-'}</div>
                                 <p>{t('useCases.dfract.page.numbers.price')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{numeral(supply).format('0,0.00') || '-'}</div>
                                 <p>{t('useCases.dfract.page.numbers.minted')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{numeral(totalValueUsd).format('0,0.00') || '-'}</div>
                                 <p>{t('useCases.dfract.page.numbers.tvl')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
-                                <p>{t('useCases.dfract.page.numbers.tvl')}</p>
+                                <div className="stat-number">{apy || '-'}</div>
+                                <p>{t('useCases.dfract.page.numbers.apy')}</p>
                             </div>
                         </div>
                     </div>

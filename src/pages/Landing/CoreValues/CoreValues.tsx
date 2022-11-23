@@ -18,7 +18,7 @@ const CoreValues = (): JSX.Element => {
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
-                        <img alt="cube" className="cube" src={cube} />
+                        <img alt="cube" className="cube mb-5 mb-lg-0" src={cube} />
                     </div>
                     <div className="col-12 col-lg-7">
                         <h1 className="section-content-title mb-4">Core Values</h1>
