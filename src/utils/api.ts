@@ -22,32 +22,42 @@ class LumApi extends HttpClient {
     getDfractStats = async () => this.request<any>({ url: 'dfract/assets/dfr' }, null);
 
     getLumStats = async () => {
-        const [[blocks], [kpi], [lum], [assets]] = await Promise.all([
-            this.request<BlocksModel[]>({ url: 'blocks' }, BlocksModel),
-            this.request<KpiModel>({ url: 'stats/kpi' }, KpiModel),
-            this.request<LumModel>({ url: 'price' }, LumModel),
-            this.request<CoinModel[]>({ url: 'assets' }, CoinModel),
-        ]);
-
-        const asset = assets.find((val: CoinModel) => val.denom === LumConstants.MicroLumDenom);
-
-        let blockTime = 0;
-        if (blocks.length > 30) {
-            for (let i = 1; i <= 30; i++) {
-                blockTime += Math.abs(
-                    new Date((blocks[i] && blocks[i].time) || '').getTime() -
-                        new Date((blocks[i - 1] && blocks[i - 1].time) || '').getTime(),
-                );
+        try {            
+            const [[blocks], [kpi], [lum], [assets]] = await Promise.all([
+                this.request<BlocksModel[]>({ url: 'blocks' }, BlocksModel),
+                this.request<KpiModel>({ url: 'stats/kpi' }, KpiModel),
+                this.request<LumModel>({ url: 'price' }, LumModel),
+                this.request<CoinModel[]>({ url: 'assets' }, CoinModel),
+            ]);
+    
+            const asset = assets.find((val: CoinModel) => val.denom === LumConstants.MicroLumDenom);
+    
+            let blockTime = 0;
+            if (blocks.length > 30) {
+                for (let i = 1; i <= 30; i++) {
+                    blockTime += Math.abs(
+                        new Date((blocks[i] && blocks[i].time) || '').getTime() -
+                            new Date((blocks[i - 1] && blocks[i - 1].time) || '').getTime(),
+                    );
+                }
             }
+    
+            return {
+                txs: kpi.transactions?.total || null,
+                blocks: blocks[0]?.height ? Number(blocks[0].height) : null,
+                blockTime: blockTime > 0 ? blockTime / 30 / 1000 : null,
+                marketCap: asset ? NumbersUtils.convertUnitNumber(asset.amount) * (lum.price || 1) : null,
+                apr: null,
+            };
+        } catch {
+            return {
+                txs: null,
+                blocks: null,
+                blockTime: null,
+                marketCap: null,
+                apr: null,
+            };
         }
-
-        return {
-            txs: kpi.transactions?.total || null,
-            blocks: blocks[0]?.height ? Number(blocks[0].height) : null,
-            blockTime: blockTime > 0 ? blockTime / 30 / 1000 : null,
-            marketCap: asset ? NumbersUtils.convertUnitNumber(asset.amount) * (lum.price || 1) : null,
-            apr: null,
-        };
     };
 }
 

@@ -73,7 +73,7 @@ const App = (): JSX.Element => {
     useEffect(() => {
         dispatch.stats.getLumStats().finally(() => null);
         dispatch.stats.getDfrStats().finally(() => null);
-    });
+    }, []);
 
     return (
         <main>
