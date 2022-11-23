@@ -8,8 +8,11 @@ import tools from 'assets/images/tools.png';
 import github from 'assets/images/github.png';
 
 import './LumTools.scss';
+import { useTranslation } from 'react-i18next';
 
 const Tools = (): JSX.Element => {
+    const { t } = useTranslation();
+
     const openGithub = (): void => {
         const newWindow = window.open(LUM_NETWORK_GITHUB, '_blank', 'noopener,noreferrer');
         if (newWindow) newWindow.opener = null;
@@ -21,24 +24,20 @@ const Tools = (): JSX.Element => {
                 <div className="row gy-4 gy-lg-0">
                     <div className="col-12 col-lg-5 my-auto">
                         <div>
-                            <h1>We Build Tools for Everyone</h1>
-                            <p className="my-4">
-                                Open-source tools are the future of
-                                <br />
-                                Web3 in the Interchain.
-                            </p>
+                            <h1>{t('tools.landingSection.title')}</h1>
+                            <p className="my-4">{t('tools.landingSection.description')}</p>
                             <div className="d-flex flex-column flex-lg-row">
                                 <NavLink
                                     to={NavigationConstants.TOOLS}
                                     className="tools-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill me-4"
                                 >
-                                    Discover our tools
+                                    {t('tools.landingSection.discoverBtn')}
                                 </NavLink>
                                 <Button outline inverted className="github-btn mt-3 mt-lg-0" onClick={openGithub}>
                                     <span className="me-2">
                                         <img src={github} alt="" />
                                     </span>
-                                    Access our github
+                                    {t('tools.landingSection.githubBtn')}
                                 </Button>
                             </div>
                         </div>

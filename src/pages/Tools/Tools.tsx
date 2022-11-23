@@ -43,43 +43,43 @@ const Tools = (): JSX.Element => {
             <div className="container">
                 <img src={toolsIllu} alt="Tools illustration" className="illustration" />
                 <div className="section-content">
-                    <h1 className="section-content-title mt-5">{t('toolsPage.title')}</h1>
+                    <h1 className="section-content-title mt-5">{t('tools.page.title')}</h1>
                     <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
-                        <div className="col">{t('toolsPage.description1')}</div>
-                        <div className="col">{t('toolsPage.description2')}</div>
+                        <div className="col">{t('tools.page.description1')}</div>
+                        <div className="col">{t('tools.page.description2')}</div>
                     </div>
-                    <h6 className="mb-3">{t('toolsPage.numbers.title')}</h6>
+                    <h6 className="mb-3">{t('tools.page.numbers.title')}</h6>
                     <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{stars}</div>
-                                <p>{t('toolsPage.numbers.stars')}</p>
+                                <p>{t('tools.page.numbers.stars')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{commits}</div>
-                                <p>{t('toolsPage.numbers.commits')}</p>
+                                <p>{t('tools.page.numbers.commits')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{forks}</div>
-                                <p>{t('toolsPage.numbers.forks')}</p>
+                                <p>{t('tools.page.numbers.forks')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{openSourceRepos}</div>
-                                <p>{t('toolsPage.numbers.openSource')}</p>
+                                <p>{t('tools.page.numbers.openSource')}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto">
-                        <h2>{t('toolsPage.wallet.title')}</h2>
-                        <p>{t('toolsPage.wallet.description')}</p>
+                        <h2>{t('tools.page.wallet.title')}</h2>
+                        <p>{t('tools.page.wallet.description')}</p>
                         <Link
                             link={LUM_WALLET_GITHUB}
                             className="wallet-github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
@@ -87,7 +87,7 @@ const Tools = (): JSX.Element => {
                             <span className="ms-3 me-3">
                                 <img src={github} alt="" />
                             </span>
-                            {t('toolsPage.wallet.cta')}
+                            {t('tools.page.wallet.cta')}
                         </Link>
                     </div>
                     <div className="col-12 col-lg-7 order-first order-lg-last mb-5 mb-lg-0">
@@ -99,8 +99,8 @@ const Tools = (): JSX.Element => {
                         <img src={explorerBrowser} className="illustration" alt="Lum Wallet in browser" />
                     </div>
                     <div className="col-12 col-lg-5 my-auto">
-                        <h2>{t('toolsPage.explorer.title')}</h2>
-                        <p>{t('toolsPage.explorer.description')}</p>
+                        <h2>{t('tools.page.explorer.title')}</h2>
+                        <p>{t('tools.page.explorer.description')}</p>
                         <Link
                             link={LUM_EXPLORER_GITHUB}
                             className="wallet-github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
@@ -108,7 +108,7 @@ const Tools = (): JSX.Element => {
                             <span className="ms-3 me-3">
                                 <img src={github} alt="" />
                             </span>
-                            {t('toolsPage.explorer.cta')}
+                            {t('tools.page.explorer.cta')}
                         </Link>
                     </div>
                 </div>

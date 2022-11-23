@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { Link } from 'components';
 import { NavigationConstants, SKR_URL } from 'constant';
+import { RootState } from 'redux/store';
 
 import dfractIllu from 'assets/images/dfract_big.png';
 import skrIllu from 'assets/images/skr_big.png';
@@ -14,6 +16,11 @@ import './UseCases.scss';
 
 const SkrUseCase = (): JSX.Element => {
     const { t } = useTranslation();
+    const { countries, brands, reviews } = useSelector((state: RootState) => ({
+        countries: state.stats.skr.countries,
+        brands: state.stats.skr.brands,
+        reviews: state.stats.skr.reviews,
+    }));
 
     return (
         <section id="skr-use-case">
@@ -29,19 +36,19 @@ const SkrUseCase = (): JSX.Element => {
                     <div className="row row-cols-2 row-cols-lg-3 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{countries || '-'}</div>
                                 <p>{t('useCases.skr.page.numbers.countries')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{reviews || '-'}</div>
                                 <p>{t('useCases.skr.page.numbers.reviews')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">7M+</div>
+                                <div className="stat-number">{brands || '-'}</div>
                                 <p>{t('useCases.skr.page.numbers.brands')}</p>
                             </div>
                         </div>

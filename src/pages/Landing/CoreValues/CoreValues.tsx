@@ -21,7 +21,7 @@ const CoreValues = (): JSX.Element => {
                         <img alt="cube" className="cube mb-5 mb-lg-0" src={cube} />
                     </div>
                     <div className="col-12 col-lg-7">
-                        <h1 className="section-content-title mb-4">Core Values</h1>
+                        <h1 className="section-content-title mb-4">{t('coreValues.title')}</h1>
                         <div className="row row-cols-1 row-cols-lg-2 gy-4">
                             <div className="col">
                                 <div className="core-value-card">
