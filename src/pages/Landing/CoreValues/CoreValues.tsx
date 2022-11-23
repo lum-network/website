@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import cube from 'assets/images/cube.png';
 import community from 'assets/images/community.svg';
@@ -12,6 +13,41 @@ import './CoreValues.scss';
 const CoreValues = (): JSX.Element => {
     const { t } = useTranslation();
     const valuesWordings = t('coreValues.cards', { returnObjects: true });
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const scrollTrigger = {
+            trigger: `#core-values`,
+            start: 'top 60%',
+            end: 'top 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline({
+                scrollTrigger,
+            });
+
+            timeline.current = tl;
+
+            tl.from('#core-values .cube', {
+                opacity: 0,
+                y: 50,
+                ease: 'none',
+            })
+                .from('#core-values .section-content-title', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                })
+                .from('#core-values .row', {
+                    y: 150,
+                    opacity: 0,
+                    ease: 'none',
+                });
+        }
+    }, []);
 
     return (
         <section id="core-values">

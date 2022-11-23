@@ -1,20 +1,52 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
+
+import { NavigationConstants } from 'constant';
 
 import skr from 'assets/images/skr.png';
 import dfract from 'assets/images/dfract.png';
 
 import './UseCases.scss';
-import { NavigationConstants } from 'constant';
-import { useTranslation } from 'react-i18next';
 
 const UseCases = (): JSX.Element => {
     const { t } = useTranslation();
 
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const scrollTrigger = {
+            trigger: `#use-cases`,
+            start: 'top 60%',
+            end: 'top 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline({
+                scrollTrigger,
+            });
+
+            timeline.current = tl;
+
+            tl.from('#use-cases .section-content-title', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+            }).from('#use-cases .use-case-card', {
+                y: 100,
+                opacity: 0,
+                ease: 'none',
+            });
+        }
+    }, []);
+
     return (
         <section id="use-cases">
             <div className="container">
-                <h1 className="mb-4">{t('useCases.title')}</h1>
+                <h1 className="mb-4 section-content-title">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
                     <div className="use-case-card w-100 me-lg-5">
                         <img src={skr} alt="skeepers-rewards" className="w-100" />

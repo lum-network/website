@@ -1,19 +1,51 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
+import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 import numeral from 'numeral';
 
+import { RootState } from 'redux/store';
+
 import './NetworkNumbers.scss';
-import { useTranslation } from 'react-i18next';
 
 const NetworkNumbers = (): JSX.Element => {
     const { t } = useTranslation();
     const lumStats = useSelector((state: RootState) => state.stats.lum);
 
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const scrollTrigger = {
+            trigger: `#numbers`,
+            start: 'top 60%',
+            end: 'top 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline({
+                scrollTrigger,
+            });
+
+            timeline.current = tl;
+
+            tl.from('#numbers .section-content-title', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+            }).from('#numbers .numbers-container', {
+                y: 100,
+                opacity: 0,
+                ease: 'none',
+            });
+        }
+    }, []);
+
     return (
         <section id="numbers">
             <div className="container py-4">
-                <h1 className="mb-4">{t('networkNumbers.title')}</h1>
+                <h1 className="mb-4 section-content-title">{t('networkNumbers.title')}</h1>
                 <div className="row row-cols-2 row-cols-lg-5 numbers-container mx-1 mx-lg-0 gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                     <div className="col">
                         <div className="py-3">

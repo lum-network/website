@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import { Button } from 'components';
 import { LUM_NETWORK_GITHUB, NavigationConstants } from 'constant';
@@ -8,10 +10,39 @@ import tools from 'assets/images/tools.png';
 import github from 'assets/images/github.png';
 
 import './LumTools.scss';
-import { useTranslation } from 'react-i18next';
 
 const Tools = (): JSX.Element => {
     const { t } = useTranslation();
+
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const scrollTrigger = {
+            trigger: `#lum-tools`,
+            start: 'top 60%',
+            end: 'top 2%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline({
+                scrollTrigger,
+            });
+
+            timeline.current = tl;
+
+            tl.from('#lum-tools .tools-illustration', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+            }).from('#lum-tools .section-content', {
+                y: 100,
+                opacity: 0,
+                ease: 'none',
+            });
+        }
+    }, []);
 
     const openGithub = (): void => {
         const newWindow = window.open(LUM_NETWORK_GITHUB, '_blank', 'noopener,noreferrer');
@@ -23,7 +54,7 @@ const Tools = (): JSX.Element => {
             <div className="container py-4 py-lg-auto">
                 <div className="row gy-4 gy-lg-0">
                     <div className="col-12 col-lg-5 my-auto">
-                        <div>
+                        <div className="section-content">
                             <h1>{t('tools.landingSection.title')}</h1>
                             <p className="my-4">{t('tools.landingSection.description')}</p>
                             <div className="d-flex flex-column flex-lg-row">
@@ -43,7 +74,7 @@ const Tools = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="col-12 col-lg-7 ms-auto">
-                        <img src={tools} alt="Tools overview" className="w-100" />
+                        <img src={tools} alt="Tools overview" className="tools-illustration w-100" />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import { gsap } from 'gsap';
 
 import { Link } from 'components';
 import { LUM_DISCORD, LUM_MEDIUM, LUM_TELEGRAM, LUM_TWITTER } from 'constant';
@@ -9,10 +11,35 @@ import discord from 'assets/images/discord.svg';
 import telegram from 'assets/images/telegram.svg';
 
 import './JoinLumCommunity.scss';
-import { useTranslation } from 'react-i18next';
 
 const JoinLumCommunity = (): JSX.Element => {
     const { t } = useTranslation();
+
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const scrollTrigger = {
+            trigger: `#join-lum-community`,
+            start: 'top 60%',
+            end: 'top 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline({
+                scrollTrigger,
+            });
+
+            timeline.current = tl;
+
+            tl.from('#join-lum-community .socials-container', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+            });
+        }
+    }, []);
 
     return (
         <section id="join-lum-community">
