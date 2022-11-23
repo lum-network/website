@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import { Link } from 'components';
-import { NavigationConstants, SKR_URL } from 'constant';
+import { LUM_DFRACT, NavigationConstants } from 'constant';
 
 import dfractBrowser from 'assets/images/dfract_browser.png';
 import dfractBigIllu from 'assets/images/dfract_big2.png';
@@ -73,7 +73,7 @@ const DfractUseCase = (): JSX.Element => {
                         <h2>{t('useCases.dfract.page.details.title')}</h2>
                         <p>{t('useCases.dfract.page.details.description')}</p>
                         <Link
-                            link={SKR_URL}
+                            link={LUM_DFRACT}
                             className="wallet-github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
                         >
                             {t('useCases.dfract.page.details.cta')}
