@@ -35,7 +35,6 @@ const DfractUseCase = (): JSX.Element => {
             trigger: `#dfract-use-case .scroll-trigger`,
             start: 'bottom 60%',
             scrub: true,
-            markers: true,
         };
 
         const useCaseSectionTrigger = {

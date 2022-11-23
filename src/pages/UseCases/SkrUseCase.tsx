@@ -31,7 +31,6 @@ const SkrUseCase = (): JSX.Element => {
             trigger: `#skr-use-case .scroll-trigger`,
             start: 'bottom 60%',
             scrub: true,
-            markers: true,
         };
 
         const useCaseSectionTrigger = {
