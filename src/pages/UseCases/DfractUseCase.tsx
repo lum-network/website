@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { gsap } from 'gsap';
 
 import { Link } from 'components';
 import { LUM_DFRACT, NavigationConstants } from 'constant';
@@ -25,6 +26,56 @@ const DfractUseCase = (): JSX.Element => {
         totalValueUsd: state.stats.dfr.totalValueUsd,
         unitPriceUsd: state.stats.dfr.unitPriceUsd,
     }));
+
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const browserSectionTrigger = {
+            trigger: `#dfract-use-case .scroll-trigger`,
+            start: 'bottom 60%',
+            scrub: true,
+            markers: true,
+        };
+
+        const useCaseSectionTrigger = {
+            trigger: `#dfract-use-case .use-cases-container`,
+            start: 'bottom+=700px 60%',
+            end: 'bottom+=1000px 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline();
+
+            timeline.current = tl;
+
+            tl.from('#dfract-use-case .browser', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: browserSectionTrigger,
+            })
+                .from('#dfract-use-case .browser-content', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: browserSectionTrigger,
+                })
+                .from('#dfract-use-case .use-cases-container h1', {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCaseSectionTrigger,
+                })
+                .from('#dfract-use-case .use-case-card', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCaseSectionTrigger,
+                });
+        }
+    }, []);
 
     useEffect(() => {
         dispatch.stats.getDfrStats().finally(() => null);
@@ -68,8 +119,8 @@ const DfractUseCase = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="row section-margin-top">
-                    <div className="col-12 col-lg-5 my-auto">
+                <div className="row section-margin-top scroll-trigger">
+                    <div className="col-12 col-lg-5 my-auto browser-content">
                         <h2>{t('useCases.dfract.page.details.title')}</h2>
                         <p>{t('useCases.dfract.page.details.description')}</p>
                         <Link
@@ -80,11 +131,11 @@ const DfractUseCase = (): JSX.Element => {
                         </Link>
                     </div>
                     <div className="col-12 col-lg-7 order-first order-lg-last mb-5 mb-lg-0">
-                        <img src={dfractBrowser} className="illustration" alt="Skeepers Rewards in browser" />
+                        <img src={dfractBrowser} className="illustration browser" alt="Skeepers Rewards in browser" />
                     </div>
                 </div>
             </div>
-            <img src={dfractBigIllu} className="section-margin-top" alt="" />
+            <img src={dfractBigIllu} className="section-margin-top scroll-trigger-2" alt="" />
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <div className="use-case-card w-100">

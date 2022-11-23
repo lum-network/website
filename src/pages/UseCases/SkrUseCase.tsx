@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { gsap } from 'gsap';
 
 import { Link } from 'components';
 import { NavigationConstants, SKR_URL } from 'constant';
@@ -22,6 +23,55 @@ const SkrUseCase = (): JSX.Element => {
         reviews: state.stats.skr.reviews,
     }));
 
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const browserSectionTrigger = {
+            trigger: `#skr-use-case .scroll-trigger`,
+            start: 'bottom 60%',
+            scrub: true,
+            markers: true,
+        };
+
+        const useCaseSectionTrigger = {
+            trigger: `#skr-use-case .use-cases-container`,
+            start: 'bottom+=700px 60%',
+            end: 'bottom+=1000px 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline();
+
+            timeline.current = tl;
+
+            tl.from('#skr-use-case .browser', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: browserSectionTrigger,
+            })
+                .from('#skr-use-case .browser-content', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: browserSectionTrigger,
+                })
+                .from('#skr-use-case .use-cases-container h1', {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCaseSectionTrigger,
+                })
+                .from('#skr-use-case .use-case-card', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCaseSectionTrigger,
+                });
+        }
+    }, []);
     return (
         <section id="skr-use-case">
             <div className="container">
@@ -54,8 +104,8 @@ const SkrUseCase = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="row section-margin-top">
-                    <div className="col-12 col-lg-5 my-auto">
+                <div className="row section-margin-top scroll-trigger">
+                    <div className="col-12 col-lg-5 my-auto browser-content">
                         <h2>{t('useCases.skr.page.details.title')}</h2>
                         <p>{t('useCases.skr.page.details.description')}</p>
                         <Link
@@ -66,11 +116,11 @@ const SkrUseCase = (): JSX.Element => {
                         </Link>
                     </div>
                     <div className="col-12 col-lg-7 order-first order-lg-last mb-5 mb-lg-0">
-                        <img src={skrBrowser} className="illustration" alt="Skeepers Rewards in browser" />
+                        <img src={skrBrowser} className="illustration browser" alt="Skeepers Rewards in browser" />
                     </div>
                 </div>
             </div>
-            <img src={skrBigIllu} className="section-margin-top" alt="" />
+            <img src={skrBigIllu} className="section-margin-top scroll-trigger-2" alt="" />
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <div className="use-case-card w-100">

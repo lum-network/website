@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { gsap } from 'gsap';
 
 import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB, NavigationConstants } from 'constant';
 import { Link } from 'components';
@@ -34,6 +35,74 @@ const Tools = (): JSX.Element => {
     }));
     const dispatch = useDispatch<Dispatch>();
 
+    const timeline = useRef<gsap.core.Timeline>();
+
+    useEffect(() => {
+        // GSAP Section Scroll Animations
+        const walletSectionTrigger = {
+            trigger: `#tools .scroll-trigger`,
+            start: 'bottom 60%',
+            scrub: true,
+        };
+
+        const explorerSectionTrigger = {
+            trigger: `#tools .scroll-trigger-2`,
+            start: 'bottom 60%',
+            end: 'bottom 10%',
+            scrub: true,
+        };
+
+        const useCasesSectionTrigger = {
+            trigger: `#tools .use-cases-container`,
+            start: 'bottom+=700px 60%',
+            end: 'bottom+=1000px 10%',
+            scrub: true,
+        };
+
+        if (!timeline.current) {
+            const tl = gsap.timeline();
+
+            timeline.current = tl;
+
+            tl.from('#tools .wallet-browser', {
+                y: 50,
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: walletSectionTrigger,
+            })
+                .from('#tools .wallet-browser-content', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: walletSectionTrigger,
+                })
+                .from('#tools .explorer-browser', {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: explorerSectionTrigger,
+                })
+                .from('#tools .explorer-browser-content', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: explorerSectionTrigger,
+                })
+                .from('#tools .use-cases-container h1', {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCasesSectionTrigger,
+                })
+                .from('#tools .use-case-card', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCasesSectionTrigger,
+                });
+        }
+    }, []);
+
     useEffect(() => {
         dispatch.stats.getToolsStats().finally(() => null);
     }, []);
@@ -48,7 +117,7 @@ const Tools = (): JSX.Element => {
                         <div className="col">{t('tools.page.description1')}</div>
                         <div className="col">{t('tools.page.description2')}</div>
                     </div>
-                    <h6 className="mb-3">{t('tools.page.numbers.title')}</h6>
+                    <h6 className="mb-3 section-content-title">{t('tools.page.numbers.title')}</h6>
                     <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
@@ -76,8 +145,8 @@ const Tools = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="row section-margin-top">
-                    <div className="col-12 col-lg-5 my-auto">
+                <div className="row section-margin-top scroll-trigger">
+                    <div className="col-12 col-lg-5 my-auto wallet-browser-content">
                         <h2>{t('tools.page.wallet.title')}</h2>
                         <p>{t('tools.page.wallet.description')}</p>
                         <Link
@@ -91,14 +160,18 @@ const Tools = (): JSX.Element => {
                         </Link>
                     </div>
                     <div className="col-12 col-lg-7 order-first order-lg-last mb-5 mb-lg-0">
-                        <img src={walletBrowser} className="illustration" alt="Lum Wallet in browser" />
+                        <img src={walletBrowser} className="illustration wallet-browser" alt="Lum Wallet in browser" />
                     </div>
                 </div>
                 <div className="row section-margin-top">
                     <div className="col-12 col-lg-7 mb-5 mb-lg-0">
-                        <img src={explorerBrowser} className="illustration" alt="Lum Wallet in browser" />
+                        <img
+                            src={explorerBrowser}
+                            className="illustration explorer-browser"
+                            alt="Lum Wallet in browser"
+                        />
                     </div>
-                    <div className="col-12 col-lg-5 my-auto">
+                    <div className="col-12 col-lg-5 my-auto explorer-browser-content">
                         <h2>{t('tools.page.explorer.title')}</h2>
                         <p>{t('tools.page.explorer.description')}</p>
                         <Link
@@ -113,7 +186,7 @@ const Tools = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <img src={toolsIllu2} className="section-margin-top" alt="" />
+            <img src={toolsIllu2} className="section-margin-top scroll-trigger-2" alt="" />
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
