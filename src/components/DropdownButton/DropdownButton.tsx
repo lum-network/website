@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import arrow from 'assets/images/dropdown-arrow.svg';
 
 import './DropdownButton.scss';
+import { Link } from 'react-router-dom';
 
 interface Props {
     title: string;
@@ -30,18 +31,15 @@ const DropdownButton = (props: Props): JSX.Element => {
             <ul className="dropdown-menu pt-5">
                 {items.map((item, index) => (
                     <li key={`dropdown-item-${index}`}>
-                        <a
-                            {...(typeof item.onPress === 'string'
-                                ? {
-                                      href: item.onPress,
-                                  }
-                                : {
-                                      onClick: item.onPress,
-                                  })}
-                            className="dropdown-item scale-anim mb-3"
-                        >
-                            {item.title}
-                        </a>
+                        {typeof item.onPress === 'string' ? (
+                            <Link to={item.onPress} className="dropdown-item scale-anim mb-3">
+                                {item.title}
+                            </Link>
+                        ) : (
+                            <button className="dropdown-item scale-anim mb-3" onClick={item.onPress}>
+                                {item.title}
+                            </button>
+                        )}
                     </li>
                 ))}
             </ul>
