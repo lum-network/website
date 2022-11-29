@@ -75,7 +75,15 @@ export const stats = createModel<RootModel>()({
                 openSourceRepos: payload.openSourceRepos,
                 commits: payload.commits,
             },
-        }), 
+        }),
+        SET_SKR_STATS: (state, payload: SkrStatsModel) => ({
+            ...state,
+            skr: {
+                countries: payload.countries,
+                reviews: payload.reviews,
+                brands: payload.brands,
+            },
+        }),
     },
     effects: (dispatch) => ({
         async getDfrStats() {
@@ -97,6 +105,13 @@ export const stats = createModel<RootModel>()({
             const toolsStats = await GithubUtils.getReposInfos();
 
             dispatch.stats.SET_TOOLS_STATS(toolsStats);
+        },
+        async getSkrStats() {
+            dispatch.stats.SET_SKR_STATS({
+                countries: 63,
+                brands: 900,
+                reviews: 200000,
+            });
         }
     }),
 });

@@ -1,4 +1,5 @@
-import { Exclude, Expose, Transform } from 'class-transformer';
+import { Exclude, Expose, Transform, Type } from 'class-transformer';
+import { ValidatorsType } from 'constant';
 
 @Exclude()
 export class MetadataModel {
@@ -95,6 +96,65 @@ export class CoinModel {
         return param.value.toString();
     })
     amount = '';
+}
+
+export class ValidatorModel {
+    @Expose({ name: 'operator_address' })
+    operatorAddress?: string;
+
+    @Expose({ name: 'display_name' })
+    displayName?: string;
+
+    @Expose({ name: 'account_address' })
+    address?: string;
+
+    @Expose({ name: 'self_bonded' })
+    selfBonded = 0.0;
+
+    genesis = false;
+
+    jailed = false;
+
+    tombstoned = false;
+
+    tokens?: string;
+
+    @Expose({ name: 'bonded_height' })
+    bondedHeight?: number;
+
+    @Expose({ name: 'delegator_shares' })
+    delegatorShares?: string;
+
+    status?: ValidatorsType;
+
+    uptime = 0;
+}
+
+class Inflation {
+    @Expose({ name: 'rate_change' })
+    rateChange: number;
+
+    min: number;
+    max: number;
+    current: number;
+}
+
+class MintParams {
+    @Type(() => Inflation)
+    inflation: Inflation;
+}
+
+class DistributionParams {
+    @Expose({ name: 'community_tax' })
+    communityTax: number;
+}
+
+export class ParamsModel {
+    @Type(() => DistributionParams)
+    distribution: DistributionParams;
+
+    @Type(() => MintParams)
+    mint: MintParams;
 }
 
 export interface LumStatsModel {

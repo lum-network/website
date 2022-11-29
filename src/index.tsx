@@ -1,10 +1,10 @@
+import 'reflect-metadata';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as dotenv from 'dotenv';
-
-import 'reflect-metadata';
 
 import '@popperjs/core/dist/esm/popper';
 import 'bootstrap/dist/js/bootstrap.bundle';

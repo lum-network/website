@@ -73,6 +73,8 @@ const App = (): JSX.Element => {
     useEffect(() => {
         dispatch.stats.getLumStats().finally(() => null);
         dispatch.stats.getDfrStats().finally(() => null);
+        dispatch.stats.getSkrStats().finally(() => null);
+        dispatch.stats.getToolsStats().finally(() => null);
     }, []);
 
     return (

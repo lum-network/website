@@ -33,15 +33,16 @@ const DfractUseCase = (): JSX.Element => {
         // GSAP Section Scroll Animations
         const browserSectionTrigger = {
             trigger: `#dfract-use-case .scroll-trigger`,
-            start: 'bottom 60%',
+            start: 'bottom 55%',
             scrub: true,
         };
 
         const useCaseSectionTrigger = {
             trigger: `#dfract-use-case .use-cases-container`,
-            start: 'bottom+=700px 60%',
-            end: 'bottom+=1000px 10%',
+            start: 'top 60%',
+            end: 'top 10%',
             scrub: true,
+            id: 'dfract',
         };
 
         if (!timeline.current) {
@@ -61,18 +62,26 @@ const DfractUseCase = (): JSX.Element => {
                     ease: 'none',
                     scrollTrigger: browserSectionTrigger,
                 })
-                .from('#dfract-use-case .use-cases-container h1', {
-                    y: 50,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: useCaseSectionTrigger,
-                })
-                .from('#dfract-use-case .use-case-card', {
-                    y: 100,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: useCaseSectionTrigger,
-                });
+                .from(
+                    '#dfract-use-case .use-cases-container h1',
+                    {
+                        y: 50,
+                        opacity: 0,
+                        ease: 'none',
+                        scrollTrigger: useCaseSectionTrigger,
+                    },
+                    '>',
+                )
+                .from(
+                    '#dfract-use-case .use-case-card',
+                    {
+                        y: 100,
+                        opacity: 0,
+                        ease: 'none',
+                        scrollTrigger: useCaseSectionTrigger,
+                    },
+                    '>',
+                );
         }
     }, []);
 
@@ -84,7 +93,7 @@ const DfractUseCase = (): JSX.Element => {
         <section id="dfract-use-case">
             <div className="container">
                 <img src={dfractIllu} alt="Skeepers Rewards illustration" className="illustration" />
-                <div className="section-content">
+                <div className="section-content scroll-trigger">
                     <h1 className="section-content-title mt-5">{t('useCases.dfract.card.title')}</h1>
                     <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
                         <div className="col">{t('useCases.dfract.page.description1')}</div>
@@ -112,13 +121,13 @@ const DfractUseCase = (): JSX.Element => {
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{apy || '-'}</div>
+                                <div className="stat-number">{numeral(apy).format('0.00%') || '-'}</div>
                                 <p>{t('useCases.dfract.page.numbers.apy')}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="row section-margin-top scroll-trigger">
+                <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto browser-content">
                         <h2>{t('useCases.dfract.page.details.title')}</h2>
                         <p>{t('useCases.dfract.page.details.description')}</p>
@@ -134,7 +143,7 @@ const DfractUseCase = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <img src={dfractBigIllu} className="section-margin-top scroll-trigger-2" alt="" />
+            <img src={dfractBigIllu} className="use-case-illustration section-margin-top scroll-trigger-2" alt="" />
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <div className="use-case-card w-100">

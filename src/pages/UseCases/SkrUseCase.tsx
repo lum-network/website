@@ -14,6 +14,7 @@ import skrBigIllu from 'assets/images/skr_big2.png';
 import skrBrowser from 'assets/images/skr_browser.png';
 
 import './UseCases.scss';
+import numeral from 'numeral';
 
 const SkrUseCase = (): JSX.Element => {
     const { t } = useTranslation();
@@ -29,15 +30,16 @@ const SkrUseCase = (): JSX.Element => {
         // GSAP Section Scroll Animations
         const browserSectionTrigger = {
             trigger: `#skr-use-case .scroll-trigger`,
-            start: 'bottom 60%',
+            start: 'bottom 55%',
             scrub: true,
         };
 
         const useCaseSectionTrigger = {
             trigger: `#skr-use-case .use-cases-container`,
-            start: 'bottom+=700px 60%',
-            end: 'bottom+=1000px 10%',
+            start: 'top 60%',
+            end: 'top 10%',
             scrub: true,
+            id: 'skr',
         };
 
         if (!timeline.current) {
@@ -57,25 +59,33 @@ const SkrUseCase = (): JSX.Element => {
                     ease: 'none',
                     scrollTrigger: browserSectionTrigger,
                 })
-                .from('#skr-use-case .use-cases-container h1', {
-                    y: 50,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: useCaseSectionTrigger,
-                })
-                .from('#skr-use-case .use-case-card', {
-                    y: 100,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: useCaseSectionTrigger,
-                });
+                .from(
+                    '#skr-use-case .use-cases-container h1',
+                    {
+                        y: 50,
+                        opacity: 0,
+                        ease: 'none',
+                        scrollTrigger: useCaseSectionTrigger,
+                    },
+                    '>',
+                )
+                .from(
+                    '#skr-use-case .use-case-card',
+                    {
+                        y: 100,
+                        opacity: 0,
+                        ease: 'none',
+                        scrollTrigger: useCaseSectionTrigger,
+                    },
+                    '>',
+                );
         }
     }, []);
     return (
         <section id="skr-use-case">
             <div className="container">
                 <img src={skrIllu} alt="Skeepers Rewards illustration" className="illustration" />
-                <div className="section-content">
+                <div className="section-content scroll-trigger">
                     <h1 className="section-content-title mt-5">{t('useCases.skr.card.title')}</h1>
                     <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
                         <div className="col">{t('useCases.skr.page.description1')}</div>
@@ -91,19 +101,23 @@ const SkrUseCase = (): JSX.Element => {
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{reviews || '-'}</div>
+                                <div className="stat-number">
+                                    {numeral(reviews).format('0a').toUpperCase() + '+' || '-'}
+                                </div>
                                 <p>{t('useCases.skr.page.numbers.reviews')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{brands || '-'}</div>
+                                <div className="stat-number">
+                                    {numeral(brands).format('0a').toUpperCase() + '+' || '-'}
+                                </div>
                                 <p>{t('useCases.skr.page.numbers.brands')}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="row section-margin-top scroll-trigger">
+                <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto browser-content">
                         <h2>{t('useCases.skr.page.details.title')}</h2>
                         <p>{t('useCases.skr.page.details.description')}</p>

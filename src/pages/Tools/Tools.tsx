@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { gsap } from 'gsap';
 
 import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB, NavigationConstants } from 'constant';
 import { Link } from 'components';
+import { RootState } from 'redux/store';
 
 import toolsIllu from 'assets/images/tools_big.png';
 import toolsIllu2 from 'assets/images/tools_big2.png';
@@ -15,8 +17,6 @@ import skr from 'assets/images/skr.png';
 import dfract from 'assets/images/dfract.png';
 
 import './Tools.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, Dispatch } from 'redux/store';
 
 const Tools = (): JSX.Element => {
     const { t } = useTranslation();
@@ -33,7 +33,6 @@ const Tools = (): JSX.Element => {
         openSourceRepos: state.stats.tools.openSourceRepos,
         commits: state.stats.tools.commits,
     }));
-    const dispatch = useDispatch<Dispatch>();
 
     const timeline = useRef<gsap.core.Timeline>();
 
@@ -100,11 +99,11 @@ const Tools = (): JSX.Element => {
                     ease: 'none',
                     scrollTrigger: useCasesSectionTrigger,
                 });
-        }
-    }, []);
 
-    useEffect(() => {
-        dispatch.stats.getToolsStats().finally(() => null);
+            tl.scrollTrigger?.refresh();
+        } else {
+            timeline.current.scrollTrigger?.refresh();
+        }
     }, []);
 
     return (
