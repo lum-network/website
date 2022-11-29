@@ -23,6 +23,7 @@ const DotsSvgPaths = (): JSX.Element => {
             <svg width="2005" height="195" viewBox="0 0 2005 195" fill="none">
                 <path
                     id="mv-dot-path-1"
+                    // eslint-disable-next-line max-len
                     d="M2.5 192.369C65.4056 142.747 143.289 59.7061 284.078 49.5791C424.866 39.4522 488.271 186.293 648.531 186.293C808.791 186.293 877.687 36.9205 1074.39 6.53973C1271.1 -23.8411 1420.87 174.14 1648.53 172.115C1876.19 170.09 1975.54 108.822 2002.5 95.6567"
                     stroke="white"
                     strokeWidth="5"
@@ -32,6 +33,7 @@ const DotsSvgPaths = (): JSX.Element => {
             <svg width="2006" height="194" viewBox="0 0 2006 194" fill="none">
                 <path
                     id="mv-dot-path-2"
+                    // eslint-disable-next-line max-len
                     d="M3 2.5C28.5128 36.8636 134.566 137.991 306.652 133.573C478.738 129.155 581.789 40.7909 783.39 46.6818C984.991 52.5727 1162.58 191.5 1292.64 191.5C1422.71 191.5 1541.77 64.8455 1720.36 52.5727C1863.23 42.7545 1968.32 76.7091 2003 97"
                     stroke="white"
                     strokeWidth="5"
@@ -216,6 +218,7 @@ const WelcomeSection = (): JSX.Element => {
                         duration: 0.85,
                         opacity: 1,
                         color: '#000',
+                        // eslint-disable-next-line max-len
                         textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
                         ease: Power1.easeIn,
                         stagger: 0.075,
