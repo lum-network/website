@@ -175,7 +175,7 @@ const WelcomeSection = (): JSX.Element => {
             translateY: -75,
             ease: 'none',
             scrollTrigger: scrollTrigger,
-            stragger: 0.25,
+            stagger: 0.25,
         });
         gsap.to(`#welcome .planet-illustration`, {
             translateY: -125,
