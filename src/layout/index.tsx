@@ -33,12 +33,6 @@ const MainLayout = (): JSX.Element => {
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
                 <div className="row mb-4">
-                    {/*<div className="col-12">*/}
-                    {/*    <h1 dangerouslySetInnerHTML={{ __html: t('getInformedModal.title') }} />*/}
-                    {/*</div>*/}
-                    {/*<div className="col-12">*/}
-                    {/*    <p dangerouslySetInnerHTML={{ __html: t('getInformedModal.description') }} />*/}
-                    {/*</div>*/}
                     <video muted playsInline autoPlay controls>
                         <source src={videoSrc} type="video/mp4" />
                     </video>

@@ -2,12 +2,6 @@ import React from 'react';
 
 import WelcomeSection from './WelcomeSection';
 import TrustedBySection from './TrustedBySection';
-//import GreenSection from './GreenSection';
-//import LumSection from './LumSection';
-//import ShowCaseSection from './ShowCaseSection';
-//import TrustLayerSection from './TrustLayerSection';
-//import PartneringSection from './PartneringSection';
-// import LatestHighlights from './LatestHighlights';
 import CoreValues from './CoreValues/CoreValues';
 import UseCases from './UseCases/UseCases';
 import NetworkNumbers from './NetworkNumbers/NetworkNumbers';
@@ -26,7 +20,6 @@ const Landing = (): JSX.Element => {
             <TrustedBySection />
             <JoinLumCommunity />
             <LumTools />
-            {/*<LatestHighlights />*/}
         </>
     );
 };
