@@ -2,10 +2,7 @@ import { Octokit as BaseOctokit } from '@octokit/core';
 import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
 import { Api } from '@octokit/plugin-rest-endpoint-methods/dist-types/types';
 
-import { GITHUB_TOKEN } from 'constant';
-
 const octokit = BaseOctokit.plugin(restEndpointMethods).defaults({
-    auth: GITHUB_TOKEN,
     userAgent: 'lum-network-website',
 });
 

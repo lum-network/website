@@ -68,4 +68,3 @@ export const ARTICLES: Article[] = [
 ];
 
 export const CHAIN_BRIDGE_URL = process.env.REACT_APP_CHAIN_BRIDGE_URL || '';
-export const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN || '';
