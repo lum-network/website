@@ -26,6 +26,7 @@ jobs:
         run: yarn build
         env:
           SASS_PATH: "node_modules:src/styles"
+          REACT_APP_CHAIN_BRIDGE_URL: https://explorer-mainnet.infra.lum.network
 
       - name: Test
         run: yarn test --passWithNoTests
