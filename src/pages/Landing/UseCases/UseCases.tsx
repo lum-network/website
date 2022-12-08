@@ -43,7 +43,6 @@ const UseCases = (): JSX.Element => {
                 .from(
                     '#use-cases .use-case-card .ellipse',
                     {
-                        y: 100,
                         opacity: 0,
                         ease: 'none',
                     },

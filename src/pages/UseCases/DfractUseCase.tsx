@@ -78,6 +78,15 @@ const DfractUseCase = (): JSX.Element => {
                         ease: 'none',
                         scrollTrigger: useCaseSectionTrigger,
                     },
+                    '<',
+                )
+                .from(
+                    '#dfract-use-case .use-case-card .ellipse',
+                    {
+                        opacity: 0,
+                        ease: 'none',
+                        scrollTrigger: useCaseSectionTrigger,
+                    },
                     '>',
                 );
         }

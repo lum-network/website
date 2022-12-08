@@ -104,7 +104,9 @@ const Tools = (): JSX.Element => {
                             ease: 'none',
                             scrollTrigger: {
                                 trigger: sectionRef.current.querySelector('.use-cases-container'),
-                                markers: true,
+                                start: 'bottom 60%',
+                                end: 'bottom+=200% 10%',
+                                //markers: true,
                                 scrub: true,
                                 id: 'use-cases',
                             },
@@ -127,7 +129,6 @@ const Tools = (): JSX.Element => {
                     .from(
                         '#tools .use-case-card .ellipse',
                         {
-                            y: 100,
                             opacity: 0,
                             ease: 'none',
                             scrollTrigger: {
