@@ -427,7 +427,7 @@ const WelcomeSection = (): JSX.Element => {
             <div className="container">
                 <a
                     onClick={() => {
-                        document.getElementById('trustlayer')?.scrollIntoView();
+                        document.getElementById('core-values')?.scrollIntoView();
                     }}
                     className="scroll-cta-container scale-anim d-flex flex-row align-self-end align-items-center d-none d-lg-flex"
                 >
