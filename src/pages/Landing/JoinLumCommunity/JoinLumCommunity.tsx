@@ -9,6 +9,7 @@ import medium from 'assets/images/medium.svg';
 import twitter from 'assets/images/twitter.svg';
 import discord from 'assets/images/discord.svg';
 import telegram from 'assets/images/telegram.svg';
+import ellipse1 from 'assets/images/ellipse.svg';
 
 import './JoinLumCommunity.scss';
 
@@ -33,32 +34,46 @@ const JoinLumCommunity = (): JSX.Element => {
 
             timeline.current = tl;
 
-            tl.from('#join-lum-community .socials-container', {
+            tl.from('#join-lum-community .socials-container .content', {
                 y: 50,
                 opacity: 0,
                 ease: 'none',
-            });
+            }).from(
+                '#join-lum-community .socials-container .ellipse',
+                {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                },
+                '>',
+            );
         }
     }, []);
 
     return (
         <section id="join-lum-community">
             <div className="container">
-                <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center socials-container">
-                    <h1 className="section-content-title text-center text-lg-start">{t('joinLumCommunity.title')}</h1>
-                    <div className="d-flex flex-row justify-content-center justify-content-lg-end flex-wrap socials-btn-container mt-4 mt-lg-0 w-100">
-                        <Link link={LUM_MEDIUM} custom className="social-button scale-anim">
-                            <img src={medium} alt="Medium logo" />
-                        </Link>
-                        <Link link={LUM_TWITTER} custom className="social-button scale-anim">
-                            <img src={twitter} alt="Twitter logo" />
-                        </Link>
-                        <Link link={LUM_DISCORD} custom className="social-button scale-anim">
-                            <img src={discord} alt="Discord logo" />
-                        </Link>
-                        <Link link={LUM_TELEGRAM} custom className="social-button scale-anim">
-                            <img src={telegram} alt="Telegram logo" />
-                        </Link>
+                <div className="socials-container">
+                    <img src={ellipse1} className="ellipse ellipse-1" />
+                    <img src={ellipse1} className="ellipse ellipse-2" />
+                    <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center content">
+                        <h1 className="section-content-title text-center text-lg-start">
+                            {t('joinLumCommunity.title')}
+                        </h1>
+                        <div className="d-flex flex-row justify-content-center justify-content-lg-end flex-wrap socials-btn-container mt-4 mt-lg-0 w-100">
+                            <Link link={LUM_MEDIUM} custom className="social-button scale-anim">
+                                <img src={medium} alt="Medium logo" />
+                            </Link>
+                            <Link link={LUM_TWITTER} custom className="social-button scale-anim">
+                                <img src={twitter} alt="Twitter logo" />
+                            </Link>
+                            <Link link={LUM_DISCORD} custom className="social-button scale-anim">
+                                <img src={discord} alt="Discord logo" />
+                            </Link>
+                            <Link link={LUM_TELEGRAM} custom className="social-button scale-anim">
+                                <img src={telegram} alt="Telegram logo" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

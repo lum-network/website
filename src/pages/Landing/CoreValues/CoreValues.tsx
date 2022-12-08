@@ -7,6 +7,7 @@ import community from 'assets/images/community.svg';
 import tech from 'assets/images/tech.svg';
 import leaf from 'assets/images/leaf.svg';
 import experience from 'assets/images/experience.svg';
+import ellipse1 from 'assets/images/ellipse.svg';
 
 import './CoreValues.scss';
 
@@ -46,13 +47,22 @@ const CoreValues = (): JSX.Element => {
                     '<',
                 )
                 .from(
-                    '#core-values .row',
+                    '#core-values .core-value-card',
                     {
                         y: 150,
                         opacity: 0,
                         ease: 'none',
                     },
                     '<',
+                )
+                .from(
+                    '#core-values .core-value-card .ellipse',
+                    {
+                        y: 50,
+                        opacity: 0,
+                        ease: 'none',
+                    },
+                    '>',
                 );
         }
     }, []);
@@ -69,7 +79,7 @@ const CoreValues = (): JSX.Element => {
                         <div className="row row-cols-1 row-cols-lg-2 gy-4">
                             <div className="col">
                                 <div className="core-value-card">
-                                    <div className="background" />
+                                    <img src={ellipse1} className="ellipse ellipse-1" />
                                     <div className="content px-4 py-3">
                                         <div className="icon-container">
                                             <img src={community} alt="" />
@@ -81,7 +91,7 @@ const CoreValues = (): JSX.Element => {
                             </div>
                             <div className="col">
                                 <div className="core-value-card">
-                                    <div className="background" />
+                                    <img src={ellipse1} className="ellipse ellipse-1" />
                                     <div className="content px-4 py-3">
                                         <div className="icon-container">
                                             <img src={tech} alt="" />
@@ -93,7 +103,7 @@ const CoreValues = (): JSX.Element => {
                             </div>
                             <div className="col">
                                 <div className="core-value-card">
-                                    <div className="background" />
+                                    <img src={ellipse1} className="ellipse ellipse-1" />
                                     <div className="content px-4 py-3">
                                         <div className="icon-container">
                                             <img src={leaf} alt="" />
@@ -105,7 +115,7 @@ const CoreValues = (): JSX.Element => {
                             </div>
                             <div className="col">
                                 <div className="core-value-card">
-                                    <div className="background" />
+                                    <img src={ellipse1} className="ellipse ellipse-1" />
                                     <div className="content px-4 py-3">
                                         <div className="icon-container">
                                             <img src={experience} alt="" />

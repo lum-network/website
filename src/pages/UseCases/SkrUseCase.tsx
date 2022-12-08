@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { gsap } from 'gsap';
 
-import { Link } from 'components';
-import { NavigationConstants, SKR_URL } from 'constant';
+import { Link, UseCaseCard } from 'components';
+import { SKR_URL } from 'constant';
 import { RootState } from 'redux/store';
 
-import dfractIllu from 'assets/images/dfract_big.png';
 import skrIllu from 'assets/images/skr_big.png';
 import skrBigIllu from 'assets/images/skr_big2.png';
 import skrBrowser from 'assets/images/skr_browser.png';
@@ -136,21 +134,7 @@ const SkrUseCase = (): JSX.Element => {
             <img src={skrBigIllu} className="use-case-illustration section-margin-top scroll-trigger-2" alt="" />
             <div className="container use-cases-container section-margin-top">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
-                <div className="use-case-card w-100">
-                    <img src={dfractIllu} alt="dfract" className="illustration" />
-                    <div className="p-4">
-                        <div className="fw-bold fs-3">{t('useCases.dfract.card.title')}</div>
-                        <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
-                            <p>{t('useCases.dfract.card.description')}</p>
-                            <NavLink
-                                to={NavigationConstants.DFRACT}
-                                className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-0 ms-lg-4"
-                            >
-                                {t('common.discover')}
-                            </NavLink>
-                        </div>
-                    </div>
-                </div>
+                <UseCaseCard big useCase="dfract" />
             </div>
         </section>
     );

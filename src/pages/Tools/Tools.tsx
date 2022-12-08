@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { gsap } from 'gsap';
 
-import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB, NavigationConstants } from 'constant';
-import { Link } from 'components';
+import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB } from 'constant';
+import { Link, UseCaseCard } from 'components';
 import { RootState } from 'redux/store';
 
 import toolsIllu from 'assets/images/tools_big.png';
@@ -13,8 +12,6 @@ import toolsIllu2 from 'assets/images/tools_big2.png';
 import walletBrowser from 'assets/images/wallet_browser.png';
 import explorerBrowser from 'assets/images/explorer_browser.png';
 import github from 'assets/images/github.png';
-import skr from 'assets/images/skr.png';
-import dfract from 'assets/images/dfract.png';
 
 import './Tools.scss';
 
@@ -125,6 +122,19 @@ const Tools = (): JSX.Element => {
                                 scrub: true,
                             },
                         },
+                        '<',
+                    )
+                    .from(
+                        '#tools .use-case-card .ellipse',
+                        {
+                            y: 100,
+                            opacity: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: sectionRef.current.querySelector('.use-cases-container'),
+                                scrub: true,
+                            },
+                        },
                         '>',
                     );
                 /* setTimeout(() => {
@@ -219,36 +229,8 @@ const Tools = (): JSX.Element => {
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
-                    <div className="use-case-card me-lg-5 w-100">
-                        <img src={skr} alt="skeepers-rewards" className="illustration" />
-                        <div className="p-4">
-                            <div className="fw-bold fs-3">{t('useCases.skr.card.title')}</div>
-                            <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
-                                <p>{t('useCases.skr.card.description')}</p>
-                                <NavLink
-                                    to={NavigationConstants.SKR}
-                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-0 ms-lg-4"
-                                >
-                                    {t('common.discover')}
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="use-case-card w-100 mt-4 mt-lg-0">
-                        <img src={dfract} alt="dfract" className="illustration" />
-                        <div className="p-4">
-                            <div className="fw-bold fs-3">{t('useCases.dfract.card.title')}</div>
-                            <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
-                                <p>{t('useCases.dfract.card.description')}</p>
-                                <NavLink
-                                    to={NavigationConstants.DFRACT}
-                                    className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-0 ms-lg-4"
-                                >
-                                    {t('common.discover')}
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
+                    <UseCaseCard useCase="skr" className="me-lg-5" />
+                    <UseCaseCard useCase="dfract" className="mt-4 mt-lg-0" />
                 </div>
             </div>
         </section>
