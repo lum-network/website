@@ -12,7 +12,15 @@ import ellipse1 from 'assets/images/ellipse.svg';
 
 import './UseCaseCard.scss';
 
-const UseCaseCard = ({ className, useCase, big }: { useCase: 'skr' | 'dfract'; className?: string; big?: boolean }) => {
+const UseCaseCard = ({
+    className,
+    useCase,
+    big,
+}: {
+    useCase: 'skr' | 'dfract';
+    className?: string;
+    big?: boolean;
+}): JSX.Element => {
     const { t } = useTranslation();
 
     const icon = useCase === 'skr' ? (big ? skrBig : skr) : big ? dfractBig : dfract;
