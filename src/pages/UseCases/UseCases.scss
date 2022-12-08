@@ -7,17 +7,26 @@
 
     .illustration {
         width: 100%;
+        height: auto;
         object-fit: contain;
     }
 
     .section-margin-top {
         margin-top: 132px;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 72px;
+        }
     }
 
     .use-case-illustration {
         height: 526px;
         width: 100%;
         object-fit: cover;
+
+        @include media-breakpoint-down(lg) {
+            height: 300px;
+        }
     }
     
     .section-content {
@@ -81,7 +90,6 @@
     }
 
     .use-cases-container {
-        margin-top: 132px;
         margin-bottom: 132px;
 
         .use-case-card {

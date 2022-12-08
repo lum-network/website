@@ -13,19 +13,26 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 const Header = ({ bgTriggerElem }: { modalId: string; bgTriggerElem?: string }): JSX.Element => {
     const { t } = useTranslation();
     useEffect(() => {
-        gsap.fromTo(
-            `header`,
-            {
-                opacity: 0,
-                y: -50,
-            },
-            {
+        // Enables Header GSAP animation only on the landing page
+        if (window.location.pathname === '/') {
+            gsap.fromTo(
+                `header`,
+                {
+                    opacity: 0,
+                    y: -50,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.35,
+                    delay: 3,
+                },
+            );
+        } else {
+            gsap.set('header', {
                 opacity: 1,
-                y: 0,
-                duration: 0.35,
-                delay: 3,
-            },
-        );
+            });
+        }
     }, []);
 
     useEffect(() => {

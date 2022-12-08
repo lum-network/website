@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 
 import { Footer, Header, Modal } from 'components';
-import { LUM_OSMOSIS } from 'constant';
+import { LUM_OSMOSIS, NEWSLETTER_MAILJET_URL } from 'constant';
 import { Landing } from 'pages';
 
 import notificationIllu from 'assets/images/notification_illu.png';
@@ -53,7 +53,7 @@ const MainLayout = (): JSX.Element => {
                     scrolling="no"
                     marginHeight={0}
                     marginWidth={0}
-                    src="https://app.mailjet.com/widget/iframe/5YGg/KDl"
+                    src={NEWSLETTER_MAILJET_URL}
                     width="100%"
                 />
             </Modal>

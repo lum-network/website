@@ -6,11 +6,26 @@
     
     .illustration {
         width: 100%;
+        height: auto;
         object-fit: contain;
+    }
+
+    .big-illustration {
+        height: 526px;
+        width: 100%;
+        object-fit: cover;
+
+        @include media-breakpoint-down(lg) {
+            height: 300px;
+        }
     }
 
     .section-margin-top {
         margin-top: 132px;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 72px;
+        }
     }
     
     .section-content {
@@ -24,6 +39,10 @@
 
         .section-content-title {
             margin-bottom: 4rem;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 2rem;
+            }
         }
         
         h6 {

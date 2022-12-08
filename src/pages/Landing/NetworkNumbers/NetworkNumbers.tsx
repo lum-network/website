@@ -34,11 +34,15 @@ const NetworkNumbers = (): JSX.Element => {
                 y: 50,
                 opacity: 0,
                 ease: 'none',
-            }).from('#numbers .numbers-container', {
-                y: 100,
-                opacity: 0,
-                ease: 'none',
-            });
+            }).from(
+                '#numbers .numbers-container',
+                {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                },
+                '<',
+            );
         }
     }, []);
 

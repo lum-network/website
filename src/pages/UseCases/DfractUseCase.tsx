@@ -144,7 +144,7 @@ const DfractUseCase = (): JSX.Element => {
                 </div>
             </div>
             <img src={dfractBigIllu} className="use-case-illustration section-margin-top scroll-trigger-2" alt="" />
-            <div className="container use-cases-container">
+            <div className="container use-cases-container section-margin-top">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <div className="use-case-card w-100">
                     <img src={skrIllu} alt="skr" className="illustration" />

@@ -133,8 +133,8 @@ const SkrUseCase = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <img src={skrBigIllu} className="section-margin-top scroll-trigger-2" alt="" />
-            <div className="container use-cases-container">
+            <img src={skrBigIllu} className="use-case-illustration section-margin-top scroll-trigger-2" alt="" />
+            <div className="container use-cases-container section-margin-top">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <div className="use-case-card w-100">
                     <img src={dfractIllu} alt="dfract" className="illustration" />

@@ -68,3 +68,4 @@ export const ARTICLES: Article[] = [
 ];
 
 export const CHAIN_BRIDGE_URL = process.env.REACT_APP_CHAIN_BRIDGE_URL || '';
+export const NEWSLETTER_MAILJET_URL = 'https://app.mailjet.com/widget/iframe/8Bwj/OUe';

@@ -36,16 +36,24 @@ const CoreValues = (): JSX.Element => {
                 y: 50,
                 ease: 'none',
             })
-                .from('#core-values .section-content-title', {
-                    y: 100,
-                    opacity: 0,
-                    ease: 'none',
-                })
-                .from('#core-values .row', {
-                    y: 150,
-                    opacity: 0,
-                    ease: 'none',
-                });
+                .from(
+                    '#core-values .section-content-title',
+                    {
+                        y: 100,
+                        opacity: 0,
+                        ease: 'none',
+                    },
+                    '<',
+                )
+                .from(
+                    '#core-values .row',
+                    {
+                        y: 150,
+                        opacity: 0,
+                        ease: 'none',
+                    },
+                    '<',
+                );
         }
     }, []);
 
@@ -54,7 +62,7 @@ const CoreValues = (): JSX.Element => {
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
-                        <img alt="cube" className="cube mb-5 mb-lg-0" src={cube} />
+                        <img alt="cube" className="cube" src={cube} />
                     </div>
                     <div className="col-12 col-lg-7">
                         <h1 className="section-content-title mb-4">{t('coreValues.title')}</h1>

@@ -45,7 +45,7 @@ const JoinLumCommunity = (): JSX.Element => {
         <section id="join-lum-community">
             <div className="container">
                 <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center socials-container">
-                    <h1 className="section-content-title">{t('joinLumCommunity.title')}</h1>
+                    <h1 className="section-content-title text-center text-lg-start">{t('joinLumCommunity.title')}</h1>
                     <div className="d-flex flex-row justify-content-center justify-content-lg-end flex-wrap socials-btn-container mt-4 mt-lg-0 w-100">
                         <Link link={LUM_MEDIUM} custom className="social-button scale-anim">
                             <img src={medium} alt="Medium logo" />

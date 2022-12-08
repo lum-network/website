@@ -10,9 +10,9 @@
     },
     "landing": {
         "title": "Web3 Applications<br />for Mass Adoption",
-        "description": "Lum Network is your gateway to the decentralized web.<br class=\"d-none d-lg-block\"/>We built the first trust layer protocol for businesses and<br class=\"d-none d-lg-block\"/>consumers and the first crypto index of Cosmos.",
+        "description": "Lum Network is your gateway to the decentralized web, powered by the $LUM.<br />We built the first trust layer protocol for businesses and consumers, as well as the first Interchain index.",
         "whitePaper": "White paper",
-        "scrollAction": "Get enlightened by scrolling"
+        "scrollAction": "Scroll to get enlightened"
     },
     "business": {
         "title": "The <strong>trust layer</strong> for <br class=\"d-none d-lg-block\"/><strong>companies</strong> of the <strong>future</strong>",
@@ -98,7 +98,7 @@
         }
     },
     "trustedBy": {
-        "title": "Trusted partners"
+        "title": "Trusted Partners"
     },
     "latestHighlights": {
         "title": "Latest Highlights",
@@ -143,7 +143,7 @@
         "community": "Community"
     },
     "coreValues": {
-        "title": "Core values",
+        "title": "Core Values",
         "cards": [
             {
                 "title": "Community-based",
@@ -178,7 +178,7 @@
                 "description1": "Skeepers Rewards is a social wallet to store $LUM earned as loyalty, cashback, and engagement rewards.",
                 "description2": "Every single Skeepers Rewards user therefore becomes a natural crypto holder.",
                 "numbers": {
-                    "title": "Skeepers Rewards in Numbers",
+                    "title": "Skeepers in Numbers",
                     "countries": "Countries",
                     "reviews": "Reviews / Year",
                     "brands": "Brands"
@@ -208,7 +208,7 @@
                 "details": {
                     "title": "One Token,\nOne Ecosystem",
                     "description": "Our webapp simplifies the diversification over multiple Interchain tokens: owning one $DFR is like owning a basket of assets.",
-                    "cta": "Visit DFract"
+                    "cta": "Visit dfract.fi"
                 }
             }
         }

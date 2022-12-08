@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 
 import { Button } from 'components';
 import { LUM_NETWORK_GITHUB, NavigationConstants } from 'constant';
+import { useWindowSize } from 'utils/hooks';
 
 import tools from 'assets/images/tools.png';
 import github from 'assets/images/github.png';
@@ -13,7 +14,7 @@ import './LumTools.scss';
 
 const Tools = (): JSX.Element => {
     const { t } = useTranslation();
-
+    const winSizes = useWindowSize();
     const timeline = useRef<gsap.core.Timeline>();
 
     useEffect(() => {
@@ -32,15 +33,19 @@ const Tools = (): JSX.Element => {
 
             timeline.current = tl;
 
-            tl.from('#lum-tools .tools-illustration', {
+            tl.from(`#lum-tools ${winSizes.width <= 992 ? '.section-content' : '.tools-illustration'}`, {
                 y: 50,
                 opacity: 0,
                 ease: 'none',
-            }).from('#lum-tools .section-content', {
-                y: 100,
-                opacity: 0,
-                ease: 'none',
-            });
+            }).from(
+                `#lum-tools ${winSizes.width <= 992 ? '.tools-illustration' : '.section-content'}`,
+                {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                },
+                '<',
+            );
         }
     }, []);
 

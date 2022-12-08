@@ -35,82 +35,112 @@ const Tools = (): JSX.Element => {
     }));
 
     const timeline = useRef<gsap.core.Timeline>();
+    const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // GSAP Section Scroll Animations
-        const walletSectionTrigger = {
-            trigger: `#tools .scroll-trigger`,
-            start: 'bottom 60%',
-            scrub: true,
-        };
+        if (sectionRef.current) {
+            // GSAP Section Scroll Animations
+            const walletSectionTrigger = {
+                trigger: sectionRef.current.querySelector('.scroll-trigger'),
+                start: 'bottom 55%',
+                scrub: true,
+            };
 
-        const explorerSectionTrigger = {
-            trigger: `#tools .scroll-trigger-2`,
-            start: 'bottom 60%',
-            end: 'bottom 10%',
-            scrub: true,
-        };
+            const explorerSectionTrigger = {
+                trigger: sectionRef.current.querySelector('.scroll-trigger-2'),
+                start: 'top 60%',
+                end: 'top 10%',
+                scrub: true,
+            };
 
-        const useCasesSectionTrigger = {
-            trigger: `#tools .use-cases-container`,
-            start: 'bottom+=700px 60%',
-            end: 'bottom+=1000px 10%',
-            scrub: true,
-        };
+            /* const useCasesSectionTrigger = {
+                trigger: sectionRef.current.querySelector('.use-cases-container'),
+                start: 'top 60%',
+                end: 'top 10%',
+                scrub: true,
+                markers: true,
+                id: 'use-cases',
+            };
+            console.log(sectionRef.current?.querySelector('.use-cases-container')?.getBoundingClientRect().height); */
 
-        if (!timeline.current) {
-            const tl = gsap.timeline();
+            if (!timeline.current) {
+                const tl = gsap.timeline();
 
-            timeline.current = tl;
-
-            tl.from('#tools .wallet-browser', {
-                y: 50,
-                opacity: 0,
-                ease: 'none',
-                scrollTrigger: walletSectionTrigger,
-            })
-                .from('#tools .wallet-browser-content', {
-                    y: 100,
+                timeline.current = tl;
+                tl.from('#tools .wallet-browser', {
+                    y: 50,
                     opacity: 0,
                     ease: 'none',
                     scrollTrigger: walletSectionTrigger,
                 })
-                .from('#tools .explorer-browser', {
-                    y: 50,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: explorerSectionTrigger,
-                })
-                .from('#tools .explorer-browser-content', {
-                    y: 100,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: explorerSectionTrigger,
-                })
-                .from('#tools .use-cases-container h1', {
-                    y: 50,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: useCasesSectionTrigger,
-                })
-                .from('#tools .use-case-card', {
-                    y: 100,
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: useCasesSectionTrigger,
-                });
-
-            tl.scrollTrigger?.refresh();
-        } else {
-            timeline.current.scrollTrigger?.refresh();
+                    .from('#tools .wallet-browser-content', {
+                        y: 100,
+                        opacity: 0,
+                        ease: 'none',
+                        scrollTrigger: walletSectionTrigger,
+                    })
+                    .from(
+                        '#tools .explorer-browser',
+                        {
+                            y: 50,
+                            opacity: 0,
+                            ease: 'none',
+                            scrollTrigger: explorerSectionTrigger,
+                        },
+                        '>',
+                    )
+                    .from(
+                        '#tools .explorer-browser-content',
+                        {
+                            y: 100,
+                            opacity: 0,
+                            ease: 'none',
+                            scrollTrigger: explorerSectionTrigger,
+                        },
+                        '>',
+                    )
+                    .from(
+                        '#tools .use-cases-container h1',
+                        {
+                            y: 50,
+                            opacity: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: sectionRef.current.querySelector('.use-cases-container'),
+                                markers: true,
+                                scrub: true,
+                                id: 'use-cases',
+                            },
+                        },
+                        '>',
+                    )
+                    .from(
+                        '#tools .use-case-card',
+                        {
+                            y: 100,
+                            opacity: 0,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: sectionRef.current.querySelector('.use-cases-container'),
+                                scrub: true,
+                            },
+                        },
+                        '>',
+                    );
+                /* setTimeout(() => {
+                    console.log(
+                        sectionRef.current?.querySelector('.use-cases-container')?.getBoundingClientRect().height,
+                    );
+                }, 3000); */
+            }
         }
-    }, []);
+    }, [sectionRef]);
 
     return (
-        <section id="tools">
+        <section id="tools" ref={sectionRef}>
             <div className="container">
                 <img src={toolsIllu} alt="Tools illustration" className="illustration" />
-                <div className="section-content">
+                <div className="section-content scroll-trigger">
                     <h1 className="section-content-title mt-5">{t('tools.page.title')}</h1>
                     <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
                         <div className="col">{t('tools.page.description1')}</div>
@@ -144,7 +174,7 @@ const Tools = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="row section-margin-top scroll-trigger">
+                <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto wallet-browser-content">
                         <h2>{t('tools.page.wallet.title')}</h2>
                         <p>{t('tools.page.wallet.description')}</p>
@@ -162,12 +192,12 @@ const Tools = (): JSX.Element => {
                         <img src={walletBrowser} className="illustration wallet-browser" alt="Lum Wallet in browser" />
                     </div>
                 </div>
-                <div className="row section-margin-top">
+                <div className="row section-margin-top scroll-trigger-2">
                     <div className="col-12 col-lg-7 mb-5 mb-lg-0">
                         <img
                             src={explorerBrowser}
                             className="illustration explorer-browser"
-                            alt="Lum Wallet in browser"
+                            alt="Lum Explorer in browser"
                         />
                     </div>
                     <div className="col-12 col-lg-5 my-auto explorer-browser-content">
@@ -185,12 +215,12 @@ const Tools = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <img src={toolsIllu2} className="section-margin-top scroll-trigger-2" alt="" />
+            <img src={toolsIllu2} className="big-illustration section-margin-top" alt="" />
             <div className="container use-cases-container">
                 <h1 className="mb-4">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
                     <div className="use-case-card me-lg-5 w-100">
-                        <img src={skr} alt="skeepers-rewards" className="w-100" />
+                        <img src={skr} alt="skeepers-rewards" className="illustration" />
                         <div className="p-4">
                             <div className="fw-bold fs-3">{t('useCases.skr.card.title')}</div>
                             <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
@@ -205,7 +235,7 @@ const Tools = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="use-case-card w-100 mt-4 mt-lg-0">
-                        <img src={dfract} alt="dfract" className="w-100" />
+                        <img src={dfract} alt="dfract" className="illustration" />
                         <div className="p-4">
                             <div className="fw-bold fs-3">{t('useCases.dfract.card.title')}</div>
                             <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
