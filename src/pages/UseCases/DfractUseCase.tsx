@@ -116,13 +116,13 @@ const DfractUseCase = (): JSX.Element => {
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{numeral(supply).format('0,0.00') || '-'}</div>
+                                <div className="stat-number">{numeral(supply).format('(0,0 a)') || '-'}</div>
                                 <p>{t('useCases.dfract.page.numbers.minted')}</p>
                             </div>
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{numeral(totalValueUsd).format('0,0.00') || '-'}</div>
+                                <div className="stat-number">{numeral(totalValueUsd).format('($0 a)') || '-'}</div>
                                 <p>{t('useCases.dfract.page.numbers.tvl')}</p>
                             </div>
                         </div>
