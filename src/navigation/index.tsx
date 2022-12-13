@@ -1,13 +1,16 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from 'layout';
-import { DfractUseCase, SkrUseCase, Tools } from 'pages';
+import { DfractUseCase, ReloadToHome, Landing, SkrUseCase, Tools } from 'pages';
 
 const router = createBrowserRouter([
     {
-        path: '/',
         element: <MainLayout />,
         children: [
+            {
+                index: true,
+                element: <Landing />,
+            },
             {
                 path: '/tools',
                 element: <Tools />,
@@ -19,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: '/dfract',
                 element: <DfractUseCase />,
+            },
+            {
+                path: '/*',
+                element: <ReloadToHome />,
             },
         ],
     },

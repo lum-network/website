@@ -3,6 +3,7 @@ import { Provider, useDispatch } from 'react-redux';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 import Assets from 'assets';
 import { ProgressBar } from 'components';
@@ -14,7 +15,7 @@ import lumNetworkLogoDark from 'assets/images/lum_network_logo_dark.png';
 import './styles/App.scss';
 
 gsap.config({ nullTargetWarn: false });
-gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, DrawSVGPlugin, SplitText);
 
 const Loader = ({ progress, loading }: { progress: number; loading: boolean }): JSX.Element => {
     return (

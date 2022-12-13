@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
-
+import { Outlet, useLocation, useNavigationType } from 'react-router-dom';
+import { gsap } from 'gsap';
 import { Footer, Header, Modal } from 'components';
 import { LUM_OSMOSIS, NEWSLETTER_MAILJET_URL } from 'constant';
-import { Landing } from 'pages';
 
 import notificationIllu from 'assets/images/notification_illu.png';
 import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
@@ -12,6 +11,8 @@ import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
 const MainLayout = (): JSX.Element => {
     const { t } = useTranslation();
     const location = useLocation();
+    const navigationType = useNavigationType();
+
     const giModRef = useRef<React.ElementRef<typeof Modal>>(null);
     const nlModRef = useRef<React.ElementRef<typeof Modal>>(null);
 
@@ -26,10 +27,21 @@ const MainLayout = (): JSX.Element => {
         }
     }, [giModRef, nlModRef, location]);
 
+    useEffect(() => {
+        if (navigationType !== 'POP') {
+            const canControlScrollRestoration = 'scrollRestoration' in window.history;
+            if (canControlScrollRestoration) {
+                window.history.scrollRestoration = 'manual';
+            }
+
+            gsap.to(window, { scrollTo: 0 });
+        }
+    }, [location]);
+
     return (
         <>
             <Header modalId="#get-informed-modal" bgTriggerElem="#welcome" />
-            {location.pathname === '/' ? <Landing /> : <Outlet />}
+            <Outlet />
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
                 <div className="row mb-4">
@@ -57,7 +69,6 @@ const MainLayout = (): JSX.Element => {
                     width="100%"
                 />
             </Modal>
-            <ScrollRestoration />
         </>
     );
 };

@@ -10,4 +10,5 @@ export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as Modal } from './Modals/Modal';
 
 export { default as SpotlightImage } from './SpotlightImage/SpotlightImage';
+export { default as ResponsiveImage } from './ResponsiveImage/ResponsiveImage';
 export { default as UseCaseCard } from './UseCaseCard/UseCaseCard';

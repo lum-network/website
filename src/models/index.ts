@@ -179,14 +179,8 @@ export interface SkrStatsModel {
 }
 
 export interface ToolsStatsModel {
-    wallet: {
-        forks: number | null;
-        stars: number | null;
-    };
-    explorer: {
-        forks: number | null;
-        stars: number | null;
-    };
+    forks: number | null;
+    stars: number | null;
+    commits: number | null;
     openSourceRepos: number | null;
-    commits: number;
 }

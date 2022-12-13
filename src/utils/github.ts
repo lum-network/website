@@ -55,45 +55,52 @@ class GithubUtils {
         });
     };
 
-    private getCommitsCount = async () => {
+    getReposInfos = async () => {
         if (!this.octokit) {
             throw new Error('Octokit not initialized');
         }
 
-        const [walletCommits, explorerCommits] = await Promise.all([
-            this.octokit.rest.repos.listCommits({
-                owner: 'lum-network',
-                repo: 'wallet',
-            }),
-            this.octokit.rest.repos.listCommits({
-                owner: 'lum-network',
-                repo: 'explorer',
-            }),
-        ]);
+        let commits = 0;
+        let stars = 0;
+        let forks = 0;
 
-        return walletCommits.data.length + explorerCommits.data.length;
-    };
-
-    getReposInfos = async () => {
-        const [walletRepoInfos, explorerRepoInfos, openSourceReposInfos, commits] = await Promise.all([
-            this.getWalletRepoInfos(),
-            this.getExplorerReposInfos(),
-            this.getOpenSourceReposInfos(),
-            this.getCommitsCount(),
-        ]);
-
-        return {
-            wallet: {
-                forks: walletRepoInfos.data.forks_count,
-                stars: walletRepoInfos.data.stargazers_count,
-            },
-            explorer: {
-                forks: explorerRepoInfos.data.forks_count,
-                stars: explorerRepoInfos.data.stargazers_count,
-            },
-            openSourceRepos: openSourceReposInfos.data.length,
-            commits,
-        };
+        try {
+            const repos = await this.octokit.rest.repos.listForOrg({
+                org: 'lum-network',
+                type: 'public',
+            });
+    
+            for (const repo of repos.data) {
+                const [repoCommits, repoInfos] = await Promise.all([
+                    this.octokit.rest.repos.listCommits({
+                        owner: 'lum-network',
+                        repo: repo.name,
+                    }),
+                    this.octokit.rest.repos.get({
+                        owner: 'lum-network',
+                        repo: repo.name,
+                    })
+                ]); 
+    
+                commits += repoCommits.data.length;
+                stars += repoInfos.data.stargazers_count;
+                forks += repoInfos.data.forks_count;
+            }
+    
+            return {
+                commits,
+                stars,
+                forks,
+                openSourceRepos: repos.data.length,
+            }
+        } catch {
+            return {
+                commits: null,
+                stars: null,
+                forks: null,
+                openSourceRepos: null,
+            }
+        }
     };
 }
 

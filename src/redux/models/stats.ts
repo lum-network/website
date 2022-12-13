@@ -30,14 +30,9 @@ export const stats = createModel<RootModel>()({
             unitPriceUsd: null,
         },
         tools: {
-            wallet: {
-                forks: null,
-                stars: null,
-            },
-            explorer: {
-                forks: null,
-                stars: null,
-            },
+            forks: null,
+            stars: null,
+            commits: null,
             openSourceRepos: null,
         },
     } as StatsState,
@@ -64,14 +59,8 @@ export const stats = createModel<RootModel>()({
         SET_TOOLS_STATS: (state, payload: ToolsStatsModel) => ({
             ...state,
             tools: {
-                wallet: {
-                    forks: payload.wallet.forks,
-                    stars: payload.wallet.stars,
-                },
-                explorer: {
-                    forks: payload.explorer.forks,
-                    stars: payload.explorer.stars,
-                },
+                stars: payload.stars,
+                forks: payload.forks,
                 openSourceRepos: payload.openSourceRepos,
                 commits: payload.commits,
             },

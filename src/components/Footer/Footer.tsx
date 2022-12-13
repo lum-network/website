@@ -48,7 +48,7 @@ const Footer = (): JSX.Element => {
             <div className="content">
                 <div className="container">
                     <div className="row gx-5 gy-5">
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-lg-6">
                             <div className="h-100 me-md-5 d-flex flex-column justify-content-between">
                                 <div>
                                     <h3>{t('footer.newsletter.title')}</h3>
@@ -77,9 +77,9 @@ const Footer = (): JSX.Element => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-lg-6">
                             <div className="d-flex flex-column flex-lg-row justify-content-md-between justify-content-sm-around justify-content-between ps-0 align-self-end">
-                                <div className="d-flex flex-column ms-md-5">
+                                <div className="d-flex flex-column ms-lg-5">
                                     <strong>{t('footer.useCases')}</strong>
                                     <NavLink
                                         to={NavigationConstants.SKR}
@@ -94,7 +94,7 @@ const Footer = (): JSX.Element => {
                                         DFract
                                     </NavLink>
                                 </div>
-                                <div className="d-flex flex-column ms-md-3 mt-4 mt-lg-0">
+                                <div className="d-flex flex-column ms-0 ms-lg-3 mt-4 mt-lg-0">
                                     <strong>{t('footer.tools')}</strong>
                                     <Link link={LUM_NETWORK_DOCUMENTATION} className="footer-link my-4">
                                         Documentation
@@ -106,7 +106,7 @@ const Footer = (): JSX.Element => {
                                         Wallet
                                     </Link>
                                 </div>
-                                <div className="d-flex flex-column ms-md-3 mt-4 mt-lg-0">
+                                <div className="d-flex flex-column ms-0 ms-lg-3 mt-4 mt-lg-0">
                                     <strong>{t('footer.community')}</strong>
                                     <Link link={LUM_TWITTER} className="footer-link my-4">
                                         Twitter
@@ -121,7 +121,7 @@ const Footer = (): JSX.Element => {
                             </div>
                         </div>
                         <div className="col-12">
-                            <div className="d-flex flex-lg-row flex-column-reverse justify-content-between align-items-stretch align-items-md-center">
+                            <div className="d-flex flex-lg-row flex-column-reverse justify-content-between align-items-stretch align-items-lg-center">
                                 <div className="d-flex flex-column-reverse flex-lg-row justify-content-around">
                                     <p className="footer-link mb-0">Lum Network 2021 ©</p>
                                     <p className="footer-link mb-0 ms-0 ms-lg-5">contact@lum.network</p>
@@ -133,7 +133,7 @@ const Footer = (): JSX.Element => {
                                 <Button
                                     outline
                                     inverted
-                                    className="px-4 mb-4 mb-md-0"
+                                    className="px-4 mb-4 mb-lg-0"
                                     onClick={() => window.open(LUM_NETWORK_GITHUB, '_blank')}
                                 >
                                     <img

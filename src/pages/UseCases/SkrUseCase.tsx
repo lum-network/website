@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 
-import { Link, UseCaseCard } from 'components';
+import { Link, ResponsiveImage, UseCaseCard } from 'components';
 import { SKR_URL } from 'constant';
 import { RootState } from 'redux/store';
 
@@ -130,7 +131,7 @@ const SkrUseCase = (): JSX.Element => {
                         <p>{t('useCases.skr.page.details.description')}</p>
                         <Link
                             link={SKR_URL}
-                            className="wallet-github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
+                            className="discover-use-case-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
                         >
                             {t('useCases.skr.page.details.cta')}
                         </Link>
@@ -140,7 +141,16 @@ const SkrUseCase = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <img src={skrBigIllu} className="use-case-illustration section-margin-top scroll-trigger-2" alt="" />
+            <ResponsiveImage
+                onLoad={() => {
+                    if (timeline.current) {
+                        ScrollTrigger.refresh();
+                    }
+                }}
+                src={skrBigIllu}
+                className="use-case-illustration section-margin-top scroll-trigger-2"
+                alt=""
+            />
             <div className="container use-cases-container section-margin-top">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <UseCaseCard big useCase="dfract" />

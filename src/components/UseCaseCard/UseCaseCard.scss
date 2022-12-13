@@ -4,7 +4,6 @@
     position: relative;
     width: min-content;
     height: 100%;
-    /* Note: backdrop-filter has minimal browser support */
     overflow: hidden;
     border-radius: 21px;
 
@@ -17,7 +16,7 @@
         background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
         backdrop-filter: blur(103.5px);
         /* Note: backdrop-filter has minimal browser support */
-
+        position: relative;
         border-radius: 21px;
     }
 

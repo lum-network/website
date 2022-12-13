@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 
-import { Link, UseCaseCard } from 'components';
+import { Link, ResponsiveImage, UseCaseCard } from 'components';
 import { LUM_DFRACT } from 'constant';
 
 import dfractBrowser from 'assets/images/dfract_browser.png';
@@ -36,7 +37,7 @@ const DfractUseCase = (): JSX.Element => {
         };
 
         const useCaseSectionTrigger = {
-            trigger: `#dfract-use-case .use-cases-container`,
+            trigger: `#dfract-use-case .use-case-illustration`,
             start: 'top 60%',
             end: 'top 10%',
             scrub: true,
@@ -80,15 +81,14 @@ const DfractUseCase = (): JSX.Element => {
                     },
                     '<',
                 )
-                .from(
-                    '#dfract-use-case .use-case-card .ellipse',
-                    {
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: useCaseSectionTrigger,
+                .from('#dfract-use-case .use-case-card .ellipse', {
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: {
+                        ...useCaseSectionTrigger,
+                        endTrigger: '#dfract-use-case .use-cases-container',
                     },
-                    '>',
-                );
+                });
         }
     }, []);
 
@@ -140,7 +140,7 @@ const DfractUseCase = (): JSX.Element => {
                         <p>{t('useCases.dfract.page.details.description')}</p>
                         <Link
                             link={LUM_DFRACT}
-                            className="wallet-github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
+                            className="discover-use-case-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
                         >
                             {t('useCases.dfract.page.details.cta')}
                         </Link>
@@ -150,7 +150,16 @@ const DfractUseCase = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <img src={dfractBigIllu} className="use-case-illustration section-margin-top scroll-trigger-2" alt="" />
+            <ResponsiveImage
+                onLoad={() => {
+                    if (timeline.current) {
+                        ScrollTrigger.refresh();
+                    }
+                }}
+                src={dfractBigIllu}
+                className="use-case-illustration section-margin-top scroll-trigger-2"
+                alt=""
+            />
             <div className="container use-cases-container section-margin-top">
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <UseCaseCard big useCase="skr" />

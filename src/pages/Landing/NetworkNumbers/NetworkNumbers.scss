@@ -22,7 +22,11 @@
             background: white;
             text-align: center;
             border-radius: 25px;
-
+            
+            @include media-breakpoint-down(md) {
+                padding: 0 1rem;
+            }
+                                
             p {
                 margin: 0;
             }

@@ -54,11 +54,15 @@
             background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
             backdrop-filter: blur(103.5px);
             border-radius: 21px;
-    
+
             .col div {
                 background: white;
                 text-align: center;
                 border-radius: 25px;
+                
+                @include media-breakpoint-down(md) {
+                    padding: 0 1rem;
+                }    
     
                 p {
                     margin: 0;
@@ -79,10 +83,10 @@
         }
     }
 
-    .wallet-github-btn {
+    .discover-use-case-btn {
         background-color: $color-blue;
         color: white;
-        width: 217px;
+        width: max-content;
 
         img {
             filter: brightness(0) invert(1);

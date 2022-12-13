@@ -3,12 +3,6 @@
 #tools {
     padding-top: 160px;
     white-space: pre-line;
-    
-    .illustration {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
 
     .big-illustration {
         height: 526px;
@@ -27,12 +21,12 @@
             margin-top: 72px;
         }
     }
-    
+
     .section-content {
         margin-left: 8rem;
         margin-right: 8rem;
 
-        @include media-breakpoint-down(lg) {            
+        @include media-breakpoint-down(lg) {
             margin-left: 0;
             margin-right: 0;
         }
@@ -44,7 +38,7 @@
                 margin-bottom: 2rem;
             }
         }
-        
+
         h6 {
             font-style: normal;
             font-weight: 700;
@@ -52,21 +46,25 @@
             line-height: 22px;
             margin-top: 4rem;
         }
-        
+
         .numbers-container {
             background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
             backdrop-filter: blur(103.5px);
             border-radius: 21px;
-    
+
             .col div {
                 background: white;
                 text-align: center;
                 border-radius: 25px;
-    
+
+                @include media-breakpoint-down(md) {
+                    padding: 0 1rem;
+                }
+
                 p {
                     margin: 0;
                 }
-    
+
                 .stat-number {
                     font-style: normal;
                     font-weight: 700;
@@ -82,7 +80,7 @@
         }
     }
 
-    .wallet-github-btn {
+    .github-btn {
         background-color: $color-blue;
         color: white;
         width: 217px;
@@ -93,7 +91,10 @@
     }
 
     .use-cases-container {
-        margin-top: 132px;
         margin-bottom: 132px;
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 72px;
+        }
     }
 }

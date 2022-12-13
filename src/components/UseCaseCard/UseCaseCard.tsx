@@ -11,6 +11,7 @@ import skrBig from 'assets/images/skr_big.png';
 import ellipse1 from 'assets/images/ellipse.svg';
 
 import './UseCaseCard.scss';
+import ResponsiveImage from 'components/ResponsiveImage/ResponsiveImage';
 
 const UseCaseCard = ({
     className,
@@ -33,7 +34,7 @@ const UseCaseCard = ({
             <img src={ellipse1} className="ellipse" />
             <div className="content">
                 <NavLink to={to} className="position-relative">
-                    <img src={icon} alt={useCase} className="illustration" />
+                    <ResponsiveImage src={icon} alt={useCase} className="illustration" />
                 </NavLink>
                 <div className="p-4">
                     <div className="fw-bold fs-3">{t(title)}</div>
