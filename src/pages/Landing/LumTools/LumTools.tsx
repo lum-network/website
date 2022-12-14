@@ -64,6 +64,7 @@ const Tools = (): JSX.Element => {
                             <p className="my-4">{t('tools.landingSection.description')}</p>
                             <div className="d-flex flex-column flex-lg-row">
                                 <NavLink
+                                    preventScrollReset
                                     to={NavigationConstants.TOOLS}
                                     className="tools-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill me-4"
                                 >

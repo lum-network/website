@@ -79,10 +79,10 @@ const App = (): JSX.Element => {
     }, []);
 
     return (
-        <main>
+        <>
             <Loader progress={progress} loading={loading} />
             {!loading ? <RootNavigator /> : null}
-        </main>
+        </>
     );
 };
 

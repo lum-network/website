@@ -19,11 +19,12 @@ h1 {
 }
 
 main {
+    opacity: 0;
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: $color-light;
-    color: $color-primary;
+    color: $color-black;
     flex: 1;
     min-height: 100vh;
     overflow: hidden;

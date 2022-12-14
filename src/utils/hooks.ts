@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
 
 export interface WindowSize {
     width: number;
@@ -29,4 +30,16 @@ export const useWindowSize = (): WindowSize => {
         return () => window.removeEventListener('resize', handleResize);
     }, []); // Empty array ensures that effect is only run on mount
     return windowSize;
+};
+
+export const useMainLayoutTimeline = (customTimeline?: gsap.core.Timeline): gsap.core.Timeline => {
+    const timeline = useRef(gsap.timeline());
+
+    useEffect(() => {
+        if (customTimeline) {
+            timeline.current = customTimeline;
+        }
+    }, [customTimeline]);
+
+    return timeline.current;
 };

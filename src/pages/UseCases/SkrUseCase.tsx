@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 
 import { Link, ResponsiveImage, UseCaseCard } from 'components';
 import { SKR_URL } from 'constant';
@@ -14,6 +12,7 @@ import skrBrowser from 'assets/images/skr_browser.png';
 
 import './UseCases.scss';
 import numeral from 'numeral';
+import { useMainLayoutTimeline } from 'utils/hooks';
 
 const SkrUseCase = (): JSX.Element => {
     const { t } = useTranslation();
@@ -23,7 +22,7 @@ const SkrUseCase = (): JSX.Element => {
         reviews: state.stats.skr.reviews,
     }));
 
-    const timeline = useRef<gsap.core.Timeline>();
+    const mainLayoutTimeline = useMainLayoutTimeline();
 
     useEffect(() => {
         // GSAP Section Scroll Animations
@@ -34,63 +33,57 @@ const SkrUseCase = (): JSX.Element => {
         };
 
         const useCaseSectionTrigger = {
-            trigger: `#skr-use-case .use-cases-container`,
+            trigger: `#skr-use-case .use-case-illustration`,
             start: 'top 60%',
             end: 'top 10%',
             scrub: true,
             id: 'skr',
         };
 
-        if (!timeline.current) {
-            const tl = gsap.timeline();
-
-            timeline.current = tl;
-
-            tl.from('#skr-use-case .browser', {
+        mainLayoutTimeline
+            .from('#skr-use-case .browser', {
                 y: 50,
                 opacity: 0,
                 ease: 'none',
                 scrollTrigger: browserSectionTrigger,
             })
-                .from('#skr-use-case .browser-content', {
+            .from('#skr-use-case .browser-content', {
+                y: 100,
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: browserSectionTrigger,
+            })
+            .from(
+                '#skr-use-case .use-cases-container h1',
+                {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCaseSectionTrigger,
+                },
+                '>',
+            )
+            .from(
+                '#skr-use-case .use-case-card',
+                {
                     y: 100,
                     opacity: 0,
                     ease: 'none',
-                    scrollTrigger: browserSectionTrigger,
-                })
-                .from(
-                    '#skr-use-case .use-cases-container h1',
-                    {
-                        y: 50,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: useCaseSectionTrigger,
-                    },
-                    '>',
-                )
-                .from(
-                    '#skr-use-case .use-case-card',
-                    {
-                        y: 100,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: useCaseSectionTrigger,
-                    },
-                    '<',
-                )
-                .from(
-                    '#skr-use-case .use-case-card .ellipse',
-                    {
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: useCaseSectionTrigger,
-                    },
-                    '>',
-                );
-        }
+                    scrollTrigger: useCaseSectionTrigger,
+                },
+                '<',
+            )
+            .from('#skr-use-case .use-case-card .ellipse', {
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: {
+                    ...useCaseSectionTrigger,
+                    endTrigger: '#skr-use-case .use-cases-container',
+                },
+            });
     }, []);
     return (
-        <section id="skr-use-case">
+        <main id="skr-use-case">
             <div className="container">
                 <img src={skrIllu} alt="Skeepers Rewards illustration" className="illustration" />
                 <div className="section-content scroll-trigger">
@@ -142,11 +135,6 @@ const SkrUseCase = (): JSX.Element => {
                 </div>
             </div>
             <ResponsiveImage
-                onLoad={() => {
-                    if (timeline.current) {
-                        ScrollTrigger.refresh();
-                    }
-                }}
                 src={skrBigIllu}
                 className="use-case-illustration section-margin-top scroll-trigger-2"
                 alt=""
@@ -155,7 +143,7 @@ const SkrUseCase = (): JSX.Element => {
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <UseCaseCard big useCase="dfract" />
             </div>
-        </section>
+        </main>
     );
 };
 

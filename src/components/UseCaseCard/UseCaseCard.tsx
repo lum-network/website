@@ -33,7 +33,7 @@ const UseCaseCard = ({
         <div className={`use-case-card w-100 ${className}`}>
             <img src={ellipse1} className="ellipse" />
             <div className="content">
-                <NavLink to={to} className="position-relative">
+                <NavLink preventScrollReset to={to} className="position-relative">
                     <ResponsiveImage src={icon} alt={useCase} className="illustration" />
                 </NavLink>
                 <div className="p-4">
@@ -42,6 +42,7 @@ const UseCaseCard = ({
                         <p>{t(description)}</p>
                         <NavLink
                             to={to}
+                            preventScrollReset
                             className="discover-btn scale-anim text-decoration-none py-2 px-3 rounded-pill ms-0 ms-lg-4"
                         >
                             {t('common.discover')}

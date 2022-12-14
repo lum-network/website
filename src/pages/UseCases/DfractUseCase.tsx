@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 
 import { Link, ResponsiveImage, UseCaseCard } from 'components';
 import { LUM_DFRACT } from 'constant';
@@ -14,6 +12,7 @@ import './UseCases.scss';
 import numeral from 'numeral';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch, RootState } from 'redux/store';
+import { useMainLayoutTimeline } from 'utils/hooks';
 
 const DfractUseCase = (): JSX.Element => {
     const { t } = useTranslation();
@@ -26,7 +25,7 @@ const DfractUseCase = (): JSX.Element => {
         unitPriceUsd: state.stats.dfr.unitPriceUsd,
     }));
 
-    const timeline = useRef<gsap.core.Timeline>();
+    const mainLayoutTimeline = useMainLayoutTimeline();
 
     useEffect(() => {
         // GSAP Section Scroll Animations
@@ -44,52 +43,47 @@ const DfractUseCase = (): JSX.Element => {
             id: 'dfract',
         };
 
-        if (!timeline.current) {
-            const tl = gsap.timeline();
-
-            timeline.current = tl;
-
-            tl.from('#dfract-use-case .browser', {
+        mainLayoutTimeline
+            .from('#dfract-use-case .browser', {
                 y: 50,
                 opacity: 0,
                 ease: 'none',
                 scrollTrigger: browserSectionTrigger,
             })
-                .from('#dfract-use-case .browser-content', {
+            .from('#dfract-use-case .browser-content', {
+                y: 100,
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: browserSectionTrigger,
+            })
+            .from(
+                '#dfract-use-case .use-cases-container h1',
+                {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCaseSectionTrigger,
+                },
+                '>',
+            )
+            .from(
+                '#dfract-use-case .use-case-card',
+                {
                     y: 100,
                     opacity: 0,
                     ease: 'none',
-                    scrollTrigger: browserSectionTrigger,
-                })
-                .from(
-                    '#dfract-use-case .use-cases-container h1',
-                    {
-                        y: 50,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: useCaseSectionTrigger,
-                    },
-                    '>',
-                )
-                .from(
-                    '#dfract-use-case .use-case-card',
-                    {
-                        y: 100,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: useCaseSectionTrigger,
-                    },
-                    '<',
-                )
-                .from('#dfract-use-case .use-case-card .ellipse', {
-                    opacity: 0,
-                    ease: 'none',
-                    scrollTrigger: {
-                        ...useCaseSectionTrigger,
-                        endTrigger: '#dfract-use-case .use-cases-container',
-                    },
-                });
-        }
+                    scrollTrigger: useCaseSectionTrigger,
+                },
+                '<',
+            )
+            .from('#dfract-use-case .use-case-card .ellipse', {
+                opacity: 0,
+                ease: 'none',
+                scrollTrigger: {
+                    ...useCaseSectionTrigger,
+                    endTrigger: '#dfract-use-case .use-cases-container',
+                },
+            });
     }, []);
 
     useEffect(() => {
@@ -97,7 +91,7 @@ const DfractUseCase = (): JSX.Element => {
     }, []);
 
     return (
-        <section id="dfract-use-case">
+        <main id="dfract-use-case">
             <div className="container">
                 <img src={dfractIllu} alt="Skeepers Rewards illustration" className="illustration" />
                 <div className="section-content scroll-trigger">
@@ -151,11 +145,6 @@ const DfractUseCase = (): JSX.Element => {
                 </div>
             </div>
             <ResponsiveImage
-                onLoad={() => {
-                    if (timeline.current) {
-                        ScrollTrigger.refresh();
-                    }
-                }}
                 src={dfractBigIllu}
                 className="use-case-illustration section-margin-top scroll-trigger-2"
                 alt=""
@@ -164,7 +153,7 @@ const DfractUseCase = (): JSX.Element => {
                 <h1 className="mb-4">{t('useCases.titleOther')}</h1>
                 <UseCaseCard big useCase="skr" />
             </div>
-        </section>
+        </main>
     );
 };
 

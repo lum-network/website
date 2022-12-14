@@ -12,7 +12,7 @@ import './index.scss';
 
 const Landing = (): JSX.Element => {
     return (
-        <>
+        <main>
             <WelcomeSection />
             <CoreValues />
             <UseCases />
@@ -20,7 +20,7 @@ const Landing = (): JSX.Element => {
             <TrustedBySection />
             <JoinLumCommunity />
             <LumTools />
-        </>
+        </main>
     );
 };
 

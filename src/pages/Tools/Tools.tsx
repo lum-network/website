@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 
 import { LUM_EXPLORER_GITHUB, LUM_WALLET_GITHUB } from 'constant';
 import { Link, ResponsiveImage, UseCaseCard } from 'components';
@@ -15,9 +13,11 @@ import explorerBrowser from 'assets/images/explorer_browser.png';
 import github from 'assets/images/github.png';
 
 import './Tools.scss';
+import { useMainLayoutTimeline } from 'utils/hooks';
 
 const Tools = (): JSX.Element => {
     const { t } = useTranslation();
+    const mainLayoutTimeline = useMainLayoutTimeline();
 
     const { forks, stars, openSourceRepos, commits } = useSelector((state: RootState) => ({
         forks: state.stats.tools.forks,
@@ -26,7 +26,6 @@ const Tools = (): JSX.Element => {
         commits: state.stats.tools.commits,
     }));
 
-    const timeline = useRef<gsap.core.Timeline>();
     const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -53,67 +52,62 @@ const Tools = (): JSX.Element => {
                 id: 'use-cases',
             };
 
-            if (!timeline.current) {
-                const tl = gsap.timeline();
-
-                timeline.current = tl;
-
-                tl.from('#tools .wallet-browser', {
+            mainLayoutTimeline
+                .from('#tools .wallet-browser', {
                     y: 50,
                     opacity: 0,
                     ease: 'none',
                     scrollTrigger: walletSectionTrigger,
                 })
-                    .from('#tools .wallet-browser-content', {
+                .from('#tools .wallet-browser-content', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: walletSectionTrigger,
+                })
+                .from('#tools .explorer-browser', {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: explorerSectionTrigger,
+                })
+                .from('#tools .explorer-browser-content', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: explorerSectionTrigger,
+                })
+                .from('#tools .use-cases-container h1', {
+                    y: 50,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: useCasesSectionTrigger,
+                })
+                .from(
+                    '#tools .use-case-card',
+                    {
                         y: 100,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: walletSectionTrigger,
-                    })
-                    .from('#tools .explorer-browser', {
-                        y: 50,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: explorerSectionTrigger,
-                    })
-                    .from('#tools .explorer-browser-content', {
-                        y: 100,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: explorerSectionTrigger,
-                    })
-                    .from('#tools .use-cases-container h1', {
-                        y: 50,
                         opacity: 0,
                         ease: 'none',
                         scrollTrigger: useCasesSectionTrigger,
-                    })
-                    .from(
-                        '#tools .use-case-card',
-                        {
-                            y: 100,
-                            opacity: 0,
-                            ease: 'none',
-                            scrollTrigger: useCasesSectionTrigger,
-                        },
-                        '<',
-                    )
-                    .from('#tools .use-case-card .ellipse', {
-                        y: 100,
-                        opacity: 0,
-                        ease: 'none',
-                        scrollTrigger: {
-                            ...useCasesSectionTrigger,
-                            endTrigger: sectionRef.current.querySelector('.use-cases-container'),
-                        },
-                        immediateRender: false,
-                    });
-            }
+                    },
+                    '<',
+                )
+                .from('#tools .use-case-card .ellipse', {
+                    y: 100,
+                    opacity: 0,
+                    ease: 'none',
+                    scrollTrigger: {
+                        ...useCasesSectionTrigger,
+                        endTrigger: sectionRef.current.querySelector('.use-cases-container'),
+                    },
+                    immediateRender: false,
+                });
         }
     }, [sectionRef]);
 
     return (
-        <section id="tools" ref={sectionRef}>
+        <main id="tools" ref={sectionRef}>
             <div className="container">
                 <ResponsiveImage src={toolsIllu} alt="Tools illustration" />
                 <div className="section-content scroll-trigger">
@@ -156,9 +150,9 @@ const Tools = (): JSX.Element => {
                         <p>{t('tools.page.wallet.description')}</p>
                         <Link
                             link={LUM_WALLET_GITHUB}
-                            className="github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
+                            className="github-btn d-block scale-anim text-decoration-none rounded-pill"
                         >
-                            <span className="ms-3 me-3">
+                            <span className="me-3">
                                 <img src={github} alt="" />
                             </span>
                             {t('tools.page.wallet.cta')}
@@ -166,11 +160,6 @@ const Tools = (): JSX.Element => {
                     </div>
                     <div className="col-12 col-lg-7 order-first order-lg-last mb-5 mb-lg-0">
                         <ResponsiveImage
-                            onLoad={() => {
-                                if (timeline.current) {
-                                    ScrollTrigger.refresh();
-                                }
-                            }}
                             src={walletBrowser}
                             className="illustration wallet-browser"
                             alt="Lum Wallet in browser"
@@ -190,9 +179,9 @@ const Tools = (): JSX.Element => {
                         <p>{t('tools.page.explorer.description')}</p>
                         <Link
                             link={LUM_EXPLORER_GITHUB}
-                            className="github-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
+                            className="github-btn d-block scale-anim text-decoration-none rounded-pill"
                         >
-                            <span className="ms-3 me-3">
+                            <span className="me-3">
                                 <img src={github} alt="" />
                             </span>
                             {t('tools.page.explorer.cta')}
@@ -208,7 +197,7 @@ const Tools = (): JSX.Element => {
                     <UseCaseCard useCase="dfract" className="mt-4 mt-lg-0" />
                 </div>
             </div>
-        </section>
+        </main>
     );
 };
 

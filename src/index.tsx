@@ -15,6 +15,12 @@ import './locales';
 
 dotenv.config();
 
+const canControlScrollRestoration = 'scrollRestoration' in window.history;
+
+if (canControlScrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+}
+
 ReactDOM.render(
     <React.StrictMode>
         <App />

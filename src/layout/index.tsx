@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Outlet, useLocation, useNavigationType } from 'react-router-dom';
-import { gsap } from 'gsap';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Footer, Header, Modal } from 'components';
 import { LUM_OSMOSIS, NEWSLETTER_MAILJET_URL } from 'constant';
 
 import notificationIllu from 'assets/images/notification_illu.png';
 import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
+import { useMainLayoutTimeline } from 'utils/hooks';
 
 const MainLayout = (): JSX.Element => {
     const { t } = useTranslation();
     const location = useLocation();
-    const navigationType = useNavigationType();
+    const mainLayoutTimeline = useMainLayoutTimeline();
 
     const giModRef = useRef<React.ElementRef<typeof Modal>>(null);
     const nlModRef = useRef<React.ElementRef<typeof Modal>>(null);
@@ -28,14 +28,11 @@ const MainLayout = (): JSX.Element => {
     }, [giModRef, nlModRef, location]);
 
     useEffect(() => {
-        if (navigationType !== 'POP') {
-            const canControlScrollRestoration = 'scrollRestoration' in window.history;
-            if (canControlScrollRestoration) {
-                window.history.scrollRestoration = 'manual';
-            }
-
-            gsap.to(window, { scrollTo: 0 });
-        }
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        mainLayoutTimeline.to('main', {
+            opacity: 1,
+            delay: 0.75,
+        });
     }, [location]);
 
     return (

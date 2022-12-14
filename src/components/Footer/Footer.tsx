@@ -82,12 +82,14 @@ const Footer = (): JSX.Element => {
                                 <div className="d-flex flex-column ms-lg-5">
                                     <strong>{t('footer.useCases')}</strong>
                                     <NavLink
+                                        preventScrollReset
                                         to={NavigationConstants.SKR}
                                         className="footer-link text-reset text-decoration-none scale-anim my-4"
                                     >
                                         Skeepers Rewards
                                     </NavLink>
                                     <NavLink
+                                        preventScrollReset
                                         to={NavigationConstants.DFRACT}
                                         className="footer-link text-reset text-decoration-none scale-anim mb-4"
                                     >
