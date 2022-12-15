@@ -17,6 +17,8 @@ import './styles/App.scss';
 gsap.config({ nullTargetWarn: false });
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, DrawSVGPlugin, SplitText);
 
+ScrollTrigger.normalizeScroll(true);
+
 const Loader = ({ progress, loading }: { progress: number; loading: boolean }): JSX.Element => {
     return (
         <div id="loader" className={`d-flex align-items-center justify-content-center ${!loading ? 'slow-hide' : ''}`}>
