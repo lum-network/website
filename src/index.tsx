@@ -1,7 +1,10 @@
+import 'reflect-metadata';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as dotenv from 'dotenv';
 
 import '@popperjs/core/dist/esm/popper';
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -9,6 +12,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/_main.scss';
 
 import './locales';
+
+dotenv.config();
+
+const canControlScrollRestoration = 'scrollRestoration' in window.history;
+
+if (canControlScrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+}
 
 ReactDOM.render(
     <React.StrictMode>

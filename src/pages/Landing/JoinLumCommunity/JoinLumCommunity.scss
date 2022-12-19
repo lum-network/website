@@ -1,0 +1,65 @@
+@import '_main';
+
+#join-lum-community {
+    padding-bottom: 140px;
+
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 72px;
+    }
+
+    .socials-container {
+        overflow: hidden;
+        position: relative;
+        border-radius: 21px;
+
+        .ellipse {
+            position: absolute;
+
+            &.ellipse-1 {
+                left: -50px;
+            }
+
+            &.ellipse-2 {
+                right: 0px;
+            }
+        }
+
+        .content {
+            background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+            backdrop-filter: blur(103.5px);
+            padding: 60px;
+            border-radius: 21px;
+            @include media-breakpoint-down(lg) {
+                padding: 20px;
+            }
+
+            h1 {
+                font-weight: 700;
+                font-size: 50px;
+                line-height: 60px;
+            }
+
+            .socials-btn-container {
+                @include media-breakpoint-down(lg) {
+                    margin: -10px;
+                }
+
+                .social-button {
+                    width: 86px;
+                    height: 86px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: white;
+                    border-radius: 15.4248px;
+                    margin-right: 1rem;
+
+                    @include media-breakpoint-down(lg) {
+                        margin: 10px;
+                        flex-basis: 106px;
+                    }
+                }
+            }
+        }
+    }
+}

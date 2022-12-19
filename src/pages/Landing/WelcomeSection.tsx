@@ -9,11 +9,8 @@ import numeral from 'numeral';
 import Chart from 'kaktana-react-lightweight-charts';
 import { UTCTimestamp } from 'lightweight-charts';
 
-import crystalWhiteLarge from 'assets/images/crystal_white_large.png';
-import crystalWhiteMedium from 'assets/images/crystal_white_medium.png';
-import crystalWhiteSmall from 'assets/images/crystal_white_small.png';
-import crystalsShadows from 'assets/images/crystals_shadows.png';
 import downArrowIcon from 'assets/images/down-arrow.svg';
+import planet from 'assets/images/planet.png';
 
 import './WelcomeSection.scss';
 import { useWindowSize } from 'utils/hooks';
@@ -26,6 +23,7 @@ const DotsSvgPaths = (): JSX.Element => {
             <svg width="2005" height="195" viewBox="0 0 2005 195" fill="none">
                 <path
                     id="mv-dot-path-1"
+                    // eslint-disable-next-line max-len
                     d="M2.5 192.369C65.4056 142.747 143.289 59.7061 284.078 49.5791C424.866 39.4522 488.271 186.293 648.531 186.293C808.791 186.293 877.687 36.9205 1074.39 6.53973C1271.1 -23.8411 1420.87 174.14 1648.53 172.115C1876.19 170.09 1975.54 108.822 2002.5 95.6567"
                     stroke="white"
                     strokeWidth="5"
@@ -35,6 +33,7 @@ const DotsSvgPaths = (): JSX.Element => {
             <svg width="2006" height="194" viewBox="0 0 2006 194" fill="none">
                 <path
                     id="mv-dot-path-2"
+                    // eslint-disable-next-line max-len
                     d="M3 2.5C28.5128 36.8636 134.566 137.991 306.652 133.573C478.738 129.155 581.789 40.7909 783.39 46.6818C984.991 52.5727 1162.58 191.5 1292.64 191.5C1422.71 191.5 1541.77 64.8455 1720.36 52.5727C1863.23 42.7545 1968.32 76.7091 2003 97"
                     stroke="white"
                     strokeWidth="5"
@@ -60,23 +59,6 @@ const DotsSvgPaths = (): JSX.Element => {
                 />
             </svg>
         </>
-    );
-};
-
-const CrystalIllustration = (): JSX.Element => {
-    return (
-        <div className="crystal-illu-container">
-            <img className="crystals-shadows" src={crystalsShadows} alt="Crystals shadows" />
-            <div className="crystal-wrapper crystal-small-wrapper">
-                <img className="crystal-small" src={crystalWhiteSmall} alt="Small White Crystal" />
-            </div>
-            <div className="crystal-wrapper crystal-medium-wrapper">
-                <img className="crystal-medium" src={crystalWhiteMedium} alt="Medium White Crystal" />
-            </div>
-            <div className="crystal-wrapper crystal-large-wrapper">
-                <img className="crystal-large" src={crystalWhiteLarge} alt="Large White Crystal" />
-            </div>
-        </div>
     );
 };
 
@@ -193,25 +175,10 @@ const WelcomeSection = (): JSX.Element => {
             translateY: -75,
             ease: 'none',
             scrollTrigger: scrollTrigger,
-            stragger: 0.25,
+            stagger: 0.25,
         });
-        gsap.to(`#welcome .crystal-small-wrapper`, {
+        gsap.to(`#welcome .planet-illustration`, {
             translateY: -125,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .crystal-medium-wrapper`, {
-            translateY: -100,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .crystal-large-wrapper`, {
-            translateY: -75,
-            ease: 'none',
-            scrollTrigger: scrollTrigger,
-        });
-        gsap.to(`#welcome .crystals-shadows`, {
-            translateY: -75,
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
@@ -250,7 +217,8 @@ const WelcomeSection = (): JSX.Element => {
                     {
                         duration: 0.85,
                         opacity: 1,
-                        color: '#515151',
+                        color: '#000',
+                        // eslint-disable-next-line max-len
                         textShadow: `0 0 10px rgba(255,255,255,0), 0 0 20px rgba(255,255,255,0), 0 0 30px rgba(255,255,255,0), 0 0 40px rgba(255,255,255,0), 0 0 50px rgba(255,255,255,0), 0 0 60px rgba(255,255,255,0), 0 0 70px rgba(255,255,255,0)`,
                         ease: Power1.easeIn,
                         stagger: 0.075,
@@ -271,20 +239,6 @@ const WelcomeSection = (): JSX.Element => {
                     stagger: 0.25,
                 },
                 '=-0.3',
-            );
-            tl.fromTo(
-                `#welcome .crystal-illu-container > *`,
-                {
-                    opacity: 0,
-                    y: 10,
-                },
-                {
-                    duration: 0.5,
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.15,
-                },
-                '=-0.5',
             );
             tl.fromTo(
                 `#welcome .bg-lightning`,
@@ -452,14 +406,14 @@ const WelcomeSection = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-                        <CrystalIllustration />
+                        <img src={planet} className="planet-illustration" alt="planet" />
                     </div>
                 </div>
             </div>
             <div className="container">
                 <a
                     onClick={() => {
-                        document.getElementById('trustlayer')?.scrollIntoView();
+                        document.getElementById('core-values')?.scrollIntoView();
                     }}
                     className="scroll-cta-container scale-anim d-flex flex-row align-self-end align-items-center d-none d-lg-flex"
                 >

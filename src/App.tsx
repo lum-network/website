@@ -1,18 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Provider, useDispatch } from 'react-redux';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-import { Landing } from 'pages';
-import { ProgressBar } from 'components';
 import Assets from 'assets';
-
-import './styles/App.scss';
+import { ProgressBar } from 'components';
+import RootNavigator from 'navigation';
+import store, { Dispatch } from 'redux/store';
 
 import lumNetworkLogoDark from 'assets/images/lum_network_logo_dark.png';
 
+import './styles/App.scss';
+
 gsap.config({ nullTargetWarn: false });
-gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, DrawSVGPlugin, SplitText);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, DrawSVGPlugin, SplitText);
+
+ScrollTrigger.normalizeScroll(true);
 
 const Loader = ({ progress, loading }: { progress: number; loading: boolean }): JSX.Element => {
     return (
@@ -29,6 +34,7 @@ const App = (): JSX.Element => {
     const [progress, setProgress] = useState<number>(5);
     const [loading, setLoading] = useState<boolean>(true);
     const loadingStartsAt = useRef<Date>(new Date());
+    const dispatch = useDispatch<Dispatch>();
 
     useEffect(() => {
         if (progress >= 100) {
@@ -67,12 +73,27 @@ const App = (): JSX.Element => {
         }
     }, []);
 
+    useEffect(() => {
+        dispatch.stats.getLumStats().finally(() => null);
+        dispatch.stats.getDfrStats().finally(() => null);
+        dispatch.stats.getSkrStats().finally(() => null);
+        dispatch.stats.getToolsStats().finally(() => null);
+    }, []);
+
     return (
-        <main>
+        <>
             <Loader progress={progress} loading={loading} />
-            {!loading ? <Landing /> : null}
-        </main>
+            {!loading ? <RootNavigator /> : null}
+        </>
     );
 };
 
-export default App;
+const AppWrapper = (): JSX.Element => {
+    return (
+        <Provider store={store}>
+            <App />
+        </Provider>
+    );
+};
+
+export default AppWrapper;

@@ -1,16 +1,35 @@
 @import '_main';
 
 footer {
-    background: linear-gradient(0deg, #0f7bed, #0f7bed), linear-gradient(180deg, #9fb4ff -142.95%, #0375ed 29.9%);
-    margin-top: auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    color: $color-light;
-    @include media-breakpoint-down(lg) {
-        padding-left: 2rem;
-        padding-right: 2rem;
+    position: relative;
+    overflow: hidden;
+    .content {
+        background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+        backdrop-filter: blur(103.5px);
+        margin-top: auto;
+        padding-top: 4rem;
+        padding-bottom: 3.5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        color: $color-black;
+        @include media-breakpoint-down(lg) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+    .ellipse {
+        position: absolute;
+        
+        &.ellipse-1 {
+            left: -50px;
+            bottom: -100px;
+        }
+
+        &.ellipse-2 {
+            right: 400px;
+
+        }
     }
 }
 
@@ -24,12 +43,12 @@ footer input.form-control:-webkit-autofill,
 footer input.form-control:-webkit-autofill:hover,
 footer input.form-control:-webkit-autofill:focus,
 footer input.form-control:-webkit-autofill:active {
-    box-shadow: 0 0 0px 1000px #0f7bed inset;
+    box-shadow: 0 0 0px 1000px transparent inset;
     background-color: transparent !important;
-    -webkit-text-fill-color: white !important;
-    color: white !important;
+    -webkit-text-fill-color: $color-black !important;
+    color: $color-black !important;
     &::placeholder {
-        color: $color-primary !important;
+        color: $color-black !important;
     }
 }
 
@@ -43,7 +62,7 @@ footer p.footer-link {
 }
 
 footer .github-icon {
-    filter: brightness(0) invert(1);
+    filter: brightness(0);
     object-fit: contain;
 }
 

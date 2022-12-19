@@ -1,0 +1,39 @@
+@import '_main';
+
+.use-case-card {
+    position: relative;
+    width: min-content;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 21px;
+
+    .ellipse {
+        position: absolute;
+        bottom: -100px;
+    }
+
+    .content {
+        background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+        backdrop-filter: blur(103.5px);
+        /* Note: backdrop-filter has minimal browser support */
+        position: relative;
+        border-radius: 21px;
+    }
+
+    .illustration {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    p {
+        color: $color-dark;
+    }
+
+    .discover-btn {
+        width: fit-content;
+        background-color: $color-blue;
+        color: white;
+        height: 100%;
+    }
+}

@@ -1,0 +1,103 @@
+@import '_main';
+
+#tools {
+    padding-top: 160px;
+    white-space: pre-line;
+
+    .big-illustration {
+        height: 526px;
+        width: 100%;
+        object-fit: cover;
+
+        @include media-breakpoint-down(lg) {
+            height: 300px;
+        }
+    }
+
+    .section-margin-top {
+        margin-top: 132px;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 72px;
+        }
+    }
+
+    .section-content {
+        margin-left: 8rem;
+        margin-right: 8rem;
+
+        @include media-breakpoint-down(lg) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .section-content-title {
+            margin-bottom: 4rem;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 2rem;
+            }
+        }
+
+        h6 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            margin-top: 4rem;
+        }
+
+        .numbers-container {
+            background: linear-gradient(87.22deg, rgba(242, 247, 255, 0.8) -1.84%, rgba(195, 190, 255, 0.168) 110.25%);
+            backdrop-filter: blur(103.5px);
+            border-radius: 21px;
+
+            .col > div {
+                background: white;
+                text-align: center;
+                border-radius: 25px;
+
+                @include media-breakpoint-down(md) {
+                    padding: 0 1rem;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                .stat-number {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40.7282px;
+                    line-height: 49px;
+                    color: $color-blue;
+
+                    @include media-breakpoint-down(lg) {
+                        font-size: 26px;
+                    }
+                }
+            }
+        }
+    }
+
+    .github-btn {
+        background-color: $color-blue;
+        color: white;
+        width: 217px;
+        padding: 0.75rem 1.5rem;
+        img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    .use-cases-container {
+        margin-bottom: 132px;
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 72px;
+        }
+    }
+}

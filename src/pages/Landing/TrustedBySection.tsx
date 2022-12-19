@@ -28,12 +28,12 @@ const TrustedBySection = (): JSX.Element => {
             ease: 'none',
             scrollTrigger: scrollTrigger,
         });
-        gsap.from(`#trustedby .partner`, {
+        /* gsap.from(`#trustedby .partner`, {
             opacity: 0,
             ease: 'none',
             scrollTrigger: scrollTrigger,
             stagger: 0.05,
-        });
+        }); */
     }, []);
 
     const partners: Array<{ logo: string; title: string; url: string }> = [
@@ -43,9 +43,29 @@ const TrustedBySection = (): JSX.Element => {
             url: 'https://ignite.com/',
         },
         {
-            logo: Assets.partners.swissborg,
-            title: 'Swissborg Ventures',
-            url: 'https://swissborg.com',
+            logo: Assets.partners.stakewithus,
+            title: 'StakeWithUs',
+            url: 'https://www.stakewith.us',
+        },
+        {
+            logo: Assets.partners.arcanum,
+            title: 'Arcanum Capital',
+            url: 'https://www.arcanum.capital',
+        },
+        {
+            logo: Assets.partners.imperator,
+            title: 'Imperator',
+            url: 'https://imperator.co',
+        },
+        {
+            logo: Assets.partners.sentinel,
+            title: 'Sentinel',
+            url: 'https://sentinel.co',
+        },
+        {
+            logo: Assets.partners.skeepers,
+            title: 'Skeepers',
+            url: 'https://skeepers.io',
         },
         {
             logo: Assets.partners.cosmostation,
@@ -58,45 +78,25 @@ const TrustedBySection = (): JSX.Element => {
             url: 'https://stake.fish',
         },
         {
-            logo: Assets.partners.arcanum,
-            title: 'Arcanum Capital',
-            url: 'https://www.arcanum.capital',
-        },
-        {
-            logo: Assets.partners.skeepers,
-            title: 'Skeepers',
-            url: 'https://skeepers.io',
+            logo: Assets.partners.swissborg,
+            title: 'Swissborg Ventures',
+            url: 'https://swissborg.com',
         },
         {
             logo: Assets.partners.klub,
             title: 'Klub',
             url: 'https://klub.ki',
         },
-        {
-            logo: Assets.partners.imperator,
-            title: 'Imperator',
-            url: 'https://imperator.co',
-        },
-        {
+        /* {
             logo: Assets.partners.sg1,
             title: 'SG-1',
             url: 'https://sg-1.online',
         },
         {
-            logo: Assets.partners.sentinel,
-            title: 'Sentinel',
-            url: 'https://sentinel.co',
-        },
-        {
-            logo: Assets.partners.stakewithus,
-            title: 'StakeWithUs',
-            url: 'https://www.stakewith.us',
-        },
-        {
             logo: Assets.partners.cryptocrew,
             title: 'CryptoCrew Validators',
             url: 'https://ccvalidators.com/',
-        },
+        }, */
     ];
 
     return (
@@ -110,14 +110,18 @@ const TrustedBySection = (): JSX.Element => {
                         />
                     </div>
                 </div>
-                <div className="section-content-info row">
-                    <div className="col-12 d-flex flex-row justify-content-between align-items-start flex-wrap">
-                        {partners.map((p, i) => (
-                            <a key={i} className="partner" href={p.url} target="_blank" rel="noreferrer">
+                <div
+                    className={`section-content-info row row-cols-${partners.length / 5} row-cols-md-${
+                        partners.length / 2
+                    }`}
+                >
+                    {partners.map((p, i) => (
+                        <div key={i} className="col">
+                            <a className="partner w-100" href={p.url} target="_blank" rel="noreferrer">
                                 <img src={p.logo} alt={`${p.title} logo`} />
                             </a>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

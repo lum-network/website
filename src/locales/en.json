@@ -2,16 +2,17 @@
     "common": {
         "getLum": "Get Lum",
         "buyLum": "Buy Lum",
-        "day": "24h"
+        "day": "24h",
+        "discover": "Discover"
     },
     "header": {
         "getInformed": "Get informed"
     },
     "landing": {
         "title": "Web3 Applications<br />for Mass Adoption",
-        "description": "Lum Network is your gateway to the decentralized web.<br class=\"d-none d-lg-block\"/>We built the first trust layer protocol for businesses and<br class=\"d-none d-lg-block\"/>consumers and the first crypto index of Cosmos.",
+        "description": "Lum Network is your gateway to the decentralized web, powered by the $LUM.<br />We built the first trust layer protocol for businesses and consumers, as well as the first Interchain index.",
         "whitePaper": "White paper",
-        "scrollAction": "Get enlightened by scrolling"
+        "scrollAction": "Scroll to get enlightened"
     },
     "business": {
         "title": "The <strong>trust layer</strong> for <br class=\"d-none d-lg-block\"/><strong>companies</strong> of the <strong>future</strong>",
@@ -97,7 +98,7 @@
         }
     },
     "trustedBy": {
-        "title": "Trusted partners"
+        "title": "Trusted Partners"
     },
     "latestHighlights": {
         "title": "Latest Highlights",
@@ -136,8 +137,120 @@
             "submit": "Submit ➤",
             "placeholder": "youremail@email.com"
         },
+        "useCases": "Use cases",
         "privacyPolicy": "Privacy Policy",
         "tools": "Tools",
         "community": "Community"
+    },
+    "coreValues": {
+        "title": "Core Values",
+        "cards": [
+            {
+                "title": "Community-based",
+                "description": "Lum Network promotes a decentralized and community-based value creation since 2018."
+            },
+            {
+                "title": "Built with battle-tested tech",
+                "description": "Scalable, secure and interconnected infrastructure powered by the Interchain Stack (Cosmos-SDK, Tendermint, IBC)"
+            },
+            {
+                "title": "Green blockchain",
+                "description": "Our blockchain is designed to be sustainable and uses DPoS consuming 99% less energy than Proof-of-Work."
+            },
+            {
+                "title": "Seamless User Experience",
+                "description": "We have a strong focus on UX to remove barriers to entry as our vision is a future where everyone uses crypto."
+            }
+        ]
+    },
+    "joinLumCommunity": {
+        "title": "Join the Lum Community"
+    },
+    "useCases": {
+        "title": "Use Cases",
+        "titleOther": "Other Use Case",
+        "skr": {
+            "card": {
+                "title": "Skeepers Rewards",
+                "description": "Companies can now easily provide crypto rewards to their consumers for great user-generated content."
+            },
+            "page": {
+                "description1": "Skeepers Rewards is a social wallet to store $LUM earned as loyalty, cashback, and engagement rewards.",
+                "description2": "Every single Skeepers Rewards user therefore becomes a natural crypto holder.",
+                "numbers": {
+                    "title": "Skeepers in Numbers",
+                    "countries": "Countries",
+                    "reviews": "Reviews / Year",
+                    "brands": "Brands"
+                },
+                "details": {
+                    "title": "Building a Web App with Seamless Integration of Crypto-Related Features",
+                    "description": "Skeepers Rewards is a social wallet to store LUM earned as loyalty, cashback, and engagement rewards.",
+                    "cta": "Visit Skeepers Rewards"
+                }
+            }
+        },
+        "dfract": {
+            "card": {
+                "title": "DFract",
+                "description": "First Interchain yield earning index with the mission to bring more users to the Internet of Blockchains."
+            },
+            "page": {
+                "description1": "DFract is a decentralized index of Cosmos-SDK based blockchains. $DFR is the Protocol’s native crypto-asset.",
+                "description2": "The Internet of Blockchains is growing rapidly, with 250+ projects and $61+ billion dollars in assets. DFract is the simplest way to diversify your assets on the Interchain.",
+                "numbers": {
+                    "title": "DFract in Numbers",
+                    "price": "Backing Price",
+                    "minted": "$DFR Minted",
+                    "tvl": "TVL",
+                    "apy": "APY"
+                },
+                "details": {
+                    "title": "One Token,\nOne Ecosystem",
+                    "description": "Our webapp simplifies the diversification over multiple Interchain tokens: owning one $DFR is like owning a basket of assets.",
+                    "cta": "Visit dfract.fi"
+                }
+            }
+        }
+    },
+    "networkNumbers": {
+        "title": "Lum Network In Numbers",
+        "numbers": {
+            "marketCap": "Market Cap",
+            "transactions": "Transactions",
+            "blocks": "Blocks",
+            "blockTime": "Block Time",
+            "apr": "$LUM Staking APR"
+        }
+    },
+    "tools": {
+        "landingSection": {
+            "title": "We Build Tools for Everyone",
+            "description": "Open-source tools are the future of\nWeb3 in the Interchain.",
+            "githubBtn": "Access our github",
+            "discoverBtn": "Discover our tools"
+        },
+        "page": {
+            "title": "Tools",
+            "description1": "At Lum Network we believe in open-source code for a more transparent and community-centric code that allow communication between builders.",
+            "description2": "Open-source tools embrace our vision of Mass Adoption since it allows others to built on top of the Lum Network for their own purpose.",
+            "numbers": {
+                "title": "Tools in Numbers",
+                "stars": "Stars",
+                "forks": "Forks",
+                "openSource": "Open source repos",
+                "commits": "Commits"
+            },
+            "wallet": {
+                "title": "Native\nLum Wallet",
+                "description": "The wallet is tailored-suit for the Interchain and has proved his liability with multiple projects that forked it",
+                "cta": "/wallet"
+            },
+            "explorer": {
+                "title": "A specific explorer to view\nthe specific messages",
+                "description": "Specific messages have been developped for the review&rewards use case. You can see them on our dedicated explorer",
+                "cta": "/explorer"
+            }
+        }
     }
 }
