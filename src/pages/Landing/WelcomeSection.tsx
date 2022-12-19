@@ -240,20 +240,6 @@ const WelcomeSection = (): JSX.Element => {
                 },
                 '=-0.3',
             );
-            /* tl.fromTo(
-                `#welcome .planet-illustration`,
-                {
-                    opacity: 0,
-                    y: 10,
-                },
-                {
-                    duration: 0.5,
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.15,
-                },
-                '=-0.5',
-            ); */
             tl.fromTo(
                 `#welcome .bg-lightning`,
                 {
