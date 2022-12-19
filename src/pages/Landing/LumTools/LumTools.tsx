@@ -22,7 +22,7 @@ const Tools = (): JSX.Element => {
         const scrollTrigger = {
             trigger: `#lum-tools`,
             start: 'top 60%',
-            end: 'top 2%',
+            end: 'top 10%',
             scrub: true,
         };
 

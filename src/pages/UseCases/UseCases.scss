@@ -55,7 +55,7 @@
             backdrop-filter: blur(103.5px);
             border-radius: 21px;
 
-            .col div {
+            .col > div {
                 background: white;
                 text-align: center;
                 border-radius: 25px;
@@ -76,7 +76,7 @@
                     color: $color-blue;
 
                     @include media-breakpoint-down(lg) {
-                        font-size: 32px;
+                        font-size: 26px;
                     }
                 }
             }

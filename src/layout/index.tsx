@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Outlet, useLocation } from 'react-router-dom';
+import { useLocation, useOutlet } from 'react-router-dom';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { Footer, Header, Modal } from 'components';
 import { LUM_OSMOSIS, NEWSLETTER_MAILJET_URL } from 'constant';
 
@@ -8,13 +9,18 @@ import notificationIllu from 'assets/images/notification_illu.png';
 import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
 import { useMainLayoutTimeline } from 'utils/hooks';
 
+import './layout.scss';
+import { routes } from 'navigation';
+
 const MainLayout = (): JSX.Element => {
     const { t } = useTranslation();
     const location = useLocation();
     const mainLayoutTimeline = useMainLayoutTimeline();
+    const currentOutlet = useOutlet();
 
     const giModRef = useRef<React.ElementRef<typeof Modal>>(null);
     const nlModRef = useRef<React.ElementRef<typeof Modal>>(null);
+    const { nodeRef } = routes.find((route) => route.path === location.pathname) ?? {};
 
     useEffect(() => {
         if (giModRef.current && nlModRef.current) {
@@ -28,17 +34,21 @@ const MainLayout = (): JSX.Element => {
     }, [giModRef, nlModRef, location]);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-        mainLayoutTimeline.to('main', {
-            opacity: 1,
-            delay: 0.75,
-        });
+        mainLayoutTimeline.to(window, { scrollTo: { y: 0 }, delay: 0.5 });
     }, [location]);
 
     return (
         <>
             <Header modalId="#get-informed-modal" bgTriggerElem="#welcome" />
-            <Outlet />
+            <SwitchTransition>
+                <CSSTransition key={location.pathname} nodeRef={nodeRef} timeout={1200} classNames="page" unmountOnExit>
+                    {() => (
+                        <div ref={nodeRef} className="page">
+                            {currentOutlet}
+                        </div>
+                    )}
+                </CSSTransition>
+            </SwitchTransition>
             <Footer />
             <Modal id={'get-informed-modal'} ref={giModRef}>
                 <div className="row mb-4">

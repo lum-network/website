@@ -117,7 +117,7 @@ const Tools = (): JSX.Element => {
                         <div className="col">{t('tools.page.description2')}</div>
                     </div>
                     <h6 className="mb-3 section-content-title">{t('tools.page.numbers.title')}</h6>
-                    <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pb-lg-4 pt-lg-4 mt-4 mt-lg-0">
+                    <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{stars || '-'}</div>
