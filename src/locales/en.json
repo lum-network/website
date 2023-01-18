@@ -10,7 +10,7 @@
     },
     "landing": {
         "title": "Web3 Applications<br />for Mass Adoption",
-        "description": "Lum Network is your gateway to the decentralized web, powered by the $LUM.<br />We built the first trust layer protocol for businesses and consumers, as well as the first Interchain index.",
+        "description": "Lum Network is a fast, secure and sustainable open source blockchain,<br />built to enable anyone to use decentralized applications.",
         "whitePaper": "White paper",
         "scrollAction": "Scroll to get enlightened"
     },
@@ -175,8 +175,8 @@
                 "description": "Companies can now easily provide crypto rewards to their consumers for great user-generated content."
             },
             "page": {
-                "description1": "Skeepers Rewards is a social wallet to store $LUM earned as loyalty, cashback, and engagement rewards.",
-                "description2": "Every single Skeepers Rewards user therefore becomes a natural crypto holder.",
+                "description1": "People have become increasingly demanding when it comes to the way they consume. They want more transparency, collaboration and recognition.\n\nReviews represent a tremendous value for companies. 95% of shoppers read reviews before making a purchase.",
+                "description2": "Lum Network offers companies the opportunity to gain a competitive edge with new loyalty program approaches.\n\nWith seamless customer experience thanks to interoperability, the crypto-assets drive deeper engagement and gives a sense of social identity.",
                 "numbers": {
                     "title": "Skeepers in Numbers",
                     "countries": "Countries",
@@ -185,8 +185,8 @@
                 },
                 "details": {
                     "title": "Building a Web App with Seamless Integration of Crypto-Related Features",
-                    "description": "Skeepers Rewards is a social wallet to store LUM earned as loyalty, cashback, and engagement rewards.",
-                    "cta": "Visit Skeepers Rewards"
+                    "description": "Skeepers Rewards is a social wallet to store $LUM earned as loyalty, cashback, and engagement rewards.\n\nEvery single Skeepers Rewards user therefore becomes a natural crypto holder thanks to the value he creates.",
+                    "cta": "Use Skeepers Rewards"
                 }
             }
         },
@@ -196,8 +196,8 @@
                 "description": "First Interchain yield earning index with the mission to bring more users to the Internet of Blockchains."
             },
             "page": {
-                "description1": "DFract is a decentralized index of Cosmos-SDK based blockchains. $DFR is the Protocol’s native crypto-asset.",
-                "description2": "The Internet of Blockchains is growing rapidly, with 250+ projects and $61+ billion dollars in assets. DFract is the simplest way to diversify your assets on the Interchain.",
+                "description1": "Cosmos, also known as The Internet of Blockchains, have seen a steady growth with now more than 50 blockchains inter-connected.\n\nCapturing the value of the ecosystem has then become time consuming and difficult to catch.",
+                "description2": "In Traditional Finance, indexes are used extensively to simplify the exposure to multiple assets.\n\nAs a crypto index, the first of this ecosystem, the DFract Protocol aims to become a unit of value of the Interchain",
                 "numbers": {
                     "title": "DFract in Numbers",
                     "price": "Backing Price",
@@ -207,8 +207,8 @@
                 },
                 "details": {
                     "title": "One Token,\nOne Ecosystem",
-                    "description": "Our webapp simplifies the diversification over multiple Interchain tokens: owning one $DFR is like owning a basket of assets.",
-                    "cta": "Visit dfract.fi"
+                    "description": "DFract is a convenient way, with a low entry barrier to gain broader exposure to the Interchain.\n\nIt is the simplest way to diversify your assets on the Interchain, and to earn staking rewards on top of it.",
+                    "cta": "Become a $DFR holder"
                 }
             }
         }
@@ -243,11 +243,11 @@
             },
             "wallet": {
                 "title": "Native\nLum Wallet",
-                "description": "The wallet is tailored-suit for the Interchain and has proved his liability with multiple projects that forked it",
+                "description": "The wallet is tailored-suit for the Interchain and has proved his liability with multiple projects that forked it.\nStay safe, it is Ledger compatible.",
                 "cta": "/wallet"
             },
             "explorer": {
-                "title": "A specific explorer to view\nthe specific messages",
+                "title": "An Interchain Explorer with unique features",
                 "description": "Specific messages have been developped for the review&rewards use case. You can see them on our dedicated explorer",
                 "cta": "/explorer"
             }

@@ -43,6 +43,7 @@ import sentinel from './images/partners/sentinel.png';
 import stakewithus from './images/partners/stakewithus.png';
 import cryptocrew from './images/partners/cryptocrew.png';
 import ignite from './images/partners/ignite.svg';
+import crosnest from './images/partners/crosnest.png';
 
 const Assets = {
     images: {
@@ -91,6 +92,7 @@ const Assets = {
         sentinel,
         stakewithus,
         cryptocrew,
+        crosnest,
     },
 };
 

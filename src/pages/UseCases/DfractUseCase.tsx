@@ -95,7 +95,7 @@ const DfractUseCase = (): JSX.Element => {
             <div className="container">
                 <img src={dfractIllu} alt="Skeepers Rewards illustration" className="illustration" />
                 <div className="section-content scroll-trigger">
-                    <h1 className="section-content-title mt-5">{t('useCases.dfract.card.title')}</h1>
+                    <h1 className="section-content-title my-5">{t('useCases.dfract.card.title')}</h1>
                     <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
                         <div className="col">{t('useCases.dfract.page.description1')}</div>
                         <div className="col">{t('useCases.dfract.page.description2')}</div>
@@ -131,7 +131,7 @@ const DfractUseCase = (): JSX.Element => {
                 <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto browser-content">
                         <h2>{t('useCases.dfract.page.details.title')}</h2>
-                        <p>{t('useCases.dfract.page.details.description')}</p>
+                        <p className="my-4">{t('useCases.dfract.page.details.description')}</p>
                         <Link
                             link={LUM_DFRACT}
                             className="discover-use-case-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"

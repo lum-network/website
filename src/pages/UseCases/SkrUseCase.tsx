@@ -87,7 +87,7 @@ const SkrUseCase = (): JSX.Element => {
             <div className="container">
                 <img src={skrIllu} alt="Skeepers Rewards illustration" className="illustration" />
                 <div className="section-content scroll-trigger">
-                    <h1 className="section-content-title mt-5">{t('useCases.skr.card.title')}</h1>
+                    <h1 className="section-content-title my-5">{t('useCases.skr.card.title')}</h1>
                     <div className="row row-cols-1 row-cols-lg-2 gy-4 gy-lg-0">
                         <div className="col">{t('useCases.skr.page.description1')}</div>
                         <div className="col">{t('useCases.skr.page.description2')}</div>
@@ -121,7 +121,7 @@ const SkrUseCase = (): JSX.Element => {
                 <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto browser-content">
                         <h2>{t('useCases.skr.page.details.title')}</h2>
-                        <p>{t('useCases.skr.page.details.description')}</p>
+                        <p className="my-4">{t('useCases.skr.page.details.description')}</p>
                         <Link
                             link={SKR_URL}
                             className="discover-use-case-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
