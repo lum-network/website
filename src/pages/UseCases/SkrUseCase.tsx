@@ -96,7 +96,7 @@ const SkrUseCase = (): JSX.Element => {
                     <div className="row row-cols-2 row-cols-lg-3 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pt-lg-4 mt-4 mt-lg-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{countries || '-'}</div>
+                                <div className="stat-number">{countries + '+' || '-'}</div>
                                 <p>{t('useCases.skr.page.numbers.countries')}</p>
                             </div>
                         </div>
