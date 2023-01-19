@@ -26,12 +26,13 @@
         z-index: 2;
         height: 380px;
         width: 100%;
+        margin-top: 280px;
     }
 
     & img.illu {
         z-index: 0;
         position: absolute;
-        bottom: 20px;
+        top: 40px;
         left: 50%;
         height: 200px;
         transform: translateX(-50%);
