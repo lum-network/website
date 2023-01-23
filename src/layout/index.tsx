@@ -67,6 +67,7 @@ const MainLayout = (): JSX.Element => {
             <Modal id={'newsletter-modal'} ref={nlModRef}>
                 <img src={newsletterIllu} className="illu" alt="Newsletter" />
                 <iframe
+                    data-w-type="embedded"
                     className="mj-w-res-iframe"
                     frameBorder="0"
                     scrolling="no"
