@@ -97,9 +97,9 @@ export const stats = createModel<RootModel>()({
         },
         async getSkrStats() {
             dispatch.stats.SET_SKR_STATS({
-                countries: 63,
-                brands: 900,
-                reviews: 200000,
+                countries: 40,
+                brands: 8000,
+                reviews: 30_000_000,
             });
         }
     }),

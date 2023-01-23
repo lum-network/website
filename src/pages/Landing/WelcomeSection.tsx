@@ -198,7 +198,7 @@ const WelcomeSection = (): JSX.Element => {
                         y: 10,
                     },
                     {
-                        duration: 0.85,
+                        duration: 0.5,
                         opacity: 1,
                         y: 0,
                     },
@@ -215,7 +215,7 @@ const WelcomeSection = (): JSX.Element => {
                         ease: Power1.easeIn,
                     },
                     {
-                        duration: 0.85,
+                        duration: 0.5,
                         opacity: 1,
                         color: '#000',
                         // eslint-disable-next-line max-len

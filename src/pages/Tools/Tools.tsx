@@ -147,7 +147,7 @@ const Tools = (): JSX.Element => {
                 <div className="row section-margin-top">
                     <div className="col-12 col-lg-5 my-auto wallet-browser-content">
                         <h2>{t('tools.page.wallet.title')}</h2>
-                        <p>{t('tools.page.wallet.description')}</p>
+                        <p className="my-4">{t('tools.page.wallet.description')}</p>
                         <Link
                             link={LUM_WALLET_GITHUB}
                             className="github-btn d-block scale-anim text-decoration-none rounded-pill"
@@ -176,7 +176,7 @@ const Tools = (): JSX.Element => {
                     </div>
                     <div className="col-12 col-lg-5 my-auto explorer-browser-content">
                         <h2>{t('tools.page.explorer.title')}</h2>
-                        <p>{t('tools.page.explorer.description')}</p>
+                        <p className="my-4">{t('tools.page.explorer.description')}</p>
                         <Link
                             link={LUM_EXPLORER_GITHUB}
                             className="github-btn d-block scale-anim text-decoration-none rounded-pill"

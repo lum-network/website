@@ -5,7 +5,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { Footer, Header, Modal } from 'components';
 import { LUM_OSMOSIS, NEWSLETTER_MAILJET_URL } from 'constant';
 
-import notificationIllu from 'assets/images/notification_illu.png';
+import newsletterIllu from 'assets/images/cube.png';
 import videoSrc from 'assets/videos/ATOM_LUM_TUTO.mp4';
 import { useMainLayoutTimeline } from 'utils/hooks';
 
@@ -65,8 +65,9 @@ const MainLayout = (): JSX.Element => {
                 </div>
             </Modal>
             <Modal id={'newsletter-modal'} ref={nlModRef}>
-                <img src={notificationIllu} className="illu" alt="Newsletter" />
+                <img src={newsletterIllu} className="illu" alt="Newsletter" />
                 <iframe
+                    data-w-type="embedded"
                     className="mj-w-res-iframe"
                     frameBorder="0"
                     scrolling="no"

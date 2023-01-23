@@ -24,14 +24,15 @@
 
     & iframe {
         z-index: 2;
-        height: 380px;
+        height: 500px;
         width: 100%;
+        margin-top: 230px;
     }
 
     & img.illu {
         z-index: 0;
         position: absolute;
-        bottom: 20px;
+        top: 40px;
         left: 50%;
         height: 200px;
         transform: translateX(-50%);
@@ -45,6 +46,11 @@
 
         & img.illu {
             height: 160px;
+        }
+
+        & iframe {
+            height: 600px;
+            margin-top: 180px;
         }
     }
 }

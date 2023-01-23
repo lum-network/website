@@ -36,46 +36,11 @@ const TrustedBySection = (): JSX.Element => {
         }); */
     }, []);
 
-    const partners: Array<{ logo: string; title: string; url: string }> = [
+    const partners: Array<{ logo: string; title: string; url: string; className?: string }> = [
         {
             logo: Assets.partners.ignite,
             title: 'Ignite',
             url: 'https://ignite.com/',
-        },
-        {
-            logo: Assets.partners.stakewithus,
-            title: 'StakeWithUs',
-            url: 'https://www.stakewith.us',
-        },
-        {
-            logo: Assets.partners.arcanum,
-            title: 'Arcanum Capital',
-            url: 'https://www.arcanum.capital',
-        },
-        {
-            logo: Assets.partners.imperator,
-            title: 'Imperator',
-            url: 'https://imperator.co',
-        },
-        {
-            logo: Assets.partners.sentinel,
-            title: 'Sentinel',
-            url: 'https://sentinel.co',
-        },
-        {
-            logo: Assets.partners.skeepers,
-            title: 'Skeepers',
-            url: 'https://skeepers.io',
-        },
-        {
-            logo: Assets.partners.cosmostation,
-            title: 'Cosmostation',
-            url: 'https://mintscan.io',
-        },
-        {
-            logo: Assets.partners.stakefish,
-            title: 'Stake.Fish',
-            url: 'https://stake.fish',
         },
         {
             logo: Assets.partners.swissborg,
@@ -83,11 +48,31 @@ const TrustedBySection = (): JSX.Element => {
             url: 'https://swissborg.com',
         },
         {
+            logo: Assets.partners.cosmostation,
+            title: 'Cosmostation',
+            url: 'https://mintscan.io',
+        },
+        {
+            logo: Assets.partners.arcanum,
+            title: 'Arcanum Capital',
+            url: 'https://www.arcanum.capital',
+        },
+        {
+            logo: Assets.partners.skeepers,
+            title: 'Skeepers',
+            url: 'https://skeepers.io',
+        },
+        {
             logo: Assets.partners.klub,
             title: 'Klub',
             url: 'https://klub.ki',
         },
-        /* {
+        {
+            logo: Assets.partners.imperator,
+            title: 'Imperator',
+            url: 'https://imperator.co',
+        },
+        {
             logo: Assets.partners.sg1,
             title: 'SG-1',
             url: 'https://sg-1.online',
@@ -96,7 +81,13 @@ const TrustedBySection = (): JSX.Element => {
             logo: Assets.partners.cryptocrew,
             title: 'CryptoCrew Validators',
             url: 'https://ccvalidators.com/',
-        }, */
+        },
+        {
+            logo: Assets.partners.crosnest,
+            title: 'Cros-Nest',
+            url: 'https://cros-nest.com',
+            className: 'filter-black',
+        },
     ];
 
     return (
@@ -118,7 +109,7 @@ const TrustedBySection = (): JSX.Element => {
                     {partners.map((p, i) => (
                         <div key={i} className="col">
                             <a className="partner w-100" href={p.url} target="_blank" rel="noreferrer">
-                                <img src={p.logo} alt={`${p.title} logo`} />
+                                <img src={p.logo} alt={`${p.title} logo`} className={p.className} />
                             </a>
                         </div>
                     ))}

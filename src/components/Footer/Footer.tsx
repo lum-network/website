@@ -1,6 +1,4 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
@@ -17,6 +15,7 @@ import {
     LUM_DISCORD,
     LUM_NETWORK_WHITEPAPER,
     NavigationConstants,
+    LUM_MEDIUM,
 } from 'constant';
 import { Button, Link } from 'components';
 
@@ -24,22 +23,6 @@ import './styles/Footer.scss';
 
 const Footer = (): JSX.Element => {
     const { t } = useTranslation();
-
-    const mailingListForm = useFormik({
-        initialValues: { email: '' },
-        validationSchema: yup.object().shape({
-            email: yup
-                .string()
-                .required('An email is required before submitting')
-                .matches(new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i), 'Wrong email address'),
-        }),
-        onSubmit: (values) => registerMailingList(values.email),
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const registerMailingList = (email: string) => {
-        // TODO: Call to register the user to the mailing list
-    };
 
     return (
         <footer>
@@ -52,15 +35,10 @@ const Footer = (): JSX.Element => {
                             <div className="h-100 me-md-5 d-flex flex-column justify-content-between">
                                 <div>
                                     <h3>{t('footer.newsletter.title')}</h3>
-                                    <form
-                                        onSubmit={mailingListForm.handleSubmit}
-                                        data-bs-toggle="modal"
-                                        data-bs-target={'#newsletter-modal'}
-                                    >
+                                    <form data-bs-toggle="modal" data-bs-target={'#newsletter-modal'}>
                                         <div className="input-group align-items-baseline border-bottom border-dark mt-4">
                                             <input
                                                 disabled
-                                                {...mailingListForm.getFieldProps('email')}
                                                 className="form-control border-0 px-0 pb-3 mt-3"
                                                 placeholder={t('footer.newsletter.placeholder')}
                                             />
@@ -70,9 +48,6 @@ const Footer = (): JSX.Element => {
                                                 </button>
                                             </span>
                                         </div>
-                                        {mailingListForm.touched.email && mailingListForm.errors.email && (
-                                            <p className="mt-2 color-error">{mailingListForm.errors.email}</p>
-                                        )}
                                     </form>
                                 </div>
                             </div>
@@ -118,6 +93,9 @@ const Footer = (): JSX.Element => {
                                     </Link>
                                     <Link link={LUM_TELEGRAM} className="footer-link mb-4">
                                         Telegram
+                                    </Link>
+                                    <Link link={LUM_MEDIUM} className="footer-link mb-4">
+                                        Medium
                                     </Link>
                                 </div>
                             </div>
