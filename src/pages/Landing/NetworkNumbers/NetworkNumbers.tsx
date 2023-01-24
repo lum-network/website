@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import Skeleton from 'react-loading-skeleton';
 import { gsap } from 'gsap';
 import numeral from 'numeral';
 
@@ -11,7 +12,7 @@ import './NetworkNumbers.scss';
 const NetworkNumbers = (): JSX.Element => {
     const { t } = useTranslation();
     const lumStats = useSelector((state: RootState) => state.stats.lum);
-
+    const statsLoading = useSelector((state: RootState) => state.loading.effects.stats.getLumStats);
     const timeline = useRef<gsap.core.Timeline>();
 
     useEffect(() => {
@@ -54,9 +55,13 @@ const NetworkNumbers = (): JSX.Element => {
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">
-                                {lumStats.marketCap
-                                    ? numeral(lumStats.marketCap).format('($0.00 a)').toUpperCase() + '+'
-                                    : '-'}
+                                {statsLoading ? (
+                                    <Skeleton width="50%" />
+                                ) : lumStats.marketCap ? (
+                                    numeral(lumStats.marketCap).format('($0.00 a)').toUpperCase() + '+'
+                                ) : (
+                                    '-'
+                                )}
                             </div>
                             <p>{t('networkNumbers.numbers.marketCap')}</p>
                         </div>
@@ -64,7 +69,13 @@ const NetworkNumbers = (): JSX.Element => {
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">
-                                {lumStats.txs ? numeral(lumStats.txs).format('0.[00]') : '-'}
+                                {statsLoading ? (
+                                    <Skeleton width="50%" />
+                                ) : lumStats.txs ? (
+                                    numeral(lumStats.txs).format('0.[00]')
+                                ) : (
+                                    '-'
+                                )}
                             </div>
                             <p>{t('networkNumbers.numbers.transactions')}</p>
                         </div>
@@ -72,7 +83,13 @@ const NetworkNumbers = (): JSX.Element => {
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">
-                                {lumStats.blocks ? numeral(lumStats.blocks).format('0.[00]') : '-'}
+                                {statsLoading ? (
+                                    <Skeleton width="50%" />
+                                ) : lumStats.blocks ? (
+                                    numeral(lumStats.blocks).format('0.[00]')
+                                ) : (
+                                    '-'
+                                )}
                             </div>
                             <p>{t('networkNumbers.numbers.blocks')}</p>
                         </div>
@@ -80,7 +97,13 @@ const NetworkNumbers = (): JSX.Element => {
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">
-                                {lumStats.blockTime ? numeral(lumStats.blockTime).format('0.00') + 's' : '-'}
+                                {statsLoading ? (
+                                    <Skeleton width="50%" />
+                                ) : lumStats.blockTime ? (
+                                    numeral(lumStats.blockTime).format('0.00') + 's'
+                                ) : (
+                                    '-'
+                                )}
                             </div>
                             <p>{t('networkNumbers.numbers.blockTime')}</p>
                         </div>
@@ -88,7 +111,13 @@ const NetworkNumbers = (): JSX.Element => {
                     <div className="col">
                         <div className="py-3">
                             <div className="stat-number">
-                                {lumStats.apr ? numeral(lumStats.apr).format('0.00%') : '-'}
+                                {statsLoading ? (
+                                    <Skeleton width="50%" />
+                                ) : lumStats.apr ? (
+                                    numeral(lumStats.apr).format('0.00%')
+                                ) : (
+                                    '-'
+                                )}
                             </div>
                             <p>{t('networkNumbers.numbers.apr')}</p>
                         </div>
