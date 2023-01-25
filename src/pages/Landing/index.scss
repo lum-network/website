@@ -26,7 +26,9 @@
         z-index: 2;
         height: 500px;
         width: 100%;
-        margin-top: 230px;
+        margin-top: 280px;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     & img.illu {
@@ -38,7 +40,7 @@
         transform: translateX(-50%);
     }
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         & .modal-content {
             position: relative;
             min-height: 560px;
@@ -49,8 +51,21 @@
         }
 
         & iframe {
-            height: 600px;
+            height: 650px;
             margin-top: 180px;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        & iframe {
+            height: 700px;
+            padding-bottom: 5rem;
+        }
+    }
+    
+    @media screen and (max-height: 568px) and (orientation: portrait) {
+        & iframe {
+            padding-bottom: 0.5rem;
         }
     }
 }
