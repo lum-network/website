@@ -134,7 +134,7 @@ const DfractUseCase = (): JSX.Element => {
                         <p className="my-4">{t('useCases.dfract.page.details.description')}</p>
                         <Link
                             link={LUM_DFRACT}
-                            className="discover-use-case-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
+                            className="discover-use-case-btn d-block scale-anim text-decoration-none rounded-pill"
                         >
                             {t('useCases.dfract.page.details.cta')}
                         </Link>

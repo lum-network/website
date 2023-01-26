@@ -9,6 +9,7 @@ import * as dotenv from 'dotenv';
 import '@popperjs/core/dist/esm/popper';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 import './styles/_main.scss';
 
 import './locales';

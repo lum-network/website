@@ -124,7 +124,7 @@ const SkrUseCase = (): JSX.Element => {
                         <p className="my-4">{t('useCases.skr.page.details.description')}</p>
                         <Link
                             link={SKR_URL}
-                            className="discover-use-case-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill"
+                            className="discover-use-case-btn d-block scale-anim text-decoration-none rounded-pill"
                         >
                             {t('useCases.skr.page.details.cta')}
                         </Link>

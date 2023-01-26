@@ -66,7 +66,7 @@ const Tools = (): JSX.Element => {
                                 <NavLink
                                     preventScrollReset
                                     to={NavigationConstants.TOOLS}
-                                    className="tools-btn d-block scale-anim text-decoration-none py-3 px-4 rounded-pill me-4"
+                                    className="tools-btn d-block scale-anim text-decoration-none rounded-pill me-4"
                                 >
                                     {t('tools.landingSection.discoverBtn')}
                                 </NavLink>
