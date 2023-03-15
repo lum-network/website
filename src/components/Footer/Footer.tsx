@@ -20,6 +20,7 @@ import {
 import { Button, Link } from 'components';
 
 import './styles/Footer.scss';
+import moment from 'moment';
 
 const Footer = (): JSX.Element => {
     const { t } = useTranslation();
@@ -103,7 +104,7 @@ const Footer = (): JSX.Element => {
                         <div className="col-12">
                             <div className="d-flex flex-lg-row flex-column-reverse justify-content-between align-items-stretch align-items-lg-center">
                                 <div className="d-flex flex-column-reverse flex-lg-row justify-content-around">
-                                    <p className="footer-link mb-0">Lum Network 2021 ©</p>
+                                    <p className="footer-link mb-0">Lum Network {moment().utc().year()} ©</p>
                                     <p className="footer-link mb-0 ms-0 ms-lg-5">contact@lum.network</p>
                                     <Link link={LUM_NETWORK_WHITEPAPER} className="footer-link mb-0 ms-0 ms-lg-5">
                                         White paper
