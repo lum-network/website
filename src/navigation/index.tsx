@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from 'layout';
-import { DfractUseCase, ReloadToHome, Landing, SkrUseCase, Tools } from 'pages';
+import { ReloadToHome, Landing, Tools, CMUseCase } from 'pages';
 
 const routes = [
     {
@@ -15,13 +15,8 @@ const routes = [
         nodeRef: createRef<HTMLDivElement>(),
     },
     {
-        path: '/skeepers-rewards',
-        element: <SkrUseCase />,
-        nodeRef: createRef<HTMLDivElement>(),
-    },
-    {
-        path: '/dfract',
-        element: <DfractUseCase />,
+        path: '/cosmos-millions',
+        element: <CMUseCase />,
         nodeRef: createRef<HTMLDivElement>(),
     },
     {

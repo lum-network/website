@@ -70,33 +70,6 @@
             "description": "Every single Lum holder can participate in securing the network by staking their Lum and getting rewarded for it."
         }
     },
-    "showcaseSection": {
-        "title": "Partners <br />Show case",
-        "lumki": {
-            "title": "Lumki",
-            "description": "Lumki is a reward mobile and web application enabling its users to earn Lum throughout dedicated cashback offers as well as creating quality content for retailers. <br /><br />The service provides every user with a secure Lum wallet to easily redeem their rewards and convert them into coupons, fiat currency or send them to their own personal Lum wallet.",
-            "cta": {
-                "title": "Visit Lumki's website",
-                "url": "https://lumki.com"
-            }
-        },
-        "skeepers": {
-            "title": "Skeepers",
-            "description": "Skeepers is a leading group in customer engagement for retailers.<br/><br/> Skeepers is using the Lum Network to stamp all their reviews, make them tamper-proof and ensure a true transparency on their validation and verification process.<br/><br/> As a partner of the Lum Network, Skeepers benefits from the Lum Foundation's gateway ecosystem. This enable them to connect to other applications such as Lumki and reward their users for creating quality content for their favorite retailers.",
-            "cta": {
-                "title": "Visit Skeepers's website",
-                "url": "https://skeepers.io"
-            }
-        },
-        "join": {
-            "title": "Join us ⨁",
-            "description": "If you think your company, your clients or customers can benefit from the Lum Network... then you are in the right place! <br/><br/>Get in touch with us to discover everything that we can offer to assist you building using the Lum Network.<br/><br/> We are here to make sure you do not need any advanced blockchain knowledge to build awesome applications.<br/><br/> The Lum Foundation is dedicated to make the Lum Network's ecosystem grow. We can therefore assist you in all the steps leading to the use of the Lum Network in production.",
-            "cta": {
-                "title": "Get in touch",
-                "url": "mailto:contact@lum.network"
-            }
-        }
-    },
     "trustedBy": {
         "title": "Trusted Partners"
     },
@@ -169,46 +142,25 @@
     "useCases": {
         "title": "Use Cases",
         "titleOther": "Other Use Case",
-        "skr": {
+        "cosmosMillions": {
             "card": {
-                "title": "Skeepers Rewards",
-                "description": "Companies can now easily provide crypto rewards to their consumers for great user-generated content."
+                "title": "Cosmos Millions",
+                "description": "The Interchain prize-linked savings account."
             },
             "page": {
                 "description1": "People have become increasingly demanding when it comes to the way they consume. They want more transparency, collaboration and recognition.\n\nReviews represent a tremendous value for companies. 95% of shoppers read reviews before making a purchase.",
                 "description2": "Lum Network offers companies the opportunity to gain a competitive edge with new loyalty program approaches.\n\nWith seamless customer experience thanks to interoperability, the crypto-assets drive deeper engagement and gives a sense of social identity.",
                 "numbers": {
-                    "title": "Skeepers in Numbers",
-                    "countries": "Countries",
-                    "reviews": "Reviews / Year",
-                    "brands": "Brands"
-                },
-                "details": {
-                    "title": "Building a Web App with Seamless Integration of Crypto-Related Features",
-                    "description": "Skeepers Rewards is a social wallet to store $LUM earned as loyalty, cashback, and engagement rewards.\n\nEvery single Skeepers Rewards user therefore becomes a natural crypto holder thanks to the value he creates.",
-                    "cta": "Use Skeepers Rewards"
-                }
-            }
-        },
-        "dfract": {
-            "card": {
-                "title": "DFract",
-                "description": "First Interchain yield earning index with the mission to bring more users to the Internet of Blockchains."
-            },
-            "page": {
-                "description1": "Cosmos, also known as The Internet of Blockchains, have seen a steady growth with now more than 50 blockchains inter-connected.\n\nCapturing the value of the ecosystem has then become time consuming and difficult to catch.",
-                "description2": "In Traditional Finance, indexes are used extensively to simplify the exposure to multiple assets.\n\nAs a crypto index, the first of this ecosystem, the DFract Protocol aims to become a unit of value of the Interchain",
-                "numbers": {
-                    "title": "DFract in Numbers",
-                    "price": "Backing Price",
-                    "minted": "$DFR Minted",
+                    "title": "Cosmos Millions in Numbers",
                     "tvl": "TVL",
-                    "apy": "APY"
+                    "prizes": "Total Prizes Won",
+                    "depositors": "Depositors",
+                    "pools": "Pools"
                 },
                 "details": {
-                    "title": "One Token,\nOne Ecosystem",
-                    "description": "DFract is a convenient way, with a low entry barrier to gain broader exposure to the Interchain.\n\nIt is the simplest way to diversify your assets on the Interchain, and to earn staking rewards on top of it.",
-                    "cta": "Become a $DFR holder"
+                    "title": "Bringing fun and an innovative no-loss mechanism for all users",
+                    "description": "A prize-linked savings account (PLSA) combines the stability of a traditional savings account with the excitement of potential rewards.\n\nSince the prizes are created with the yield earned on deposits, even if you don’t win you keep your initial deposits. And you can withdraw them whenever you want.",
+                    "cta": "Use Cosmos Millions"
                 }
             }
         }
@@ -228,7 +180,7 @@
             "title": "We Build Tools for Everyone",
             "description": "Open-source tools are the future of\nWeb3 in the Interchain.",
             "githubBtn": "Access our github",
-            "discoverBtn": "Discover our tools"
+            "discoverBtn": "Discover Our Tools"
         },
         "page": {
             "title": "Tools",

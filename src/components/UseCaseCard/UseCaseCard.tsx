@@ -4,42 +4,34 @@ import { useTranslation } from 'react-i18next';
 
 import { NavigationConstants } from 'constant';
 
-import skr from 'assets/images/skr.png';
-import dfract from 'assets/images/dfract.png';
-import dfractBig from 'assets/images/dfract_big.png';
-import skrBig from 'assets/images/skr_big.png';
+import cm from 'assets/images/cm_big.png';
+import tools from 'assets/images/tools_big.png';
 import ellipse1 from 'assets/images/ellipse.svg';
 
-import './UseCaseCard.scss';
-import ResponsiveImage from 'components/ResponsiveImage/ResponsiveImage';
+import { ResponsiveImage } from 'components';
 
-const UseCaseCard = ({
-    className,
-    useCase,
-    big,
-}: {
-    useCase: 'skr' | 'dfract';
-    className?: string;
-    big?: boolean;
-}): JSX.Element => {
+import './UseCaseCard.scss';
+
+const UseCaseCard = ({ className, useCase }: { useCase: 'cm' | 'tools'; className?: string }): JSX.Element => {
     const { t } = useTranslation();
 
-    const icon = useCase === 'skr' ? (big ? skrBig : skr) : big ? dfractBig : dfract;
-    const title = useCase === 'skr' ? 'useCases.skr.card.title' : 'useCases.dfract.card.title';
-    const description = useCase === 'skr' ? 'useCases.skr.card.description' : 'useCases.dfract.card.description';
-    const to = useCase === 'skr' ? NavigationConstants.SKR : NavigationConstants.DFRACT;
+    const image = useCase === 'cm' ? cm : tools;
+    const title = useCase === 'cm' ? 'useCases.cosmosMillions.card.title' : 'tools.page.title';
+    const description =
+        useCase === 'cm' ? 'useCases.cosmosMillions.card.description' : 'tools.landingSection.description';
+    const to = useCase === 'cm' ? NavigationConstants.CM : NavigationConstants.TOOLS;
 
     return (
         <div className={`use-case-card w-100 ${className}`}>
             <img src={ellipse1} className="ellipse" />
             <div className="content">
                 <NavLink preventScrollReset to={to} className="position-relative">
-                    <ResponsiveImage src={icon} alt={useCase} className="illustration" />
+                    <ResponsiveImage src={image} alt={useCase} className="illustration" />
                 </NavLink>
                 <div className="p-4">
                     <div className="fw-bold fs-3">{t(title)}</div>
                     <div className="d-flex flex-column flex-lg-row justify-content-between mt-2">
-                        <p>{t(description)}</p>
+                        <p>{t(description).replace('\n', ' ')}</p>
                         <NavLink
                             to={to}
                             preventScrollReset

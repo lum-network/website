@@ -39,7 +39,7 @@ const MainLayout = (): JSX.Element => {
 
     return (
         <>
-            <Header modalId="#get-informed-modal" bgTriggerElem="#welcome" />
+            <Header />
             <SwitchTransition>
                 <CSSTransition key={location.pathname} nodeRef={nodeRef} timeout={1200} classNames="page" unmountOnExit>
                     {() => (
