@@ -101,7 +101,7 @@ const ComosMillionsUseCase = (): JSX.Element => {
                         <div className="col">{t('useCases.cosmosMillions.page.description2')}</div>
                     </div>
                     <h6 className="mb-3">{t('useCases.cosmosMillions.page.numbers.title')}</h6>
-                    <div className="row row-cols-2 row-cols-lg-4 mx-1 numbers-container gy-4 gy-lg-0 px-2 pb-4 pt-lg-4 mt-4 mt-lg-0">
+                    <div className="row row-cols-1 row-cols-sm-2 row-cols-xl-4 mx-1 numbers-container gy-4 gy-xl-0 px-2 pb-4 pt-xl-4 mt-4 mt-xl-0">
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{numeral(tvl).format('$0.00 a') || '-'}</div>
