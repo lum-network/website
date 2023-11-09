@@ -169,7 +169,7 @@ export interface CMStatsModel {
     tvl: number | null;
     prizes: number | null;
     depositors: number | null;
-    pools: number | null;
+    atomWon: number | null;
 }
 
 export interface ToolsStatsModel {
@@ -221,4 +221,10 @@ export class PoolModel {
 
     @Expose()
     state: number;
+}
+
+@Exclude()
+export class PrizeStatModel {
+    @Expose({ name: 'total_prizes_usd_amount' })
+    totalPrizesWonUsd!: number;
 }

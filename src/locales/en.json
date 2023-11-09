@@ -155,12 +155,12 @@
                     "tvl": "TVL",
                     "prizes": "Total Prizes Won",
                     "depositors": "Current Depositors",
-                    "pools": "Pools"
+                    "pools": "ATOMs Won"
                 },
                 "details": {
                     "title": "Bringing fun and an innovative no-loss mechanism for all users",
                     "description": "A prize-linked savings account (PLSA) combines the stability of a traditional savings account with the excitement of potential rewards.\n\nSince the prizes are created with the yield earned on deposits, even if you don’t win you keep your initial deposits. And you can withdraw them whenever you want.",
-                    "cta": "Use Cosmos Millions"
+                    "cta": "Try Cosmos Millions"
                 }
             }
         }

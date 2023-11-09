@@ -18,11 +18,11 @@ const ComosMillionsUseCase = (): JSX.Element => {
     const { t } = useTranslation();
 
     const dispatch = useDispatch<Dispatch>();
-    const { tvl, prizes, depositors, pools } = useSelector((state: RootState) => ({
+    const { tvl, prizes, depositors, atomWon } = useSelector((state: RootState) => ({
         tvl: state.stats.cm.tvl,
         prizes: state.stats.cm.prizes,
         depositors: state.stats.cm.depositors,
-        pools: state.stats.cm.pools,
+        atomWon: state.stats.cm.atomWon,
     }));
 
     const mainLayoutTimeline = useMainLayoutTimeline();
@@ -122,7 +122,7 @@ const ComosMillionsUseCase = (): JSX.Element => {
                         </div>
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
-                                <div className="stat-number">{numeral(pools).format('(0 a)') || '-'}</div>
+                                <div className="stat-number">{numeral(atomWon).format('$(0.00 a)') || '-'}</div>
                                 <p>{t('useCases.cosmosMillions.page.numbers.pools')}</p>
                             </div>
                         </div>

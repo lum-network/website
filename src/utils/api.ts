@@ -8,6 +8,7 @@ import {
     MarketDataModel,
     ParamsModel,
     PoolModel,
+    PrizeStatModel,
     ValidatorModel,
 } from 'models';
 import { DenomsUtils, NumbersUtils, ValidatorsUtils } from 'utils';
@@ -90,8 +91,15 @@ class LumApi extends HttpClient {
             res[0].status === 'fulfilled'
                 ? res[0].value[0].filter((pool) => pool.state === PoolState.POOL_STATE_READY)
                 : [];
+        let prizesWonUsd = 0;
+        for (const pool of pools) {
+            const [res] = await this.request<PrizeStatModel>({ url: `millions/prizes/stats/${pool.id}` }, PrizeStatModel);
+
+            prizesWonUsd += Number(res.totalPrizesWonUsd);
+        }
+
         const prices = res[1].status === 'fulfilled' && res[1].value[0][0] ? res[1].value[0][0].marketData : null;
-        const prizes = res[2].status === 'fulfilled' && res[2].value[1].itemsTotal ? res[2].value[1].itemsTotal : null;
+        const prizesCount = res[2].status === 'fulfilled' && res[2].value[1].itemsTotal ? res[2].value[1].itemsTotal : null;
 
         return {
             tvl: prices
@@ -103,9 +111,9 @@ class LumApi extends HttpClient {
                       0,
                   )
                 : null,
-            prizes,
+            prizes: prizesCount,
             depositors: pools.reduce((acc, pool) => acc + pool.depositorsCount, 0),
-            pools: pools.length,
+            atomWon: prizesWonUsd,
         };
     };
 }

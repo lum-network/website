@@ -21,7 +21,7 @@ export const stats = createModel<RootModel>()({
             tvl: null,
             prizes: null,
             depositors: null,
-            pools: null,
+            atomWon: null,
         },
         tools: {
             forks: null,
@@ -47,7 +47,7 @@ export const stats = createModel<RootModel>()({
                 tvl: payload.tvl,
                 prizes: payload.prizes,
                 depositors: payload.depositors,
-                pools: payload.pools,
+                atomWon: payload.atomWon,
             },
         }),
         SET_TOOLS_STATS: (state, payload: ToolsStatsModel) => ({
