@@ -123,7 +123,7 @@ const ComosMillionsUseCase = (): JSX.Element => {
                         <div className="col">
                             <div className="py-3 h-100 d-flex flex-column justify-content-center">
                                 <div className="stat-number">{numeral(atomWon).format('$(0.00 a)') || '-'}</div>
-                                <p>{t('useCases.cosmosMillions.page.numbers.pools')}</p>
+                                <p>{t('useCases.cosmosMillions.page.numbers.prizesUsd')}</p>
                             </div>
                         </div>
                     </div>

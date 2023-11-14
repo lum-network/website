@@ -155,7 +155,7 @@
                     "tvl": "TVL",
                     "prizes": "Total Prizes Won",
                     "depositors": "Current Depositors",
-                    "pools": "of Prizes Won"
+                    "prizesUsd": "of Prizes Won"
                 },
                 "details": {
                     "title": "Bringing fun and an innovative no-loss mechanism for all users",
