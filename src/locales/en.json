@@ -148,14 +148,14 @@
                 "description": "The Interchain prize-linked savings account."
             },
             "page": {
-                "description1": "Cosmos Millions, the first prize-linked savings account on Cosmos, adds an exciting thrill to your crypto journey.\n\nAs the Cosmos ecosystem flourishes, this DeFi and open-source protocol offers a unique experience to earn rewards.",
+                "description1": "Cosmos Millions, the first prize-linked savings account on Cosmos, adds a thrill to your crypto journey.\n\nAs the Cosmos ecosystem flourishes, this DeFi and open-source protocol offers a unique experience to earn rewards.",
                 "description2": "Deposit your assets into the protocol, and join in regular, randomized draws for a chance to win community-contributed prizes.\n\nExperience a secure and innovative saving method without compromising on excitement!",
                 "numbers": {
                     "title": "Cosmos Millions in Numbers",
                     "tvl": "TVL",
                     "prizes": "Total Prizes Won",
                     "depositors": "Current Depositors",
-                    "pools": "ATOMs Won"
+                    "pools": "of Prizes Won"
                 },
                 "details": {
                     "title": "Bringing fun and an innovative no-loss mechanism for all users",
