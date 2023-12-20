@@ -9,7 +9,6 @@ import {
     LUM_NETWORK_DOCUMENTATION,
     LUM_EXPLORER,
     LUM_NETWORK_GITHUB,
-    LUM_TELEGRAM,
     LUM_TWITTER,
     LUM_WALLET,
     LUM_DISCORD,
@@ -83,9 +82,6 @@ const Footer = (): JSX.Element => {
                                     </Link>
                                     <Link link={LUM_DISCORD} className="footer-link mb-4">
                                         Discord
-                                    </Link>
-                                    <Link link={LUM_TELEGRAM} className="footer-link mb-4">
-                                        Telegram
                                     </Link>
                                     <Link link={LUM_MEDIUM} className="footer-link mb-4">
                                         Medium

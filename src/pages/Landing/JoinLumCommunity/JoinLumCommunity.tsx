@@ -3,12 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
 import { Link } from 'components';
-import { LUM_DISCORD, LUM_MEDIUM, LUM_TELEGRAM, LUM_TWITTER } from 'constant';
+import { LUM_DISCORD, LUM_MEDIUM, LUM_TWITTER } from 'constant';
 
 import medium from 'assets/images/medium.svg';
 import twitter from 'assets/images/twitter.svg';
 import discord from 'assets/images/discord.svg';
-import telegram from 'assets/images/telegram.svg';
 import ellipse1 from 'assets/images/ellipse.svg';
 
 import './JoinLumCommunity.scss';
@@ -69,9 +68,6 @@ const JoinLumCommunity = (): JSX.Element => {
                             </Link>
                             <Link link={LUM_DISCORD} custom className="social-button scale-anim">
                                 <img src={discord} alt="Discord logo" />
-                            </Link>
-                            <Link link={LUM_TELEGRAM} custom className="social-button scale-anim">
-                                <img src={telegram} alt="Telegram logo" />
                             </Link>
                         </div>
                     </div>
