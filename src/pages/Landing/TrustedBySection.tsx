@@ -58,9 +58,9 @@ const TrustedBySection = (): JSX.Element => {
             url: 'https://www.arcanum.capital',
         },
         {
-            logo: Assets.partners.skeepers,
-            title: 'Skeepers',
-            url: 'https://skeepers.io',
+            logo: Assets.partners.citadelone,
+            title: 'Citadel One',
+            url: 'https://citadel.one',
         },
         {
             logo: Assets.partners.klub,

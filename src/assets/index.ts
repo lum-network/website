@@ -27,12 +27,8 @@ import transparencyIcon from './images/transparency.png';
 import trustLayers from './images/trust_layers.png';
 import trustLayersShadows from './images/trust_layers_shadows.png';
 
-import showcaseLumkiIllu from './images/showcase_lumki_illu.png';
-import showcaseNetreviewsIllu from './images/showcase_netreviews_illu.png';
-import showcaseJoinIllu from './images/showcase_join_illu.png';
-
-import skeepers from './images/partners/skeepers.png';
 import arcanum from './images/partners/arcanum.png';
+import citadelone from './images/partners/citadelone.svg';
 import swissborg from './images/partners/swissborg.png';
 import stakefish from './images/partners/stakefish.png';
 import cosmostation from './images/partners/cosmostation.png';
@@ -75,14 +71,11 @@ const Assets = {
         transparencyIcon,
         trustLayers,
         trustLayersShadows,
-        showcaseLumkiIllu,
-        showcaseNetreviewsIllu,
-        showcaseJoinIllu,
     },
     partners: {
         ignite,
-        skeepers,
         arcanum,
+        citadelone,
         swissborg,
         stakefish,
         cosmostation,

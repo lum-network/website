@@ -56,8 +56,7 @@ const UseCases = (): JSX.Element => {
             <div className="container">
                 <h1 className="mb-4 section-content-title">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
-                    <UseCaseCard useCase="dfract" className="me-lg-5" />
-                    <UseCaseCard useCase="skr" className="mt-4 mt-lg-0" />
+                    <UseCaseCard useCase="cm" className="mt-4 mt-lg-0" />
                 </div>
             </div>
         </section>

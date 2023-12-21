@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-import { LUM_NETWORK_WHITEPAPER, NavigationConstants } from 'constant';
-import { DropdownButton, Link } from 'components';
+import { NavigationConstants } from 'constant';
+import { DropdownButton } from 'components';
 
 import './styles/Header.scss';
 
 import lumNetworkLogoDark from 'assets/images/lum_network_logo_dark.png';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-const Header = ({ bgTriggerElem }: { modalId: string; bgTriggerElem?: string }): JSX.Element => {
-    const { t } = useTranslation();
+const Header = (): JSX.Element => {
+    const tl = useRef<gsap.core.Timeline>();
+
     useEffect(() => {
         // Enables Header GSAP animation only on the landing page
         if (window.location.pathname === '/') {
@@ -36,24 +36,23 @@ const Header = ({ bgTriggerElem }: { modalId: string; bgTriggerElem?: string }):
     }, []);
 
     useEffect(() => {
-        if (bgTriggerElem) {
-            gsap.to(`header .background`, {
-                opacity: 1,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: `#welcome`,
-                    start: '10% top',
-                    end: '30% top',
-                    scrub: true,
-                },
-            });
-        } else {
-            gsap.to(`header .background`, {
-                opacity: 1,
-                duration: 0,
-            });
+        const scrollTrigger = {
+            trigger: '#root',
+            start: 'top top',
+            end: 'top+=45px top',
+            scrub: true,
+        };
+
+        if (!tl.current) {
+            tl.current = gsap.timeline();
         }
-    }, [bgTriggerElem]);
+
+        tl.current.to(`header .background`, {
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger,
+        });
+    }, []);
 
     return (
         <header className="navbar fixed-top mt-4 mx-auto container p-4">
@@ -63,18 +62,12 @@ const Header = ({ bgTriggerElem }: { modalId: string; bgTriggerElem?: string }):
                     <img alt="Lum" src={lumNetworkLogoDark} width="235" height="38" className="lum-logo-header" />
                 </ReactRouterLink>
                 <div className="navbar-items-container d-none d-md-flex flex-row align-items-center">
-                    <Link className="me-sm-3 me-md-5" link={LUM_NETWORK_WHITEPAPER}>
-                        {t('landing.whitePaper')}
-                    </Link>
                     <ReactRouterLink to={NavigationConstants.TOOLS} className="link-btn me-sm-3 me-md-5">
                         Tools
                     </ReactRouterLink>
                     <DropdownButton
                         title="Use Cases"
-                        items={[
-                            { title: 'Skeepers Rewards', onPress: NavigationConstants.SKR },
-                            { title: 'DFract', onPress: NavigationConstants.DFRACT },
-                        ]}
+                        items={[{ title: 'Cosmos Millions', onPress: NavigationConstants.CM }]}
                     />
                 </div>
             </nav>

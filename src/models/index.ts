@@ -165,17 +165,11 @@ export interface LumStatsModel {
     apr: number | null;
 }
 
-export interface DfractStatsModel {
-    apy: number | null;
-    supply: number | null;
-    totalValueUsd: number | null;
-    unitPriceUsd: number | null;
-}
-
-export interface SkrStatsModel {
-    countries: number | null;
-    reviews: number | null;
-    brands: number | null;
+export interface CMStatsModel {
+    tvl: number | null;
+    prizes: number | null;
+    depositors: number | null;
+    atomWon: number | null;
 }
 
 export interface ToolsStatsModel {
@@ -183,4 +177,54 @@ export interface ToolsStatsModel {
     stars: number | null;
     commits: number | null;
     openSourceRepos: number | null;
+}
+
+class MarketData {
+    @Expose()
+    price: number;
+
+    @Expose()
+    denom: string;
+}
+
+export class MarketDataModel {
+    @Expose({ name: 'market_data' })
+    @Type(() => MarketData)
+    marketData: MarketData[];
+
+    @Expose()
+    id: string;
+}
+
+@Exclude()
+export class PoolModel {
+    @Expose()
+    id: number;
+
+    @Expose()
+    denom: string;
+
+    @Expose({ name: 'denom_native' })
+    denomNative: string;
+
+    @Expose({ name: 'chain_id' })
+    chainId: string;
+
+    @Expose({ name: 'tvl_amount' })
+    tvlAmount: string;
+
+    @Expose({ name: 'depositors_count' })
+    depositorsCount: number;
+
+    @Expose({ name: 'sponsorship_amount' })
+    sponsorshipAmount: string;
+
+    @Expose()
+    state: number;
+}
+
+@Exclude()
+export class PrizeStatModel {
+    @Expose({ name: 'total_prizes_usd_amount' })
+    totalPrizesWonUsd!: number;
 }

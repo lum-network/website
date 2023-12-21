@@ -9,11 +9,9 @@ import {
     LUM_NETWORK_DOCUMENTATION,
     LUM_EXPLORER,
     LUM_NETWORK_GITHUB,
-    LUM_TELEGRAM,
     LUM_TWITTER,
     LUM_WALLET,
     LUM_DISCORD,
-    LUM_NETWORK_WHITEPAPER,
     NavigationConstants,
     LUM_MEDIUM,
 } from 'constant';
@@ -59,17 +57,10 @@ const Footer = (): JSX.Element => {
                                     <strong>{t('footer.useCases')}</strong>
                                     <NavLink
                                         preventScrollReset
-                                        to={NavigationConstants.SKR}
+                                        to={NavigationConstants.CM}
                                         className="footer-link text-reset text-decoration-none scale-anim my-4"
                                     >
-                                        Skeepers Rewards
-                                    </NavLink>
-                                    <NavLink
-                                        preventScrollReset
-                                        to={NavigationConstants.DFRACT}
-                                        className="footer-link text-reset text-decoration-none scale-anim mb-4"
-                                    >
-                                        DFract
+                                        Cosmos Millions
                                     </NavLink>
                                 </div>
                                 <div className="d-flex flex-column ms-0 ms-lg-3 mt-4 mt-lg-0">
@@ -92,9 +83,6 @@ const Footer = (): JSX.Element => {
                                     <Link link={LUM_DISCORD} className="footer-link mb-4">
                                         Discord
                                     </Link>
-                                    <Link link={LUM_TELEGRAM} className="footer-link mb-4">
-                                        Telegram
-                                    </Link>
                                     <Link link={LUM_MEDIUM} className="footer-link mb-4">
                                         Medium
                                     </Link>
@@ -106,9 +94,6 @@ const Footer = (): JSX.Element => {
                                 <div className="d-flex flex-column-reverse flex-lg-row justify-content-around">
                                     <p className="footer-link mb-0">Lum Network {moment().utc().year()} ©</p>
                                     <p className="footer-link mb-0 ms-0 ms-lg-5">contact@lum.network</p>
-                                    <Link link={LUM_NETWORK_WHITEPAPER} className="footer-link mb-0 ms-0 ms-lg-5">
-                                        White paper
-                                    </Link>
                                     {/* <p className="footer-link mb-0 ms-5">{t('footer.privacyPolicy')}</p> */}
                                 </div>
                                 <Button

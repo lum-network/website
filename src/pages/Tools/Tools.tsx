@@ -193,8 +193,7 @@ const Tools = (): JSX.Element => {
             <div className="container section-margin-top use-cases-container">
                 <h1 className="mb-4">{t('useCases.title')}</h1>
                 <div className="d-flex flex-lg-row flex-column justify-content-between">
-                    <UseCaseCard useCase="skr" className="me-lg-5" />
-                    <UseCaseCard useCase="dfract" className="mt-4 mt-lg-0" />
+                    <UseCaseCard useCase="cm" className="me-lg-5" />
                 </div>
             </div>
         </main>

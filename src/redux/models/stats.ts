@@ -1,12 +1,11 @@
 import { createModel } from '@rematch/core';
 import { RootModel } from './index';
 import { GithubUtils, LumApi } from 'utils';
-import { DfractStatsModel, LumStatsModel, SkrStatsModel, ToolsStatsModel } from 'models';
+import { CMStatsModel, LumStatsModel, ToolsStatsModel } from 'models';
 
 interface StatsState {
     lum: LumStatsModel;
-    dfr: DfractStatsModel;
-    skr: SkrStatsModel;
+    cm: CMStatsModel;
     tools: ToolsStatsModel;
 }
 
@@ -18,16 +17,11 @@ export const stats = createModel<RootModel>()({
             blockTime: null,
             marketCap: null,
         },
-        skr: {
-            countries: null,
-            reviews: null,
-            brands: null,
-        },
-        dfr: {
-            apy: null,
-            supply: null,
-            totalValueUsd: null,
-            unitPriceUsd: null,
+        cm: {
+            tvl: null,
+            prizes: null,
+            depositors: null,
+            atomWon: null,
         },
         tools: {
             forks: null,
@@ -37,15 +31,6 @@ export const stats = createModel<RootModel>()({
         },
     } as StatsState,
     reducers: {
-        SET_DFR_STATS: (state, payload: DfractStatsModel) => ({
-            ...state,
-            dfr: {
-                apy: payload.apy,
-                supply: payload.supply,
-                totalValueUsd: payload.totalValueUsd,
-                unitPriceUsd: payload.unitPriceUsd,
-            },
-        }),
         SET_LUM_STATS: (state, payload: LumStatsModel) => ({
             ...state,
             lum: {
@@ -56,6 +41,15 @@ export const stats = createModel<RootModel>()({
                 apr: payload.apr,
             },
         }),
+        SET_CM_STATS: (state, payload: CMStatsModel) => ({
+            ...state,
+            cm: {
+                tvl: payload.tvl,
+                prizes: payload.prizes,
+                depositors: payload.depositors,
+                atomWon: payload.atomWon,
+            },
+        }),
         SET_TOOLS_STATS: (state, payload: ToolsStatsModel) => ({
             ...state,
             tools: {
@@ -64,27 +58,9 @@ export const stats = createModel<RootModel>()({
                 openSourceRepos: payload.openSourceRepos,
                 commits: payload.commits,
             },
-        }),
-        SET_SKR_STATS: (state, payload: SkrStatsModel) => ({
-            ...state,
-            skr: {
-                countries: payload.countries,
-                reviews: payload.reviews,
-                brands: payload.brands,
-            },
-        }),
+        })
     },
     effects: (dispatch) => ({
-        async getDfrStats() {
-            const [dfrStats] = await LumApi.getDfractStats();
-
-            dispatch.stats.SET_DFR_STATS({
-                apy: dfrStats.find((item: any) => item.id === 'dfr_apy')?.value.apy,
-                supply: dfrStats.find((item: any) => item.id === 'dfr_supply')?.value.supply,
-                totalValueUsd: dfrStats.find((item: any) => item.id === 'dfr_total_value_usd')?.value.total_value_usd,
-                unitPriceUsd: dfrStats.find((item: any) => item.id === 'dfr_unit_price_usd')?.value.unit_price_usd,
-            });
-        },
         async getLumStats() {
             const lumStats = await LumApi.getLumStats();
 
@@ -95,12 +71,10 @@ export const stats = createModel<RootModel>()({
 
             dispatch.stats.SET_TOOLS_STATS(toolsStats);
         },
-        async getSkrStats() {
-            dispatch.stats.SET_SKR_STATS({
-                countries: 40,
-                brands: 8000,
-                reviews: 30_000_000,
-            });
-        }
+        async getCmStats() {
+            const cmStats = await LumApi.getCmStats();
+
+            dispatch.stats.SET_CM_STATS(cmStats);
+        },
     }),
 });
