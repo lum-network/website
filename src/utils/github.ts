@@ -69,7 +69,7 @@ class GithubUtils {
                 org: 'lum-network',
                 type: 'public',
             });
-    
+
             for (const repo of repos.data) {
                 const [repoCommits, repoInfos] = await Promise.all([
                     this.octokit.rest.repos.listCommits({
@@ -79,27 +79,27 @@ class GithubUtils {
                     this.octokit.rest.repos.get({
                         owner: 'lum-network',
                         repo: repo.name,
-                    })
-                ]); 
-    
+                    }),
+                ]);
+
                 commits += repoCommits.data.length;
                 stars += repoInfos.data.stargazers_count;
                 forks += repoInfos.data.forks_count;
             }
-    
+
             return {
                 commits,
                 stars,
                 forks,
                 openSourceRepos: repos.data.length,
-            }
+            };
         } catch {
             return {
                 commits: null,
                 stars: null,
                 forks: null,
                 openSourceRepos: null,
-            }
+            };
         }
     };
 }

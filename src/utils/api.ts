@@ -34,26 +34,34 @@ class LumApi extends HttpClient {
         const blocks = res[0].status === 'fulfilled' ? res[0].value[0] : null;
         const kpi = res[1].status === 'fulfilled' ? res[1].value[0] : null;
         const lum = res[2].status === 'fulfilled' ? res[2].value[0] : null;
-        const asset = res[3].status === 'fulfilled' ? res[3].value[0].find((val: CoinModel) => val.denom === LumConstants.MicroLumDenom) : null;
+        const asset =
+            res[3].status === 'fulfilled'
+                ? res[3].value[0].find((val: CoinModel) => val.denom === LumConstants.MicroLumDenom)
+                : null;
         const validators = res[4].status === 'fulfilled' ? res[4].value[0] : null;
         const params = res[5].status === 'fulfilled' ? res[5].value[0] : null;
-        
+
         let blockTime = 0;
         if (blocks && blocks.length > 30) {
             for (let i = 1; i <= 30; i++) {
                 blockTime += Math.abs(
                     new Date((blocks[i] && blocks[i].time) || '').getTime() -
-                    new Date((blocks[i - 1] && blocks[i - 1].time) || '').getTime());
+                        new Date((blocks[i - 1] && blocks[i - 1].time) || '').getTime(),
+                );
             }
         }
 
         // Calculate Nominal APR
-        const bondedTokens = asset && validators
-            ? NumbersUtils.convertUnitNumber(ValidatorsUtils.calculateTotalVotingPower(validators)) /
-            NumbersUtils.convertUnitNumber(asset.amount)
-            : null;
-        const apr = params && bondedTokens ? (params.mint.inflation.current * (1 - params.distribution.communityTax)) / bondedTokens : null;
-        
+        const bondedTokens =
+            asset && validators
+                ? NumbersUtils.convertUnitNumber(ValidatorsUtils.calculateTotalVotingPower(validators)) /
+                  NumbersUtils.convertUnitNumber(asset.amount)
+                : null;
+        const apr =
+            params && bondedTokens
+                ? (params.mint.inflation.current * (1 - params.distribution.communityTax)) / bondedTokens
+                : null;
+
         return {
             txs: kpi?.transactions?.total || null,
             blocks: blocks && blocks[0]?.height ? Number(blocks[0].height) : null,
