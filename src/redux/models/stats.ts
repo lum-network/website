@@ -101,6 +101,6 @@ export const stats = createModel<RootModel>()({
                 brands: 8000,
                 reviews: 30_000_000,
             });
-        }
+        },
     }),
 });
